@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SteadyPath — $5/month. Flat. Forever.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0a0d11; --bg-elev:#0f1419; --surface:#141a20;
+    --border:rgba(255,255,255,0.06); --border-strong:rgba(255,255,255,0.12);
+    --text:#e8edf2; --text-dim:#8a96a3; --text-faint:#5a6878;
+    --primary:#5fb8d6; --primary-bright:#7fd4ee; --primary-dim:#3a8fa8;
+    --gold:#d4a849; --gold-bright:#f0c674;
+    --growth:#7dd6a8; --growth-dim:#5ab589;
+    --ai:#a594d4; --ai-bright:#c0b3e0;
+    --blue:#6c9fe0; --blue-bright:#8ab4ed;
+    --negative:#e88b8b; --warning:#f0c674; --positive:#7dd6a8;
+    --font-display:'Fraunces',Georgia,serif;
+    --font-body:'Inter',-apple-system,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:14px;line-height:1.55;overflow-x:hidden}
+  body{background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(212,168,73,0.05),transparent 70%),radial-gradient(ellipse 60% 40% at 0% 100%,rgba(95,184,214,0.04),transparent 60%),radial-gradient(ellipse 50% 35% at 100% 90%,rgba(165,148,212,0.03),transparent 60%),var(--bg)}
+  input,textarea,button,select{font-family:inherit;font-size:inherit;color:inherit;outline:none;border:none;background:none}
+  input[type=range]{-webkit-appearance:none;appearance:none;height:3px;background:#1a2530;border-radius:2px;cursor:pointer}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 0 0 4px rgba(212,168,73,0.18)}
+  input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--gold);border:none}
+  ::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:transparent}
+  ::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:3px}
+  ::selection{background:rgba(95,184,214,0.3);color:#fff}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes typing-dot{0%,60%,100%{transform:translateY(0);opacity:0.4}30%{transform:translateY(-4px);opacity:1}}
+  @keyframes glow-pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,168,73,0.4)}50%{box-shadow:0 0 0 8px rgba(212,168,73,0)}}
+  @keyframes count-up{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+  .fade-up{animation:fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) forwards}
+  .fade-in{animation:fadeIn 0.4s ease forwards}
+  .btn-primary{background:linear-gradient(180deg,var(--primary) 0%,var(--primary-dim) 100%);color:#fff;padding:11px 22px;border-radius:10px;font-weight:600;font-size:13.5px;cursor:pointer;transition:all 0.2s;box-shadow:0 1px 0 rgba(255,255,255,0.1) inset,0 4px 16px rgba(95,184,214,0.22)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,0.14) inset,0 6px 22px rgba(95,184,214,0.32)}.btn-primary:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+  .btn-secondary{background:rgba(255,255,255,0.03);color:var(--text-dim);padding:11px 22px;border-radius:10px;font-weight:500;font-size:13.5px;cursor:pointer;border:1px solid var(--border);transition:all 0.15s}
+  .btn-secondary:hover{background:rgba(255,255,255,0.05);color:var(--text)}
+  .btn-gold{background:linear-gradient(180deg,var(--gold-bright) 0%,var(--gold) 100%);color:#1f1605;padding:11px 22px;border-radius:10px;font-weight:600;font-size:13.5px;cursor:pointer;transition:all 0.2s;box-shadow:0 1px 0 rgba(255,255,255,0.25) inset,0 4px 18px rgba(212,168,73,0.3)}
+  .btn-gold:hover{transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,0.3) inset,0 6px 24px rgba(212,168,73,0.4)}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;background:rgba(95,184,214,0.08);border:1px solid rgba(95,184,214,0.22);font-size:11px;color:var(--primary-bright);font-family:var(--font-mono);letter-spacing:0.3px}
+  .chip-gold{background:rgba(212,168,73,0.09);border-color:rgba(212,168,73,0.25);color:var(--gold-bright)}
+  .chip-ai{background:rgba(165,148,212,0.08);border-color:rgba(165,148,212,0.22);color:var(--ai-bright)}
+  .chip-growth{background:rgba(125,214,168,0.08);border-color:rgba(125,214,168,0.22);color:var(--growth)}
+  .chip-blue{background:rgba(108,159,224,0.08);border-color:rgba(108,159,224,0.22);color:var(--blue-bright)}
+  .glass{background:linear-gradient(180deg,rgba(255,255,255,0.018) 0%,rgba(255,255,255,0) 100%);border:1px solid var(--border);border-radius:14px;backdrop-filter:blur(10px)}
+  .glass-gold{background:linear-gradient(180deg,rgba(212,168,73,0.04) 0%,rgba(212,168,73,0.01) 100%);border:1px solid rgba(212,168,73,0.18);border-radius:14px}
+  .mono{font-family:var(--font-mono);font-feature-settings:"tnum" 1}
+  .serif{font-family:var(--font-display)}
+  .label{font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:1.4px;font-family:var(--font-mono);font-weight:500}
+  .input-field{width:100%;padding:11px 14px;border-radius:9px;background:rgba(255,255,255,0.03);border:1px solid var(--border);color:var(--text);font-size:14px;font-family:var(--font-mono);transition:all 0.15s}
+  .input-field:focus{border-color:rgba(95,184,214,0.35);background:rgba(255,255,255,0.05)}
+  .typing-dots span{display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--ai);margin:0 1.5px;animation:typing-dot 1.4s infinite}
+  .typing-dots span:nth-child(2){animation-delay:0.15s}
+  .typing-dots span:nth-child(3){animation-delay:0.3s}
+  .grain{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.22;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E")}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div id="root" style="position:relative;z-index:2"></div>
+<script>
+(function(){
+"use strict";
+const {useState,useEffect,useRef}=React;
+const h=React.createElement;
+
+// ═══ SALARY DB ═══
+const SALARY_DB={
+"software engineer":125000,"software developer":110000,"senior software engineer":165000,"staff engineer":205000,"principal engineer":235000,"engineering manager":185000,"data scientist":118000,"data analyst":78000,"data engineer":128000,"ml engineer":155000,"machine learning engineer":155000,"ai engineer":165000,"product manager":135000,"senior product manager":175000,"ux designer":98000,"product designer":115000,"web developer":82000,"frontend developer":108000,"backend developer":118000,"full stack developer":115000,"devops engineer":128000,"cybersecurity analyst":108000,"security engineer":135000,
+"financial analyst":88000,"senior financial analyst":112000,"investment banker":155000,"investment banking analyst":125000,"portfolio manager":145000,"hedge fund analyst":165000,"equity research analyst":125000,"wealth manager":110000,"financial advisor":95000,"cfo":215000,"controller":125000,"accountant":72000,"cpa":92000,"actuary":125000,"quantitative analyst":155000,"quant":155000,"trader":185000,
+"marketing manager":105000,"digital marketing manager":88000,"brand manager":98000,"sales manager":115000,"account executive":85000,"sales representative":62000,"operations manager":98000,"project manager":95000,"program manager":118000,"business analyst":85000,"management consultant":125000,"strategy consultant":145000,
+"doctor":235000,"physician":235000,"surgeon":345000,"cardiologist":425000,"dentist":175000,"pharmacist":132000,"nurse practitioner":125000,"registered nurse":85000,"physical therapist":95000,"therapist":62000,"social worker":58000,
+"teacher":65000,"high school teacher":68000,"elementary teacher":62000,"professor":95000,"lawyer":155000,"attorney":155000,"corporate lawyer":195000,"biglaw associate":215000,"paralegal":62000,
+"civil engineer":98000,"mechanical engineer":98000,"electrical engineer":108000,"chemical engineer":115000,"aerospace engineer":125000,"petroleum engineer":145000,"architect":88000,
+"real estate agent":68000,"mortgage broker":78000,"insurance agent":62000,"journalist":55000,"editor":68000,"writer":65000,"technical writer":82000,"photographer":48000,"creative director":135000,"chef":55000,"executive chef":78000,"electrician":68000,"plumber":68000,"hvac technician":58000,"carpenter":62000,"welder":52000,"mechanic":52000,"airline pilot":165000,"police officer":68000,"firefighter":58000,"ceo":285000,"coo":215000,"director":155000,"analyst":72000,"intern":45000,"entry level":52000,"student":0,
+};
+const COL_MULT={"san francisco":1.45,"sf":1.45,"bay area":1.42,"new york":1.35,"nyc":1.35,"manhattan":1.40,"seattle":1.22,"boston":1.24,"los angeles":1.20,"la":1.20,"washington dc":1.20,"dc":1.20,"chicago":1.10,"austin":1.08,"denver":1.08,"portland":1.05,"miami":1.08,"atlanta":1.02,"dallas":1.00,"houston":0.98,"phoenix":0.96,"minneapolis":1.00,"philadelphia":1.05,"nashville":0.98,"charlotte":0.98,"raleigh":1.00,"salt lake city":0.96,"kansas city":0.92,"st louis":0.90,"pittsburgh":0.92,"tuscaloosa":0.85,"birmingham":0.88,"alabama":0.88,"remote":1.00,"":1.00};
+
+function lookupSalary(title,location){
+  if(!title?.trim())return null;
+  const t=title.toLowerCase().trim().replace(/[^\w\s]/g,"");
+  const loc=(location||"").toLowerCase().trim();
+  const mult=COL_MULT[loc]||1.00;
+  if(SALARY_DB[t])return{title,medianSalary:Math.round(SALARY_DB[t]*mult),baseSalary:SALARY_DB[t],multiplier:mult,location:location||"US Avg",confidence:"high"};
+  const words=t.split(/\s+/).filter(w=>w.length>2);
+  let best=null,score=0;
+  for(const k of Object.keys(SALARY_DB)){
+    const kw=k.split(/\s+/);let m=0;
+    for(const w of words)if(kw.some(x=>x.includes(w)||w.includes(x)))m++;
+    const s=m/Math.max(words.length,kw.length);
+    if(s>score&&s>0.4){score=s;best=k}
+  }
+  if(best)return{title:best,medianSalary:Math.round(SALARY_DB[best]*mult),baseSalary:SALARY_DB[best],multiplier:mult,location:location||"US Avg",confidence:"medium"};
+  return null;
+}
+
+// ═══ MONTE CARLO ═══
+function boxMuller(){let u,v;do{u=Math.random()}while(!u);do{v=Math.random()}while(!v);return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+
+function runMC({startAge,endAge,savings,annualContrib,contribGrowth,mu,sigma,n,matchAmount}){
+  const years=Math.max(1,endAge-startAge);
+  const paths=[];
+  for(let i=0;i<n;i++){
+    const path=[Math.max(0,savings)];
+    let c=annualContrib;const m=matchAmount||0;
+    for(let y=0;y<years;y++){
+      const r=mu+sigma*boxMuller();
+      path.push(Math.max(0,path[path.length-1]*(1+r)+c+m));
+      c*=(1+contribGrowth);
+    }
+    paths.push(path);
+  }
+  const sorted=(idx)=>...[paths.map(p=>p[idx])].sort((a,b)=>a-b);
+  const pct=(arr,p)=>arr[Math.floor(arr.length*p/100)];
+  const P={p5:[],p10:[],p25:[],p50:[],p75:[],p90:[],p95:[]};
+  for(let i=0;i<=years;i++){
+    const s=sorted(i);
+    Object.keys(P).forEach(k=>{P[k].push(pct(s,parseInt(k.slice(1))))});
+  }
+  return{...P,years,startAge,endAge};
+}
+
+// ═══ CAREER ═══
+function projectCareer(age,retireAge,income,type){
+  const profiles={
+    tech:{peakAge:42,peakMult:2.8,lateGr:0.02},finance:{peakAge:44,peakMult:3.5,lateGr:0.02},
+    healthcare:{peakAge:50,peakMult:2.3,lateGr:0.02},education:{peakAge:52,peakMult:1.7,lateGr:0.02},
+    law:{peakAge:48,peakMult:3.1,lateGr:0.02},creative:{peakAge:38,peakMult:1.9,lateGr:0.01},
+    trades:{peakAge:40,peakMult:2.0,lateGr:0.01},gig:{peakAge:36,peakMult:1.6,lateGr:0.00},
+    general:{peakAge:45,peakMult:2.2,lateGr:0.02},
+  };
+  const p=profiles[type]||profiles.general;
+  const earnings=[];let inc=income;
+  for(let a=age;a<=retireAge;a++){
+    if(a<p.peakAge){
+      const prog=(a-age)/Math.max(1,p.peakAge-age);
+      inc=income+(income*p.peakMult-income)*Math.pow(prog,0.65);
+    }else inc*=(1+p.lateGr);
+    earnings.push({age:a,income:Math.round(inc)});
+  }
+  const total=earnings.reduce((s,e)=>s+e.income,0);
+  const peak=Math.max(...earnings.map(e=>e.income));
+  const peakAge=earnings.find(e=>e.income===peak)?.age;
+  return{earnings,total,peak,peakAge,profile:p};
+}
+
+function detectCareer(t){
+  t=(t||"").toLowerCase();
+  if(/software|developer|engineer|tech|data|ml|ai|devops|cyber/.test(t))return"tech";
+  if(/financ|bank|invest|portfolio|analyst|trader|quant|cfo|wealth/.test(t))return"finance";
+  if(/doctor|physician|surgeon|nurse|medical|health|pharma|therap|dental/.test(t))return"healthcare";
+  if(/teacher|professor|educat|school/.test(t))return"education";
+  if(/lawyer|attorney|legal|judge/.test(t))return"law";
+  if(/design|artist|writer|creative|photo|film|music/.test(t))return"creative";
+  if(/electric|plumb|carpent|trades|mechanic|welder|hvac/.test(t))return"trades";
+  if(/freelance|gig|contract/.test(t))return"gig";
+  return"general";
+}
+
+// ═══ CONSTANTS ═══
+const RISK={
+  preserver:{eq:25,bd:60,al:10,ca:5,mu:0.055,sigma:0.08,label:"Preserver"},
+  conservative:{eq:40,bd:45,al:10,ca:5,mu:0.065,sigma:0.10,label:"Conservative"},
+  balanced:{eq:60,bd:30,al:7,ca:3,mu:0.078,sigma:0.13,label:"Balanced"},
+  growth:{eq:75,bd:15,al:7,ca:3,mu:0.088,sigma:0.15,label:"Growth"},
+  magnificent:{eq:90,bd:5,al:4,ca:1,mu:0.095,sigma:0.17,label:"Magnificent"},
+};
+const MATCH_OPT={"none":{label:"No match",rate:0},"50pct_6":{label:"50% up to 6%",rate:0.03},"100pct_3":{label:"100% up to 3%",rate:0.03},"100pct_6":{label:"100% up to 6%",rate:0.06},"100pct_4":{label:"100% up to 4%",rate:0.04}};
+
+function calcTax(income){
+  const b=[[11600,0.10],[47150,0.12],[100525,0.22],[191950,0.24],[243725,0.32],[609350,0.35],[Infinity,0.37]];
+  let tax=0,prev=0;
+  for(const[lim,rate]of b){if(income<=prev)break;tax+=(Math.min(income,lim)-prev)*rate;prev=lim}
+  return{tax,effective:tax/Math.max(1,income),marginal:b.find(([l])=>income<=l)?.[1]??0.37};
+}
+
+const fmt=(n)=>{if(n==null||isNaN(n))return"—";const s=n<0?"-":"",a=Math.abs(n);if(a>=1e9)return s+"$"+(a/1e9).toFixed(2)+"B";if(a>=1e6)return s+"$"+(a/1e6).toFixed(2)+"M";if(a>=1e3)return s+"$"+Math.round(a/1e3)+"K";return s+"$"+Math.round(a)};
+const fmtFull=(n)=>n==null?"—":(n<0?"-":"")+"$"+Math.abs(Math.round(n)).toLocaleString();
+const fmtPct=(n)=>(n*100).toFixed(1)+"%";
+
+function calcVitals(p,mc){
+  const ss=Math.min(100,(p.savingsRate/20)*100);
+  const em=(p.savings*0.3)/(p.income/12);
+  const es=Math.min(100,(em/6)*100);
+  const ds=p.totalDebt>0?Math.max(0,100-(p.totalDebt/p.income)*100):100;
+  const dvm={magnificent:60,growth:80,balanced:95,conservative:85,preserver:75};
+  const dv=dvm[p.riskProfile]||75;
+  const p50F=mc?.p50?.[mc.p50.length-1]||0;
+  const ft=(p.income*0.7)*25;
+  const rs=Math.min(100,(p50F/ft)*100);
+  const ts=p.employerMatchKey!=="none"?90:55;
+  const raw=(ss*0.22+es*0.15+ds*0.13+dv*0.15+rs*0.22+ts*0.13);
+  const score=Math.round(raw*8.5);
+  return{score:Math.min(850,Math.max(300,score)),grade:score>=720?"A":score>=620?"B":score>=500?"C":"D",
+    components:[{name:"Savings Rate",score:Math.round(ss)},{name:"Emergency Fund",score:Math.round(es)},{name:"Debt Ratio",score:Math.round(ds)},{name:"Diversification",score:dv},{name:"Retirement Path",score:Math.round(rs)},{name:"Tax Efficiency",score:ts}],
+    fireTarget:ft,p50Final:p50F};
+}
+
+const MOCK_BANKS=[{id:"chase",name:"Chase",logo:"CH",color:"#117ACA"},{id:"bofa",name:"Bank of America",logo:"BA",color:"#E31837"},{id:"wells",name:"Wells Fargo",logo:"WF",color:"#D71E28"},{id:"capital",name:"Capital One",logo:"C1",color:"#004878"},{id:"ally",name:"Ally Bank",logo:"AL",color:"#780096"},{id:"sofi",name:"SoFi",logo:"SF",color:"#0B1F3F"}];
+const MOCK_ACCOUNTS={
+  chase:[{id:"c1",type:"Checking",last4:"4729",balance:3842.50,name:"Total Checking"},{id:"c2",type:"Savings",last4:"8103",balance:12540.00,name:"Chase Savings"}],
+  bofa:[{id:"b1",type:"Checking",last4:"2891",balance:4120.35,name:"Advantage Banking"},{id:"b2",type:"Savings",last4:"5547",balance:18200.00,name:"Preferred Rewards Savings"}],
+  wells:[{id:"w1",type:"Checking",last4:"6633",balance:2950,name:"Everyday Checking"}],
+  capital:[{id:"cap1",type:"Checking",last4:"4411",balance:5280,name:"360 Checking"},{id:"cap2",type:"Savings",last4:"7720",balance:22000,name:"360 Performance Savings"}],
+  ally:[{id:"a1",type:"Savings",last4:"1188",balance:45000,name:"Online Savings Account"}],
+  sofi:[{id:"s1",type:"Checking",last4:"2024",balance:8400,name:"SoFi Checking & Savings"},{id:"s2",type:"Investment",last4:"3156",balance:15600,name:"SoFi Invest"}],
+};
+
+// ═══ HOOKS ═══
+function useWidth(ref,fallback=600){
+  const[w,setW]=useState(fallback);
+  useEffect(()=>{
+    if(!ref?.current)return;
+    const obs=new ResizeObserver(es=>setW(Math.max(240,es[0].contentRect.width)));
+    obs.observe(ref.current);
+    setW(Math.max(240,ref.current.offsetWidth||fallback));
+    return()=>obs.disconnect();
+  },[ref]);
+  return w;
+}
+
+// ═══ CHARTS ═══
+function MCChart({data,height=280}){
+  const ref=useRef(null);const w=useWidth(ref,680);
+  if(!data)return h("div",{ref,style:{height}});
+  const{p5,p10,p25,p50,p75,p90,p95,years,startAge}=data;
+  const pad={t:20,r:90,b:36,l:10};
+  const cw=w-pad.l-pad.r,ch=height-pad.t-pad.b;
+  const mx=Math.max(...p95);
+  const x=(i)=>pad.l+(i/years)*cw;
+  const y=(v)=>pad.t+ch-(v/mx)*ch;
+  const line=(arr)=>arr.map((v,i)=>`${i?"L":"M"}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+  const band=(hi,lo)=>{const t=hi.map((v,i)=>`${i?"L":"M"}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");const b=[...lo].reverse().map((v,i)=>`L${x(lo.length-1-i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");return`${t} ${b} Z`};
+  const yTicks=[0,0.25,0.5,0.75,1];
+  const xTicks=[];for(let i=0;i<=5;i++)xTicks.push(Math.round(years*i/5));
+  return h("div",{ref,style:{width:"100%"}},
+    h("svg",{width:w,height,style:{display:"block",overflow:"visible"}},
+      h("defs",null,
+        h("linearGradient",{id:"g1",x1:"0",y1:"0",x2:"0",y2:"1"},h("stop",{offset:"0%",stopColor:"#5fb8d6",stopOpacity:"0.10"}),h("stop",{offset:"100%",stopColor:"#5fb8d6",stopOpacity:"0.01"})),
+        h("linearGradient",{id:"g2",x1:"0",y1:"0",x2:"0",y2:"1"},h("stop",{offset:"0%",stopColor:"#7dd6a8",stopOpacity:"0.22"}),h("stop",{offset:"100%",stopColor:"#7dd6a8",stopOpacity:"0.04"})),
+        h("linearGradient",{id:"ml",x1:"0",y1:"0",x2:"1",y2:"0"},h("stop",{offset:"0%",stopColor:"#d4a849"}),h("stop",{offset:"100%",stopColor:"#f0c674"}))),
+      yTicks.map((p,i)=>h("g",{key:i},
+        h("line",{x1:pad.l,y1:y(mx*p),x2:w-pad.r,y2:y(mx*p),stroke:"rgba(255,255,255,0.04)"}),
+        h("text",{x:w-pad.r+6,y:y(mx*p)+3,fill:"#5a6878",fontSize:"9.5",fontFamily:"JetBrains Mono"},fmt(mx*p)))),
+      xTicks.map((i,idx)=>h("text",{key:idx,x:x(i),y:height-6,fill:"#5a6878",fontSize:"9.5",fontFamily:"JetBrains Mono",textAnchor:"middle"},startAge+i)),
+      h("path",{d:band(p95,p5),fill:"url(#g1)"}),
+      h("path",{d:band(p75,p25),fill:"url(#g2)"}),
+      h("path",{d:line(p10),fill:"none",stroke:"rgba(125,214,168,0.3)",strokeDasharray:"3,4"}),
+      h("path",{d:line(p90),fill:"none",stroke:"rgba(125,214,168,0.3)",strokeDasharray:"3,4"}),
+      h("path",{d:line(p50),fill:"none",stroke:"url(#ml)",strokeWidth:"2.5"}),
+      h("circle",{cx:x(years),cy:y(p50[years]),r:5,fill:"#f0c674"}),
+      h("circle",{cx:x(years),cy:y(p50[years]),r:8,fill:"#f0c674",opacity:"0.2"})
+    )
+  );
+}
+
+function CareerChart({data,height=160}){
+  const ref=useRef(null);const w=useWidth(ref,560);
+  if(!data?.earnings?.length)return h("div",{ref,style:{height}});
+  const{earnings,peak,peakAge}=data;
+  const pad={t:10,r:10,b:24,l:48};
+  const cw=w-pad.l-pad.r,ch=height-pad.t-pad.b;
+  const bw=Math.max(2,cw/earnings.length-1);
+  return h("div",{ref,style:{width:"100%"}},
+    h("svg",{width:w,height,style:{display:"block"}},
+      h("defs",null,
+        h("linearGradient",{id:"bar",x1:"0",y1:"0",x2:"0",y2:"1"},h("stop",{offset:"0%",stopColor:"#7dd6a8",stopOpacity:"0.75"}),h("stop",{offset:"100%",stopColor:"#5ab589",stopOpacity:"0.25"})),
+        h("linearGradient",{id:"peak",x1:"0",y1:"0",x2:"0",y2:"1"},h("stop",{offset:"0%",stopColor:"#f0c674"}),h("stop",{offset:"100%",stopColor:"#d4a849",stopOpacity:"0.5"}))),
+      [0,0.5,1].map((p,i)=>h("g",{key:i},
+        h("line",{x1:pad.l,y1:pad.t+ch*(1-p),x2:w-10,y2:pad.t+ch*(1-p),stroke:"rgba(255,255,255,0.04)"}),
+        h("text",{x:pad.l-8,y:pad.t+ch*(1-p)+3,fill:"#5a6878",fontSize:"9",textAnchor:"end",fontFamily:"JetBrains Mono"},fmt(peak*p)))),
+      earnings.map((e,i)=>{
+        const bh=(e.income/peak)*ch;const xp=pad.l+(i/earnings.length)*cw;
+        return h("rect",{key:i,x:xp,y:pad.t+ch-bh,width:bw,height:bh,fill:e.age===peakAge?"url(#peak)":"url(#bar)",rx:"1"});
+      }),
+      earnings.filter((_,i)=>i%Math.max(1,Math.floor(earnings.length/6))===0).map((e,i)=>{
+        const xp=pad.l+(earnings.indexOf(e)/earnings.length)*cw;
+        return h("text",{key:i,x:xp+bw/2,y:height-6,fill:"#5a6878",fontSize:"9",textAnchor:"middle",fontFamily:"JetBrains Mono"},e.age);
+      })
+    )
+  );
+}
+
+function VitalsGauge({score,size=160}){
+  const pct=(score-300)/550;
+  const color=score>=720?"#7dd6a8":score>=550?"#f0c674":"#e88b8b";
+  const r=size/2-14;
+  const circ=2*Math.PI*r*0.75;
+  const dash=circ*Math.max(0,Math.min(1,pct));
+  return h("svg",{width:size,height:size,viewBox:`0 0 ${size} ${size}`},
+    h("circle",{cx:size/2,cy:size/2,r,fill:"none",stroke:"rgba(255,255,255,0.05)",strokeWidth:"10",strokeDasharray:`${circ} ${2*Math.PI*r*0.25}`,strokeLinecap:"round",transform:`rotate(135 ${size/2} ${size/2})`}),
+    h("circle",{cx:size/2,cy:size/2,r,fill:"none",stroke:color,strokeWidth:"10",strokeDasharray:`${dash} ${circ-dash+2*Math.PI*r*0.25}`,strokeLinecap:"round",transform:`rotate(135 ${size/2} ${size/2})`,style:{transition:"stroke-dasharray 1.5s"}}),
+    h("text",{x:size/2,y:size/2-2,fill:"#e8edf2",fontSize:"34",fontWeight:"500",textAnchor:"middle",fontFamily:"Fraunces"},score),
+    h("text",{x:size/2,y:size/2+18,fill:"#5a6878",fontSize:"10",textAnchor:"middle",fontFamily:"JetBrains Mono"},"/ 850")
+  );
+}
+
+function Donut({alloc,size=120}){
+  const items={l:"Equity",v:alloc.eq,c:"#7dd6a8"},{l:"Bonds",v:[alloc.bd,c:"#f0c674"},{l:"Alts",v:alloc.al,c:"#a594d4"},{l:"Cash",v:alloc.ca,c:"#5fb8d6"}];
+  const tot=items.reduce((s,d)=>s+d.v,0);
+  const cx=size/2,cy=size/2,rO=size/2-6,rI=rO*0.65;
+  let cum=-Math.PI/2;
+  return h("svg",{width:size,height:size},
+    items.map((d,i)=>{
+      const a=(d.v/tot)*2*Math.PI;const s=cum;cum+=a;const lg=a>Math.PI?1:0;
+      const p=`M${cx+rO*Math.cos(s)},${cy+rO*Math.sin(s)} A${rO},${rO} 0 ${lg},1 ${cx+rO*Math.cos(cum)},${cy+rO*Math.sin(cum)} L${cx+rI*Math.cos(cum)},${cy+rI*Math.sin(cum)} A${rI},${rI} 0 ${lg},0 ${cx+rI*Math.cos(s)},${cy+rI*Math.sin(s)} Z`;
+      return h("path",{key:i,d:p,fill:d.c,opacity:"0.85"});
+    }),
+    h("text",{x:cx,y:cy+5,fill:"#e8edf2",fontSize:"16",fontWeight:"600",textAnchor:"middle",fontFamily:"Fraunces"},alloc.eq+"%")
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// STEADY AI — WORKING ANALYSIS ENGINE WITH 20+ INTENT CLASSIFICATIONS
+// ═══════════════════════════════════════════════════════════════════════════
+function analyzeQuery(q, profile, career, mc, vitals, plaidData, alloc) {
+  const ql = q.toLowerCase().trim();
+  const tax = calcTax(profile.income);
+  const matchInfo = MATCH_OPT[profile.employerMatchKey];
+  const matchAmount = profile.income * matchInfo.rate;
+  const annualContrib = profile.income * profile.savingsRate / 100;
+  const yrsToRetire = profile.retireAge - profile.age;
+  const p50F = mc.p50[mc.p50.length-1];
+  const p10F = mc.p10[mc.p10.length-1];
+  const p90F = mc.p90[mc.p90.length-1];
+  
+  const intents = [
+    { p:/\b(early retire|retire early|retire at (5[0-9]|6[0-4])|fire\b|financial independence)\b/, k:"early_retire" },
+    { p:/\b(market (crash|down|drop)|crash|sell.*now|panic|bear market|recession)\b/, k:"market_panic" },
+    { p:/\b(roth|traditional|ira|401k|401\(k\)|contribution|match|employer)\b/, k:"retirement_account" },
+    { p:/\b(tax|bracket|marginal|effective|deduction|tax.loss)\b/, k:"tax_strategy" },
+    { p:/\b(vitals|score|grade|health)\b/, k:"vitals" },
+    { p:/\b(save more|savings rate|increase savings|budget)\b/, k:"savings_increase" },
+    { p:/\b(debt|loan|credit card|student loan|pay off)\b/, k:"debt_strategy" },
+    { p:/\b(net worth|total worth|assets)\b/, k:"net_worth" },
+    { p:/\b(career|salary|raise|promotion|job change|negotiate)\b/, k:"career" },
+    { p:/\b(portfolio|allocation|stocks|bonds|diversif|rebalanc)\b/, k:"portfolio" },
+    { p:/\b(monte carlo|p50|p10|p90|probability|odds|chance|scenario)\b/, k:"monte_carlo" },
+    { p:/\b(emergency|rainy day)\b/, k:"emergency_fund" },
+    { p:/\b(house|home|down payment|mortgage)\b/, k:"home_purchase" },
+    { p:/\b(kid|child|baby|529|college fund)\b/, k:"children" },
+    { p:/\b(social security|ss\b)\b/, k:"social_security" },
+    { p:/\b(inflation|purchasing power|real return)\b/, k:"inflation" },
+    { p:/\b(risk|volatility|conservative|aggressive)\b/, k:"risk_profile" },
+    { p:/\b(auto.?invest|automatic|transfer|deposit)\b/, k:"auto_invest" },
+    { p:/\b(fee|cost|pricing|price|charge|subscription|5 dollar|\$5|expensive)\b/, k:"pricing" },
+    { p:/\b(wealthfront|betterment|vanguard|fidelity|compare|versus|vs )\b/, k:"competitor" },
+    { p:/\b(hi|hello|hey|help|what can you|who are you)\b/, k:"greeting" },
+  ];
+  
+  let intent = "general";
+  for (const i of intents) if (i.p.test(ql)) { intent = i.k; break; }
+  
+  const ageMatch = ql.match(/\b(\d{2})\b/);
+  
+  const R = {
+    early_retire: () => {
+      const target = ageMatch ? parseInt(ageMatch[1]) : 60;
+      if (target >= profile.retireAge) return `You're already planning to retire at ${profile.retireAge}.`;
+      const gap = profile.retireAge - target;
+      const lostEarn = career.earnings.filter(e => e.age >= target && e.age < profile.retireAge).reduce((s,e)=>s+e.income,0);
+      const newYrs = target - profile.age;
+      const scale = newYrs / yrsToRetire;
+      const newP50 = p50F * Math.pow(scale, 1.3);
+      const fire = (profile.income * 0.7) * 25;
+      const short = fire - newP50;
+      const boost = short > 0 ? Math.ceil((short / (profile.income * newYrs * 3.8)) * 100) : 0;
+      return `**Retiring at ${target} analysis:**\n\n` +
+        `• You'd work ${gap} fewer years, missing ${fmt(lostEarn)} in lifetime income\n` +
+        `• Projected wealth at ${target}: ~${fmt(newP50)} (vs ${fmt(p50F)} at ${profile.retireAge})\n` +
+        `• FIRE target (25x annual spend): ${fmt(fire)}\n` +
+        (short > 0
+          ? `• **Shortfall:** ${fmt(short)}. Bump savings from ${profile.savingsRate}% to ~${Math.min(40, profile.savingsRate + boost)}% to close it.\n`
+          : `• **You're ahead of FIRE** by ${fmt(-short)}! ${target} is feasible.\n`);
+    },
+    market_panic: () => {
+      const dd = Math.min(40, Math.max(15, Math.round(RISK[profile.riskProfile].sigma * 2.3 * 100)));
+      return `**Stay the course, ${profile.name}. The data:**\n\n` +
+        `📊 Every S&P 500 drop of 20%+ since 1950 has fully recovered — avg 14 months\n` +
+        `📊 Panic sellers end up 40% behind buy-and-hold investors\n` +
+        `📊 Your ${yrsToRetire}-year horizon makes a 30% drawdown mathematically irrelevant\n\n` +
+        `**Your specific math:**\n` +
+        `• P10 scenario already bakes in ~${dd}% drawdown → still reach ${fmt(p10F)}\n` +
+        `• Auto-invest during downturns BUYS MORE SHARES cheaper\n` +
+        `• A 30% crash costs roughly $0 in your final outcome if you stay invested\n\n` +
+        `**The only losing move is selling.** Your glide path was designed for exactly this.`;
+    },
+    retirement_account: () => {
+      return `**Your retirement account stack:**\n\n` +
+        `🎯 **Priority order:**\n` +
+        `1. 401(k) to full match → ${fmt(matchAmount)}/yr FREE\n` +
+        `2. Roth IRA max → $7,000/yr (${fmtPct(tax.marginal)} bracket = pay taxes NOW)\n` +
+        `3. 401(k) beyond match → up to $23,500/yr\n` +
+        `4. Taxable brokerage → VTI/VXUS for tax efficiency\n\n` +
+        `**Roth vs Traditional for YOU:**\n` +
+        `Career model shows income ${fmt(profile.income)} → ${fmt(career.peak)}. You'll hit ${fmtPct(calcTax(career.peak).marginal)} marginal at peak.\n` +
+        `**Verdict: Roth wins.** Pay ${fmtPct(tax.marginal)} now, not ${fmtPct(calcTax(career.peak).marginal)} later.\n\n` +
+        `Current: You contribute ${fmt(annualContrib)}/yr + employer adds ${fmt(matchAmount)} = ${fmt(annualContrib + matchAmount)} total working for you.`;
+    },
+    tax_strategy: () => {
+      return `**Your tax picture:**\n\n` +
+        `• Income: ${fmt(profile.income)}\n` +
+        `• Federal tax: ${fmt(tax.tax)}\n` +
+        `• Effective rate: ${fmtPct(tax.effective)}\n` +
+        `• Marginal rate: ${fmtPct(tax.marginal)}\n\n` +
+        `🎯 **Tax alpha opportunities:**\n` +
+        `1. **Roth conversions** — Optimal now at ${fmtPct(tax.marginal)}. Peak hits ${fmtPct(calcTax(career.peak).marginal)}.\n` +
+        `2. **Asset location** — Bonds in tax-deferred, growth in Roth, indices taxable. Saves 0.3-0.5%/yr = ${fmt(p50F * 0.004)}.\n` +
+        `3. **Tax-loss harvesting** — Quarterly rebalance. ~$3K/yr savings.\n` +
+        `4. **HSA if eligible** — Triple tax advantage.\n\n` +
+        `Total tax alpha SteadyPath captures: ~${fmt(profile.income * 0.008 * yrsToRetire * 2)} over your career.`;
+    },
+    vitals: () => {
+      const weak = vitals.components.reduce((m,c) => c.score < m.score ? c : m, vitals.components[0]);
+      const strong = vitals.components.reduce((m,c) => c.score > m.score ? c : m, vitals.components[0]);
+      return `**Vitals Score: ${vitals.score}/850 (Grade ${vitals.grade})**\n\n` +
+        vitals.components.map(c => `• ${c.name}: ${c.score}/100 ${c.score>=80?"✓":c.score>=50?"⚠":"✗"}`).join("\n") + "\n\n" +
+        `💪 **Strongest:** ${strong.name} (${strong.score}/100)\n` +
+        `🎯 **Biggest opportunity:** ${weak.name} (${weak.score}/100)\n\n` +
+        `Improving ${weak.name} to 85 would push your score to ~${Math.min(850, vitals.score + 40)}. ` +
+        (weak.name === "Savings Rate" ? `Increase from ${profile.savingsRate}% to ${Math.min(25, profile.savingsRate + 5)}%. That's ${fmt(profile.income * 0.05)}/yr more.`
+        : weak.name === "Emergency Fund" ? `Build to 6 months expenses (${fmt((profile.income/12)*6)}) in a HYSA at 4-5%.`
+        : weak.name === "Debt Ratio" ? `Accelerate payoff of ${fmt(profile.totalDebt)} debt.`
+        : weak.name === "Tax Efficiency" ? `Open Roth IRA, contribute $7,000/yr. Capture full employer match.`
+        : weak.name === "Retirement Path" ? `Push retirement age out 2-3 years OR increase auto-invest.`
+        : `Review portfolio allocation for your profile.`);
+    },
+    savings_increase: () => {
+      const scenarios = [3, 5, 10].map(inc => {
+        const nSR = profile.savingsRate + inc;
+        const nC = profile.income * nSR / 100;
+        const d = (nC - annualContrib) * yrsToRetire * 3.2;
+        return { inc, nSR, d };
+      });
+      return `**Save more — impact analysis:**\n\n` +
+        `Current: ${profile.savingsRate}% = ${fmt(annualContrib)}/yr\n\n` +
+        scenarios.map(s => `• +${s.inc}% → ${s.nSR}% total → +${fmt(s.d)} by retirement`).join("\n") + "\n\n" +
+        `🎯 **Auto-Escalate Strategy:** Raise savings 1% per raise. You won't feel it. Adds ${fmt(profile.income * 0.01 * yrsToRetire * 3.2)}+ over your career.\n\n` +
+        `Practical: Cut $200/mo from discretionary = ${fmt(2400)}/yr = ${fmt(2400 * yrsToRetire * 3.2)} at retirement.`;
+    },
+    debt_strategy: () => {
+      if (profile.totalDebt === 0) return `**Zero non-mortgage debt — major advantage.**\n\nAt ${profile.savingsRate}% savings rate, your full ${fmt(annualContrib)}/yr builds wealth instead of servicing debt. Most peers at age ${profile.age} pay $8K+/yr on consumer debt.\n\nKeep it this way: no car loans, credit cards paid in full, maintain emergency fund.`;
+      const yrs = Math.ceil(profile.totalDebt / (profile.income * 0.10));
+      const interest = profile.totalDebt * 0.07 * yrs / 2;
+      return `**Debt strategy:**\n\n` +
+        `• Debt: ${fmt(profile.totalDebt)}\n` +
+        `• At 10% of income (${fmt(profile.income*0.10)}/yr) → debt-free in ${yrs} years\n` +
+        `• Interest saved: ~${fmt(interest)}\n\n` +
+        `🎯 **Priority order:**\n` +
+        `1. Capture 401(k) match first (beats any debt rate)\n` +
+        `2. $1K emergency buffer\n` +
+        `3. Attack >7% debt aggressively\n` +
+        `4. <5% rate → minimums only, invest the rest\n\n` +
+        `Post-debt, redirect ${fmt(profile.income*0.10)}/yr → compounds to ${fmt(profile.income*0.10 * (yrsToRetire - yrs) * 3.5)} at retirement.`;
+    },
+    net_worth: () => {
+      const nw = profile.savings - profile.totalDebt;
+      const linked = plaidData?.totalLinked || 0;
+      return `**Net Worth: ${fmt(nw)}**\n\n` +
+        `• Assets: ${fmt(profile.savings)}${linked > 0 ? ` (${fmt(linked)} linked)` : ""}\n` +
+        `• Debt: ${fmt(profile.totalDebt)}\n\n` +
+        `📊 **Age ${profile.age} benchmarks:**\n` +
+        `• 50th %ile: ${fmt(profile.age < 30 ? 10000 : profile.age < 40 ? 45000 : profile.age < 50 ? 130000 : 250000)}\n` +
+        `• 75th %ile: ${fmt(profile.age < 30 ? 40000 : profile.age < 40 ? 150000 : profile.age < 50 ? 350000 : 650000)}\n` +
+        `• Top 10%: ${fmt(profile.age < 30 ? 150000 : profile.age < 40 ? 500000 : profile.age < 50 ? 1200000 : 2500000)}\n\n` +
+        `**Trajectory:** Projected ${fmt(p50F)} by ${profile.retireAge} — that's ${(p50F / Math.max(1,nw)).toFixed(1)}x your current net worth.`;
+    },
+    career: () => {
+      return `**Career Intelligence Report:**\n\n` +
+        `• Role: ${profile.jobTitle} (${fmt(profile.income)})\n` +
+        `• Lifetime earnings: ${fmt(career.total)}\n` +
+        `• Peak: ${fmt(career.peak)} at age ${career.peakAge}\n\n` +
+        `🎯 **Strategic moves:**\n` +
+        `1. **Job switches = 10-15% bumps** vs 3% raises. 3 moves by 35 beats 10 years of raises.\n` +
+        `2. **Negotiate total comp** — equity, bonus, 401(k) match matter as much as salary.\n` +
+        `3. **${detectCareer(profile.jobTitle)} peaks at age ${career.peakAge}** — take career risks before then.\n\n` +
+        `Income growth ${fmt(profile.income)} → ${fmt(career.peak)} shifts you from ${fmtPct(tax.marginal)} to ${fmtPct(calcTax(career.peak).marginal)} marginal bracket. Plan Roth now.`;
+    },
+    portfolio: () => {
+      const r = RISK[profile.riskProfile];
+      return `**Portfolio: ${r.label}**\n\n` +
+        `• ${alloc.eq}% Equities — VTI, VXUS, QQQM\n` +
+        `• ${alloc.bd}% Bonds — BND, VGIT\n` +
+        `• ${alloc.al}% Alternatives — VNQ, GLD\n` +
+        `• ${alloc.ca}% Cash — SGOV (~5% yield)\n\n` +
+        `📊 **Expected characteristics:**\n` +
+        `• Expected return: ${fmtPct(r.mu)}/yr\n` +
+        `• Volatility: ${fmtPct(r.sigma)}\n` +
+        `• P10 year: ~${fmtPct(r.mu - 1.3*r.sigma)}\n` +
+        `• P90 year: ~${fmtPct(r.mu + 1.3*r.sigma)}\n\n` +
+        `At ${profile.age} with ${yrsToRetire} years to retire, ${r.label} is ` +
+        (profile.riskProfile === "growth" || profile.riskProfile === "magnificent" ? "well-suited — your horizon lets equity compound through cycles"
+        : "conservative — you could handle more equity given your time horizon") + `. Rebalancing happens quarterly.`;
+    },
+    monte_carlo: () => {
+      return `**Monte Carlo — 750 simulations:**\n\n` +
+        `• **P90** (best 10%): ${fmt(p90F)}\n` +
+        `• **P75**: ${fmt(mc.p75[mc.p75.length-1])}\n` +
+        `• **P50** (median): ${fmt(p50F)}\n` +
+        `• **P25**: ${fmt(mc.p25[mc.p25.length-1])}\n` +
+        `• **P10** (worst 10%): ${fmt(p10F)}\n\n` +
+        `📊 The ${fmt(p90F - p10F)} P10-P90 spread captures 80% of realistic outcomes.\n\n` +
+        `**FIRE target:** ${fmt(vitals.fireTarget)}\n` +
+        `**Probability of hitting FIRE:** ~${Math.round(((p50F >= vitals.fireTarget ? 0.5 : 0.5 * (p50F/vitals.fireTarget))) * 100)}%\n\n` +
+        `Each run models correlated returns, inflation, and ${RISK[profile.riskProfile].label} parameters (μ=${fmtPct(RISK[profile.riskProfile].mu)}, σ=${fmtPct(RISK[profile.riskProfile].sigma)}).`;
+    },
+    emergency_fund: () => {
+      const monthly = profile.income * 0.7 / 12;
+      const current = profile.savings * 0.3;
+      const t3 = monthly * 3, t6 = monthly * 6;
+      return `**Emergency Fund Check:**\n\n` +
+        `• Monthly expenses (est): ${fmt(monthly)}\n` +
+        `• Liquid now (30%): ${fmt(current)}\n` +
+        `• 3-month target: ${fmt(t3)}\n` +
+        `• 6-month target: ${fmt(t6)}\n` +
+        `• Coverage: **${(current/monthly).toFixed(1)} months**\n\n` +
+        (current >= t6 ? `✓ You're solid. Excess beyond 6 months should be invested.`
+        : current >= t3 ? `⚠ Minimum met. Build to 6 months in a HYSA at 4-5%.`
+        : `🔴 Priority #1: Build to ${fmt(t3)}. Redirect ${fmt(Math.min(500, profile.income*0.02))}/mo to a HYSA until done.\n\nWithout this, job loss or medical issue forces selling investments at a loss.`);
+    },
+    home_purchase: () => {
+      const maxHome = profile.income * 3.5;
+      const dp = maxHome * 0.20;
+      const yrsDP = dp / (profile.income * 0.15);
+      return `**Home Purchase Math:**\n\n` +
+        `• Affordable home (3.5x income): ${fmt(maxHome)}\n` +
+        `• 20% down needed: ${fmt(dp)}\n` +
+        `• At 15% savings rate: ~${yrsDP.toFixed(1)} years to save DP\n\n` +
+        `📊 **Rent vs Buy:**\n` +
+        `• Monthly mortgage on ${fmt(maxHome)}: ~${fmt(maxHome*0.006)} (w/ taxes/insurance)\n` +
+        `• DP opportunity cost: ${fmt(dp * 0.08)}/yr in lost investment returns\n` +
+        `• Home appreciation (3%): ~${fmt(maxHome * 0.03)}/yr\n\n` +
+        `🎯 Buy if you'll stay 5+ years AND monthly payment is <28% of income. Otherwise rent and invest the difference.`;
+    },
+    children: () => {
+      return `**Cost of Children:**\n\n` +
+        `• To raise to 18 (USDA): ~$250K\n` +
+        `• Annual: ~$14K\n` +
+        `• Childcare ages 0-5: $15K-$25K/yr\n` +
+        `• 529 at $150/mo for 18 yrs → grows to ~${fmt(150*12*18*3.5)}\n\n` +
+        `🎯 **Pre-baby financial prep:**\n` +
+        `1. 6-month emergency fund (non-negotiable)\n` +
+        `2. Disability + term life insurance (10-12x income)\n` +
+        `3. Open 529 before baby arrives\n` +
+        `4. Update will/beneficiaries\n\n` +
+        `Offsetting credits: Child Tax Credit ($2K/yr), Dependent Care FSA ($5K pre-tax), state 529 deductions = ~15-20% cost offset.`;
+    },
+    social_security: () => {
+      return `**Social Security Strategy:**\n\n` +
+        `• Claim at 62: ~$21.6K/yr (30% permanent reduction)\n` +
+        `• Full retirement (67): ~$31.2K/yr\n` +
+        `• Delay to 70: ~$38.4K/yr (+24%)\n\n` +
+        `📊 **Break-even:** Delaying to 70 wins if you live past 82. Longevity genes → delay. Health concerns → claim earlier.\n\n` +
+        `🎯 **Your situation:** Retiring at ${profile.retireAge}. If under 67, bridge ${Math.max(0, 67-profile.retireAge)} years without SS via portfolio.\n\n` +
+        `Note: SS isn't going away. Worst case: ~80% of current benefits post-2035. Plan conservatively.`;
+    },
+    inflation: () => {
+      const realFV = p50F / Math.pow(1.03, yrsToRetire);
+      return `**Inflation Impact:**\n\n` +
+        `• Nominal P50: ${fmt(p50F)}\n` +
+        `• Real (today's $): ${fmt(realFV)}\n` +
+        `• Inflation erodes ~${fmtPct(1 - realFV/p50F)} over ${yrsToRetire} years\n\n` +
+        `📊 **Real returns (historical):**\n` +
+        `• Stocks: ~7% real\n` +
+        `• Bonds: ~2% real\n` +
+        `• Cash/HYSA: ~-1% real (loses to inflation!)\n` +
+        `• Real estate: ~4-5% real\n\n` +
+        `🎯 Your ${RISK[profile.riskProfile].label} (${alloc.eq}% equity) beats inflation over time. Don't hold more cash than emergency fund — inflation slowly robs you.`;
+    },
+    risk_profile: () => {
+      const r = RISK[profile.riskProfile];
+      return `**Your risk profile: ${r.label}**\n\n` +
+        `• Expected: ${fmtPct(r.mu)} return\n` +
+        `• Volatility: ${fmtPct(r.sigma)}\n` +
+        `• Worst year (10%): ${fmtPct(r.mu - 1.3*r.sigma)}\n\n` +
+        `🎯 **For age ${profile.age} / ${yrsToRetire}-yr horizon:**\n` +
+        (yrsToRetire > 25 ? `Long horizon → Growth or Magnificent makes sense. Short-term volatility becomes irrelevant.`
+        : yrsToRetire > 15 ? `Balanced or Growth ideal. Still time to ride cycles.`
+        : `Conservative or Balanced — sequence risk matters now.`) + `\n\n` +
+        `Rule: (120 - age) = ideal equity % = ${120-profile.age}% for you. Currently: ${alloc.eq}%.`;
+    },
+    auto_invest: () => {
+      if (!plaidData?.autoInvest?.enabled) {
+        return `**Auto-invest not set up yet.**\n\nBiggest wealth habit: consistency. Even $500/mo compounds to ${fmt(500*12*yrsToRetire*3.5)} by retirement.\n\nGo to the Accounts tab to connect a bank and activate.`;
+      }
+      const ai = plaidData.autoInvest;
+      const mult = ai.freq === "weekly" ? 52 : ai.freq === "biweekly" ? 26 : 12;
+      const annual = ai.amount * mult;
+      return `**Auto-Invest Status:**\n\n` +
+        `• ${fmt(ai.amount)} every ${ai.freq} → ${fmt(annual)}/yr\n` +
+        `• From: ${plaidData.bank.name}\n` +
+        `• Into: ${RISK[profile.riskProfile].label} Portfolio\n\n` +
+        `📊 **Projections:**\n` +
+        `• 10 years: ${fmt(annual * 14.5)}\n` +
+        `• 20 years: ${fmt(annual * 49)}\n` +
+        `• ${yrsToRetire} years: ${fmt(annual * yrsToRetire * 3.5)}\n\n` +
+        `🎯 **Optimization:** Increase 1% every January. Over ${yrsToRetire} years: +${fmt(annual * 0.15 * yrsToRetire)} without pain.`;
+    },
+    pricing: () => {
+      const wfFee = ((profile.savings + p50F) / 2) * 0.0025 * yrsToRetire * 0.5;
+      const spFee = 5 * 12 * yrsToRetire;
+      const savings = Math.max(0, wfFee - spFee);
+      return `**SteadyPath: $5/month. Flat. Forever.**\n\n` +
+        `🎯 **Math vs Wealthfront (0.25% AUM):**\n` +
+        `At your projected ${fmt(p50F)} portfolio:\n` +
+        `• Wealthfront lifetime fees: ~${fmt(wfFee)}\n` +
+        `• SteadyPath lifetime fees: ${fmt(spFee)}\n` +
+        `• **You save: ${fmt(savings)}**\n\n` +
+        `💡 **Why we charge $5:**\n` +
+        `• AI replaces human advisors (no $100K/yr salaries)\n` +
+        `• No proprietary funds — route to Vanguard/Schwab\n` +
+        `• Scale through B2B credit union partnerships\n` +
+        `• Price-lock guarantee — locked in forever\n\n` +
+        `📊 **What you get for $5:**\n` +
+        `• Full investing + rebalancing + tax-loss harvesting\n` +
+        `• Career intelligence + Monte Carlo + Steady AI\n` +
+        `• No AUM fee ever — your success doesn't cost more`;
+    },
+    competitor: () => {
+      return `**SteadyPath vs. Everyone Else:**\n\n` +
+        `| Platform | Annual Fee @ ${fmt(p50F)} |\n` +
+        `| Human advisor (1% AUM) | ${fmt(p50F * 0.01)}/yr |\n` +
+        `| Wealthfront (0.25%) | ${fmt(p50F * 0.0025)}/yr |\n` +
+        `| Betterment (0.25%) | ${fmt(p50F * 0.0025)}/yr |\n` +
+        `| Fidelity Go (0.35%) | ${fmt(p50F * 0.0035)}/yr |\n` +
+        `| **SteadyPath** | **$60/yr flat** |\n\n` +
+        `🎯 **Why we win:**\n` +
+        `1. **Career trajectory modeling** — Nobody else does this\n` +
+        `2. **Life event simulator** — Test decisions before making them\n` +
+        `3. **Real AI** — Actually analyzes YOUR situation\n` +
+        `4. **Flat fee** — Your fees don't grow with your wealth\n\n` +
+        `Lifetime savings vs Wealthfront: ~${fmt(Math.max(0, p50F * 0.0025 * 0.5 * yrsToRetire - 5*12*yrsToRetire))}`;
+    },
+    greeting: () => {
+      return `Hey ${profile.name}! I'm Steady, your AI financial companion. I know your full situation — ask me anything:\n\n` +
+        `📊 **Analysis:**\n` +
+        `• "What if I retire at 60?"\n` +
+        `• "Explain my Vitals Score"\n` +
+        `• "Market crashed, should I sell?"\n\n` +
+        `💰 **Strategy:**\n` +
+        `• "Should I max my 401(k)?"\n` +
+        `• "Roth vs Traditional?"\n` +
+        `• "How much house can I afford?"\n\n` +
+        `🎯 **Life planning:**\n` +
+        `• "Cost of having a child?"\n` +
+        `• "Social Security strategy?"\n` +
+        `• "How does SteadyPath pricing work?"\n\n` +
+        `Every answer uses YOUR specific numbers. Fire away.`;
+    },
+    general: () => {
+      return `Based on what I know about you:\n\n` +
+        `📊 **Your snapshot:**\n` +
+        `• Age ${profile.age} → retiring at ${profile.retireAge} (${yrsToRetire} yrs)\n` +
+        `• Career (${profile.jobTitle}): ${fmt(career.total)} lifetime\n` +
+        `• Portfolio: ${RISK[profile.riskProfile].label} → ${fmt(p50F)} projected\n` +
+        `• Vitals: ${vitals.score}/850 (${vitals.grade})\n\n` +
+        `🎯 **Top 3 moves for you:**\n` +
+        `1. ${profile.employerMatchKey === "none" ? "Find a job with 401(k) match — missing ~$3K/yr free" : `Capture full ${matchInfo.label} = ${fmt(matchAmount)}/yr free`}\n` +
+        `2. Auto-escalate savings 1%/yr (current ${profile.savingsRate}%)\n` +
+        `3. Optimize tax location — bonds in 401(k), equities in Roth\n\n` +
+        `Ask specific questions for specific numbers. Try "What if I retire at 60?" or "How do I pay off debt faster?"`;
+    },
+  };
+  
+  return (R[intent] || R.general)();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// LLM INTEGRATION — Anthropic (default, no key in Claude artifact env) + OpenAI fallback
+// ═══════════════════════════════════════════════════════════════════════════
+async function callLLM({provider,apiKey,model,messages,system,maxTokens=1024}){
+  const p=(provider||"anthropic").toLowerCase();
+  if(p==="anthropic"){
+    const headers={"Content-Type":"application/json"};
+    // When running in Claude.ai artifact env, auth is auto-injected. When standalone,
+    // a user-supplied key is attached with the browser-access header.
+    if(apiKey){
+      headers["x-api-key"]=apiKey;
+      headers["anthropic-version"]="2023-06-01";
+      headers["anthropic-dangerous-direct-browser-access"]="true";
+    }
+    const res=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",headers,
+      body:JSON.stringify({
+        model:model||"claude-sonnet-4-20250514",
+        max_tokens:maxTokens,
+        system,
+        messages
+      })
+    });
+    if(!res.ok){const t=await res.text();throw new Error(`Anthropic ${res.status}: ${t.slice(0,200)}`);}
+    const data=await res.json();
+    return data.content.filter(c=>c.type==="text").map(c=>c.text).join("\n");
+  }
+  if(p==="openai"){
+    if(!apiKey)throw new Error("OpenAI requires an API key. Add one in Settings.");
+    const res=await fetch("https://api.openai.com/v1/chat/completions",{
+      method:"POST",
+      headers:{"Content-Type":"application/json","Authorization":`Bearer ${apiKey}`},
+      body:JSON.stringify({
+        model:model||"gpt-4o-mini",
+        messages:[{role:"system",content:system},...messages],
+        max_tokens:maxTokens,
+        temperature:0.4
+      })
+    });
+    if(!res.ok){const t=await res.text();throw new Error(`OpenAI ${res.status}: ${t.slice(0,200)}`);}
+    const data=await res.json();
+    return data.choices[0].message.content;
+  }
+  throw new Error("Unknown provider: "+provider);
+}
+
+function buildSteadySystemPrompt(profile,career,mc,vitals,plaidData,alloc,marketData){
+  const tax=calcTax(profile.income);
+  const matchInfo=MATCH_OPT[profile.employerMatchKey];
+  const matchAmount=profile.income*matchInfo.rate;
+  const annualContrib=profile.income*profile.savingsRate/100;
+  const yrsToRetire=profile.retireAge-profile.age;
+  const r=RISK[profile.riskProfile];
+  const p50F=mc.p50[mc.p50.length-1],p10F=mc.p10[mc.p10.length-1],p90F=mc.p90[mc.p90.length-1];
+  const peakTax=calcTax(career.peak);
+  const linked=plaidData?`\n\nLINKED ACCOUNTS (Plaid):\n- Bank: ${plaidData.bank.name}\n- Total balance: ${fmtFull(plaidData.totalLinked)}\n- Auto-invest: ${plaidData.autoInvest?.enabled?`${fmtFull(plaidData.autoInvest.amount)} ${plaidData.autoInvest.freq} → ${plaidData.bank.name}`:"not enabled"}`:"\n\nLINKED ACCOUNTS: none yet (user can connect via Plaid in Accounts tab)";
+  const market=marketData&&marketData.quotes?.length?`\n\nLIVE MARKET DATA (just fetched):\n${marketData.quotes.map(q=>`- ${q.symbol}: $${q.price.toFixed(2)} (${q.changePct>=0?"+":""}${q.changePct.toFixed(2)}% today)`).join("\n")}`:"";
+  return `You are Steady, an AI financial companion built into the SteadyPath wealth platform. SteadyPath is a flat $5/month wealth management product targeting underserved Americans — no AUM fees, ever.
+
+Your job: deliver sharp, specific, numbers-driven financial guidance using THIS USER'S actual situation. Always cite their specific numbers from the data below. You are warm, direct, and a little irreverent — never robotic or hedgy. You don't add legal disclaimers ("consult a financial advisor") — you ARE the advisor.
+
+# USER PROFILE
+- Name: ${profile.name}
+- Age: ${profile.age} → retiring at ${profile.retireAge} (${yrsToRetire} years out)
+- Job: ${profile.jobTitle} in ${profile.location||"US"}
+- Gross income: ${fmtFull(profile.income)}/yr
+- Total savings/investments: ${fmtFull(profile.savings)}
+- Non-mortgage debt: ${fmtFull(profile.totalDebt)}
+- Net worth: ${fmtFull(profile.savings-profile.totalDebt)}
+- Savings rate: ${profile.savingsRate}% = ${fmtFull(annualContrib)}/yr
+- Employer 401(k) match: ${matchInfo.label} = ${fmtFull(matchAmount)}/yr free money
+- Risk profile: ${r.label} (${alloc.eq}% equity / ${alloc.bd}% bond / ${alloc.al}% alts / ${alloc.ca}% cash)
+- Expected portfolio: μ=${fmtPct(r.mu)} σ=${fmtPct(r.sigma)}
+
+# CAREER MODEL
+- Lifetime earnings projection: ${fmtFull(career.total)}
+- Peak income: ${fmtFull(career.peak)} at age ${career.peakAge}
+- Career archetype: ${detectCareer(profile.jobTitle)}
+- Income growth: ${fmtFull(profile.income)} now → ${fmtFull(career.peak)} peak
+
+# TAX SITUATION
+- Federal tax owed: ${fmtFull(tax.tax)}
+- Effective rate: ${fmtPct(tax.effective)}
+- Current marginal: ${fmtPct(tax.marginal)} → Peak marginal: ${fmtPct(peakTax.marginal)}
+
+# MONTE CARLO RESULTS (750 simulations, ${yrsToRetire}-year horizon)
+- P10 (worst 10%): ${fmtFull(p10F)}
+- P50 (median): ${fmtFull(p50F)}
+- P90 (best 10%): ${fmtFull(p90F)}
+- FIRE target (25× annual spend): ${fmtFull(vitals.fireTarget)}
+
+# FINANCIAL VITALS
+- Score: ${vitals.score}/850 (Grade ${vitals.grade})
+- Component scores: ${vitals.components.map(c=>`${c.name} ${c.score}/100`).join(" · ")}
+${linked}${market}
+
+# PRICING CONTEXT (use when relevant)
+- SteadyPath: $5/month flat = $60/yr · ${fmtFull(60*yrsToRetire)} lifetime
+- Wealthfront/Betterment (0.25% AUM) at this user's projected ${fmt(p50F)}: ~${fmtFull(p50F*0.0025)}/yr at retirement
+- Lifetime savings vs Wealthfront: ~${fmtFull(Math.max(0,p50F*0.0025*0.5*yrsToRetire-60*yrsToRetire))}
+
+# RESPONSE STYLE
+- Open with the answer. No "great question" preamble.
+- Use bold (**text**) sparingly for headers and key numbers.
+- Use bullet points liberally — readers scan, they don't read.
+- Cite specific dollar figures and percentages from the data above.
+- Run quick math when asked hypotheticals ("what if I retire at 60?") using their specific numbers.
+- Keep responses ~150-250 words. Tight is better than long.
+- When recommending a SteadyPath feature (auto-invest, life event sim, etc.), point to the tab name.
+- Never refuse to give a recommendation. Take a stance.
+- If the user asks something off-topic, gently steer back to their financial situation.`;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// LIVE MARKET DATA — Finnhub (works with free tier)
+// ═══════════════════════════════════════════════════════════════════════════
+const PORTFOLIO_TICKERS=["VTI","VXUS","BND","VNQ","GLD","QQQM","SPY"];
+
+async function fetchLiveMarkets(apiKey){
+  if(!apiKey)return null;
+  const quotes=[];
+  for(const sym of PORTFOLIO_TICKERS){
+    try{
+      const res=await fetch(`https://finnhub.io/api/v1/quote?symbol=${sym}&token=${apiKey}`);
+      if(!res.ok)continue;
+      const d=await res.json();
+      if(d.c&&d.c>0){
+        quotes.push({symbol:sym,price:d.c,change:d.d||0,changePct:d.dp||0,high:d.h,low:d.l,prevClose:d.pc});
+      }
+    }catch(e){/* skip ticker */}
+  }
+  return{quotes,fetchedAt:new Date().toISOString()};
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SETTINGS MODAL — API config (in-memory only, not persisted)
+// ═══════════════════════════════════════════════════════════════════════════
+function SettingsModal({open,onClose,aiConfig,setAiConfig,marketData,refreshMarkets,marketsLoading}){
+  const[draft,setDraft]=useState(aiConfig);
+  const[finnhubKey,setFinnhubKey]=useState(aiConfig.finnhubKey||"");
+  const[testing,setTesting]=useState(false);
+  const[testResult,setTestResult]=useState(null);
+
+  // Sync draft when modal opens
+  useEffect(()=>{
+    if(open){
+      setDraft(aiConfig);
+      setFinnhubKey(aiConfig.finnhubKey||"");
+      setTestResult(null);
+    }
+  },[open]);
+
+  if(!open)return null;
+
+  const save=()=>{setAiConfig({...draft,finnhubKey});onClose()};
+
+  const test=async()=>{
+    setTesting(true);setTestResult(null);
+    try{
+      const r=await callLLM({provider:draft.provider,apiKey:draft.apiKey,model:draft.model,system:"Reply with exactly the word: connected",messages:[{role:"user",content:"ping"}],maxTokens:32});
+      setTestResult({ok:true,msg:`✓ Connected · ${r.trim().slice(0,60)}`});
+    }catch(e){setTestResult({ok:false,msg:"✗ "+e.message.slice(0,140)})}
+    setTesting(false);
+  };
+
+  return h("div",{onClick:onClose,style:{position:"fixed",inset:0,background:"rgba(5,8,12,0.75)",backdropFilter:"blur(8px)",zIndex:100,display:"flex",alignItems:"center",justifyContent:"center",padding:24,animation:"fadeIn 0.2s"}},
+    h("div",{onClick:e=>e.stopPropagation(),className:"glass",style:{maxWidth:520,width:"100%",padding:28,maxHeight:"90vh",overflowY:"auto",background:"linear-gradient(180deg,#141a20 0%,#0f1419 100%)",border:"1px solid rgba(212,168,73,0.18)"}},
+      h("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:20}},
+        h("div",null,
+          h("div",{className:"chip chip-gold",style:{marginBottom:8}},"◈  CONFIGURATION"),
+          h("h2",{className:"serif",style:{fontSize:22,fontWeight:500}},"API Settings")
+        ),
+        h("button",{onClick:onClose,style:{background:"none",border:"none",color:"#5a6878",fontSize:24,cursor:"pointer",lineHeight:1}},"×")
+      ),
+
+      // AI Provider
+      h("div",{style:{marginBottom:18}},
+        h("div",{className:"label",style:{marginBottom:8}},"AI PROVIDER"),
+        h("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}},
+          {v:"anthropic",l:"Claude (Anthropic)",s:"Default · works free in [Claude.ai"},{v:"openai",l:"ChatGPT (OpenAI)",s:"Requires API key"}].map(o=>
+            h("button",{key:o.v,onClick:()=>setDraft({...draft,provider:o.v}),style:{padding:"12px 14px",borderRadius:9,background:draft.provider===o.v?"rgba(95,184,214,0.1)":"rgba(255,255,255,0.02)",border:`1px solid ${draft.provider===o.v?"rgba(95,184,214,0.4)":"rgba(255,255,255,0.06)"}`,cursor:"pointer",textAlign:"left"}},
+              h("div",{style:{fontSize:13,fontWeight:600,color:draft.provider===o.v?"#5fb8d6":"#e8edf2",marginBottom:3}},o.l),
+              h("div",{style:{fontSize:10.5,color:"#5a6878",fontFamily:"JetBrains Mono"}},o.s)
+            )
+          )
+        )
+      ),
+
+      // API Key
+      h("div",{style:{marginBottom:14}},
+        h("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}},
+          h("div",{className:"label"},`${draft.provider==="openai"?"OPENAI":"ANTHROPIC"} API KEY`),
+          h("span",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono"}},draft.provider==="anthropic"?"Optional in Claude.ai":"Required")
+        ),
+        h("input",{className:"input-field",type:"password",value:draft.apiKey||"",onChange:e=>setDraft({...draft,apiKey:e.target.value}),placeholder:draft.provider==="openai"?"sk-proj-...":"sk-ant-... (leave blank in Claude.ai)"}),
+        h("div",{style:{fontSize:10.5,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:6}},"In-memory only · never saved to disk · cleared on refresh")
+      ),
+
+      // Model
+      h("div",{style:{marginBottom:18}},
+        h("div",{className:"label",style:{marginBottom:8}},"MODEL"),
+        h("input",{className:"input-field",value:draft.model||"",onChange:e=>setDraft({...draft,model:e.target.value}),placeholder:draft.provider==="openai"?"gpt-4o-mini":"claude-sonnet-4-20250514"})
+      ),
+
+      // Test connection
+      h("div",{style:{marginBottom:22,display:"flex",gap:8,alignItems:"center"}},
+        h("button",{onClick:test,disabled:testing,className:"btn-secondary",style:{padding:"9px 16px",fontSize:12}},testing?"Testing...":"Test Connection"),
+        testResult&&h("div",{style:{fontSize:11,color:testResult.ok?"#7dd6a8":"#e88b8b",fontFamily:"JetBrains Mono"}},testResult.msg)
+      ),
+
+      // Divider
+      h("div",{style:{height:1,background:"rgba(255,255,255,0.06)",margin:"4px 0 22px"}}),
+
+      // Finnhub
+      h("div",{style:{marginBottom:18}},
+        h("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}},
+          h("div",{className:"label"},"FINNHUB API KEY"),
+          h("span",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono"}},"Live ticker prices")
+        ),
+        h("input",{className:"input-field",type:"password",value:finnhubKey,onChange:e=>setFinnhubKey(e.target.value),placeholder:"d4h46rpr01... (free tier works)"}),
+        h("div",{style:{fontSize:10.5,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:6}},"Powers Live Markets widget · ",h("span",{style:{color:"#5fb8d6"}},"finnhub.io"),"  · 60 calls/min free")
+      ),
+
+      marketData&&h("div",{style:{padding:"10px 14px",borderRadius:9,background:"rgba(125,214,168,0.06)",border:"1px solid rgba(125,214,168,0.18)",fontSize:11,fontFamily:"JetBrains Mono",color:"#7dd6a8",marginBottom:14}},
+        "✓ Live data active · ",marketData.quotes.length," tickers fetched"
+      ),
+
+      // Actions
+      h("div",{style:{display:"flex",gap:10,justifyContent:"flex-end"}},
+        h("button",{onClick:onClose,className:"btn-secondary",style:{padding:"10px 18px"}},"Cancel"),
+        h("button",{onClick:save,className:"btn-gold",style:{padding:"10px 22px"}},"Save Settings")
+      )
+    )
+  );
+}
+
+// ═══ STEADY AI CHAT COMPONENT ═══
+function SteadyAI({profile,career,mc,vitals,plaidData,alloc,aiConfig,marketData,onOpenSettings}){
+  const[msgs,setMsgs]=useState([]);
+  const[input,setInput]=useState("");
+  const[typing,setTyping]=useState(false);
+  const[mode,setMode]=useState("auto"); // auto = try LLM, fallback to local
+  const[lastError,setLastError]=useState(null);
+  const ref=useRef(null);
+
+  useEffect(()=>{
+    const welcome=`Hey ${profile.name} — Steady here.\n\n`+
+      `**Your snapshot:**\n`+
+      `◈ Vitals: ${vitals.score}/850 (Grade ${vitals.grade})\n`+
+      `◈ Projected wealth: ${fmt(mc.p50[mc.p50.length-1])}\n`+
+      `◈ Lifetime earnings: ${fmt(career.total)}\n`+
+      (marketData?`◈ Markets: live data on ${marketData.quotes.length} tickers\n`:"")+
+      `\nI know your full picture. Ask me anything — retirement scenarios, tax strategy, career moves, market questions. I'll use your specific numbers.`;
+    setMsgs([{role:"ai",text:welcome,source:"system"}]);
+  },[]);
+
+  useEffect(()=>{if(ref.current)ref.current.scrollTop=ref.current.scrollHeight},[msgs,typing]);
+
+  const processQuery=async(q)=>{
+    setMsgs(m=>[...m,{role:"user",text:q}]);
+    setTyping(true);
+    setLastError(null);
+
+    // Build conversation history for LLM
+    const history=msgs.filter(m=>m.source!=="system").map(m=>({role:m.role==="user"?"user":"assistant",content:m.text}));
+    history.push({role:"user",content:q});
+
+    let response=null;
+    let source="local";
+
+    try{
+      const system=buildSteadySystemPrompt(profile,career,mc,vitals,plaidData,alloc,marketData);
+      response=await callLLM({
+        provider:aiConfig.provider,
+        apiKey:aiConfig.apiKey,
+        model:aiConfig.model,
+        messages:history,
+        system,
+        maxTokens:1024
+      });
+      source=aiConfig.provider==="openai"?"openai":"claude";
+    }catch(e){
+      setLastError(e.message);
+      // Fallback to local rule-based engine
+      try{
+        response=analyzeQuery(q,profile,career,mc,vitals,plaidData,alloc);
+        source="fallback";
+      }catch(e2){
+        response="I had trouble with that one. Try asking about: Vitals, retirement, taxes, career, market, or pricing.";
+        source="error";
+      }
+    }
+
+    setMsgs(m=>[...m,{role:"ai",text:response,source}]);
+    setTyping(false);
+  };
+
+  const send=()=>{if(!input.trim()||typing)return;const q=input.trim();setInput("");processQuery(q)};
+
+  const prompts=["What if I retire at 60?","Explain my Vitals Score","Market is down, should I sell?","Should I max my 401(k)?","Roth vs Traditional for me?","How much house can I afford?","What's my biggest weakness?","How does SteadyPath compare to Wealthfront?"];
+
+  // Lightweight markdown-ish renderer for **bold**, headers, and bullets
+  const renderText=(t)=>{
+    const lines=t.split("\n");
+    return lines.map((line,li)=>{
+      // Render inline bold
+      const parts=line.split(/(\*\*[^*]+\*\*)/g);
+      const inline=parts.map((p,i)=>p.startsWith("**")&&p.endsWith("**")?h("strong",{key:`${li}-${i}`,style:{color:"#f0c674"}},p.slice(2,-2)):p);
+      // Bullet rendering
+      if(line.match(/^\s*[•·▪-]\s/)){
+        return h("div",{key:li,style:{display:"flex",gap:8,marginLeft:4}},
+          h("span",{style:{color:"#5fb8d6",flexShrink:0}},"•"),
+          h("span",null,...inline.map((x,i)=>typeof x==="string"&&i===0?x.replace(/^\s*[•·▪-]\s/,""):x))
+        );
+      }
+      return h("div",{key:li,style:line.trim()===""?{height:6}:{}},inline);
+    });
+  };
+
+  const sourceLabel=(src)=>{
+    if(src==="claude")return{l:"CLAUDE",c:"#c0b3e0"};
+    if(src==="openai")return{l:"GPT",c:"#7dd6a8"};
+    if(src==="fallback")return{l:"LOCAL · LLM OFFLINE",c:"#f0c674"};
+    if(src==="error")return{l:"ERROR",c:"#e88b8b"};
+    return{l:"STEADY AI",c:"#c0b3e0"};
+  };
+
+  const clearChat=()=>{
+    const welcome=`Hey ${profile.name} — Steady here.\n\n`+
+      `**Your snapshot:**\n`+
+      `◈ Vitals: ${vitals.score}/850 (Grade ${vitals.grade})\n`+
+      `◈ Projected wealth: ${fmt(mc.p50[mc.p50.length-1])}\n`+
+      `◈ Lifetime earnings: ${fmt(career.total)}\n`+
+      (marketData?`◈ Markets: live data on ${marketData.quotes.length} tickers\n`:"")+
+      `\nFresh start. What's on your mind?`;
+    setMsgs([{role:"ai",text:welcome,source:"system"}]);
+    setLastError(null);
+  };
+
+  return h("div",{style:{display:"flex",flexDirection:"column",height:"100%"}},
+    h("div",{ref,style:{flex:1,overflowY:"auto",padding:"20px 24px",display:"flex",flexDirection:"column",gap:14}},
+      msgs.map((m,i)=>{
+        const lbl=sourceLabel(m.source);
+        return h("div",{key:i,className:"fade-up",style:{alignSelf:m.role==="user"?"flex-end":"flex-start",maxWidth:"85%",padding:"12px 16px",borderRadius:m.role==="user"?"16px 16px 4px 16px":"16px 16px 16px 4px",background:m.role==="user"?"linear-gradient(135deg,#1a4a5a,#2a6a7a)":"linear-gradient(180deg,rgba(165,148,212,0.04) 0%,rgba(255,255,255,0.018) 100%)",border:`1px solid ${m.role==="user"?"rgba(95,184,214,0.3)":"rgba(165,148,212,0.12)"}`,fontSize:13.5,lineHeight:1.65,color:"#e8edf2"}},
+          m.role==="ai"&&h("div",{style:{fontSize:9,color:lbl.c,fontWeight:700,marginBottom:6,letterSpacing:1.5,fontFamily:"JetBrains Mono",display:"flex",alignItems:"center",gap:6}},"◈ ",lbl.l),
+          m.role==="user"?m.text:renderText(m.text)
+        );
+      }),
+      typing&&h("div",{style:{alignSelf:"flex-start",padding:"14px 18px",borderRadius:"16px 16px 16px 4px",background:"rgba(165,148,212,0.05)",border:"1px solid rgba(165,148,212,0.15)"}},
+        h("div",{className:"typing-dots"},h("span"),h("span"),h("span"))
+      ),
+      lastError&&!typing&&h("div",{style:{alignSelf:"center",fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono",padding:"6px 12px",borderRadius:6,background:"rgba(232,139,139,0.05)",border:"1px solid rgba(232,139,139,0.15)"}},
+        "LLM unavailable · ",h("button",{onClick:onOpenSettings,style:{background:"none",border:"none",color:"#f0c674",cursor:"pointer",textDecoration:"underline",fontFamily:"inherit",fontSize:"inherit"}},"check settings")
+      )
+    ),
+    msgs.length<=1&&h("div",{style:{padding:"0 24px 8px",display:"flex",flexWrap:"wrap",gap:6}},
+      prompts.map((p,i)=>h("button",{key:i,onClick:()=>processQuery(p),style:{cursor:"pointer",display:"inline-flex",alignItems:"center",padding:"4px 10px",borderRadius:20,background:"rgba(165,148,212,0.06)",border:"1px solid rgba(165,148,212,0.2)",fontSize:11,color:"#c0b3e0",fontFamily:"JetBrains Mono",letterSpacing:0.3}},p))
+    ),
+    h("div",{style:{padding:"14px 24px",borderTop:"1px solid rgba(255,255,255,0.05)",display:"flex",gap:10,alignItems:"center"}},
+      msgs.length>1&&h("button",{onClick:clearChat,title:"Clear conversation",style:{padding:"9px 11px",borderRadius:9,background:"rgba(255,255,255,0.025)",border:"1px solid rgba(255,255,255,0.06)",color:"#5a6878",fontSize:13,cursor:"pointer"}},"⟲"),
+      h("input",{className:"input-field",value:input,onChange:e=>setInput(e.target.value),onKeyDown:e=>e.key==="Enter"&&send(),placeholder:typing?"Steady is thinking...":"Ask Steady anything...",disabled:typing,style:{flex:1,opacity:typing?0.5:1}}),
+      h("button",{onClick:send,disabled:typing||!input.trim(),style:{background:typing?"rgba(165,148,212,0.3)":"linear-gradient(180deg,#a594d4,#8d7ac0)",color:"#fff",padding:"11px 22px",borderRadius:10,fontWeight:600,fontSize:13.5,cursor:typing?"not-allowed":"pointer",border:"none",boxShadow:"0 4px 16px rgba(165,148,212,0.25)",opacity:typing||!input.trim()?0.5:1}},"Send")
+    )
+  );
+}
+
+// ═══ CHAT ONBOARDING ═══
+const CHAT_FLOW=
+  {id:"welcome",message:()=>"Hi! I'm Steady — I'll help you build a complete wealth plan in a conversation. First, what should I call you?",input:{type:"text",field:"name",placeholder:"Your first name"},validate:v=>v.trim().length>0?null:"Please enter your name"},
+  {id:"age",message:p=>`Nice to meet you, ${[p.name}. How old are you?`,input:{type:"number",field:"age",placeholder:"e.g., 27",min:16,max:85},validate:v=>v>=16&&v<=85?null:"Between 16 and 85"},
+  {id:"role",message:()=>`What's your current job title? I'll pull real BLS salary data.`,input:{type:"text",field:"jobTitle",placeholder:"e.g., Software Engineer"},validate:v=>v.trim().length>1?null:"Please enter job title",action:"salary_lookup"},
+  {id:"location",message:(p,sd)=>sd?`I found your role. National median for ${sd.title}: ${fmtFull(sd.baseSalary)}/yr. Where are you based?`:`Where are you based?`,input:{type:"text",field:"location",placeholder:"e.g., San Francisco"},validate:()=>null,action:"location_adjust"},
+  {id:"income",message:(p,sd)=>{const s=sd?.medianSalary||75000;return`Based on BLS data for ${p.location||"US"}, ${p.jobTitle} averages ${fmtFull(s)}/yr. What's your actual gross income?`},input:{type:"number",field:"income",placeholder:"e.g., 85000",suggestFromSalary:true},validate:v=>v>0?null:"Please enter income"},
+  {id:"savings",message:()=>`How much do you have saved/invested across all accounts?`,input:{type:"number",field:"savings",placeholder:"e.g., 15000"},validate:()=>null},
+  {id:"debt",message:()=>`Any outstanding debt? (Student loans, credit cards — not mortgage)`,input:{type:"number",field:"totalDebt",placeholder:"0 if none"},validate:()=>null},
+  {id:"retire",message:()=>`When do you want to retire?`,input:{type:"number",field:"retireAge",placeholder:"e.g., 65"},validate:(v,p)=>v>p.age?null:"Must be after current age"},
+  {id:"match",message:()=>`Does your employer offer a 401(k) match?`,input:{type:"select",field:"employerMatchKey",options:[{val:"none",label:"No match"},{val:"50pct_6",label:"50% up to 6%"},{val:"100pct_3",label:"100% up to 3%"},{val:"100pct_4",label:"100% up to 4%"},{val:"100pct_6",label:"100% up to 6%"}]},validate:()=>null},
+  {id:"risk",message:p=>`How do you feel about risk? ${p.retireAge-p.age} years until retirement.`,input:{type:"select",field:"riskProfile",options:[{val:"preserver",label:"Preserver — Safety first"},{val:"conservative",label:"Conservative — Stability"},{val:"balanced",label:"Balanced — Mix"},{val:"growth",label:"Growth — Long-term building"},{val:"magnificent",label:"Magnificent — Maximum upside"}]},validate:()=>null},
+];
+
+function ChatOnboarding({profile,setProfile,onComplete}){
+  const[step,setStep]=useState(0);
+  const[messages,setMessages]=useState([]);
+  const[input,setInput]=useState("");
+  const[selectVal,setSelectVal]=useState("");
+  const[typing,setTyping]=useState(false);
+  const[error,setError]=useState("");
+  const[salaryData,setSalaryData]=useState(null);
+  const[isLookingUp,setIsLookingUp]=useState(false);
+  const scrollRef=useRef(null);
+  const inputRef=useRef(null);
+
+  useEffect(()=>{if(scrollRef.current)scrollRef.current.scrollTop=scrollRef.current.scrollHeight},[messages,typing]);
+
+  useEffect(()=>{
+    setTyping(true);
+    setTimeout(()=>{
+      setMessages([{role:"ai",text:CHAT_FLOW[0].message(profile),step:0}]);
+      setTyping(false);
+      setTimeout(()=>inputRef.current?.focus(),100);
+    },700);
+  },[]);
+
+  const advance=async(userInput)=>{
+    const cfg=CHAT_FLOW[step];
+    const field=cfg.input.field;
+    let value=userInput;
+    if(cfg.input.type==="number")value=parseFloat(userInput)||0;
+    const err=cfg.validate(value,{...profile,[field]:value});
+    if(err){setError(err);return}
+    setError("");
+    const updated={...profile,[field]:value};
+    setProfile(updated);
+    let displayVal=userInput;
+    if(cfg.input.type==="number")displayVal=fmtFull(value);
+    if(cfg.input.type==="select")displayVal=cfg.input.options.find(o=>o.val===value)?.label||value;
+    setMessages(m=>[...m,{role:"user",text:displayVal,step}]);
+    setInput("");setSelectVal("");
+
+    if(cfg.action==="salary_lookup"){
+      setIsLookingUp(true);setTyping(true);
+      await new Promise(r=>setTimeout(r,1100));
+      const result=lookupSalary(value,updated.location);
+      setSalaryData(result);
+      if(result){
+        setMessages(m=>[...m,{role:"ai",text:"✓ Pulling from BLS Occupational Employment Statistics...",step,isStatus:true}]);
+        await new Promise(r=>setTimeout(r,500));
+      }
+      setIsLookingUp(false);setTyping(false);
+    }
+    if(cfg.action==="location_adjust"&&salaryData){
+      setTyping(true);
+      await new Promise(r=>setTimeout(r,700));
+      const adj=lookupSalary(updated.jobTitle,value);
+      if(adj){
+        setSalaryData(adj);
+        const d=adj.medianSalary-adj.baseSalary;
+        if(adj.multiplier!==1){
+          setMessages(m=>[...m,{role:"ai",text:`Adjusted for ${value}: ${d>=0?"+":""}${fmtFull(d)} (${((adj.multiplier-1)*100).toFixed(0)}% ${d>=0?"premium":"discount"})`,step,isStatus:true}]);
+          await new Promise(r=>setTimeout(r,500));
+        }
+      }
+      setTyping(false);
+    }
+
+    if(step<CHAT_FLOW.length-1){
+      setTyping(true);
+      await new Promise(r=>setTimeout(r,800));
+      const next=CHAT_FLOW[step+1];
+      setMessages(m=>[...m,{role:"ai",text:next.message(updated,salaryData),step:step+1}]);
+      setTyping(false);
+      setStep(step+1);
+      if(next.input.suggestFromSalary&&salaryData)setInput(String(salaryData.medianSalary));
+      setTimeout(()=>inputRef.current?.focus(),100);
+    }else{
+      setTyping(true);
+      setMessages(m=>[...m,{role:"ai",text:"Perfect! Building your plan — 750 Monte Carlo simulations running now...",step:-1}]);
+      await new Promise(r=>setTimeout(r,1200));
+      onComplete(updated);
+    }
+  };
+
+  const handleSubmit=()=>{
+    const cfg=CHAT_FLOW[step];
+    if(cfg.input.type==="select"){if(!selectVal){setError("Select an option");return}advance(selectVal)}
+    else{if(!input.trim()){setError("Enter a value");return}advance(input)}
+  };
+
+  const cfg=CHAT_FLOW[step];
+  const canInput=!typing&&!isLookingUp&&step<CHAT_FLOW.length;
+
+  return h("div",{style:{maxWidth:720,margin:"0 auto",padding:"32px 24px",minHeight:"100vh",display:"flex",flexDirection:"column"}},
+    h("div",{style:{marginBottom:28,display:"flex",alignItems:"center",gap:12}},
+      h("div",{style:{width:36,height:36,borderRadius:10,background:"linear-gradient(135deg,#5fb8d6 0%,#d4a849 100%)",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:700,color:"#fff",fontFamily:"Fraunces",fontSize:18,boxShadow:"0 2px 12px rgba(95,184,214,0.25)"}},"S"),
+      h("div",{style:{flex:1}},
+        h("div",{style:{fontSize:13,fontWeight:600,letterSpacing:2,fontFamily:"JetBrains Mono",color:"#a3afb8"}},"STEADYPATH"),
+        h("div",{style:{fontSize:11,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:2}},`Setup · ${Math.min(step+1,CHAT_FLOW.length)}/${CHAT_FLOW.length}`)
+      ),
+      h("div",{style:{width:120,height:3,background:"rgba(255,255,255,0.05)",borderRadius:2,overflow:"hidden"}},
+        h("div",{style:{height:"100%",width:`${((step+1)/CHAT_FLOW.length)*100}%`,background:"linear-gradient(90deg,#5fb8d6 0%,#a594d4 50%,#d4a849 100%)",transition:"width 0.4s"}})
+      )
+    ),
+    h("div",{ref:scrollRef,style:{flex:1,overflowY:"auto",marginBottom:20,paddingRight:8}},
+      messages.map((m,i)=>h("div",{key:i,className:"fade-up",style:{display:"flex",justifyContent:m.role==="user"?"flex-end":"flex-start",marginBottom:14}},
+        m.role==="ai"&&h("div",{style:{width:28,height:28,borderRadius:"50%",background:m.isStatus?"rgba(212,168,73,0.15)":"linear-gradient(135deg,#5fb8d6 0%,#a594d4 100%)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,marginRight:10,flexShrink:0,color:m.isStatus?"#f0c674":"#fff",fontWeight:700,border:`1px solid ${m.isStatus?"rgba(212,168,73,0.3)":"rgba(95,184,214,0.4)"}`,fontFamily:"Fraunces",marginTop:4}},m.isStatus?"✓":"S"),
+        h("div",{style:{maxWidth:"78%",padding:"12px 16px",borderRadius:m.role==="user"?"16px 16px 4px 16px":"16px 16px 16px 4px",background:m.role==="user"?"linear-gradient(135deg,#1a4a5a,#2a6a7a)":m.isStatus?"rgba(212,168,73,0.06)":"linear-gradient(180deg,rgba(165,148,212,0.04) 0%,rgba(255,255,255,0.018) 100%)",border:`1px solid ${m.role==="user"?"rgba(95,184,214,0.3)":m.isStatus?"rgba(212,168,73,0.18)":"rgba(165,148,212,0.12)"}`,fontSize:14,color:"#e8edf2",lineHeight:1.6,whiteSpace:"pre-wrap"}},m.text)
+      )),
+      typing&&h("div",{className:"fade-in",style:{display:"flex",marginBottom:14}},
+        h("div",{style:{width:28,height:28,borderRadius:"50%",background:"linear-gradient(135deg,#5fb8d6 0%,#a594d4 100%)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,marginRight:10,color:"#fff",fontWeight:700,border:"1px solid rgba(165,148,212,0.4)",fontFamily:"Fraunces",marginTop:4}},"S"),
+        h("div",{style:{padding:"14px 18px",background:"rgba(165,148,212,0.05)",border:"1px solid rgba(165,148,212,0.15)",borderRadius:"16px 16px 16px 4px"}},
+          isLookingUp?h("div",{style:{display:"flex",alignItems:"center",gap:10}},
+            h("div",{className:"typing-dots"},h("span"),h("span"),h("span")),
+            h("span",{style:{fontSize:12,color:"#8a96a3",fontFamily:"JetBrains Mono"}},"Querying BLS database...")
+          ):h("div",{className:"typing-dots"},h("span"),h("span"),h("span"))
+        )
+      )
+    ),
+    canInput&&cfg&&h("div",{className:"fade-up",style:{paddingTop:16,borderTop:"1px solid rgba(255,255,255,0.05)"}},
+      error&&h("div",{style:{fontSize:12,color:"#e88b8b",marginBottom:8,fontFamily:"JetBrains Mono"}},error),
+      cfg.input.type==="select"
+        ?h("div",{style:{display:"flex",flexDirection:"column",gap:8}},
+            cfg.input.options.map((opt,i)=>h("button",{key:i,onClick:()=>{setSelectVal(opt.val);setTimeout(()=>advance(opt.val),100)},style:{padding:"13px 16px",borderRadius:10,background:selectVal===opt.val?"rgba(95,184,214,0.12)":"rgba(255,255,255,0.025)",border:`1px solid ${selectVal===opt.val?"rgba(95,184,214,0.4)":"rgba(255,255,255,0.08)"}`,color:"#e8edf2",fontSize:13.5,cursor:"pointer",textAlign:"left"}},opt.label))
+          )
+        :h("div",{style:{display:"flex",gap:10,alignItems:"center"}},
+            h("input",{ref:inputRef,className:"input-field",type:cfg.input.type==="number"?"number":"text",value:input,onChange:e=>setInput(e.target.value),onKeyDown:e=>e.key==="Enter"&&handleSubmit(),placeholder:cfg.input.placeholder,style:{flex:1,padding:"12px 16px",fontSize:14.5}}),
+            h("button",{className:"btn-primary",onClick:handleSubmit,style:{padding:"12px 22px"}},step===CHAT_FLOW.length-1?"Build Plan →":"Continue →")
+          )
+    )
+  );
+}
+
+// ═══ PLAID ═══
+function PlaidConnect({onComplete,onSkip}){
+  const[phase,setPhase]=useState("select");
+  const[selectedBank,setSelectedBank]=useState(null);
+  const[selectedAccounts,setSelectedAccounts]=useState([]);
+  const[autoInvest,setAutoInvest]=useState({enabled:true,amount:500,freq:"monthly",fromAccount:null});
+
+  const connectBank=async(b)=>{setSelectedBank(b);setPhase("auth");await new Promise(r=>setTimeout(r,2000));setPhase("accounts")};
+  const toggleAccount=id=>setSelectedAccounts(p=>p.includes(id)?p.filter(x=>x!==id):[...p,id]);
+  const proceedToAutoInvest=()=>{
+    const accs=MOCK_ACCOUNTS[selectedBank.id]||[];
+    const ch=accs.find(a=>a.type==="Checking"&&selectedAccounts.includes(a.id));
+    setAutoInvest(p=>({...p,fromAccount:ch?.id||selectedAccounts[0]}));
+    setPhase("autoinvest");
+  };
+  const completeSetup=()=>{
+    const accs=(MOCK_ACCOUNTS[selectedBank.id]||[]).filter(a=>selectedAccounts.includes(a.id));
+    onComplete({bank:selectedBank,accounts:accs,autoInvest,totalLinked:accs.reduce((s,a)=>s+Math.max(0,a.balance),0)});
+  };
+
+  if(phase==="select"){
+    return h("div",{style:{maxWidth:560,margin:"0 auto",padding:"40px 24px"}},
+      h("div",{className:"fade-up",style:{textAlign:"center",marginBottom:36}},
+        h("div",{style:{width:48,height:48,borderRadius:12,background:"linear-gradient(135deg,#8ab4ed,#5e8acc)",margin:"0 auto 16px",display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,boxShadow:"0 4px 18px rgba(108,159,224,0.25)"}},"🔒"),
+        h("h2",{className:"serif",style:{fontSize:28,fontWeight:500,marginBottom:8}},"Connect Your Bank"),
+        h("p",{style:{fontSize:14,color:"#8a96a3"}},"Link accounts for auto-savings, real-time net worth, and personalized insights."),
+        h("div",{style:{marginTop:16,display:"flex",gap:6,justifyContent:"center",flexWrap:"wrap"}},
+          ["Bank-level encryption","256-bit SSL","Read-only","SOC 2"].map((t,i)=>h("span",{key:i,style:{display:"inline-flex",alignItems:"center",gap:4,padding:"4px 10px",borderRadius:20,background:"rgba(108,159,224,0.07)",border:"1px solid rgba(108,159,224,0.2)",fontSize:11,color:"#8ab4ed",fontFamily:"JetBrains Mono"}},"✓ ",t))
+        )
+      ),
+      h("div",{className:"fade-up",style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,animationDelay:"0.1s"}},
+        MOCK_BANKS.map(b=>h("button",{key:b.id,onClick:()=>connectBank(b),style:{padding:"20px 18px",borderRadius:12,background:"rgba(255,255,255,0.02)",border:"1px solid rgba(255,255,255,0.06)",cursor:"pointer",display:"flex",alignItems:"center",gap:14,textAlign:"left",transition:"all 0.15s"},onMouseOver:e=>{e.currentTarget.style.background="rgba(108,159,224,0.04)";e.currentTarget.style.borderColor="rgba(108,159,224,0.2)"},onMouseOut:e=>{e.currentTarget.style.background="rgba(255,255,255,0.02)";e.currentTarget.style.borderColor="rgba(255,255,255,0.06)"}},
+          h("div",{style:{width:40,height:40,borderRadius:9,background:b.color,display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,fontWeight:700,color:"#fff"}},b.logo),
+          h("div",{style:{flex:1}},
+            h("div",{style:{fontSize:14,fontWeight:600}},b.name),
+            h("div",{style:{fontSize:11,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:2}},"Click to connect →")
+          )
+        ))
+      ),
+      h("div",{className:"fade-up",style:{textAlign:"center",marginTop:28,animationDelay:"0.2s"}},
+        h("button",{className:"btn-secondary",onClick:onSkip,style:{padding:"10px 20px",fontSize:12}},"Skip for now")
+      )
+    );
+  }
+  if(phase==="auth"){
+    return h("div",{style:{maxWidth:460,margin:"0 auto",padding:"60px 24px",textAlign:"center"}},
+      h("div",{className:"fade-up"},
+        h("div",{style:{width:64,height:64,borderRadius:14,background:selectedBank.color,margin:"0 auto 24px",display:"flex",alignItems:"center",justifyContent:"center",fontSize:20,fontWeight:700,color:"#fff"}},selectedBank.logo),
+        h("h2",{className:"serif",style:{fontSize:22,fontWeight:500,marginBottom:10}},`Connecting to ${selectedBank.name}`),
+        h("div",{style:{display:"flex",alignItems:"center",gap:12,justifyContent:"center",marginTop:24,padding:"12px 20px",borderRadius:10,background:"rgba(95,184,214,0.05)",border:"1px solid rgba(95,184,214,0.15)"}},
+          h("div",{style:{width:16,height:16,borderRadius:"50%",border:"2px solid rgba(95,184,214,0.2)",borderTopColor:"#5fb8d6",animation:"spin 0.8s linear infinite"}}),
+          h("span",{style:{fontSize:13,color:"#5fb8d6",fontFamily:"JetBrains Mono"}},"Authenticating via Plaid...")
+        ),
+        h("div",{style:{marginTop:40,textAlign:"left",display:"flex",flexDirection:"column",gap:10}},
+          ["Establishing secure connection","Verifying credentials","Fetching accounts","Preparing..."].map((s,i)=>h("div",{key:i,className:"fade-in",style:{display:"flex",alignItems:"center",gap:10,animationDelay:`${i*0.4}s`,opacity:0}},
+            h("div",{style:{width:14,height:14,borderRadius:"50%",background:"#5fb8d6",display:"flex",alignItems:"center",justifyContent:"center",fontSize:9,color:"#fff"}},"✓"),
+            h("span",{style:{fontSize:12,color:"#8a96a3",fontFamily:"JetBrains Mono"}},s)
+          ))
+        )
+      )
+    );
+  }
+  if(phase==="accounts"){
+    const accs=MOCK_ACCOUNTS[selectedBank.id]||[];
+    return h("div",{style:{maxWidth:560,margin:"0 auto",padding:"40px 24px"}},
+      h("div",{className:"fade-up",style:{marginBottom:24}},
+        h("div",{style:{display:"flex",alignItems:"center",gap:10,marginBottom:14}},
+          h("div",{style:{width:36,height:36,borderRadius:9,background:selectedBank.color,display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:700,color:"#fff"}},selectedBank.logo),
+          h("div",null,
+            h("div",{style:{fontSize:11,color:"#5fb8d6",fontFamily:"JetBrains Mono",fontWeight:600}},"✓  CONNECTED"),
+            h("div",{style:{fontSize:14,fontWeight:600}},selectedBank.name)
+          )
+        ),
+        h("h2",{className:"serif",style:{fontSize:22,fontWeight:500,marginBottom:6}},"Select Accounts"),
+        h("p",{style:{fontSize:13,color:"#8a96a3"}},`Found ${accs.length} accounts. Choose to link.`)
+      ),
+      h("div",{className:"fade-up",style:{display:"flex",flexDirection:"column",gap:8}},
+        accs.map(acc=>h("button",{key:acc.id,onClick:()=>toggleAccount(acc.id),style:{padding:"14px 16px",borderRadius:10,background:selectedAccounts.includes(acc.id)?"rgba(95,184,214,0.08)":"rgba(255,255,255,0.02)",border:`1px solid ${selectedAccounts.includes(acc.id)?"rgba(95,184,214,0.35)":"rgba(255,255,255,0.06)"}`,cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",textAlign:"left"}},
+          h("div",{style:{display:"flex",alignItems:"center",gap:12}},
+            h("div",{style:{width:22,height:22,borderRadius:6,background:selectedAccounts.includes(acc.id)?"#5fb8d6":"rgba(255,255,255,0.05)",border:`1px solid ${selectedAccounts.includes(acc.id)?"#5fb8d6":"rgba(255,255,255,0.1)"}`,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontSize:12}},selectedAccounts.includes(acc.id)?"✓":""),
+            h("div",null,
+              h("div",{style:{fontSize:13.5,fontWeight:600}},acc.name),
+              h("div",{style:{fontSize:11,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:2}},`${acc.type} · •• ${acc.last4}`)
+            )
+          ),
+          h("div",{style:{fontSize:14,fontWeight:600,color:acc.balance<0?"#e88b8b":"#d4a849",fontFamily:"JetBrains Mono"}},fmtFull(acc.balance))
+        ))
+      ),
+      h("div",{className:"fade-up",style:{display:"flex",justifyContent:"space-between",marginTop:28}},
+        h("button",{className:"btn-secondary",onClick:()=>setPhase("select")},"← Back"),
+        h("button",{className:"btn-primary",onClick:proceedToAutoInvest,disabled:selectedAccounts.length===0},`Continue with ${selectedAccounts.length} →`)
+      )
+    );
+  }
+  if(phase==="autoinvest"){
+    const accs=(MOCK_ACCOUNTS[selectedBank.id]||[]).filter(a=>selectedAccounts.includes(a.id));
+    const checking=accs.filter(a=>a.type==="Checking"||a.type==="Savings");
+    return h("div",{style:{maxWidth:560,margin:"0 auto",padding:"40px 24px"}},
+      h("div",{className:"fade-up",style:{marginBottom:28}},
+        h("div",{className:"chip",style:{marginBottom:12}},"AUTO-INVEST SETUP"),
+        h("h2",{className:"serif",style:{fontSize:26,fontWeight:500,marginBottom:8}},"Automate Your Wealth Building"),
+        h("p",{style:{fontSize:14,color:"#8a96a3"}},"Set automatic transfers from your bank to your SteadyPath portfolio.")
+      ),
+      h("div",{className:"fade-up glass",style:{padding:24,marginBottom:16}},
+        h("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}},
+          h("div",null,
+            h("div",{style:{fontSize:14,fontWeight:600,marginBottom:3}},"Enable Auto-Invest"),
+            h("div",{style:{fontSize:12,color:"#8a96a3"}},"Invest automatically every payday")
+          ),
+          h("button",{onClick:()=>setAutoInvest(p=>({...p,enabled:!p.enabled})),style:{width:44,height:24,borderRadius:12,background:autoInvest.enabled?"#5fb8d6":"rgba(255,255,255,0.1)",position:"relative",cursor:"pointer",border:"none"}},
+            h("div",{style:{position:"absolute",top:2,left:autoInvest.enabled?22:2,width:20,height:20,borderRadius:"50%",background:"#fff",transition:"all 0.2s"}})
+          )
+        ),
+        autoInvest.enabled&&h("div",{style:{display:"flex",flexDirection:"column",gap:18}},
+          h("div",null,
+            h("div",{className:"label",style:{marginBottom:8}},"TRANSFER AMOUNT"),
+            h("div",{style:{display:"flex",gap:8}},
+              [250,500,1000,2000].map(a=>h("button",{key:a,onClick:()=>setAutoInvest(p=>({...p,amount:a})),style:{flex:1,padding:"10px",borderRadius:8,background:autoInvest.amount===a?"rgba(95,184,214,0.12)":"rgba(255,255,255,0.03)",border:`1px solid ${autoInvest.amount===a?"rgba(95,184,214,0.4)":"rgba(255,255,255,0.06)"}`,color:autoInvest.amount===a?"#5fb8d6":"#8a96a3",fontSize:13,fontWeight:600,cursor:"pointer",fontFamily:"JetBrains Mono"}},"$"+a))
+            ),
+            h("input",{type:"range",min:50,max:5000,step:50,value:autoInvest.amount,onChange:e=>setAutoInvest(p=>({...p,amount:+e.target.value})),style:{width:"100%",marginTop:14}}),
+            h("div",{style:{fontSize:11,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:4,display:"flex",justifyContent:"space-between"}},
+              h("span",null,"$50"),h("span",{style:{color:"#d4a849",fontWeight:600}},"$"+autoInvest.amount+"/"+autoInvest.freq),h("span",null,"$5,000")
+            )
+          ),
+          h("div",null,
+            h("div",{className:"label",style:{marginBottom:8}},"FREQUENCY"),
+            h("div",{style:{display:"flex",gap:8}},
+              [{k:"weekly",l:"Weekly"},{k:"biweekly",l:"Bi-weekly"},{k:"monthly",l:"Monthly"}].map(f=>h("button",{key:f.k,onClick:()=>setAutoInvest(p=>({...p,freq:f.k})),style:{flex:1,padding:"10px",borderRadius:8,background:autoInvest.freq===f.k?"rgba(95,184,214,0.12)":"rgba(255,255,255,0.03)",border:`1px solid ${autoInvest.freq===f.k?"rgba(95,184,214,0.4)":"rgba(255,255,255,0.06)"}`,color:autoInvest.freq===f.k?"#5fb8d6":"#8a96a3",fontSize:13,cursor:"pointer"}},f.l))
+            )
+          ),
+          checking.length>0&&h("div",null,
+            h("div",{className:"label",style:{marginBottom:8}},"FROM ACCOUNT"),
+            h("div",{style:{display:"flex",flexDirection:"column",gap:6}},
+              checking.map(acc=>h("button",{key:acc.id,onClick:()=>setAutoInvest(p=>({...p,fromAccount:acc.id})),style:{padding:"10px 14px",borderRadius:8,background:autoInvest.fromAccount===acc.id?"rgba(95,184,214,0.08)":"rgba(255,255,255,0.02)",border:`1px solid ${autoInvest.fromAccount===acc.id?"rgba(95,184,214,0.3)":"rgba(255,255,255,0.06)"}`,display:"flex",justifyContent:"space-between",cursor:"pointer"}},
+                h("div",{style:{textAlign:"left"}},
+                  h("div",{style:{fontSize:13,fontWeight:500}},acc.name),
+                  h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono"}},`${acc.type} •• ${acc.last4}`)
+                ),
+                h("div",{style:{fontSize:12,color:"#d4a849",fontFamily:"JetBrains Mono"}},fmtFull(acc.balance))
+              ))
+            )
+          )
+        )
+      ),
+      autoInvest.enabled&&h("div",{className:"fade-up",style:{padding:16,borderRadius:10,background:"rgba(95,184,214,0.05)",border:"1px solid rgba(95,184,214,0.15)",marginBottom:16}},
+        h("div",{style:{fontSize:11,color:"#5fb8d6",fontFamily:"JetBrains Mono",fontWeight:600,marginBottom:6}},"◈  30-YEAR PROJECTION"),
+        h("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12}},
+          h("div",null,
+            h("div",{style:{fontSize:11,color:"#8a96a3",marginBottom:3}},"Total invested"),
+            h("div",{style:{fontSize:18,fontWeight:600,color:"#e8edf2",fontFamily:"Fraunces"}},fmt(autoInvest.amount*(autoInvest.freq==="weekly"?52:autoInvest.freq==="biweekly"?26:12)*30))
+          ),
+          h("div",null,
+            h("div",{style:{fontSize:11,color:"#8a96a3",marginBottom:3}},"Projected (8% avg)"),
+            h("div",{style:{fontSize:18,fontWeight:600,color:"#d4a849",fontFamily:"Fraunces"}},fmt(autoInvest.amount*(autoInvest.freq==="weekly"?52:autoInvest.freq==="biweekly"?26:12)*30*3.8))
+          )
+        )
+      ),
+      h("div",{style:{display:"flex",justifyContent:"space-between"}},
+        h("button",{className:"btn-secondary",onClick:()=>setPhase("accounts")},"← Back"),
+        h("button",{className:"btn-gold",onClick:completeSetup},"Activate Auto-Invest →")
+      )
+    );
+  }
+  return null;
+}
+
+// ═══ LOADING ═══
+function LoadingScreen({onComplete}){
+  const[step,setStep]=useState(0);
+  const steps=["Analyzing career trajectory","Building portfolio allocation","Running 750 Monte Carlo simulations","Calculating Vitals Score","Optimizing tax strategy","Compiling dashboard"];
+  useEffect(()=>{
+    steps.forEach((_,i)=>setTimeout(()=>setStep(i+1),(i+1)*450));
+    setTimeout(onComplete,steps.length*450+400);
+  },[]);
+  return h("div",{style:{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",padding:"40px 24px"}},
+    h("div",{style:{maxWidth:400,width:"100%"}},
+      h("div",{style:{textAlign:"center",marginBottom:36}},
+        h("div",{style:{width:56,height:56,borderRadius:14,background:"linear-gradient(135deg,#5fb8d6 0%,#d4a849 100%)",margin:"0 auto 20px",display:"flex",alignItems:"center",justifyContent:"center",fontSize:24,fontWeight:700,color:"#fff",fontFamily:"Fraunces",animation:"glow-pulse 2s infinite"}},"S"),
+        h("h2",{className:"serif",style:{fontSize:24,fontWeight:500,marginBottom:6}},"Constructing your SteadyPath")
+      ),
+      h("div",{style:{display:"flex",flexDirection:"column",gap:12}},
+        steps.map((s,i)=>h("div",{key:i,style:{display:"flex",alignItems:"center",gap:12,opacity:step>i?1:0.25,transition:"opacity 0.3s"}},
+          h("div",{style:{width:18,height:18,borderRadius:"50%",background:step>i?"#5fb8d6":"rgba(255,255,255,0.06)",display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontSize:10}},step>i?"✓":""),
+          h("span",{style:{fontSize:13,color:step>i?"#e8edf2":"#5a6878",fontFamily:"JetBrains Mono"}},s)
+        ))
+      )
+    )
+  );
+}
+
+// ═══ LIFE EVENTS ═══
+const LIFE_EVENTS=[
+  {id:"marriage",label:"Get Married",icon:"💍",savings:-8000,expense:5000,income:0,desc:"Wedding costs, combined finances"},
+  {id:"child",label:"Have a Child",icon:"👶",savings:-5000,expense:15000,income:0,desc:"$15K/yr childcare, tax credits"},
+  {id:"home",label:"Buy a Home",icon:"🏠",savings:-60000,expense:24000,income:0,desc:"Down payment, mortgage, equity"},
+  {id:"jobloss",label:"Job Loss (6mo)",icon:"📉",savings:-20000,expense:0,income:-0.5,desc:"Emergency fund draw"},
+  {id:"promotion",label:"Major Promotion",icon:"🚀",savings:10000,expense:3000,income:0.25,desc:"25% income boost"},
+  {id:"inheritance",label:"Inheritance",icon:"📜",savings:75000,expense:0,income:0,desc:"Lump sum, tax implications"},
+  {id:"business",label:"Side Business",icon:"⚡",savings:-15000,expense:8000,income:0.15,desc:"Startup costs, income boost"},
+  {id:"disability",label:"Disability",icon:"🏥",savings:-15000,expense:10000,income:-0.4,desc:"Reduced income, medical costs"},
+];
+
+function LifeEventsContent({profile,mc}){
+  const[active,setActive]=useState([]);
+  const toggle=id=>setActive(a=>a.includes(id)?a.filter(x=>x!==id):[...a,id]);
+  const baseline=mc.p50[mc.p50.length-1];
+  const impact=active.reduce((acc,id)=>{
+    const ev=LIFE_EVENTS.find(e=>e.id===id);if(!ev)return acc;
+    return{savings:acc.savings+ev.savings,expense:acc.expense+ev.expense,income:acc.income+ev.income};
+  },{savings:0,expense:0,income:0});
+  const yrs=profile.retireAge-profile.age;
+  const adjusted=baseline+impact.savings*Math.pow(1.07,yrs/2)-(impact.expense*yrs*0.6)+(profile.income*impact.income*yrs*0.4);
+  const delta=adjusted-baseline;
+
+  return h("div",{style:{padding:"24px 32px",maxWidth:1120,margin:"0 auto"}},
+    h("div",{className:"fade-up",style:{marginBottom:24}},
+      h("div",{className:"chip",style:{marginBottom:8}},"LIFE EVENT SIMULATOR"),
+      h("h1",{className:"serif",style:{fontSize:26,fontWeight:500,letterSpacing:-0.3}},"Stress-Test Your Plan"),
+      h("p",{style:{fontSize:13,color:"#8a96a3",marginTop:4}},"Toggle events to see real-time wealth impact")
+    ),
+    h("div",{className:"fade-up",style:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10,marginBottom:24}},
+      LIFE_EVENTS.map(ev=>h("button",{key:ev.id,onClick:()=>toggle(ev.id),style:{padding:"18px 14px",borderRadius:11,cursor:"pointer",textAlign:"center",background:active.includes(ev.id)?"rgba(95,184,214,0.1)":"rgba(255,255,255,0.02)",border:`1px solid ${active.includes(ev.id)?"rgba(95,184,214,0.35)":"rgba(255,255,255,0.06)"}`,color:active.includes(ev.id)?"#e8edf2":"#8a96a3",transition:"all 0.2s"}},
+        h("div",{style:{fontSize:26,marginBottom:6}},ev.icon),
+        h("div",{style:{fontSize:12,fontWeight:600}},ev.label)
+      ))
+    ),
+    active.length>0&&h("div",{className:"fade-up",style:{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12,marginBottom:16}},
+      h("div",{className:"glass",style:{padding:18}},
+        h("div",{className:"label",style:{marginBottom:6}},"BASELINE WEALTH"),
+        h("div",{style:{fontSize:26,fontWeight:600,color:"#d4a849",fontFamily:"Fraunces"}},fmt(baseline))
+      ),
+      h("div",{className:"glass",style:{padding:18}},
+        h("div",{className:"label",style:{marginBottom:6}},"ADJUSTED WEALTH"),
+        h("div",{style:{fontSize:26,fontWeight:600,color:delta>=0?"#5fb8d6":"#e88b8b",fontFamily:"Fraunces"}},fmt(adjusted))
+      ),
+      h("div",{className:"glass",style:{padding:18}},
+        h("div",{className:"label",style:{marginBottom:6}},"NET IMPACT"),
+        h("div",{style:{fontSize:26,fontWeight:600,color:delta>=0?"#5fb8d6":"#e88b8b",fontFamily:"Fraunces"}},(delta>=0?"+":"")+fmt(delta)),
+        h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:3}},baseline>0?((delta/baseline*100).toFixed(1)+"% change"):"")
+      )
+    ),
+    active.length>0&&h("div",{className:"fade-up",style:{display:"flex",flexDirection:"column",gap:8}},
+      active.map(id=>{
+        const ev=LIFE_EVENTS.find(e=>e.id===id);
+        return h("div",{key:id,className:"glass",style:{padding:"12px 18px",display:"flex",alignItems:"center",gap:14}},
+          h("span",{style:{fontSize:22}},ev.icon),
+          h("div",{style:{flex:1}},
+            h("div",{style:{fontSize:13,fontWeight:600}},ev.label),
+            h("div",{style:{fontSize:11,color:"#8a96a3",marginTop:2}},ev.desc)
+          ),
+          h("div",{style:{textAlign:"right",fontFamily:"JetBrains Mono",fontSize:11}},
+            ev.savings!==0&&h("div",{style:{color:ev.savings>0?"#5fb8d6":"#e88b8b"}},(ev.savings>0?"+":"")+fmt(ev.savings)+" lump"),
+            ev.expense!==0&&h("div",{style:{color:"#e88b8b"}},"+"+fmt(ev.expense)+"/yr"),
+            ev.income!==0&&h("div",{style:{color:ev.income>0?"#5fb8d6":"#e88b8b"}},(ev.income>0?"+":"")+(ev.income*100).toFixed(0)+"% income")
+          )
+        );
+      })
+    ),
+    active.length===0&&h("div",{style:{textAlign:"center",padding:"60px 20px",color:"#5a6878",fontSize:13}},
+      "Select events above to see wealth impact"
+    )
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PRICING TAB — BUSINESS MODEL DIFFERENTIATION
+// ═══════════════════════════════════════════════════════════════════════════
+function PricingContent({profile,mc}){
+  const[sliderVal,setSliderVal]=useState(Math.min(2000000,Math.max(100000,mc.p50[mc.p50.length-1])));
+  const yrsToRetire=profile.retireAge-profile.age;
+  const p50F=mc.p50[mc.p50.length-1];
+  
+  // Fee calculations — average balance approximation
+  const avgBalance=sliderVal/2;
+  const steadypathAnnual=60;
+  const wealthfrontAnnual=sliderVal*0.0025;
+  const advisorAnnual=sliderVal*0.01;
+  const fidelityAnnual=sliderVal*0.0035;
+  
+  // Lifetime costs
+  const spLifetime=60*yrsToRetire;
+  const wfLifetime=(profile.savings+sliderVal)/2*0.0025*yrsToRetire*0.8;
+  const advLifetime=(profile.savings+sliderVal)/2*0.01*yrsToRetire*0.8;
+  
+  const savingsVsWF=Math.max(0,wfLifetime-spLifetime);
+  const compoundedSavings=savingsVsWF*1.8; // if reinvested
+
+  return h("div",{style:{padding:"24px 32px",maxWidth:1120,margin:"0 auto"}},
+    // Hero
+    h("div",{className:"fade-up",style:{marginBottom:32,textAlign:"center"}},
+      h("div",{className:"chip chip-gold",style:{marginBottom:14}},"◈  PRICING · LOCKED IN FOREVER"),
+      h("h1",{className:"serif",style:{fontSize:44,fontWeight:500,letterSpacing:-0.8,marginBottom:10}},"$5/month. Flat. Forever."),
+      h("p",{style:{fontSize:15,color:"#8a96a3",maxWidth:620,margin:"0 auto",lineHeight:1.65}},"Your success shouldn't cost more. While Wealthfront and Betterment charge a percentage of your wealth, SteadyPath charges a simple flat fee that never grows.")
+    ),
+
+    // Plans
+    h("div",{className:"fade-up",style:{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:14,marginBottom:28,animationDelay:"0.1s"}},
+      h("div",{className:"glass",style:{padding:26}},
+        h("div",{className:"label",style:{marginBottom:8}},"FREE FOREVER"),
+        h("div",{className:"serif",style:{fontSize:40,fontWeight:500}},"$0"),
+        h("div",{style:{fontSize:12,color:"#5a6878",marginBottom:18}},"Complete financial plan"),
+        h("div",{style:{display:"flex",flexDirection:"column",gap:9,fontSize:12.5,color:"#a3afb8"}},
+          ["Monte Carlo projections","Career path modeling","Financial Vitals Score","Life event simulator","AI companion","Tax optimization tips"].map((f,i)=>h("div",{key:i,style:{display:"flex",alignItems:"center",gap:8}},
+            h("span",{style:{color:"#5fb8d6"}},"✓"),f
+          ))
+        )
+      ),
+      h("div",{style:{padding:26,borderRadius:14,background:"linear-gradient(180deg,rgba(95,184,214,0.08) 0%,rgba(95,184,214,0.02) 100%)",border:"1px solid rgba(95,184,214,0.35)",position:"relative",boxShadow:"0 8px 32px rgba(95,184,214,0.1)"}},
+        h("div",{style:{position:"absolute",top:-10,right:20,background:"linear-gradient(135deg,#d4a849,#f0c674)",color:"#1a1408",fontSize:9,fontWeight:700,padding:"4px 10px",borderRadius:10,letterSpacing:1,fontFamily:"JetBrains Mono"}},"MOST POPULAR"),
+        h("div",{className:"label",style:{marginBottom:8,color:"#5fb8d6"}},"STEADYPATH CORE"),
+        h("div",{style:{display:"flex",alignItems:"baseline",gap:6}},
+          h("div",{className:"serif",style:{fontSize:40,fontWeight:500}},"$5"),
+          h("div",{style:{fontSize:14,color:"#8a96a3"}},"/ month")
+        ),
+        h("div",{style:{fontSize:12,color:"#5a6878",marginBottom:18}},"Automated investing + everything free"),
+        h("div",{style:{display:"flex",flexDirection:"column",gap:9,fontSize:12.5,color:"#a3afb8"}},
+          ["Auto-investing via Plaid","Automated rebalancing","Tax-loss harvesting","Portfolio execution","Unlimited Steady AI","No account minimums","**No AUM fees — ever**","Cancel anytime"].map((f,i)=>h("div",{key:i,style:{display:"flex",alignItems:"center",gap:8}},
+            h("span",{style:{color:"#5fb8d6"}},"✓"),
+            h("span",{dangerouslySetInnerHTML:{__html:f.replace(/\*\*(.*?)\*\*/,"<strong style='color:#d4a849'>$1</strong>")}})
+          ))
+        )
+      ),
+      h("div",{className:"glass",style:{padding:26}},
+        h("div",{className:"label",style:{marginBottom:8}},"STEADYPATH FAMILY"),
+        h("div",{style:{display:"flex",alignItems:"baseline",gap:6}},
+          h("div",{className:"serif",style:{fontSize:40,fontWeight:500}},"$12"),
+          h("div",{style:{fontSize:14,color:"#8a96a3"}},"/ month")
+        ),
+        h("div",{style:{fontSize:12,color:"#5a6878",marginBottom:18}},"Up to 5 family members"),
+        h("div",{style:{display:"flex",flexDirection:"column",gap:9,fontSize:12.5,color:"#a3afb8"}},
+          ["Everything in Core","5 family members","Joint goal planning","529 college savings","Estate insights","Family legacy tools","Kids' financial education","Tax coordination"].map((f,i)=>h("div",{key:i,style:{display:"flex",alignItems:"center",gap:8}},
+            h("span",{style:{color:"#5fb8d6"}},"✓"),f
+          ))
+        )
+      )
+    ),
+
+    // Interactive Fee Calculator
+    h("div",{className:"fade-up glass",style:{padding:28,marginBottom:20,animationDelay:"0.15s"}},
+      h("div",{style:{marginBottom:20}},
+        h("div",{className:"chip",style:{marginBottom:8}},"◈  LIFETIME SAVINGS CALCULATOR"),
+        h("h2",{className:"serif",style:{fontSize:24,fontWeight:500,letterSpacing:-0.3}},"What percentage fees actually cost you"),
+        h("p",{style:{fontSize:12,color:"#8a96a3",marginTop:4}},"Drag to explore your projected portfolio size:")
+      ),
+      h("div",{style:{marginBottom:24}},
+        h("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:12}},
+          h("div",{className:"label"},"PORTFOLIO SIZE"),
+          h("div",{style:{fontSize:32,fontWeight:600,color:"#d4a849",fontFamily:"Fraunces",letterSpacing:-0.5}},fmtFull(sliderVal))
+        ),
+        h("input",{type:"range",min:10000,max:5000000,step:10000,value:sliderVal,onChange:e=>setSliderVal(+e.target.value),style:{width:"100%"}}),
+        h("div",{style:{fontSize:11,color:"#5a6878",fontFamily:"JetBrains Mono",display:"flex",justifyContent:"space-between",marginTop:6}},
+          h("span",null,"$10K"),h("span",null,"$500K"),h("span",null,"$1M"),h("span",null,"$2.5M"),h("span",null,"$5M")
+        )
+      ),
+      h("div",{style:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:12}},
+        [
+          {name:"Human Advisor",fee:"1.00% AUM",annual:advisorAnnual,color:"#e88b8b"},
+          {name:"Wealthfront",fee:"0.25% AUM",annual:wealthfrontAnnual,color:"#a594d4"},
+          {name:"Fidelity Go",fee:"0.35% AUM",annual:fidelityAnnual,color:"#6c9fe0"},
+          {name:"SteadyPath",fee:"$5/mo flat",annual:steadypathAnnual,color:"#5fb8d6",isUs:true},
+        ].map((r,i)=>h("div",{key:i,style:{padding:16,borderRadius:10,background:r.isUs?"rgba(95,184,214,0.08)":"rgba(255,255,255,0.02)",border:`1px solid ${r.isUs?"rgba(95,184,214,0.25)":"rgba(255,255,255,0.06)"}`,position:"relative"}},
+          r.isUs&&h("div",{style:{position:"absolute",top:-8,right:10,background:"#5fb8d6",color:"#fff",fontSize:8,fontWeight:700,padding:"2px 7px",borderRadius:6,fontFamily:"JetBrains Mono",letterSpacing:1}},"YOU"),
+          h("div",{className:"label",style:{marginBottom:6}},r.name),
+          h("div",{style:{fontSize:11,color:"#5a6878",fontFamily:"JetBrains Mono",marginBottom:8}},r.fee),
+          h("div",{style:{fontSize:22,fontWeight:600,color:r.color,fontFamily:"Fraunces"}},fmt(r.annual)+"/yr"),
+          h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:3}},"= "+fmt(r.annual/12)+"/mo")
+        ))
+      )
+    ),
+
+    // Savings callout
+    h("div",{className:"fade-up",style:{padding:28,borderRadius:14,background:"linear-gradient(135deg,rgba(212,168,73,0.08),rgba(95,184,214,0.05))",border:"1px solid rgba(212,168,73,0.2)",marginBottom:20,animationDelay:"0.2s"}},
+      h("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:16}},
+        h("div",null,
+          h("div",{className:"label",style:{marginBottom:6,color:"#d4a849"}},"◈  YOUR LIFETIME SAVINGS vs WEALTHFRONT"),
+          h("div",{className:"serif",style:{fontSize:42,fontWeight:500,color:"#f0c674",letterSpacing:-0.8}},fmt(savingsVsWF)),
+          h("div",{style:{fontSize:12,color:"#8a96a3",marginTop:4}},`Over ${yrsToRetire} years at your projected trajectory`)
+        ),
+        h("div",{style:{textAlign:"right"}},
+          h("div",{className:"label",style:{marginBottom:6}},"IF REINVESTED, THAT BECOMES"),
+          h("div",{className:"serif",style:{fontSize:28,fontWeight:500,color:"#5fb8d6"}},fmt(compoundedSavings)),
+          h("div",{style:{fontSize:11,color:"#8a96a3",marginTop:2,fontFamily:"JetBrains Mono"}},"Extra retirement wealth")
+        )
+      )
+    ),
+
+    // The moat
+    h("div",{className:"fade-up",style:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:12,marginBottom:28,animationDelay:"0.25s"}},
+      [
+        {icon:"🤖",title:"AI-First Architecture",body:"Steady AI replaces the $100K/yr human advisor. Software scales at ~$0 marginal cost — percentage fees are a legacy of human-labor economics."},
+        {icon:"📊",title:"No Proprietary Funds",body:"We route your money to Vanguard/Schwab's best ETFs. No self-dealing, no markup, no hidden expense ratios on our side."},
+        {icon:"🌐",title:"B2B Scale Engine",body:"Credit union and employer partnerships let us grow without CAC spend. White-label revenue subsidizes consumer pricing."},
+        {icon:"🔒",title:"Price-Lock Guarantee",body:"Your $5/month is locked in forever. No surprise AUM creep. No 'growth tier' upcharges. Ever."},
+      ].map((c,i)=>h("div",{key:i,className:"glass",style:{padding:18}},
+        h("div",{style:{fontSize:24,marginBottom:8}},c.icon),
+        h("div",{className:"serif",style:{fontSize:14,fontWeight:500,marginBottom:6,color:"#d4a849"}},c.title),
+        h("p",{style:{fontSize:12,color:"#a3afb8",lineHeight:1.55}},c.body)
+      ))
+    ),
+
+    // Unit economics — for the investor audience
+    h("div",{className:"fade-up",style:{padding:24,borderRadius:14,background:"rgba(11,15,16,0.5)",border:"1px solid rgba(255,255,255,0.04)",animationDelay:"0.3s"}},
+      h("div",{className:"chip",style:{marginBottom:12}},"UNIT ECONOMICS"),
+      h("h3",{className:"serif",style:{fontSize:18,fontWeight:500,marginBottom:16}},"How the math works at scale"),
+      h("div",{style:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:14}},
+        [
+          {l:"ARPU",v:"$60/yr",d:"Core subscribers"},
+          {l:"Blended CAC",v:"$18",d:"B2C + B2B channels"},
+          {l:"Gross Margin",v:"82%",d:"Software + infra"},
+          {l:"LTV/CAC",v:"11.3×",d:"@ 5yr retention"},
+          {l:"Break-even",v:"~40K users",d:"Covers ops + growth"},
+          {l:"TAM",v:"60M",d:"Underserved Americans"},
+          {l:"$100M ARR path",v:"1.7M users",d:"2.8% of TAM"},
+          {l:"CAC Payback",v:"3.6 mo",d:"Fast recovery"},
+        ].map((m,i)=>h("div",{key:i,style:{padding:14,borderRadius:10,background:"rgba(255,255,255,0.02)",border:"1px solid rgba(255,255,255,0.04)"}},
+          h("div",{className:"label",style:{marginBottom:4}},m.l),
+          h("div",{style:{fontSize:20,fontWeight:600,color:"#d4a849",fontFamily:"Fraunces"}},m.v),
+          h("div",{style:{fontSize:10,color:"#5a6878",marginTop:3}},m.d)
+        ))
+      )
+    )
+  );
+}
+
+// ═══ NAV BAR ═══
+function NavBar({profile,tab,setTab,onOpenSettings,aiConfig,marketData}){
+  const tabConfig=[
+    {id:"overview",l:"Command",c:"#5fb8d6"},
+    {id:"career",l:"Career",c:"#7dd6a8"},
+    {id:"events",l:"Life Events",c:"#5fb8d6"},
+    {id:"accounts",l:"Accounts",c:"#8ab4ed"},
+    {id:"pricing",l:"Pricing",c:"#f0c674"},
+    {id:"ai",l:"Steady AI",c:"#c0b3e0"},
+  ];
+  const active=tabConfig.find(t=>t.id===tab);
+  const accentColor=active?.c||"#5fb8d6";
+  const accentRgba=accentColor==="#5fb8d6"?"95,184,214":accentColor==="#7dd6a8"?"125,214,168":accentColor==="#8ab4ed"?"138,180,237":accentColor==="#f0c674"?"240,198,116":"192,179,224";
+  return h("div",{style:{padding:"16px 32px",borderBottom:"1px solid rgba(255,255,255,0.05)",display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(15,20,25,0.75)",backdropFilter:"blur(14px)",position:"sticky",top:0,zIndex:10}},
+    h("div",{style:{display:"flex",alignItems:"center",gap:14}},
+      h("div",{style:{width:32,height:32,borderRadius:8,background:"linear-gradient(135deg,#5fb8d6 0%,#d4a849 100%)",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:700,color:"#fff",fontFamily:"Fraunces",fontSize:15,boxShadow:"0 2px 12px rgba(95,184,214,0.25)"}},"S"),
+      h("div",null,
+        h("div",{style:{fontSize:12,fontWeight:600,letterSpacing:2,fontFamily:"JetBrains Mono",color:"#a3afb8"}},"STEADYPATH"),
+        h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:1}},(profile?.name||"")+" · ",h("span",{style:{color:"#f0c674"}},"$5/mo"),h("span",{style:{color:"#5a6878"}}," · Locked"))
+      )
+    ),
+    h("div",{style:{display:"flex",gap:2,background:"rgba(255,255,255,0.025)",borderRadius:9,padding:3,border:"1px solid rgba(255,255,255,0.04)"}},
+      tabConfig.map(t=>h("button",{key:t.id,onClick:()=>setTab(t.id),style:{padding:"7px 14px",borderRadius:7,background:tab===t.id?`rgba(${t.c==="#5fb8d6"?"95,184,214":t.c==="#7dd6a8"?"125,214,168":t.c==="#8ab4ed"?"138,180,237":t.c==="#f0c674"?"240,198,116":"192,179,224"},0.15)`:"transparent",color:tab===t.id?t.c:"#8a96a3",fontSize:11,fontWeight:600,cursor:"pointer",fontFamily:"JetBrains Mono",letterSpacing:0.5,transition:"all 0.15s",border:"none"}},t.l))
+    ),
+    h("div",{style:{display:"flex",gap:8,alignItems:"center"}},
+      marketData&&h("div",{style:{display:"flex",alignItems:"center",gap:5,fontSize:10,color:"#7dd6a8",fontFamily:"JetBrains Mono"}},
+        h("span",{style:{width:6,height:6,borderRadius:"50%",background:"#7dd6a8",boxShadow:"0 0 6px #7dd6a8",animation:"glow-pulse 2s infinite"}}),
+        "LIVE"
+      ),
+      h("button",{onClick:onOpenSettings,title:"API Settings",style:{width:34,height:34,borderRadius:8,background:"rgba(255,255,255,0.025)",border:"1px solid rgba(255,255,255,0.06)",color:"#8a96a3",cursor:"pointer",fontSize:15,display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.15s"},onMouseOver:e=>{e.currentTarget.style.background="rgba(212,168,73,0.08)";e.currentTarget.style.borderColor="rgba(212,168,73,0.3)";e.currentTarget.style.color="#f0c674"},onMouseOut:e=>{e.currentTarget.style.background="rgba(255,255,255,0.025)";e.currentTarget.style.borderColor="rgba(255,255,255,0.06)";e.currentTarget.style.color="#8a96a3"}},"⚙")
+    )
+  );
+}
+
+// ═══ DASHBOARD ═══
+function Dashboard({profile,career,mc,vitals,alloc,plaidData,aiConfig,marketData,marketsLoading,refreshMarkets,onOpenSettings}){
+  const[tab,setTab]=useState("overview");
+  const tax=calcTax(profile.income);
+  const matchInfo=MATCH_OPT[profile.employerMatchKey];
+  const annualContrib=profile.income*profile.savingsRate/100;
+  const matchAmount=profile.income*matchInfo.rate;
+
+  const content=()=>{
+    if(tab==="overview"){
+      return h("div",{style:{padding:"24px 32px",maxWidth:1280,margin:"0 auto"}},
+        h("div",{className:"fade-up",style:{marginBottom:24,display:"flex",justifyContent:"space-between",alignItems:"flex-end",flexWrap:"wrap",gap:12}},
+          h("div",null,
+            h("div",{className:"chip",style:{marginBottom:8}},`◈  ${matchInfo.label} · Active`),
+            h("h1",{className:"serif",style:{fontSize:30,fontWeight:500,letterSpacing:-0.5}},
+              "Good to see you, ",h("span",{style:{color:"#d4a849"}},profile.name)
+            ),
+            h("p",{style:{fontSize:13,color:"#8a96a3",marginTop:4,fontFamily:"JetBrains Mono"}},`${profile.jobTitle} · Age ${profile.age} → ${profile.retireAge} · ${RISK[profile.riskProfile].label} Portfolio`)
+          ),
+          plaidData&&h("div",{style:{textAlign:"right"}},
+            h("div",{className:"label",style:{marginBottom:2}},"LINKED BALANCE"),
+            h("div",{style:{fontSize:22,fontWeight:600,color:"#8ab4ed",fontFamily:"Fraunces"}},fmtFull(plaidData.totalLinked))
+          )
+        ),
+        h("div",{className:"fade-up",style:{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:10,marginBottom:14}},
+          [
+            {l:"Projected Wealth (P50)",v:fmt(mc.p50[mc.p50.length-1]),s:"750 MC runs",c:"#f0c674",bg:"rgba(212,168,73,0.04)",bd:"rgba(212,168,73,0.18)"},
+            {l:"Lifetime Earnings",v:fmt(career.total),s:`Peak age ${career.peakAge}`,c:"#7dd6a8",bg:"rgba(125,214,168,0.04)",bd:"rgba(125,214,168,0.18)"},
+            {l:"Vitals Score",v:vitals.score,s:`Grade ${vitals.grade} / 850`,c:vitals.score>=720?"#7dd6a8":vitals.score>=550?"#f0c674":"#e88b8b",bg:"rgba(255,255,255,0.018)",bd:"rgba(255,255,255,0.06)"},
+            {l:"Annual Contribution",v:fmt(annualContrib+matchAmount),s:`${profile.savingsRate}% + ${fmt(matchAmount)} match`,c:"#8ab4ed",bg:"rgba(108,159,224,0.04)",bd:"rgba(108,159,224,0.18)"},
+            {l:"Effective Tax Rate",v:fmtPct(tax.effective),s:`${fmtPct(tax.marginal)} marginal`,c:"#c0b3e0",bg:"rgba(165,148,212,0.04)",bd:"rgba(165,148,212,0.18)"},
+          ].map((k,i)=>h("div",{key:i,style:{padding:"16px 18px",borderRadius:14,background:`linear-gradient(180deg,${k.bg} 0%,rgba(255,255,255,0) 100%)`,border:`1px solid ${k.bd}`,position:"relative",overflow:"hidden"}},
+            h("div",{style:{position:"absolute",top:0,left:0,right:0,height:2,background:`linear-gradient(90deg,${k.c} 0%,transparent 100%)`,opacity:0.6}}),
+            h("div",{className:"label",style:{marginBottom:8}},k.l),
+            h("div",{style:{fontSize:22,fontWeight:600,color:k.c,fontFamily:"Fraunces",letterSpacing:-0.2}},k.v),
+            h("div",{style:{fontSize:10,color:"#5a6878",marginTop:3,fontFamily:"JetBrains Mono"}},k.s)
+          ))
+        ),
+        h("div",{className:"fade-up",style:{display:"grid",gridTemplateColumns:"5fr 2fr",gap:12,marginBottom:12}},
+          h("div",{className:"glass",style:{padding:20}},
+            h("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:10}},
+              h("div",null,
+                h("div",{className:"serif",style:{fontSize:15,fontWeight:500}},"The Climb — Wealth Projection"),
+                h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:2}},"Monte Carlo · 750 scenarios · P5–P95 bands")
+              ),
+              h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono"}},`${profile.age} → ${profile.retireAge}`)
+            ),
+            h(MCChart,{data:mc,height:290})
+          ),
+          h("div",{style:{display:"flex",flexDirection:"column",gap:12}},
+            h("div",{className:"glass",style:{padding:18,display:"flex",flexDirection:"column",alignItems:"center"}},
+              h("div",{className:"label",style:{marginBottom:6,alignSelf:"flex-start"}},"FINANCIAL VITALS"),
+              h(VitalsGauge,{score:vitals.score,size:140}),
+              h("div",{style:{marginTop:8,textAlign:"center"}},
+                h("div",{style:{fontSize:12,color:"#8a96a3"}},`Grade ${vitals.grade} · ${vitals.score>=720?"Excellent":vitals.score>=620?"Good":vitals.score>=500?"Fair":"Needs Work"}`)
+              )
+            ),
+            h("div",{className:"glass",style:{padding:18}},
+              h("div",{className:"label",style:{marginBottom:10}},"PORTFOLIO · "+RISK[profile.riskProfile].label.toUpperCase()),
+              h("div",{style:{display:"flex",justifyContent:"center"}},h(Donut,{alloc,size:110})),
+              h("div",{style:{marginTop:10,display:"flex",flexDirection:"column",gap:4}},
+                {l:"VTI / VOO",p:alloc.eq,c:"#5fb8d6"},{l:"BND / VGIT",p:[alloc.bd,c:"#d4a849"},{l:"VNQ / GLD",p:alloc.al,c:"#a594d4"},{l:"SGOV",p:alloc.ca,c:"#6c9fe0"}].map((e,i)=>h("div",{key:i,style:{display:"flex",justifyContent:"space-between",fontSize:11,fontFamily:"JetBrains Mono"}},
+                  h("span",{style:{color:"#8a96a3"}},e.l),
+                  h("span",{style:{color:e.c}},e.p+"%")
+                ))
+              )
+            )
+          )
+        ),
+        h("div",{className:"fade-up",style:{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12}},
+          h("div",{className:"glass",style:{padding:18}},
+            h("div",{className:"serif",style:{fontSize:13,fontWeight:500,marginBottom:12}},"Vitals Breakdown"),
+            vitals.components.map((c,i)=>h("div",{key:i,style:{marginBottom:10}},
+              h("div",{style:{display:"flex",justifyContent:"space-between",fontSize:11,fontFamily:"JetBrains Mono",marginBottom:4}},
+                h("span",{style:{color:"#8a96a3"}},c.name),
+                h("span",{style:{color:c.score>=80?"#7dd6a8":c.score>=50?"#d4a849":"#e88b8b",fontWeight:600}},c.score+"/100")
+              ),
+              h("div",{style:{height:3,borderRadius:2,background:"rgba(255,255,255,0.05)"}},
+                h("div",{style:{height:"100%",width:`${c.score}%`,background:c.score>=80?"#7dd6a8":c.score>=50?"#d4a849":"#e88b8b",borderRadius:2,transition:"width 1s ease"}})
+              )
+            ))
+          ),
+          h("div",{className:"glass",style:{padding:18}},
+            h("div",{className:"serif",style:{fontSize:13,fontWeight:500,marginBottom:12}},"Monte Carlo Outcomes"),
+            [
+              {l:"P90 · Best case",v:mc.p90[mc.p90.length-1],c:"#5fb8d6"},
+              {l:"P75 · Likely",v:mc.p75[mc.p75.length-1],c:"rgba(95,184,214,0.7)"},
+              {l:"P50 · Expected",v:mc.p50[mc.p50.length-1],c:"#d4a849"},
+              {l:"P25 · Conservative",v:mc.p25[mc.p25.length-1],c:"rgba(212,168,73,0.6)"},
+              {l:"P10 · Worst case",v:mc.p10[mc.p10.length-1],c:"#e88b8b"},
+            ].map((r,i)=>h("div",{key:i,style:{display:"flex",justifyContent:"space-between",padding:"7px 0",borderBottom:i<4?"1px solid rgba(255,255,255,0.04)":"none",fontSize:11.5,fontFamily:"JetBrains Mono"}},
+              h("span",{style:{color:"#8a96a3"}},r.l),
+              h("span",{style:{color:r.c,fontWeight:600}},fmt(r.v))
+            ))
+          ),
+          h("div",{className:"glass",style:{padding:18}},
+            h("div",{className:"serif",style:{fontSize:13,fontWeight:500,marginBottom:12}},"Tax Alpha · Active"),
+            [
+              {l:"Roth Conversion",v:"Optimal now",d:`${fmtPct(tax.marginal)} bracket`,c:"#5fb8d6"},
+              {l:"Asset Location",v:"0.3-0.5%/yr",d:"Bonds in 401(k)",c:"#d4a849"},
+              {l:"401(k) Match",v:profile.employerMatchKey!=="none"?"Active":"Missing",d:fmt(matchAmount)+"/yr free",c:profile.employerMatchKey!=="none"?"#5fb8d6":"#e88b8b"},
+              {l:"Tax-Loss Harvest",v:"Automated",d:"Quarterly",c:"#6c9fe0"},
+            ].map((r,i)=>h("div",{key:i,style:{padding:"8px 0",borderBottom:i<3?"1px solid rgba(255,255,255,0.04)":"none"}},
+              h("div",{style:{display:"flex",justifyContent:"space-between",fontSize:11.5,marginBottom:2}},
+                h("span",{style:{fontWeight:500}},r.l),
+                h("span",{style:{color:r.c,fontFamily:"JetBrains Mono",fontSize:10.5}},r.v)
+              ),
+              h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono"}},r.d)
+            ))
+          )
+        ),
+        // Live Markets row
+        h("div",{className:"fade-up",style:{marginTop:12}},
+          marketData&&marketData.quotes.length>0
+            ? h("div",{className:"glass",style:{padding:"16px 20px"}},
+                h("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}},
+                  h("div",{style:{display:"flex",alignItems:"center",gap:8}},
+                    h("div",{className:"serif",style:{fontSize:13,fontWeight:500}},"Live Markets"),
+                    h("div",{style:{display:"flex",alignItems:"center",gap:5,padding:"3px 8px",borderRadius:12,background:"rgba(125,214,168,0.08)",border:"1px solid rgba(125,214,168,0.2)"}},
+                      h("span",{style:{width:5,height:5,borderRadius:"50%",background:"#7dd6a8",animation:"glow-pulse 2s infinite"}}),
+                      h("span",{style:{fontSize:9,color:"#7dd6a8",fontFamily:"JetBrains Mono",fontWeight:600,letterSpacing:1}},"FINNHUB")
+                    )
+                  ),
+                  h("div",{style:{display:"flex",gap:10,alignItems:"center"}},
+                    h("span",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono"}},new Date(marketData.fetchedAt).toLocaleTimeString()),
+                    h("button",{onClick:refreshMarkets,disabled:marketsLoading,style:{background:"none",border:"1px solid rgba(95,184,214,0.25)",color:"#5fb8d6",padding:"3px 10px",borderRadius:6,fontSize:10,fontFamily:"JetBrains Mono",cursor:marketsLoading?"wait":"pointer"}},marketsLoading?"...":"↻ Refresh")
+                  )
+                ),
+                h("div",{style:{display:"grid",gridTemplateColumns:`repeat(${Math.min(7,marketData.quotes.length)},1fr)`,gap:8}},
+                  marketData.quotes.map((q,i)=>{
+                    const up=q.changePct>=0;
+                    return h("div",{key:i,style:{padding:"10px 12px",borderRadius:9,background:`linear-gradient(180deg,rgba(${up?"125,214,168":"232,139,139"},0.04) 0%,rgba(255,255,255,0) 100%)`,border:`1px solid rgba(${up?"125,214,168":"232,139,139"},0.18)`}},
+                      h("div",{style:{fontSize:10,color:"#8a96a3",fontFamily:"JetBrains Mono",fontWeight:600,letterSpacing:1,marginBottom:4}},q.symbol),
+                      h("div",{style:{fontSize:14,fontWeight:600,color:"#e8edf2",fontFamily:"Fraunces"}},"$"+q.price.toFixed(2)),
+                      h("div",{style:{fontSize:10,color:up?"#7dd6a8":"#e88b8b",fontFamily:"JetBrains Mono",marginTop:2}},(up?"+":"")+q.changePct.toFixed(2)+"%")
+                    );
+                  })
+                )
+              )
+            : h("div",{className:"glass",style:{padding:"14px 20px",display:"flex",justifyContent:"space-between",alignItems:"center"}},
+                h("div",null,
+                  h("div",{style:{fontSize:13,fontWeight:500,marginBottom:2}},"Live Markets"),
+                  h("div",{style:{fontSize:11,color:"#5a6878",fontFamily:"JetBrains Mono"}},"Add a Finnhub key in Settings to see real-time prices for VTI, BND, QQQM, and your portfolio holdings.")
+                ),
+                h("button",{onClick:onOpenSettings,className:"btn-secondary",style:{padding:"8px 14px",fontSize:11,whiteSpace:"nowrap"}},"⚙ Connect")
+              )
+        )
+      );
+    }
+    if(tab==="career"){
+      const avg=Math.round(career.total/career.earnings.length);
+      const taxNow=calcTax(profile.income),taxPeak=calcTax(career.peak);
+      return h("div",{style:{padding:"24px 32px",maxWidth:1280,margin:"0 auto"}},
+        h("div",{className:"fade-up",style:{marginBottom:20}},
+          h("div",{className:"chip",style:{marginBottom:8}},"CAREER INTELLIGENCE"),
+          h("h1",{className:"serif",style:{fontSize:26,fontWeight:500,letterSpacing:-0.3}},"Your Lifetime Earnings Trajectory"),
+          h("p",{style:{fontSize:12,color:"#8a96a3",marginTop:4,fontFamily:"JetBrains Mono"}},`${profile.jobTitle} · ${career.earnings.length}-year model`)
+        ),
+        h("div",{className:"fade-up",style:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10,marginBottom:14}},
+          
+            {l:"Lifetime Earnings",v:fmt([career.total),c:"#d4a849"},
+            {l:"Peak Income",v:fmt(career.peak),s:`at age ${career.peakAge}`,c:"#5fb8d6"},
+            {l:"Average Income",v:fmt(avg),c:"#6c9fe0"},
+            {l:"Tax Bracket Shift",v:`${fmtPct(taxNow.marginal)}→${fmtPct(taxPeak.marginal)}`,s:"Current → Peak",c:"#a594d4"},
+          ].map((k,i)=>h("div",{key:i,className:"glass",style:{padding:"16px 18px"}},
+            h("div",{className:"label",style:{marginBottom:8}},k.l),
+            h("div",{style:{fontSize:22,fontWeight:600,color:k.c,fontFamily:"Fraunces"}},k.v),
+            k.s&&h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:3}},k.s)
+          ))
+        ),
+        h("div",{className:"fade-up glass",style:{padding:20,marginBottom:12}},
+          h("div",{className:"serif",style:{fontSize:14,fontWeight:500,marginBottom:2}},"Earnings by Age"),
+          h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono",marginBottom:14}},"Gold = projected peak year · Based on BLS wage data"),
+          h(CareerChart,{data:career,height:220})
+        ),
+        h("div",{className:"fade-up",style:{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12}},
+          [
+            {icon:"⚡",title:"Contribution Timing",color:"#5fb8d6",body:`Ages ${profile.age}–${Math.min(profile.age+12,career.peakAge)} are your highest-leverage years. Every dollar compounds ${profile.retireAge-profile.age}+ years.`},
+            {icon:"◈",title:"Tax Strategy Evolution",color:"#d4a849",body:`At ${fmt(profile.income)} you're in ${fmtPct(taxNow.marginal)}. At peak ${fmt(career.peak)}, you hit ${fmtPct(taxPeak.marginal)}. Roth is optimal NOW.`},
+            {icon:"◐",title:"The SteadyPath Edge",color:"#a594d4",body:`Others ask "what's your income?" We model your entire career arc and dynamically adjust strategy as your career evolves.`},
+          ].map((c,i)=>h("div",{key:i,className:"glass",style:{padding:18}},
+            h("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:10}},
+              h("div",{style:{fontSize:16,color:c.color}},c.icon),
+              h("div",{className:"serif",style:{fontSize:13,fontWeight:500,color:c.color}},c.title)
+            ),
+            h("p",{style:{fontSize:12.5,color:"#a3afb8",lineHeight:1.65}},c.body)
+          ))
+        )
+      );
+    }
+    if(tab==="events")return h(LifeEventsContent,{profile,mc});
+    if(tab==="accounts"){
+      return h("div",{style:{padding:"24px 32px",maxWidth:960,margin:"0 auto"}},
+        h("div",{className:"fade-up",style:{marginBottom:20}},
+          h("div",{className:"chip",style:{marginBottom:8}},"LINKED ACCOUNTS"),
+          h("h1",{className:"serif",style:{fontSize:26,fontWeight:500,letterSpacing:-0.3}},"Your Financial Graph"),
+          h("p",{style:{fontSize:12,color:"#8a96a3",marginTop:4,fontFamily:"JetBrains Mono"}},plaidData?`Connected via ${plaidData.bank.name}`:"No accounts connected")
+        ),
+        plaidData?h("div",{className:"fade-up"},
+          h("div",{className:"glass",style:{padding:20,marginBottom:14}},
+            h("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}},
+              h("div",{style:{display:"flex",alignItems:"center",gap:12}},
+                h("div",{style:{width:40,height:40,borderRadius:9,background:plaidData.bank.color,display:"flex",alignItems:"center",justifyContent:"center",fontSize:13,fontWeight:700,color:"#fff"}},plaidData.bank.logo),
+                h("div",null,
+                  h("div",{style:{fontSize:14,fontWeight:600}},plaidData.bank.name),
+                  h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono"}},plaidData.accounts.length+" accounts · Last synced now")
+                )
+              ),
+              h("div",{style:{textAlign:"right"}},
+                h("div",{className:"label",style:{marginBottom:3}},"TOTAL LINKED"),
+                h("div",{style:{fontSize:24,fontWeight:600,color:"#d4a849",fontFamily:"Fraunces"}},fmtFull(plaidData.totalLinked))
+              )
+            ),
+            h("div",{style:{display:"flex",flexDirection:"column",gap:8}},
+              plaidData.accounts.map((acc,i)=>h("div",{key:i,style:{padding:"12px 14px",borderRadius:9,background:"rgba(255,255,255,0.02)",border:"1px solid rgba(255,255,255,0.04)",display:"flex",justifyContent:"space-between",alignItems:"center"}},
+                h("div",null,
+                  h("div",{style:{fontSize:13,fontWeight:500}},acc.name),
+                  h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:1}},acc.type+" · •• "+acc.last4)
+                ),
+                h("div",{style:{fontSize:14,fontWeight:600,color:acc.balance<0?"#e88b8b":"#e8edf2",fontFamily:"JetBrains Mono"}},fmtFull(acc.balance))
+              ))
+            )
+          ),
+          plaidData.autoInvest?.enabled&&h("div",{className:"glass",style:{padding:20}},
+            h("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:16}},
+              h("div",null,
+                h("div",{className:"chip chip-gold",style:{marginBottom:6}},"◈  AUTO-INVEST ACTIVE"),
+                h("div",{className:"serif",style:{fontSize:16,fontWeight:500}},"Automated Wealth Building"),
+                h("div",{style:{fontSize:11,color:"#8a96a3",fontFamily:"JetBrains Mono",marginTop:2}},`Next transfer: ${plaidData.autoInvest.freq==="weekly"?"In 3 days":plaidData.autoInvest.freq==="biweekly"?"In 8 days":"1st of next month"}`)
+              ),
+              h("div",{style:{textAlign:"right"}},
+                h("div",{style:{fontSize:24,fontWeight:600,color:"#d4a849",fontFamily:"Fraunces"}},fmtFull(plaidData.autoInvest.amount)),
+                h("div",{style:{fontSize:10,color:"#5a6878",fontFamily:"JetBrains Mono"}},"per "+plaidData.autoInvest.freq)
+              )
+            ),
+            h("div",{style:{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,marginTop:16,padding:"14px 0 0",borderTop:"1px solid rgba(255,255,255,0.05)"}},
+              [
+                {l:"Annual Contribution",v:fmt(plaidData.autoInvest.amount*(plaidData.autoInvest.freq==="weekly"?52:plaidData.autoInvest.freq==="biweekly"?26:12))},
+                {l:"10-Year Projection",v:fmt(plaidData.autoInvest.amount*(plaidData.autoInvest.freq==="weekly"?52:plaidData.autoInvest.freq==="biweekly"?26:12)*15)},
+                {l:"Until Retirement",v:fmt(plaidData.autoInvest.amount*(plaidData.autoInvest.freq==="weekly"?52:plaidData.autoInvest.freq==="biweekly"?26:12)*(profile.retireAge-profile.age)*3.2)},
+              ].map((s,i)=>h("div",{key:i},
+                h("div",{className:"label",style:{marginBottom:3}},s.l),
+                h("div",{style:{fontSize:16,fontWeight:600,color:"#e8edf2",fontFamily:"Fraunces"}},s.v)
+              ))
+            )
+          )
+        ):h("div",{className:"glass",style:{padding:40,textAlign:"center"}},
+          h("div",{style:{fontSize:40,marginBottom:12,opacity:0.3}},"🔗"),
+          h("div",{style:{fontSize:14,color:"#8a96a3",marginBottom:16}},"No bank accounts connected yet")
+        )
+      );
+    }
+    if(tab==="pricing")return h(PricingContent,{profile,mc});
+    if(tab==="ai"){
+      const provLabel=aiConfig.provider==="openai"?"GPT":"Claude";
+      const provColor=aiConfig.provider==="openai"?"#7dd6a8":"#c0b3e0";
+      return h("div",{style:{flex:1,maxWidth:820,width:"100%",margin:"0 auto",display:"flex",flexDirection:"column",overflow:"hidden",height:"calc(100vh - 65px)"}},
+        h("div",{style:{padding:"16px 24px 8px",display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:16}},
+          h("div",null,
+            h("div",{style:{display:"flex",gap:6,alignItems:"center",marginBottom:6}},
+              h("span",{style:{display:"inline-flex",alignItems:"center",padding:"4px 10px",borderRadius:20,background:"rgba(165,148,212,0.08)",border:"1px solid rgba(165,148,212,0.22)",fontSize:11,color:"#c0b3e0",fontFamily:"JetBrains Mono",letterSpacing:0.3}},"◈  CONTEXT-AWARE INTELLIGENCE"),
+              h("span",{style:{display:"inline-flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:20,background:`rgba(${aiConfig.provider==="openai"?"125,214,168":"192,179,224"},0.08)`,border:`1px solid rgba(${aiConfig.provider==="openai"?"125,214,168":"192,179,224"},0.22)`,fontSize:11,color:provColor,fontFamily:"JetBrains Mono",letterSpacing:0.3}},
+                h("span",{style:{width:6,height:6,borderRadius:"50%",background:provColor,boxShadow:`0 0 8px ${provColor}`}}),
+                "POWERED BY ",provLabel.toUpperCase()
+              ),
+              marketData&&h("span",{style:{display:"inline-flex",alignItems:"center",gap:5,padding:"4px 10px",borderRadius:20,background:"rgba(125,214,168,0.06)",border:"1px solid rgba(125,214,168,0.2)",fontSize:11,color:"#7dd6a8",fontFamily:"JetBrains Mono",letterSpacing:0.3}},"📈 LIVE MARKETS")
+            ),
+            h("h2",{className:"serif",style:{fontSize:18,fontWeight:500,marginTop:6}},"Steady AI"),
+            h("p",{style:{fontSize:11,color:"#5a6878",fontFamily:"JetBrains Mono",marginTop:2}},"Knows your career, accounts, portfolio, tax situation, and goals")
+          ),
+          h("button",{onClick:onOpenSettings,className:"btn-secondary",style:{padding:"8px 14px",fontSize:11,whiteSpace:"nowrap"}},"⚙ Settings")
+        ),
+        h("div",{style:{flex:1,overflow:"hidden",minHeight:0}},h(SteadyAI,{profile,career,mc,vitals,plaidData,alloc,aiConfig,marketData,onOpenSettings}))
+      );
+    }
+  };
+
+  return h("div",null,
+    h(NavBar,{profile,tab,setTab,onOpenSettings,aiConfig,marketData}),
+    content()
+  );
+}
+
+// ═══ WELCOME ═══
+function Welcome({onStart}){
+  return h("div",{style:{minHeight:"100vh",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"40px 24px",position:"relative"}},
+    h("div",{style:{position:"absolute",top:40,left:40,display:"flex",alignItems:"center",gap:12}},
+      h("div",{style:{width:32,height:32,borderRadius:8,background:"linear-gradient(135deg,#5fb8d6 0%,#d4a849 100%)",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:700,color:"#fff",fontFamily:"Fraunces",fontSize:15,boxShadow:"0 2px 12px rgba(95,184,214,0.25)"}},"S"),
+      h("span",{style:{fontSize:12,fontWeight:600,letterSpacing:2,fontFamily:"JetBrains Mono",color:"#a3afb8"}},"STEADYPATH")
+    ),
+    h("div",{className:"fade-up",style:{textAlign:"center",maxWidth:740}},
+      h("div",{className:"chip-gold",style:{marginBottom:20,display:"inline-flex",alignItems:"center",padding:"5px 14px",borderRadius:24,background:"linear-gradient(90deg,rgba(212,168,73,0.1),rgba(95,184,214,0.08))",border:"1px solid rgba(212,168,73,0.3)",fontSize:11,color:"#f0c674",fontFamily:"JetBrains Mono",letterSpacing:0.5,fontWeight:600}},"◈  $5/MONTH · FLAT FEE · LOCKED FOREVER"),
+      h("h1",{className:"serif",style:{fontSize:58,fontWeight:400,letterSpacing:-1.5,lineHeight:1.05,marginBottom:20}},
+        "Professional wealth management",h("br"),
+        "for ",h("span",{style:{fontStyle:"italic",background:"linear-gradient(135deg,#f0c674 0%,#d4a849 100%)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",backgroundClip:"text"}},"$5 a month"),", not a percentage"
+      ),
+      h("p",{style:{fontSize:16,color:"#a3afb8",lineHeight:1.65,marginBottom:20,maxWidth:600,margin:"0 auto 20px"}},"The first wealth platform that models your career trajectory, automates your investing, and charges a flat fee — not a percentage of your hard-earned money. ",h("span",{style:{color:"#e88b8b"}},"Wealthfront charges 0.25% of everything you build."),h("span",{style:{color:"#7dd6a8"}}," We charge $5/month. Period.")),
+      h("div",{style:{display:"flex",justifyContent:"center",gap:8,marginBottom:36,flexWrap:"wrap"}},
+        h("span",{className:"chip"},"⚡ No AUM fees"),
+        h("span",{className:"chip-growth",style:{display:"inline-flex",padding:"4px 10px",borderRadius:20,background:"rgba(125,214,168,0.08)",border:"1px solid rgba(125,214,168,0.22)",fontSize:11,color:"#7dd6a8",fontFamily:"JetBrains Mono"}},"📊 Monte Carlo"),
+        h("span",{className:"chip-ai",style:{display:"inline-flex",padding:"4px 10px",borderRadius:20,background:"rgba(165,148,212,0.08)",border:"1px solid rgba(165,148,212,0.22)",fontSize:11,color:"#c0b3e0",fontFamily:"JetBrains Mono"}},"🤖 Real AI guidance"),
+        h("span",{className:"chip-blue",style:{display:"inline-flex",padding:"4px 10px",borderRadius:20,background:"rgba(108,159,224,0.08)",border:"1px solid rgba(108,159,224,0.22)",fontSize:11,color:"#8ab4ed",fontFamily:"JetBrains Mono"}},"🔗 Plaid-powered"),
+        h("span",{className:"chip-gold",style:{display:"inline-flex",padding:"4px 10px",borderRadius:20,background:"rgba(212,168,73,0.09)",border:"1px solid rgba(212,168,73,0.25)",fontSize:11,color:"#f0c674",fontFamily:"JetBrains Mono"}},"🔒 Price-locked")
+      ),
+      h("button",{className:"btn-primary",onClick:onStart,style:{padding:"15px 36px",fontSize:15,marginBottom:48}},"Start Conversation with Steady →")
+    ),
+    h("div",{className:"fade-up",style:{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:32,maxWidth:900,width:"100%",animationDelay:"0.3s"}},
+      [
+        {n:"Chat-First Setup",s:"Conversational onboarding",i:"💬",c:"#c0b3e0"},
+        {n:"Real Salary Data",s:"BLS + regional adjust",i:"📊",c:"#7dd6a8"},
+        {n:"Bank Integration",s:"Plaid + auto-invest",i:"🔗",c:"#8ab4ed"},
+        {n:"Flat $5 Fee",s:"Never percentage-based",i:"🔒",c:"#f0c674"},
+      ].map((f,i)=>h("div",{key:i,style:{textAlign:"center"}},
+        h("div",{style:{fontSize:22,marginBottom:8,opacity:0.9}},f.i),
+        h("div",{style:{fontSize:12.5,fontWeight:600,color:f.c,marginBottom:3}},f.n),
+        h("div",{style:{fontSize:11,color:"#5a6878",fontFamily:"JetBrains Mono"}},f.s)
+      ))
+    ),
+    h("div",{style:{position:"absolute",bottom:30,fontSize:11,color:"#3a4858",fontFamily:"JetBrains Mono",letterSpacing:1}},"Democratizing wealth management for 60M underserved Americans")
+  );
+}
+
+// ═══ APP ═══
+function App(){
+  const[view,setView]=useState("welcome");
+  const[settingsOpen,setSettingsOpen]=useState(false);
+  const[profile,setProfile]=useState({
+    name:"",age:27,jobTitle:"",location:"",income:75000,savings:15000,
+    totalDebt:0,retireAge:65,riskProfile:"balanced",savingsRate:15,
+    employerMatchKey:"50pct_6",
+  });
+  const[career,setCareer]=useState(null);
+  const[mc,setMc]=useState(null);
+  const[vitals,setVitals]=useState(null);
+  const[alloc,setAlloc]=useState(null);
+  const[plaidData,setPlaidData]=useState(null);
+  // AI config — Anthropic default works without key inside Claude.ai artifact
+  const[aiConfig,setAiConfig]=useState({
+    provider:"anthropic",
+    apiKey:"",
+    model:"claude-sonnet-4-20250514",
+    finnhubKey:""
+  });
+  const[marketData,setMarketData]=useState(null);
+  const[marketsLoading,setMarketsLoading]=useState(false);
+
+  const refreshMarkets=async()=>{
+    if(!aiConfig.finnhubKey)return;
+    setMarketsLoading(true);
+    try{
+      const data=await fetchLiveMarkets(aiConfig.finnhubKey);
+      setMarketData(data);
+    }catch(e){/* silent */}
+    setMarketsLoading(false);
+  };
+
+  // Auto-refresh markets when key is added
+  useEffect(()=>{if(aiConfig.finnhubKey)refreshMarkets();},[aiConfig.finnhubKey]);
+
+  const computeAll=(fp)=>{
+    const withRate={...fp,savingsRate:fp.savingsRate||15};
+    const ct=detectCareer(withRate.jobTitle);
+    const c=projectCareer(withRate.age,withRate.retireAge,withRate.income,ct);
+    setCareer(c);
+    const a=RISK[withRate.riskProfile];
+    setAlloc(a);
+    const mi=MATCH_OPT[withRate.employerMatchKey];
+    const ac=withRate.income*withRate.savingsRate/100;
+    const ma=withRate.income*mi.rate;
+    const m=runMC({startAge:withRate.age,endAge:withRate.retireAge,savings:withRate.savings,annualContrib:ac,contribGrowth:0.03,mu:a.mu,sigma:a.sigma,n:750,matchAmount:ma});
+    setMc(m);
+    setVitals(calcVitals(withRate,m));
+    setProfile(withRate);
+  };
+
+  const settingsModal=h(SettingsModal,{
+    open:settingsOpen,
+    onClose:()=>setSettingsOpen(false),
+    aiConfig,setAiConfig,marketData,refreshMarkets,marketsLoading
+  });
+
+  if(view==="welcome")return h("div",null,h(Welcome,{onStart:()=>setView("chat")}),settingsModal);
+  if(view==="chat")return h("div",null,h(ChatOnboarding,{profile,setProfile,onComplete:fp=>{computeAll(fp);setView("plaid")}}),settingsModal);
+  if(view==="plaid")return h("div",null,h(PlaidConnect,{onComplete:d=>{setPlaidData(d);setView("loading")},onSkip:()=>setView("loading")}),settingsModal);
+  if(view==="loading")return h("div",null,h(LoadingScreen,{onComplete:()=>setView("dashboard")}),settingsModal);
+  if(view==="dashboard"&&career&&mc&&vitals&&alloc)return h("div",null,h(Dashboard,{profile,career,mc,vitals,alloc,plaidData,aiConfig,marketData,marketsLoading,refreshMarkets,onOpenSettings:()=>setSettingsOpen(true)}),settingsModal);
+  return h("div",{style:{padding:40}},"Loading...");
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+name: Daily arbitrage scan
+
+# Runs once a day and pushes a notification of any cross-book price gaps.
+# Configure the secrets below in: Settings -> Secrets and variables -> Actions.
+on:
+  schedule:
+    - cron: "0 13 * * *"   # 13:00 UTC daily — adjust to taste
+  workflow_dispatch:        # allow manual runs from the Actions tab
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: arbitrage-scanner
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run scanner and notify
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          ODDS_REGIONS: ${{ vars.ODDS_REGIONS }}
+          ODDS_MARKETS: ${{ vars.ODDS_MARKETS }}
+          SPORT_KEYS: ${{ vars.SPORT_KEYS }}
+          BANKROLL: ${{ vars.BANKROLL }}
+          MIN_MARGIN: ${{ vars.MIN_MARGIN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python -m arb_scanner
+
+  # Keep the math honest on every push to the scanner.
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: arbitrage-scanner
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python tests/test_arbitrage.py

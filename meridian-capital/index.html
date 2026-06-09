@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Meridian Alpha Capital — Your fund. Our quant engine.</title>
-<meta name="description" content="Launch a fully structured systematic fund with institutional-grade multi-strategy infrastructure, a 15-year backtested track record, and your name on the door."/>
+<title>Meridian Alpha Capital — Absolute return, engineered.</title>
+<meta name="description" content="Meridian Alpha Capital is a systematic multi-strategy absolute-return fund — four uncorrelated return engines, risk-parity construction and a 15-year reproducible research record. For qualified investors."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -192,7 +192,11 @@
   .slider-row{margin-bottom:30px}
   .slider-row:last-child{margin-bottom:0}
   .slider-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;gap:12px}
-  .slider-head label{font-size:14px;font-weight:500;color:var(--text-dim)}
+  .slider-head label,.slider-head .lbl{font-size:14px;font-weight:500;color:var(--text-dim)}
+  .class-toggle{display:flex;gap:6px;background:rgba(255,255,255,.03);border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:5px}
+  .class-toggle button{flex:1;min-height:44px;padding:10px 12px;border-radius:7px;font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:13px;font-weight:500;color:var(--text-dim);border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
+  .class-toggle button:hover{color:var(--text)}
+  .class-toggle button[aria-pressed="true"]{background:rgba(201,163,92,.12);border-color:rgba(201,163,92,.4);color:var(--gold-bright)}
   .slider-head output{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:17px;font-weight:600;color:var(--gold-bright)}
   input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:rgba(255,255,255,.08);border-radius:2px;cursor:pointer}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--gold-bright);cursor:pointer;box-shadow:0 0 0 5px rgba(201,163,92,.18);border:2px solid #1c1305}
@@ -244,14 +248,15 @@
     </a>
     <nav aria-label="Primary">
       <ul class="nav-links">
-        <li><a href="#platform">Platform</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
         <li><a href="#strategies">Strategies</a></li>
         <li><a href="#performance">Performance</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#terms">Terms</a></li>
+        <li><a href="#subscribe">Subscribe</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-gold btn-sm" href="dashboard.html">Open Analytics <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn-gold btn-sm" href="dashboard.html">Analytics Suite <span class="arr" aria-hidden="true">→</span></a>
     </div>
   </div>
 </header>
@@ -261,18 +266,18 @@
 <!-- ════════ HERO ════════ -->
 <section class="hero">
   <div class="container hero-inner">
-    <p class="eyebrow">Fund-as-a-Service · Institutional Grade</p>
-    <h1>Your fund. Our quant engine.<br/><em>Institutional track record</em> from day one.</h1>
-    <p class="hero-sub">Launch a fully structured systematic fund on Meridian's multi-strategy infrastructure — four uncorrelated sleeves, risk-parity construction, and fifteen years of audited backtest history behind your name.</p>
+    <p class="eyebrow">Systematic Multi-Strategy · Absolute Return</p>
+    <h1>Absolute return,<br/><em>engineered.</em></h1>
+    <p class="hero-sub">Meridian Alpha Capital is a systematic multi-strategy fund harvesting pricing discrepancies, trend and volatility premia across global markets — uncorrelated to equities (beta 0.07), built for the smoothest possible compounding path.</p>
 
     <form class="capture" id="captureForm" novalidate>
-      <label class="sr-only" for="captureEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Work email</label>
-      <input id="captureEmail" type="email" name="email" placeholder="you@familyoffice.com" autocomplete="email" required/>
+      <label class="sr-only" for="captureEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Institutional email</label>
+      <input id="captureEmail" type="email" name="email" placeholder="Institutional email" autocomplete="email" required/>
       <button class="btn btn-gold" type="submit">Request Allocation Deck</button>
     </form>
     <div class="capture-success" id="captureSuccess" role="status">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.1V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14l-3-3"/></svg>
-      Deck requested — our capital introduction team will reach out within one business day.
+      Deck requested — our investor relations team will reach out within one business day.
     </div>
     <p class="capture-msg" id="captureMsg" aria-live="polite"></p>
 
@@ -288,51 +293,52 @@
 <!-- ════════ TRUST STRIP ════════ -->
 <div class="trust">
   <div class="container trust-inner">
-    <span>Backtested over 15 years</span>
     <span>10,000-path Monte Carlo</span>
     <span>Risk-parity construction</span>
+    <span>1.5× gross leverage cap</span>
     <span>Daily risk monitoring</span>
+    <span>Reproducible research</span>
   </div>
 </div>
 
-<!-- ════════ PLATFORM ════════ -->
-<section class="section" id="platform">
+<!-- ════════ PHILOSOPHY ════════ -->
+<section class="section" id="philosophy">
   <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow">The Platform</p>
-      <h2>Everything a fund needs, pre-built</h2>
-      <p>From legal structure to live execution — the operational backbone of an institutional asset manager, delivered as a service.</p>
+      <p class="eyebrow">Philosophy</p>
+      <h2>Six principles. Zero exceptions.</h2>
+      <p>Every position, every risk limit and every figure on this page flows from the same codified investment process — applied without discretion, published without edits.</p>
     </div>
     <div class="grid-3">
       <div class="card reveal">
-        <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <h3>Audited Track Record</h3>
-        <p>A 15-year backtest built on point-in-time data, realistic transaction costs and out-of-sample validation. Full methodology documentation included for allocator due diligence.</p>
+        <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
+        <h3>Systematic Discipline</h3>
+        <p>Every position is generated, sized and exited by code. No discretionary overrides — the models that produced fifteen years of simulated history run the live book unchanged.</p>
       </div>
       <div class="card reveal">
-        <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Quant Research Team</h3>
-        <p>Our researchers maintain, retrain and stress-test every signal. You inherit a live research pipeline — not a static strategy frozen at launch.</p>
+        <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M6.6 6.6l3.6 3.6M17.4 6.6l-3.6 3.6M6.6 17.4l3.6-3.6M17.4 17.4l-3.6-3.6" opacity=".45"/></svg></div>
+        <h3>Uncorrelated Engines</h3>
+        <p>Four independent return streams — arbitrage, trend, mean reversion and volatility premia — blended so that portfolio correlation to equities sits near zero (beta 0.07).</p>
       </div>
       <div class="card reveal">
         <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
-        <h3>Compliance &amp; Structure</h3>
-        <p>Master-feeder or standalone vehicle, offering documents, fund administration and ongoing regulatory filings — handled by our counsel network from day zero.</p>
+        <h3>Risk Before Return</h3>
+        <p>A 10% portfolio volatility target, sleeve caps of 10–40%, and an automatic kill-switch that de-risks any sleeve breaching 2× its historical drawdown. Risk is budgeted first; return follows.</p>
       </div>
       <div class="card reveal">
-        <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r="2.5"/><path d="M19 11.3a8 8 0 1 0-9.8 9.5"/><path d="M14 14l7 3.5-3 1.5-1.5 3z"/></svg></div>
-        <h3>Your Brand</h3>
-        <p>Your name, your identity, your investor relationships. Meridian operates as your invisible engine — white-labeled portal, branded statements and pitch materials.</p>
+        <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Radical Transparency</h3>
+        <p>Every figure on this page is reproducible from our research engine — and the full analytics suite is public. Inspect the Monte Carlo, the drawdowns and the correlations yourself.</p>
       </div>
       <div class="card reveal">
-        <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 12.5h20"/></svg></div>
-        <h3>Broker &amp; Custody Setup</h3>
-        <p>Prime brokerage introductions, segregated custody accounts and execution connectivity — pre-negotiated institutional terms most emerging managers can't access alone.</p>
+        <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg></div>
+        <h3>Alignment</h3>
+        <p>The principals invest pari passu alongside every limited partner, and performance fees accrue only above a high-water mark. We eat our own cooking — same share class, same terms.</p>
       </div>
       <div class="card reveal">
-        <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 15.5l3-3.5 2.5 2.5L17 9"/><path d="M17 9h-3.5M17 9v3.5"/></svg></div>
-        <h3>Investor Portal</h3>
-        <p>A live LP portal with daily NAV, attribution by sleeve, drawdown monitoring and document delivery — the reporting experience allocators expect from a $1B shop.</p>
+        <div class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V10M9.7 21V10M14.3 21V10M19 21V10"/><path d="M3 10l9-6 9 6"/></svg></div>
+        <h3>Institutional Infrastructure</h3>
+        <p>Independent fund administrator, annual third-party audit and segregated custody. Counterparty, valuation and operational risk are handled to allocator due-diligence standards.</p>
       </div>
     </div>
   </div>
@@ -414,151 +420,154 @@
   </div>
 </section>
 
-<!-- ════════ TIMELINE ════════ -->
-<section class="section" id="launch" style="background:var(--bg-elev);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<!-- ════════ FUND TERMS ════════ -->
+<section class="section" id="terms">
   <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow">Time to Market</p>
-      <h2>Operational in 72 hours</h2>
-      <p>What takes emerging managers eighteen months and seven figures in setup costs, Meridian compresses into three days.</p>
-    </div>
-    <div class="timeline reveal">
-      <div class="step">
-        <div class="dot">D0</div>
-        <h3>Apply &amp; Structure</h3>
-        <p>Application review, suitability screening and selection of the fund vehicle that fits your jurisdiction and LP base.</p>
-      </div>
-      <div class="step">
-        <div class="dot">D1</div>
-        <h3>Brand + Strategy Selection</h3>
-        <p>Lock your identity, choose your sleeve mix or run the Flagship blend, and generate branded offering materials.</p>
-      </div>
-      <div class="step">
-        <div class="dot">D2</div>
-        <h3>Broker, Custody &amp; Compliance</h3>
-        <p>Prime accounts opened, custody segregated, compliance calendar live, execution connectivity certified.</p>
-      </div>
-      <div class="step">
-        <div class="dot">D3</div>
-        <h3>Live + Investor Portal</h3>
-        <p>Capital trades the systematic book; your LPs get portal access with daily NAV and full attribution.</p>
-      </div>
-    </div>
-    <div class="accel reveal">
-      <b>30-day accelerator:</b> after go-live, our capital introduction team runs a structured month of allocator outreach, deck refinement and mock due-diligence sessions with you.
-    </div>
-  </div>
-</section>
-
-<!-- ════════ PRICING ════════ -->
-<section class="section" id="pricing">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">Pricing</p>
-      <h2>Aligned economics, no surprises</h2>
-      <p>Flat platform fee plus a share of the performance fees you earn. We win only when your fund does.</p>
+      <p class="eyebrow">Fund Terms</p>
+      <h2>Three ways to allocate</h2>
+      <p>Aligned economics across every share class — high-water mark on performance fees, principals invested pari passu, no hidden charges.</p>
     </div>
     <div class="price-grid">
       <div class="price-card reveal">
-        <p class="tier">Founder</p>
-        <div class="amount mono">$2,900<small>/mo</small></div>
-        <p class="perf">+ 10% of performance-fee share</p>
+        <p class="tier">Founders Class</p>
+        <div class="amount mono">1.5<small>% mgmt</small> / 15<small>% perf</small></div>
+        <p class="perf">$250,000 minimum</p>
         <ul>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Flagship strategy, up to $10M AUM</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Standard fund structure &amp; administration</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>White-label investor portal</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Monthly risk &amp; attribution reporting</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Email support, 48h SLA</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Reduced fees for early limited partners</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>12-month soft lock on initial capital</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Quarterly liquidity thereafter</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>High-water mark on performance fees</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Closing to new capital at $100M</li>
         </ul>
-        <a class="btn btn-ghost" href="#top">Apply now</a>
+        <a class="btn btn-ghost" href="#subscribe">Request subscription documents</a>
       </div>
       <div class="price-card featured reveal">
-        <span class="pop-badge">MOST POPULAR</span>
-        <p class="tier">Manager</p>
-        <div class="amount mono">$5,900<small>/mo</small></div>
-        <p class="perf">+ 20% of performance-fee share</p>
+        <span class="pop-badge">OPEN</span>
+        <p class="tier">Standard Class</p>
+        <div class="amount mono">2<small>% mgmt</small> / 20<small>% perf</small></div>
+        <p class="perf">$1,000,000 minimum</p>
         <ul>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Custom sleeve weights, up to $75M AUM</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Master-feeder structure, offshore option</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Daily NAV, risk dashboard &amp; alerts</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Capital-introduction program access</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dedicated relationship manager</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Quarterly strategy committee seat</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Performance fee with high-water mark</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Quarterly liquidity, 45-day notice</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No lock-up on subscribed capital</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Monthly statements &amp; quarterly letters</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Real-time analytics portal access</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Independent admin, audit &amp; custody</li>
         </ul>
-        <a class="btn btn-gold" href="#top">Apply now</a>
+        <a class="btn btn-gold" href="#subscribe">Request subscription documents</a>
       </div>
       <div class="price-card reveal">
         <p class="tier">Institutional</p>
-        <div class="amount serif" style="font-family:var(--font-display);font-size:34px">Custom</div>
-        <p class="perf">Bespoke economics</p>
+        <div class="amount serif" style="font-family:var(--font-display);font-size:34px">$10M+</div>
+        <p class="perf">Negotiated fees</p>
         <ul>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Unlimited AUM, multi-vehicle support</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dedicated research &amp; custom signals</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Managed-account &amp; SMA infrastructure</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Fee schedule negotiated by mandate size</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Managed account / fund-of-one available</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Full position-level transparency feed</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Custom liquidity &amp; reporting terms</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>On-site operational due diligence support</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>24/7 desk coverage</li>
         </ul>
-        <a class="btn btn-ghost" href="#top">Talk to us</a>
+        <a class="btn btn-ghost" href="#subscribe">Request subscription documents</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════ CALCULATOR ════════ -->
+<!-- ════════ INVESTOR CALCULATOR ════════ -->
 <section class="section" id="calculator" style="padding-top:0">
   <div class="container">
     <div class="section-head reveal">
-      <p class="eyebrow">Manager Economics</p>
-      <h2>What could your fund earn?</h2>
-      <p>Estimated annual gross revenue at your fee schedule, assuming the Flagship's backtested return profile.</p>
+      <p class="eyebrow">Allocation Modeler</p>
+      <h2>What could your allocation become?</h2>
+      <p>Hypothetical projected value of an investment, net of fees, scaled from the fund's 10,000-path Monte Carlo distribution.</p>
     </div>
     <div class="calc reveal">
       <div>
         <div class="slider-row">
           <div class="slider-head">
-            <label for="aumSlider">Assets under management</label>
-            <output class="mono" id="aumOut" for="aumSlider">$25M</output>
+            <label for="invSlider">Investment</label>
+            <output class="mono" id="invOut" for="invSlider">$1.00M</output>
           </div>
-          <input type="range" id="aumSlider" min="1" max="200" step="1" value="25" aria-label="Assets under management in millions of dollars"/>
+          <input type="range" id="invSlider" min="0.25" max="25" step="0.25" value="1" aria-label="Investment amount in millions of dollars"/>
         </div>
         <div class="slider-row">
           <div class="slider-head">
-            <label for="mgmtSlider">Management fee</label>
-            <output class="mono" id="mgmtOut" for="mgmtSlider">1.50%</output>
+            <label for="yrsSlider">Horizon</label>
+            <output class="mono" id="yrsOut" for="yrsSlider">5 years</output>
           </div>
-          <input type="range" id="mgmtSlider" min="1" max="2" step="0.05" value="1.5" aria-label="Management fee percent"/>
+          <input type="range" id="yrsSlider" min="1" max="10" step="1" value="5" aria-label="Investment horizon in years"/>
         </div>
         <div class="slider-row">
           <div class="slider-head">
-            <label for="perfSlider">Performance fee</label>
-            <output class="mono" id="perfOut" for="perfSlider">20%</output>
+            <span class="lbl" id="classLabel">Share class</span>
+            <output class="mono" id="classOut" aria-labelledby="classLabel">2% / 20%</output>
           </div>
-          <input type="range" id="perfSlider" min="10" max="30" step="1" value="20" aria-label="Performance fee percent"/>
+          <div class="class-toggle" role="group" aria-labelledby="classLabel">
+            <button type="button" data-class="founders" aria-pressed="false">Founders · 1.5/15</button>
+            <button type="button" data-class="standard" aria-pressed="true">Standard · 2/20</button>
+          </div>
         </div>
       </div>
       <div class="calc-out">
-        <p class="eyebrow" style="margin-bottom:14px">Est. Annual Gross Revenue</p>
-        <div class="big" id="calcTotal">—</div>
-        <p class="sub">at <span class="mono" id="calcCagrNote">—</span> backtested net CAGR</p>
+        <p class="eyebrow" style="margin-bottom:14px">Median Projected Value</p>
+        <div class="big" id="calcMedian">—</div>
+        <p class="sub">over <span class="mono" id="calcHorizonNote">—</span> at <span class="mono" id="calcCagrNote">—</span> net CAGR — hypothetical, net of fees</p>
         <div class="calc-split">
-          <div><div class="v mono" id="calcMgmt">—</div><div class="l">Management Fees</div></div>
-          <div><div class="v mono gold-t" id="calcPerf">—</div><div class="l">Performance Fees</div></div>
-          <div class="calc-foot">Illustrative only — gross of platform share, before expenses and taxes.</div>
+          <div><div class="v mono" id="calcLow">—</div><div class="l">Conservative · 5th pct</div></div>
+          <div><div class="v mono gold-t" id="calcHigh">—</div><div class="l">Optimistic · 95th pct</div></div>
+          <div class="calc-foot">Hypothetical Monte Carlo projection, net of fees — before fund expenses and taxes. Not a guarantee.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════ FINAL CTA ════════ -->
-<section class="final" id="apply">
+<!-- ════════ SUBSCRIBE ════════ -->
+<section class="section" id="subscribe" style="background:var(--bg-elev);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="container">
-    <p class="eyebrow">Limited Cohort · Q3 2026</p>
-    <h2>The infrastructure is built.<br/>The track record is waiting.<br/><em>Put your name on it.</em></h2>
-    <p>We onboard a small number of managers each quarter to protect strategy capacity. Applications are reviewed in order received.</p>
+    <div class="section-head reveal">
+      <p class="eyebrow">Subscription Process</p>
+      <h2>From intro call to live allocation</h2>
+      <p>A structured four-step path, typically completed within a month. Institutional-grade onboarding without institutional-grade friction.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="step">
+        <div class="dot">D0</div>
+        <h3>Intro Call &amp; Deck</h3>
+        <p>A call with the principals and your copy of the allocation deck — strategy, terms and the full methodology paper.</p>
+      </div>
+      <div class="step">
+        <div class="dot">W1</div>
+        <h3>Due Diligence</h3>
+        <p>Completed DDQ, audited methodology documentation and reference calls with existing limited partners.</p>
+      </div>
+      <div class="step">
+        <div class="dot">W2–3</div>
+        <h3>Docs &amp; Funding</h3>
+        <p>Subscription documents, KYC/AML verification and wiring of capital to the fund's segregated custody account.</p>
+      </div>
+      <div class="step">
+        <div class="dot">W4</div>
+        <h3>Live</h3>
+        <p>Your capital trades the systematic book — monthly statements, quarterly letters and real-time analytics portal access.</p>
+      </div>
+    </div>
+    <div class="accel reveal">
+      <b>Capacity note:</b> the Founders Class closes to new capital at $100M of strategy assets. Subscriptions are processed in the order fully executed documents are received.
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FINAL CTA ════════ -->
+<section class="final" id="allocate">
+  <div class="container">
+    <p class="eyebrow">Accepting Qualified Investors · Q3 2026</p>
+    <h2>Uncorrelated. Disciplined.<br/>Fully transparent.<br/><em>Allocate with conviction.</em></h2>
+    <p>Strategy capacity is finite and subscriptions are reviewed in order received. Request the allocation deck to begin due diligence.</p>
     <div class="final-btns">
       <a class="btn btn-gold btn-lg" href="#top">Request Allocation Deck</a>
-      <a class="btn btn-ghost btn-lg" href="dashboard.html">Open Analytics <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost btn-lg" href="dashboard.html">Analytics Suite <span class="arr" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -575,17 +584,18 @@
         MERIDIAN <em>ALPHA</em>
       </a>
       <nav class="foot-links" aria-label="Footer">
-        <a href="#platform">Platform</a>
+        <a href="#philosophy">Philosophy</a>
         <a href="#strategies">Strategies</a>
         <a href="#performance">Performance</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#terms">Terms</a>
+        <a href="#subscribe">Subscribe</a>
         <a href="dashboard.html">Analytics</a>
       </nav>
     </div>
     <div class="disclaimer">
       <strong>Important Disclosures</strong>
       <span id="metaDisclaimer">All market data is simulated, calibrated to realistic historical statistics. Backtested and Monte Carlo results are hypothetical and do not guarantee future returns. Not investment advice.</span>
-      All performance figures presented on this page are derived from simulated and backtested results. Hypothetical performance has inherent limitations: it is prepared with the benefit of hindsight, does not reflect actual trading, and does not account for the impact of material economic and market factors on decision-making. No representation is made that any fund will or is likely to achieve results similar to those shown. Past performance — simulated or actual — does not guarantee future results. Nothing on this page constitutes investment, legal, tax or accounting advice, nor an offer to sell or a solicitation of an offer to buy any security or fund interest. Any such offer will be made only through definitive offering documents to qualified investors in permitted jurisdictions. Investing in alternative strategies involves substantial risk, including the possible loss of all capital. Fee estimates are illustrative, gross of platform economics, fund expenses and taxes. Meridian Alpha Capital is a fictional demonstration entity.
+      All performance figures presented on this page are derived from simulated and backtested results. Hypothetical performance has inherent limitations: it is prepared with the benefit of hindsight, does not reflect actual trading, and does not account for the impact of material economic and market factors on decision-making. No representation is made that the fund will or is likely to achieve results similar to those shown. Past performance — simulated or actual — does not guarantee future results. Nothing on this page constitutes investment, legal, tax or accounting advice. This is not an offer of securities nor a solicitation of an offer to buy any security or fund interest; interests in the fund are available only to qualified and accredited investors via a confidential offering memorandum and definitive subscription documents, in permitted jurisdictions. Investing in alternative strategies involves substantial risk, including the possible loss of all capital. Projected values are hypothetical, net of stated fees but before fund expenses and taxes. Meridian Alpha Capital is a fictional demonstration entity.
     </div>
     <div class="foot-base">
       <span>© 2026 Meridian Alpha Capital. All rights reserved.</span>
@@ -750,26 +760,45 @@ setText('[data-mc="probLoss"]', pct(mc.probLoss,1));
   setText("#sparkGrowth", "$1.00 → $"+flag[flag.length-1].toFixed(2));
 })();
 
-/* ── Earnings calculator ─────────────────────────────────── */
+/* ── Investor allocation modeler ─────────────────────────── */
 (function(){
-  var aum=q("#aumSlider"), mgmt=q("#mgmtSlider"), perf=q("#perfSlider");
-  if(!aum||!mgmt||!perf) return;
-  var cagr = Math.max(F.cagr||0, 0);
-  setText("#calcCagrNote", pct(F.cagr));
-  function update(){
-    var A = parseFloat(aum.value)*1e6;
-    var mf = parseFloat(mgmt.value)/100;
-    var pf = parseFloat(perf.value)/100;
-    var mgmtRev = mf*A;
-    var perfRev = pf*cagr*A;
-    setText("#aumOut", "$"+aum.value+"M");
-    setText("#mgmtOut", parseFloat(mgmt.value).toFixed(2)+"%");
-    setText("#perfOut", perf.value+"%");
-    setText("#calcMgmt", usd(mgmtRev));
-    setText("#calcPerf", usd(perfRev));
-    setText("#calcTotal", usd(mgmtRev+perfRev));
+  var inv=q("#invSlider"), yrs=q("#yrsSlider");
+  var toggles=document.querySelectorAll(".class-toggle button[data-class]");
+  if(!inv||!yrs||!toggles.length) return;
+  var FEES={
+    founders:{mgmt:0.015,perf:0.15,label:"1.5% / 15%"},
+    standard:{mgmt:0.02,perf:0.20,label:"2% / 20%"}
+  };
+  var cls="standard";
+  var gross=Math.max(F.cagr||0.1382, 0.0001);
+  function project(mult10y, years, fees){
+    /* gross terminal multiple over 10y, annualized to horizon, then
+       fee drag applied via the net/gross CAGR exponent ratio */
+    var net=Math.max((gross-fees.mgmt)*(1-fees.perf), 0);
+    return Math.pow(mult10y, (years/10)*(net/gross));
   }
-  [aum,mgmt,perf].forEach(function(el){ el.addEventListener("input",update); });
+  function update(){
+    var A=parseFloat(inv.value)*1e6;
+    var years=parseInt(yrs.value,10);
+    var fees=FEES[cls]||FEES.standard;
+    var net=Math.max((gross-fees.mgmt)*(1-fees.perf), 0);
+    setText("#invOut", usd(A));
+    setText("#yrsOut", years+(years===1?" year":" years"));
+    setText("#classOut", fees.label);
+    setText("#calcHorizonNote", years+"Y");
+    setText("#calcCagrNote", pct(net));
+    setText("#calcMedian", usd(A*project(mc.median,years,fees)));
+    setText("#calcLow", usd(A*project(mc.p5,years,fees)));
+    setText("#calcHigh", usd(A*project(mc.p95,years,fees)));
+  }
+  [inv,yrs].forEach(function(el){ el.addEventListener("input",update); });
+  toggles.forEach(function(btn){
+    btn.addEventListener("click",function(){
+      cls=btn.getAttribute("data-class");
+      toggles.forEach(function(b){ b.setAttribute("aria-pressed", b===btn ? "true":"false"); });
+      update();
+    });
+  });
   update();
 })();
 
@@ -782,7 +811,7 @@ setText('[data-mc="probLoss"]', pct(mc.probLoss,1));
     var input=q("#captureEmail");
     var v=(input.value||"").trim();
     if(!v || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){
-      msg.textContent="Please enter a valid work email.";
+      msg.textContent="Please enter a valid institutional email.";
       msg.className="capture-msg err";
       input.focus();
       return;

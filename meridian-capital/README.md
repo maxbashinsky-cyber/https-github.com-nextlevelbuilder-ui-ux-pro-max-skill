@@ -1,15 +1,15 @@
-# Meridian Alpha Capital — Hedge Fund Platform (Demo)
+# Meridian Alpha Capital — Systematic Multi-Strategy Hedge Fund (Demo)
 
-A complete "fund-as-a-service" hedge fund setup, modeled on the
-[vanquish.so](https://www.vanquish.so) sales funnel: a premium marketing site,
-a full quant analytics suite, and the research engine that generates every
-number on both pages.
+A complete hedge fund, built end-to-end: the fund's investor-facing site
+(sales funnel inspired by [vanquish.so](https://www.vanquish.so)), a full
+quant analytics suite, and the research engine that generates every number
+on both pages.
 
 ## Contents
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Sales/landing page — hero, platform features, strategies, 72-hour launch timeline, pricing tiers, earnings calculator, disclaimers |
+| `index.html` | Investor-facing fund site — hero + allocation-deck capture, investment philosophy, strategy sleeves, performance vs benchmark, Monte Carlo teaser, fund terms (share classes, fees, liquidity), net-of-fees investor calculator, subscription process, disclaimers |
 | `dashboard.html` | Analytics suite — equity curves, annual returns, rolling Sharpe, Monte Carlo fan chart + terminal-wealth histogram, drawdowns, full metric table, correlation matrix, model allocation, committee recommendations |
 | `data.js` | Generated payload (`window.FUND_DATA`) consumed by both pages |
 | `quant/engine.py` | Research engine that produces `data.js` (pure stdlib, deterministic) |

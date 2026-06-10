@@ -13,8 +13,40 @@ on both pages.
 | `dashboard.html` | Analytics suite — equity curves, annual returns, rolling Sharpe, Monte Carlo fan chart + terminal-wealth histogram, drawdowns, full metric table, correlation matrix, model allocation, committee recommendations |
 | `data.js` | Generated payload (`window.FUND_DATA`) consumed by both pages |
 | `quant/engine.py` | Research engine that produces `data.js` (pure stdlib, deterministic) |
+| `console.html` | **Operator console** — your NAV, P&L, positions vs targets, sleeve signals, order log, risk panel (kill switch, leverage, vol), and the paper→live runbook |
+| `quant/trader.py` | **Automated trading daemon** — computes signals daily and rebalances the book; paper mode locally, Alpaca paper/live via API keys |
+| `quant/broker.py` | Broker layer — `PaperBroker` (local simulated fills) and `AlpacaBroker` (stdlib REST adapter, paper & live endpoints) |
+| `live/` | Session state (`state.json`) and console payload (`console-data.js`) written by the daemon |
 
 Open `index.html` in a browser (Chart.js + Google Fonts load from CDN).
+
+## Running the fund yourself (deposit → automated trading)
+
+The daemon trades an ETF-implementable version of the backtested book:
+SPY/TLT/GLD (trend), SPY (1-day reversal), KO/PEP (stat-arb pair),
+PUTW (vol-gated put-write carry) — sleeve weights 40/10/10/40 from the
+backtest, gross capped at 1.3×.
+
+```bash
+# 1. Paper-trade locally — no keys, no network. Deposit and go:
+cd meridian-capital/quant
+python3 trader.py --mode paper --deposit 250000 --days 130
+# → open ../console.html to monitor NAV, positions, signals, orders
+
+# 2. Real market data, fake money — free Alpaca paper keys:
+export APCA_API_KEY_ID=...  APCA_API_SECRET_KEY=...
+python3 trader.py --mode alpaca-paper
+
+# 3. Automate it (daily rebalance, 15min before the close):
+# 45 15 * * 1-5  cd .../quant && python3 trader.py --mode alpaca-paper >> ../live/trader.log 2>&1
+
+# 4. Live capital — deliberate speed bump, only after paper validation:
+MERIDIAN_CONFIRM_LIVE=yes python3 trader.py --mode alpaca-live
+```
+
+Risk overlay enforced before any order: 35% per-position cap, 1.3×
+gross cap, and a **kill switch** that flattens the book at -12% from
+peak NAV and stays latched until you delete `live/state.json`.
 
 ## The quant engine
 

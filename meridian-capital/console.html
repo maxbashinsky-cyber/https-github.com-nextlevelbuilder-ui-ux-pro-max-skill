@@ -172,10 +172,10 @@
     <h2 style="font-size:18px">Runbook — paper to live</h2>
     <div class="runbook">
       <div class="step">
-        <h3><span class="n">01</span>Paper-trade locally (no keys needed)</h3>
-        <p>Deterministic simulation: deposit, trade, inspect. This is what generated the data on this page.</p>
+        <h3><span class="n">01</span>Paper-trade on real market data</h3>
+        <p>Default mode: pulls real daily closes (Yahoo) and walks the book over the last N trading days. No keys, no money at risk. This generated the data on this page.</p>
         <pre>cd meridian-capital/quant
-python3 trader.py --mode <b>paper</b> \
+python3 trader.py --mode <b>paper-real</b> \
   --deposit 250000 --days 130</pre>
       </div>
       <div class="step">
@@ -232,7 +232,8 @@ python3 trader.py --mode <b>alpaca-paper</b></pre>
   /* mode badge */
   var badge = document.getElementById('modeBadge');
   badge.textContent = D.meta.mode === 'paper' ? 'PAPER SIMULATION' :
-    (D.meta.mode === 'alpaca-paper' ? 'ALPACA · PAPER' : 'ALPACA · LIVE');
+    (D.meta.mode === 'paper-real' ? 'PAPER · REAL MARKET DATA' :
+    (D.meta.mode === 'alpaca-paper' ? 'ALPACA · PAPER' : 'ALPACA · LIVE'));
   badge.className = 'mode ' + (D.meta.mode === 'alpaca-live' ? 'live' : 'paper');
 
   /* account strip */

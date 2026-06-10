@@ -1,5129 +1,4445 @@
 {
  "navHistory": [
   {
-   "date": "day-1",
-   "nav": 249770.09,
-   "cash": 142190.04
+   "date": "2025-11-28",
+   "nav": 248474.93,
+   "cash": -29829.43
   },
   {
-   "date": "day-2",
-   "nav": 249686.83,
-   "cash": 124732.16
+   "date": "2025-12-01",
+   "nav": 248513.39,
+   "cash": -29790.46
   },
   {
-   "date": "day-3",
-   "nav": 249751.93,
-   "cash": 141196.33
+   "date": "2025-12-02",
+   "nav": 249245.14,
+   "cash": -30060.6
   },
   {
-   "date": "day-4",
-   "nav": 249751.99,
-   "cash": 178548.18
+   "date": "2025-12-03",
+   "nav": 248822.5,
+   "cash": -30165.94
   },
   {
-   "date": "day-5",
-   "nav": 249685.75,
-   "cash": 140958.01
+   "date": "2025-12-04",
+   "nav": 248509.02,
+   "cash": -30135.76
   },
   {
-   "date": "day-6",
-   "nav": 249265.58,
-   "cash": 140792.66
+   "date": "2025-12-05",
+   "nav": 248050.59,
+   "cash": -30104.68
   },
   {
-   "date": "day-7",
-   "nav": 246252.33,
-   "cash": 151531.79
+   "date": "2025-12-08",
+   "nav": 248241.73,
+   "cash": -30392.51
   },
   {
-   "date": "day-8",
-   "nav": 246912.71,
-   "cash": 166726.65
+   "date": "2025-12-09",
+   "nav": 249558.46,
+   "cash": -30175.48
   },
   {
-   "date": "day-9",
-   "nav": 247214.65,
-   "cash": 166696.67
+   "date": "2025-12-10",
+   "nav": 250126.21,
+   "cash": -30464.21
   },
   {
-   "date": "day-10",
-   "nav": 248450.75,
-   "cash": 149632.93
+   "date": "2025-12-11",
+   "nav": 248458.15,
+   "cash": -30375.49
   },
   {
-   "date": "day-11",
-   "nav": 249387.91,
-   "cash": 156645.08
+   "date": "2025-12-12",
+   "nav": 248111.38,
+   "cash": 144564.09
   },
   {
-   "date": "day-12",
-   "nav": 247649.15,
-   "cash": 177132.35
+   "date": "2025-12-15",
+   "nav": 247301.25,
+   "cash": 144269.76
   },
   {
-   "date": "day-13",
-   "nav": 246903.81,
-   "cash": 167690.47
+   "date": "2025-12-16",
+   "nav": 246117.16,
+   "cash": 143624.81
   },
   {
-   "date": "day-14",
-   "nav": 246550.09,
-   "cash": 167527.65
+   "date": "2025-12-17",
+   "nav": 246768.47,
+   "cash": 143614.4
   },
   {
-   "date": "day-15",
-   "nav": 245036.31,
-   "cash": 166714.58
+   "date": "2025-12-18",
+   "nav": 247653.68,
+   "cash": -28636.62
   },
   {
-   "date": "day-16",
-   "nav": 246882.07,
-   "cash": 165802.27
+   "date": "2025-12-19",
+   "nav": 249462.55,
+   "cash": 144920.75
   },
   {
-   "date": "day-17",
-   "nav": 245813.15,
-   "cash": 167374.75
+   "date": "2025-12-22",
+   "nav": 250502.83,
+   "cash": 146719.35
   },
   {
-   "date": "day-18",
-   "nav": 246776.48,
-   "cash": 140687.96
+   "date": "2025-12-23",
+   "nav": 250210.42,
+   "cash": 147310.75
   },
   {
-   "date": "day-19",
-   "nav": 244057.46,
-   "cash": 166981.93
+   "date": "2025-12-24",
+   "nav": 250083.92,
+   "cash": -28228.37
   },
   {
-   "date": "day-20",
-   "nav": 244513.29,
-   "cash": 139360.21
+   "date": "2025-12-26",
+   "nav": 247855.18,
+   "cash": 146882.82
   },
   {
-   "date": "day-21",
-   "nav": 244646.72,
-   "cash": 164635.78
+   "date": "2025-12-29",
+   "nav": 247270.42,
+   "cash": -25295.19
   },
   {
-   "date": "day-22",
-   "nav": 245596.61,
-   "cash": 197048.85
+   "date": "2025-12-30",
+   "nav": 246414.9,
+   "cash": 147705.38
   },
   {
-   "date": "day-23",
-   "nav": 245827.9,
-   "cash": 199033.08
+   "date": "2025-12-31",
+   "nav": 247168.66,
+   "cash": 147936.45
   },
   {
-   "date": "day-24",
-   "nav": 245048.97,
-   "cash": 199193.17
+   "date": "2026-01-02",
+   "nav": 248776.21,
+   "cash": 147942.56
   },
   {
-   "date": "day-25",
-   "nav": 246156.64,
-   "cash": 198314.94
+   "date": "2026-01-05",
+   "nav": 250162.73,
+   "cash": 149799.91
   },
   {
-   "date": "day-26",
-   "nav": 244305.93,
-   "cash": 199306.09
+   "date": "2026-01-06",
+   "nav": 248827.29,
+   "cash": 150464.1
   },
   {
-   "date": "day-27",
-   "nav": 245571.2,
-   "cash": 197731.51
+   "date": "2026-01-07",
+   "nav": 249514.92,
+   "cash": 149390.56
   },
   {
-   "date": "day-28",
-   "nav": 244137.43,
-   "cash": 198598.68
+   "date": "2026-01-08",
+   "nav": 250045.19,
+   "cash": 142640.32
   },
   {
-   "date": "day-29",
-   "nav": 244304.45,
-   "cash": 163899.98
+   "date": "2026-01-09",
+   "nav": 251281.53,
+   "cash": 140467.79
   },
   {
-   "date": "day-30",
-   "nav": 243840.69,
-   "cash": 197326.2
+   "date": "2026-01-12",
+   "nav": 250539.47,
+   "cash": 141422.38
   },
   {
-   "date": "day-31",
-   "nav": 243837.06,
-   "cash": 197012.13
+   "date": "2026-01-13",
+   "nav": 250044.81,
+   "cash": 140658.64
   },
   {
-   "date": "day-32",
-   "nav": 244181.22,
-   "cash": 180366.98
+   "date": "2026-01-14",
+   "nav": 250133.41,
+   "cash": -35447.1
   },
   {
-   "date": "day-33",
-   "nav": 241955.87,
-   "cash": 197043.78
+   "date": "2026-01-15",
+   "nav": 249391.9,
+   "cash": -36005.12
   },
   {
-   "date": "day-34",
-   "nav": 241427.79,
-   "cash": 171207.3
+   "date": "2026-01-16",
+   "nav": 248856.85,
+   "cash": 135707.96
   },
   {
-   "date": "day-35",
-   "nav": 242774.5,
-   "cash": 178638.53
+   "date": "2026-01-20",
+   "nav": 250527.3,
+   "cash": 134901.55
   },
   {
-   "date": "day-36",
-   "nav": 242865.82,
-   "cash": 194990.54
+   "date": "2026-01-21",
+   "nav": 251747.66,
+   "cash": 137125.71
   },
   {
-   "date": "day-37",
-   "nav": 241866.15,
-   "cash": 153806.38
+   "date": "2026-01-22",
+   "nav": 252167.04,
+   "cash": 138219.75
   },
   {
-   "date": "day-38",
-   "nav": 241566.71,
-   "cash": 153054.63
+   "date": "2026-01-23",
+   "nav": 253123.92,
+   "cash": 131770.17
   },
   {
-   "date": "day-39",
-   "nav": 240631.17,
-   "cash": 169754.65
+   "date": "2026-01-26",
+   "nav": 254161.61,
+   "cash": -44822.6
   },
   {
-   "date": "day-40",
-   "nav": 241525.67,
-   "cash": 168553.07
+   "date": "2026-01-27",
+   "nav": 255992.24,
+   "cash": 133830.73
   },
   {
-   "date": "day-41",
-   "nav": 240414.16,
-   "cash": 169589.85
+   "date": "2026-01-28",
+   "nav": 255396.66,
+   "cash": 135396.48
   },
   {
-   "date": "day-42",
-   "nav": 240502.39,
-   "cash": 151597.14
+   "date": "2026-01-29",
+   "nav": 251609.68,
+   "cash": 134842.9
   },
   {
-   "date": "day-43",
-   "nav": 241540.79,
-   "cash": 168533.45
+   "date": "2026-01-30",
+   "nav": 251520.36,
+   "cash": 146169.44
   },
   {
-   "date": "day-44",
-   "nav": 244043.96,
-   "cash": 169344.21
+   "date": "2026-02-02",
+   "nav": 251776.78,
+   "cash": 145388.89
   },
   {
-   "date": "day-45",
-   "nav": 244166.52,
-   "cash": 170969.85
+   "date": "2026-02-03",
+   "nav": 251289.36,
+   "cash": 148390.73
   },
   {
-   "date": "day-46",
-   "nav": 246984.52,
-   "cash": 171459.68
+   "date": "2026-02-04",
+   "nav": 247605.32,
+   "cash": 146768.65
   },
   {
-   "date": "day-47",
-   "nav": 248834.95,
-   "cash": 173533.56
+   "date": "2026-02-05",
+   "nav": 251391.8,
+   "cash": 147188.92
   },
   {
-   "date": "day-48",
-   "nav": 249324.77,
-   "cash": 174126.03
+   "date": "2026-02-06",
+   "nav": 252761.49,
+   "cash": 150980.05
   },
   {
-   "date": "day-49",
-   "nav": 248473.75,
-   "cash": 153680.36
+   "date": "2026-02-09",
+   "nav": 251604.15,
+   "cash": 152213.19
   },
   {
-   "date": "day-50",
-   "nav": 248745.54,
-   "cash": 144651.38
+   "date": "2026-02-10",
+   "nav": 251108.76,
+   "cash": -24587.31
   },
   {
-   "date": "day-51",
-   "nav": 248648.86,
-   "cash": 173803.56
+   "date": "2026-02-11",
+   "nav": 249199.92,
+   "cash": -27985.11
   },
   {
-   "date": "day-52",
-   "nav": 248503.6,
-   "cash": 173689.33
+   "date": "2026-02-12",
+   "nav": 249899.68,
+   "cash": -24289.89
   },
   {
-   "date": "day-53",
-   "nav": 248622.12,
-   "cash": 173883.33
+   "date": "2026-02-13",
+   "nav": 249449.05,
+   "cash": -25373.17
   },
   {
-   "date": "day-54",
-   "nav": 246633.66,
-   "cash": 182477.5
+   "date": "2026-02-17",
+   "nav": 250572.6,
+   "cash": -25811.08
   },
   {
-   "date": "day-55",
-   "nav": 247745.83,
-   "cash": 142267.55
+   "date": "2026-02-18",
+   "nav": 250236.34,
+   "cash": -25673.52
   },
   {
-   "date": "day-56",
-   "nav": 246581.54,
-   "cash": 123345.62
+   "date": "2026-02-19",
+   "nav": 251715.08,
+   "cash": -28997.71
   },
   {
-   "date": "day-57",
-   "nav": 246992.86,
-   "cash": 144393.96
+   "date": "2026-02-20",
+   "nav": 251104.4,
+   "cash": -29596.57
   },
   {
-   "date": "day-58",
-   "nav": 247187.74,
-   "cash": 153244.94
+   "date": "2026-02-23",
+   "nav": 252024.94,
+   "cash": -30591.91
   },
   {
-   "date": "day-59",
-   "nav": 247578.2,
-   "cash": 144838.45
+   "date": "2026-02-24",
+   "nav": 253305.65,
+   "cash": -31111.65
   },
   {
-   "date": "day-60",
-   "nav": 247079.84,
-   "cash": 145030.16
+   "date": "2026-02-25",
+   "nav": 253116.39,
+   "cash": -30913.14
   },
   {
-   "date": "day-61",
-   "nav": 247598.69,
-   "cash": 128752.44
+   "date": "2026-02-26",
+   "nav": 253099.73,
+   "cash": -30789.02
   },
   {
-   "date": "day-62",
-   "nav": 247917.83,
-   "cash": 154881.86
+   "date": "2026-02-27",
+   "nav": 252195.18,
+   "cash": -30719.25
   },
   {
-   "date": "day-63",
-   "nav": 248420.09,
-   "cash": 146831.58
+   "date": "2026-03-02",
+   "nav": 249817.14,
+   "cash": -30605.75
   },
   {
-   "date": "day-64",
-   "nav": 248532.52,
-   "cash": 147644.3
+   "date": "2026-03-03",
+   "nav": 250931.45,
+   "cash": -28518.83
   },
   {
-   "date": "day-65",
-   "nav": 248909.31,
-   "cash": 147644.3
+   "date": "2026-03-04",
+   "nav": 249798.84,
+   "cash": -28015.99
   },
   {
-   "date": "day-66",
-   "nav": 248902.34,
-   "cash": 147965.82
+   "date": "2026-03-05",
+   "nav": 247402.04,
+   "cash": -27363.4
   },
   {
-   "date": "day-67",
-   "nav": 248782.45,
-   "cash": 148710.6
+   "date": "2026-03-06",
+   "nav": 248506.32,
+   "cash": 89887.76
   },
   {
-   "date": "day-68",
-   "nav": 248980.59,
-   "cash": 148585.2
+   "date": "2026-03-09",
+   "nav": 247896.03,
+   "cash": 89864.09
   },
   {
-   "date": "day-69",
-   "nav": 249196.82,
-   "cash": 148724.46
+   "date": "2026-03-10",
+   "nav": 246956.12,
+   "cash": 89931.62
   },
   {
-   "date": "day-70",
-   "nav": 249536.76,
-   "cash": 148642.14
+   "date": "2026-03-11",
+   "nav": 245924.2,
+   "cash": 262462.05
   },
   {
-   "date": "day-71",
-   "nav": 249510.14,
-   "cash": 147642.97
+   "date": "2026-03-12",
+   "nav": 245929.57,
+   "cash": 260876.82
   },
   {
-   "date": "day-72",
-   "nav": 249953.35,
-   "cash": 147183.49
+   "date": "2026-03-13",
+   "nav": 245263.12,
+   "cash": 260749.8
   },
   {
-   "date": "day-73",
-   "nav": 250625.93,
-   "cash": 147737.18
+   "date": "2026-03-16",
+   "nav": 245372.79,
+   "cash": 259466.73
   },
   {
-   "date": "day-74",
-   "nav": 251523.94,
-   "cash": 147944.32
+   "date": "2026-03-17",
+   "nav": 244679.33,
+   "cash": 260293.24
   },
   {
-   "date": "day-75",
-   "nav": 250416.13,
-   "cash": 148467.63
+   "date": "2026-03-18",
+   "nav": 243140.85,
+   "cash": 259127.41
   },
   {
-   "date": "day-76",
-   "nav": 250742.13,
-   "cash": 148183.87
+   "date": "2026-03-19",
+   "nav": 243899.03,
+   "cash": 258499.19
   },
   {
-   "date": "day-77",
-   "nav": 250333.24,
-   "cash": 147971.88
+   "date": "2026-03-20",
+   "nav": 244241.08,
+   "cash": 300575.71
   },
   {
-   "date": "day-78",
-   "nav": 252254.97,
-   "cash": 147934.06
+   "date": "2026-03-23",
+   "nav": 244516.72,
+   "cash": 299962.81
   },
   {
-   "date": "day-79",
-   "nav": 251740.61,
-   "cash": 148621.69
+   "date": "2026-03-24",
+   "nav": 243287.45,
+   "cash": 300720.12
   },
   {
-   "date": "day-80",
-   "nav": 250786.98,
-   "cash": 148170.69
+   "date": "2026-03-25",
+   "nav": 243902.28,
+   "cash": 297308.33
   },
   {
-   "date": "day-81",
-   "nav": 252189.31,
-   "cash": 146913.84
+   "date": "2026-03-26",
+   "nav": 243081.1,
+   "cash": 295931.94
   },
   {
-   "date": "day-82",
-   "nav": 253658.65,
-   "cash": 147816.42
+   "date": "2026-03-27",
+   "nav": 241664.3,
+   "cash": 293187.71
   },
   {
-   "date": "day-83",
-   "nav": 253442.45,
-   "cash": 148105.84
+   "date": "2026-03-30",
+   "nav": 242233.66,
+   "cash": 289748.3
   },
   {
-   "date": "day-84",
-   "nav": 253789.78,
-   "cash": 147129.31
+   "date": "2026-03-31",
+   "nav": 242417.88,
+   "cash": 246887.77
   },
   {
-   "date": "day-85",
-   "nav": 253954.83,
-   "cash": 147703.27
+   "date": "2026-04-01",
+   "nav": 241801.51,
+   "cash": 247391.35
   },
   {
-   "date": "day-86",
-   "nav": 253995.63,
-   "cash": 147817.26
+   "date": "2026-04-02",
+   "nav": 242236.65,
+   "cash": 246376.19
   },
   {
-   "date": "day-87",
-   "nav": 253972.51,
-   "cash": 148051.37
+   "date": "2026-04-06",
+   "nav": 241901.41,
+   "cash": 247225.05
   },
   {
-   "date": "day-88",
-   "nav": 253742.1,
-   "cash": 113303.41
+   "date": "2026-04-07",
+   "nav": 242391.35,
+   "cash": 247344.6
   },
   {
-   "date": "day-89",
-   "nav": 253682.09,
-   "cash": 113461.61
+   "date": "2026-04-08",
+   "nav": 242852.8,
+   "cash": 246503.28
   },
   {
-   "date": "day-90",
-   "nav": 253972.71,
-   "cash": 113087.83
+   "date": "2026-04-09",
+   "nav": 242961.96,
+   "cash": 163734.8
   },
   {
-   "date": "day-91",
-   "nav": 253713.25,
-   "cash": 112890.96
+   "date": "2026-04-10",
+   "nav": 243319.34,
+   "cash": 163923.57
   },
   {
-   "date": "day-92",
-   "nav": 253884.04,
-   "cash": 112490.02
+   "date": "2026-04-13",
+   "nav": 244436.81,
+   "cash": 164895.78
   },
   {
-   "date": "day-93",
-   "nav": 253680.68,
-   "cash": 157632.11
+   "date": "2026-04-14",
+   "nav": 245040.37,
+   "cash": 165929.13
   },
   {
-   "date": "day-94",
-   "nav": 253510.47,
-   "cash": 148999.29
+   "date": "2026-04-15",
+   "nav": 245860.85,
+   "cash": 166908.87
   },
   {
-   "date": "day-95",
-   "nav": 253570.61,
-   "cash": 131780.01
+   "date": "2026-04-16",
+   "nav": 246042.24,
+   "cash": 167219.73
   },
   {
-   "date": "day-96",
-   "nav": 253461.89,
-   "cash": 149065.63
+   "date": "2026-04-17",
+   "nav": 245925.75,
+   "cash": 167018.25
   },
   {
-   "date": "day-97",
-   "nav": 253840.74,
-   "cash": 148858.94
+   "date": "2026-04-20",
+   "nav": 245276.5,
+   "cash": 167046.51
   },
   {
-   "date": "day-98",
-   "nav": 254054.46,
-   "cash": 157482.26
+   "date": "2026-04-21",
+   "nav": 245626.27,
+   "cash": 207553.69
   },
   {
-   "date": "day-99",
-   "nav": 253546.42,
-   "cash": 148564.13
+   "date": "2026-04-22",
+   "nav": 245112.34,
+   "cash": 167528.39
   },
   {
-   "date": "day-100",
-   "nav": 253644.45,
-   "cash": 92814.54
+   "date": "2026-04-23",
+   "nav": 245548.58,
+   "cash": 209163.1
   },
   {
-   "date": "day-101",
-   "nav": 254387.28,
-   "cash": 110679.27
+   "date": "2026-04-24",
+   "nav": 245854.92,
+   "cash": 167755.57
   },
   {
-   "date": "day-102",
-   "nav": 255159.99,
-   "cash": 110489.17
+   "date": "2026-04-27",
+   "nav": 245861.49,
+   "cash": 209985.04
   },
   {
-   "date": "day-103",
-   "nav": 254710.3,
-   "cash": 111330.4
+   "date": "2026-04-28",
+   "nav": 246884.95,
+   "cash": 214044.48
   },
   {
-   "date": "day-104",
-   "nav": 254367.44,
-   "cash": 110615.1
+   "date": "2026-04-29",
+   "nav": 247249.36,
+   "cash": 214385.58
   },
   {
-   "date": "day-105",
-   "nav": 254143.69,
-   "cash": 110525.91
+   "date": "2026-04-30",
+   "nav": 247288.88,
+   "cash": 216948.72
   },
   {
-   "date": "day-106",
-   "nav": 255436.84,
-   "cash": 97337.02
+   "date": "2026-05-01",
+   "nav": 248289.19,
+   "cash": 216662.6
   },
   {
-   "date": "day-107",
-   "nav": 254687.41,
-   "cash": 120755.13
+   "date": "2026-05-04",
+   "nav": 248361.43,
+   "cash": 218077.22
   },
   {
-   "date": "day-108",
-   "nav": 255541.13,
-   "cash": 110568.32
+   "date": "2026-05-05",
+   "nav": 247749.97,
+   "cash": 216534.52
   },
   {
-   "date": "day-109",
-   "nav": 256853.52,
-   "cash": 111166.76
+   "date": "2026-05-06",
+   "nav": 247945.66,
+   "cash": 215635.03
   },
   {
-   "date": "day-110",
-   "nav": 258089.64,
-   "cash": 111856.55
+   "date": "2026-05-07",
+   "nav": 247905.49,
+   "cash": 217906.63
   },
   {
-   "date": "day-111",
-   "nav": 256845.33,
-   "cash": 111959.56
+   "date": "2026-05-08",
+   "nav": 248556.12,
+   "cash": 218220.82
   },
   {
-   "date": "day-112",
-   "nav": 255469.1,
-   "cash": 111974.12
+   "date": "2026-05-11",
+   "nav": 249263.63,
+   "cash": 217893.63
   },
   {
-   "date": "day-113",
-   "nav": 253531.97,
-   "cash": 98139.76
+   "date": "2026-05-12",
+   "nav": 250273.8,
+   "cash": 219015.66
   },
   {
-   "date": "day-114",
-   "nav": 254943.28,
-   "cash": 110991.04
+   "date": "2026-05-13",
+   "nav": 251090.42,
+   "cash": 220718.41
   },
   {
-   "date": "day-115",
-   "nav": 254846.84,
-   "cash": 111759.19
+   "date": "2026-05-14",
+   "nav": 252071.33,
+   "cash": 222046.22
   },
   {
-   "date": "day-116",
-   "nav": 254460.67,
-   "cash": 111320.19
+   "date": "2026-05-15",
+   "nav": 251970.18,
+   "cash": 222849.81
   },
   {
-   "date": "day-117",
-   "nav": 255793.44,
-   "cash": 112116.99
+   "date": "2026-05-18",
+   "nav": 252732.05,
+   "cash": 223014.73
   },
   {
-   "date": "day-118",
-   "nav": 256422.54,
-   "cash": 112023.49
+   "date": "2026-05-19",
+   "nav": 252218.61,
+   "cash": 223630.35
   },
   {
-   "date": "day-119",
-   "nav": 256998.65,
-   "cash": 112459.2
+   "date": "2026-05-20",
+   "nav": 252208.73,
+   "cash": 221014.3
   },
   {
-   "date": "day-120",
-   "nav": 254094.58,
-   "cash": 112439.49
+   "date": "2026-05-21",
+   "nav": 252309.83,
+   "cash": 220342.51
   },
   {
-   "date": "day-121",
-   "nav": 256643.95,
-   "cash": 119253.75
+   "date": "2026-05-22",
+   "nav": 252481.6,
+   "cash": 219988.01
   },
   {
-   "date": "day-122",
-   "nav": 255905.49,
-   "cash": 111287.13
+   "date": "2026-05-26",
+   "nav": 252531.41,
+   "cash": 220529.71
   },
   {
-   "date": "day-123",
-   "nav": 255488.64,
-   "cash": 110409.33
+   "date": "2026-05-27",
+   "nav": 252405.64,
+   "cash": 222015.74
   },
   {
-   "date": "day-124",
-   "nav": 257069.2,
-   "cash": 97045.64
+   "date": "2026-05-28",
+   "nav": 252318.8,
+   "cash": 222276.38
   },
   {
-   "date": "day-125",
-   "nav": 255333.83,
-   "cash": 111253.49
+   "date": "2026-05-29",
+   "nav": 252956.81,
+   "cash": 222017.84
   },
   {
-   "date": "day-126",
-   "nav": 255852.03,
-   "cash": 110714.31
+   "date": "2026-06-01",
+   "nav": 252722.25,
+   "cash": 222465.93
   },
   {
-   "date": "day-127",
-   "nav": 255158.29,
-   "cash": 97800.7
+   "date": "2026-06-02",
+   "nav": 252794.57,
+   "cash": 221167.44
   },
   {
-   "date": "day-128",
-   "nav": 256396.69,
-   "cash": 111391.45
+   "date": "2026-06-03",
+   "nav": 252769.96,
+   "cash": 222680.18
   },
   {
-   "date": "day-129",
-   "nav": 256861.52,
-   "cash": 111389.38
+   "date": "2026-06-04",
+   "nav": 251499.97,
+   "cash": 223586.91
   },
   {
-   "date": "day-130",
-   "nav": 256911.59,
-   "cash": 111753.64
+   "date": "2026-06-05",
+   "nav": 252188.62,
+   "cash": 225871.58
   }
  ],
  "orders": [
   {
    "symbol": "SPY",
-   "qty": 183.5926,
-   "price": 106.9357,
-   "day": 280,
+   "qty": 100.3055,
+   "price": 679.8606,
+   "day": 2455,
    "status": "filled",
    "venue": "paper",
-   "date": "day-1"
+   "date": "2025-11-28"
   },
   {
    "symbol": "TLT",
-   "qty": 126.6039,
-   "price": 111.0536,
-   "day": 280,
+   "qty": 995.6929,
+   "price": 87.9224,
+   "day": 2455,
    "status": "filled",
    "venue": "paper",
-   "date": "day-1"
+   "date": "2025-11-28"
   },
   {
    "symbol": "GLD",
-   "qty": -149.5751,
-   "price": 89.7623,
-   "day": 280,
+   "qty": 94.1783,
+   "price": 388.0739,
+   "day": 2455,
    "status": "filled",
    "venue": "paper",
-   "date": "day-1"
+   "date": "2025-11-28"
   },
   {
    "symbol": "PUTW",
-   "qty": 796.026,
-   "price": 109.976,
-   "day": 280,
+   "qty": 2768.8822,
+   "price": 31.617,
+   "day": 2455,
    "status": "filled",
    "venue": "paper",
-   "date": "day-1"
+   "date": "2025-11-28"
   },
   {
    "symbol": "SPY",
-   "qty": 164.5568,
-   "price": 106.0903,
-   "day": 281,
+   "qty": 0.1583,
+   "price": 676.7567,
+   "day": 2456,
    "status": "filled",
    "venue": "paper",
-   "date": "day-2"
+   "date": "2025-12-01"
   },
   {
-   "symbol": "SPY",
-   "qty": -160.4885,
-   "price": 105.8644,
-   "day": 282,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-3"
-  },
-  {
    "symbol": "TLT",
-   "qty": 7.1857,
-   "price": 110.793,
-   "day": 282,
+   "qty": 6.4011,
+   "price": 86.8279,
+   "day": 2456,
    "status": "filled",
    "venue": "paper",
-   "date": "day-3"
+   "date": "2025-12-01"
   },
   {
    "symbol": "GLD",
-   "qty": -3.0407,
-   "price": 88.8845,
-   "day": 282,
+   "qty": -0.8449,
+   "price": 389.5551,
+   "day": 2456,
    "status": "filled",
    "venue": "paper",
-   "date": "day-3"
+   "date": "2025-12-01"
   },
   {
-   "symbol": "SPY",
-   "qty": -77.9615,
-   "price": 106.7027,
-   "day": 283,
+   "symbol": "PUTW",
+   "qty": -11.822,
+   "price": 31.5273,
+   "day": 2456,
    "status": "filled",
    "venue": "paper",
-   "date": "day-4"
+   "date": "2025-12-01"
   },
   {
-   "symbol": "TLT",
-   "qty": -265.8378,
-   "price": 109.1687,
-   "day": 283,
+   "symbol": "GLD",
+   "qty": 0.6973,
+   "price": 387.4336,
+   "day": 2457,
    "status": "filled",
    "venue": "paper",
-   "date": "day-4"
+   "date": "2025-12-02"
   },
   {
    "symbol": "GLD",
-   "qty": 1.5472,
-   "price": 89.518,
-   "day": 283,
+   "qty": 0.592,
+   "price": 387.0734,
+   "day": 2458,
    "status": "filled",
    "venue": "paper",
-   "date": "day-4"
+   "date": "2025-12-03"
   },
   {
    "symbol": "PUTW",
-   "qty": -1.3688,
-   "price": 109.9461,
-   "day": 283,
+   "qty": -3.909,
+   "price": 31.67,
+   "day": 2458,
    "status": "filled",
    "venue": "paper",
-   "date": "day-4"
+   "date": "2025-12-03"
   },
   {
    "symbol": "SPY",
-   "qty": 80.2231,
-   "price": 107.2803,
-   "day": 284,
+   "qty": -0.3177,
+   "price": 680.1748,
+   "day": 2459,
    "status": "filled",
    "venue": "paper",
-   "date": "day-5"
+   "date": "2025-12-04"
   },
   {
    "symbol": "TLT",
-   "qty": 263.6912,
-   "price": 109.7304,
-   "day": 284,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-5"
-  },
-  {
-   "symbol": "GLD",
-   "qty": 1.9363,
-   "price": 90.1725,
-   "day": 284,
+   "qty": 3.5536,
+   "price": 86.6421,
+   "day": 2459,
    "status": "filled",
    "venue": "paper",
-   "date": "day-5"
+   "date": "2025-12-04"
   },
   {
    "symbol": "PUTW",
-   "qty": -1.1419,
-   "price": 110.1044,
-   "day": 284,
+   "qty": -3.8529,
+   "price": 31.6606,
+   "day": 2459,
    "status": "filled",
    "venue": "paper",
-   "date": "day-5"
+   "date": "2025-12-04"
   },
   {
-   "symbol": "GLD",
-   "qty": 1.8203,
-   "price": 90.8321,
-   "day": 285,
+   "symbol": "SPY",
+   "qty": -0.2776,
+   "price": 681.4669,
+   "day": 2460,
    "status": "filled",
    "venue": "paper",
-   "date": "day-6"
+   "date": "2025-12-05"
   },
   {
-   "symbol": "SPY",
-   "qty": 174.2094,
-   "price": 106.573,
-   "day": 286,
+   "symbol": "TLT",
+   "qty": 3.4044,
+   "price": 86.241,
+   "day": 2460,
    "status": "filled",
    "venue": "paper",
-   "date": "day-7"
+   "date": "2025-12-05"
   },
   {
-   "symbol": "TLT",
-   "qty": -262.5099,
-   "price": 107.7138,
-   "day": 286,
+   "symbol": "PUTW",
+   "qty": -4.2782,
+   "price": 31.67,
+   "day": 2460,
    "status": "filled",
    "venue": "paper",
-   "date": "day-7"
+   "date": "2025-12-05"
   },
   {
-   "symbol": "GLD",
-   "qty": 2.0926,
-   "price": 90.1434,
-   "day": 286,
+   "symbol": "SPY",
+   "qty": 0.6639,
+   "price": 680.0994,
+   "day": 2461,
    "status": "filled",
    "venue": "paper",
-   "date": "day-7"
+   "date": "2025-12-08"
   },
   {
-   "symbol": "KO",
-   "qty": -832.855,
-   "price": 103.236,
-   "day": 286,
+   "symbol": "TLT",
+   "qty": 1.4621,
+   "price": 85.9574,
+   "day": 2461,
    "status": "filled",
    "venue": "paper",
-   "date": "day-7"
+   "date": "2025-12-08"
   },
   {
-   "symbol": "PEP",
-   "qty": 828.2019,
-   "price": 103.9198,
-   "day": 286,
+   "symbol": "PUTW",
+   "qty": -9.1221,
+   "price": 31.7169,
+   "day": 2461,
    "status": "filled",
    "venue": "paper",
-   "date": "day-7"
+   "date": "2025-12-08"
   },
   {
-   "symbol": "PUTW",
-   "qty": -11.8536,
-   "price": 109.9972,
-   "day": 286,
+   "symbol": "GLD",
+   "qty": -0.5605,
+   "price": 387.2063,
+   "day": 2462,
    "status": "filled",
    "venue": "paper",
-   "date": "day-7"
+   "date": "2025-12-09"
   },
   {
    "symbol": "SPY",
-   "qty": -161.9157,
-   "price": 106.7466,
-   "day": 287,
+   "qty": -0.1693,
+   "price": 683.3354,
+   "day": 2463,
    "status": "filled",
    "venue": "paper",
-   "date": "day-8"
+   "date": "2025-12-10"
   },
   {
    "symbol": "TLT",
-   "qty": -3.5039,
-   "price": 106.8912,
-   "day": 287,
+   "qty": 1.1923,
+   "price": 86.378,
+   "day": 2463,
    "status": "filled",
    "venue": "paper",
-   "date": "day-8"
+   "date": "2025-12-10"
   },
   {
    "symbol": "GLD",
-   "qty": -8.9555,
-   "price": 89.5992,
-   "day": 287,
+   "qty": 0.3102,
+   "price": 389.2445,
+   "day": 2463,
+   "status": "filled",
+   "venue": "paper",
+   "date": "2025-12-10"
+  },
+  {
+   "symbol": "PUTW",
+   "qty": 5.6677,
+   "price": 31.8756,
+   "day": 2463,
    "status": "filled",
    "venue": "paper",
-   "date": "day-8"
+   "date": "2025-12-10"
   },
   {
-   "symbol": "KO",
-   "qty": 15.2099,
-   "price": 105.4631,
-   "day": 287,
+   "symbol": "TLT",
+   "qty": 3.6812,
+   "price": 86.2606,
+   "day": 2464,
    "status": "filled",
    "venue": "paper",
-   "date": "day-8"
+   "date": "2025-12-11"
   },
   {
-   "symbol": "PEP",
-   "qty": 16.2757,
-   "price": 102.1121,
-   "day": 287,
+   "symbol": "GLD",
+   "qty": -1.0336,
+   "price": 393.0434,
+   "day": 2464,
    "status": "filled",
    "venue": "paper",
-   "date": "day-8"
+   "date": "2025-12-11"
   },
   {
    "symbol": "SPY",
-   "qty": 1.4279,
-   "price": 106.9779,
-   "day": 288,
+   "qty": -1.2185,
+   "price": 677.5611,
+   "day": 2465,
    "status": "filled",
    "venue": "paper",
-   "date": "day-9"
+   "date": "2025-12-12"
   },
   {
-   "symbol": "KO",
-   "qty": -3.6038,
-   "price": 105.1767,
-   "day": 288,
+   "symbol": "TLT",
+   "qty": -2033.8196,
+   "price": 85.3438,
+   "day": 2465,
    "status": "filled",
    "venue": "paper",
-   "date": "day-9"
+   "date": "2025-12-12"
   },
   {
-   "symbol": "PUTW",
-   "qty": 2.3236,
-   "price": 110.2861,
-   "day": 288,
+   "symbol": "GLD",
+   "qty": -0.7926,
+   "price": 395.2423,
+   "day": 2465,
    "status": "filled",
    "venue": "paper",
-   "date": "day-9"
+   "date": "2025-12-12"
   },
   {
-   "symbol": "SPY",
-   "qty": 170.7145,
-   "price": 106.3174,
-   "day": 289,
+   "symbol": "PUTW",
+   "qty": -7.1354,
+   "price": 31.7861,
+   "day": 2465,
    "status": "filled",
    "venue": "paper",
-   "date": "day-10"
+   "date": "2025-12-12"
   },
   {
-   "symbol": "GLD",
-   "qty": 11.5985,
-   "price": 90.1062,
-   "day": 289,
+   "symbol": "SPY",
+   "qty": 0.167,
+   "price": 677.2143,
+   "day": 2466,
    "status": "filled",
    "venue": "paper",
-   "date": "day-10"
+   "date": "2025-12-15"
   },
   {
-   "symbol": "KO",
-   "qty": 8.9161,
-   "price": 104.5067,
-   "day": 289,
+   "symbol": "TLT",
+   "qty": 2.1201,
+   "price": 85.4879,
+   "day": 2466,
    "status": "filled",
    "venue": "paper",
-   "date": "day-10"
+   "date": "2025-12-15"
   },
   {
-   "symbol": "PEP",
-   "qty": -15.6404,
-   "price": 102.3233,
-   "day": 289,
+   "symbol": "TLT",
+   "qty": 8.8506,
+   "price": 85.9574,
+   "day": 2467,
    "status": "filled",
    "venue": "paper",
-   "date": "day-10"
+   "date": "2025-12-16"
   },
   {
    "symbol": "PUTW",
-   "qty": -13.292,
-   "price": 110.043,
-   "day": 289,
+   "qty": -3.6561,
+   "price": 31.6805,
+   "day": 2467,
    "status": "filled",
    "venue": "paper",
-   "date": "day-10"
+   "date": "2025-12-16"
   },
   {
    "symbol": "SPY",
-   "qty": -313.222,
-   "price": 104.8154,
-   "day": 290,
+   "qty": -0.6546,
+   "price": 667.2649,
+   "day": 2468,
    "status": "filled",
    "venue": "paper",
-   "date": "day-11"
+   "date": "2025-12-17"
   },
   {
    "symbol": "TLT",
-   "qty": -3.4191,
-   "price": 106.002,
-   "day": 290,
+   "qty": 3.9103,
+   "price": 85.8791,
+   "day": 2468,
    "status": "filled",
    "venue": "paper",
-   "date": "day-11"
+   "date": "2025-12-17"
   },
   {
    "symbol": "GLD",
-   "qty": 285.2673,
-   "price": 91.2663,
-   "day": 290,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-11"
-  },
-  {
-   "symbol": "KO",
-   "qty": -37.9625,
-   "price": 102.2166,
-   "day": 290,
+   "qty": -0.7863,
+   "price": 399.0904,
+   "day": 2468,
    "status": "filled",
    "venue": "paper",
-   "date": "day-11"
+   "date": "2025-12-17"
   },
   {
-   "symbol": "PEP",
-   "qty": 16.2068,
-   "price": 102.9547,
-   "day": 290,
+   "symbol": "PUTW",
+   "qty": 13.54,
+   "price": 31.4046,
+   "day": 2468,
    "status": "filled",
    "venue": "paper",
-   "date": "day-11"
+   "date": "2025-12-17"
   },
   {
-   "symbol": "PUTW",
-   "qty": 21.4636,
-   "price": 109.8283,
-   "day": 290,
+   "symbol": "SPY",
+   "qty": -0.7337,
+   "price": 672.3037,
+   "day": 2469,
    "status": "filled",
    "venue": "paper",
-   "date": "day-11"
+   "date": "2025-12-18"
   },
   {
-   "symbol": "SPY",
-   "qty": 57.5383,
-   "price": 106.1959,
-   "day": 291,
+   "symbol": "TLT",
+   "qty": 2004.9675,
+   "price": 86.2899,
+   "day": 2469,
    "status": "filled",
    "venue": "paper",
-   "date": "day-12"
+   "date": "2025-12-18"
   },
   {
    "symbol": "GLD",
-   "qty": -287.4356,
-   "price": 90.4019,
-   "day": 291,
+   "qty": 0.3523,
+   "price": 398.7693,
+   "day": 2469,
    "status": "filled",
    "venue": "paper",
-   "date": "day-12"
+   "date": "2025-12-18"
   },
   {
-   "symbol": "PEP",
-   "qty": -5.8951,
-   "price": 103.965,
-   "day": 291,
+   "symbol": "PUTW",
+   "qty": -12.8047,
+   "price": 31.6037,
+   "day": 2469,
    "status": "filled",
    "venue": "paper",
-   "date": "day-12"
+   "date": "2025-12-18"
   },
   {
    "symbol": "SPY",
-   "qty": 75.5321,
-   "price": 107.0505,
-   "day": 292,
+   "qty": -1.2565,
+   "price": 678.397,
+   "day": 2470,
    "status": "filled",
    "venue": "paper",
-   "date": "day-13"
+   "date": "2025-12-19"
   },
   {
    "symbol": "TLT",
-   "qty": 1.0877,
-   "price": 106.0284,
-   "day": 292,
+   "qty": -2010.1902,
+   "price": 85.8819,
+   "day": 2470,
    "status": "filled",
    "venue": "paper",
-   "date": "day-13"
+   "date": "2025-12-19"
   },
   {
-   "symbol": "KO",
-   "qty": 19.3514,
-   "price": 104.3639,
-   "day": 292,
+   "symbol": "GLD",
+   "qty": 0.7019,
+   "price": 399.2195,
+   "day": 2470,
    "status": "filled",
    "venue": "paper",
-   "date": "day-13"
+   "date": "2025-12-19"
   },
   {
    "symbol": "PUTW",
-   "qty": -7.0575,
-   "price": 110.3477,
-   "day": 292,
+   "qty": -10.8692,
+   "price": 31.8438,
+   "day": 2470,
    "status": "filled",
    "venue": "paper",
-   "date": "day-13"
+   "date": "2025-12-19"
   },
   {
    "symbol": "TLT",
-   "qty": -3.0955,
-   "price": 105.6215,
-   "day": 293,
+   "qty": -9.5785,
+   "price": 85.6955,
+   "day": 2471,
    "status": "filled",
    "venue": "paper",
-   "date": "day-14"
+   "date": "2025-12-22"
   },
   {
-   "symbol": "KO",
-   "qty": 7.8086,
-   "price": 105.0369,
-   "day": 293,
+   "symbol": "GLD",
+   "qty": -2.8594,
+   "price": 408.0259,
+   "day": 2471,
    "status": "filled",
    "venue": "paper",
-   "date": "day-14"
+   "date": "2025-12-22"
   },
   {
    "symbol": "PUTW",
-   "qty": -2.9919,
-   "price": 110.4364,
-   "day": 293,
+   "qty": 5.8966,
+   "price": 32.039,
+   "day": 2471,
    "status": "filled",
    "venue": "paper",
-   "date": "day-14"
+   "date": "2025-12-22"
   },
   {
    "symbol": "SPY",
-   "qty": 3.9411,
-   "price": 107.6018,
-   "day": 294,
+   "qty": 0.1472,
+   "price": 686.4293,
+   "day": 2472,
    "status": "filled",
    "venue": "paper",
-   "date": "day-15"
+   "date": "2025-12-23"
   },
   {
-   "symbol": "KO",
-   "qty": 5.7996,
-   "price": 105.6306,
-   "day": 294,
+   "symbol": "TLT",
+   "qty": -2.6105,
+   "price": 85.8329,
+   "day": 2472,
    "status": "filled",
    "venue": "paper",
-   "date": "day-15"
+   "date": "2025-12-23"
   },
   {
-   "symbol": "PUTW",
-   "qty": -2.0225,
-   "price": 110.5641,
-   "day": 294,
+   "symbol": "GLD",
+   "qty": -1.1329,
+   "price": 413.4332,
+   "day": 2472,
    "status": "filled",
    "venue": "paper",
-   "date": "day-15"
+   "date": "2025-12-23"
   },
   {
    "symbol": "SPY",
-   "qty": 1.6748,
-   "price": 107.3009,
-   "day": 295,
+   "qty": -0.4925,
+   "price": 688.1555,
+   "day": 2473,
    "status": "filled",
    "venue": "paper",
-   "date": "day-16"
+   "date": "2025-12-24"
   },
   {
    "symbol": "TLT",
-   "qty": 1.1738,
-   "price": 106.1565,
-   "day": 295,
+   "qty": 2034.5935,
+   "price": 86.4392,
+   "day": 2473,
    "status": "filled",
    "venue": "paper",
-   "date": "day-16"
+   "date": "2025-12-24"
   },
   {
    "symbol": "GLD",
-   "qty": -3.6935,
-   "price": 89.2312,
-   "day": 295,
+   "qty": 0.7224,
+   "price": 412.136,
+   "day": 2473,
+   "status": "filled",
+   "venue": "paper",
+   "date": "2025-12-24"
+  },
+  {
+   "symbol": "PUTW",
+   "qty": -8.9515,
+   "price": 32.2087,
+   "day": 2473,
    "status": "filled",
    "venue": "paper",
-   "date": "day-16"
+   "date": "2025-12-24"
   },
   {
-   "symbol": "KO",
-   "qty": 9.9706,
-   "price": 106.2786,
-   "day": 295,
+   "symbol": "TLT",
+   "qty": -2030.0975,
+   "price": 86.0683,
+   "day": 2474,
    "status": "filled",
    "venue": "paper",
-   "date": "day-16"
+   "date": "2025-12-26"
   },
   {
-   "symbol": "PEP",
-   "qty": 3.696,
-   "price": 101.8047,
-   "day": 295,
+   "symbol": "GLD",
+   "qty": -1.2328,
+   "price": 416.5316,
+   "day": 2474,
    "status": "filled",
    "venue": "paper",
-   "date": "day-16"
+   "date": "2025-12-26"
   },
   {
    "symbol": "PUTW",
-   "qty": -4.509,
-   "price": 110.5241,
-   "day": 295,
+   "qty": 4.0228,
+   "price": 32.177,
+   "day": 2474,
    "status": "filled",
    "venue": "paper",
-   "date": "day-16"
+   "date": "2025-12-26"
   },
   {
    "symbol": "SPY",
-   "qty": 1.5816,
-   "price": 107.1836,
-   "day": 296,
+   "qty": -0.5676,
+   "price": 685.6336,
+   "day": 2475,
    "status": "filled",
    "venue": "paper",
-   "date": "day-17"
+   "date": "2025-12-29"
   },
   {
    "symbol": "TLT",
-   "qty": -5.9507,
-   "price": 105.5354,
-   "day": 296,
+   "qty": 2020.1008,
+   "price": 86.4784,
+   "day": 2475,
    "status": "filled",
    "venue": "paper",
-   "date": "day-17"
+   "date": "2025-12-29"
   },
   {
    "symbol": "GLD",
-   "qty": 2.0799,
-   "price": 90.3324,
-   "day": 296,
+   "qty": -3.318,
+   "price": 398.4007,
+   "day": 2475,
    "status": "filled",
    "venue": "paper",
-   "date": "day-17"
+   "date": "2025-12-29"
   },
   {
-   "symbol": "KO",
-   "qty": -15.9514,
-   "price": 104.8996,
-   "day": 296,
+   "symbol": "PUTW",
+   "qty": -25.0681,
+   "price": 32.1545,
+   "day": 2475,
    "status": "filled",
    "venue": "paper",
-   "date": "day-17"
+   "date": "2025-12-29"
   },
   {
-   "symbol": "PEP",
-   "qty": -2.6212,
-   "price": 102.7887,
-   "day": 296,
+   "symbol": "TLT",
+   "qty": -2007.2935,
+   "price": 86.186,
+   "day": 2476,
    "status": "filled",
    "venue": "paper",
-   "date": "day-17"
+   "date": "2025-12-30"
   },
   {
-   "symbol": "PUTW",
-   "qty": 5.7922,
-   "price": 110.6418,
-   "day": 296,
+   "symbol": "SPY",
+   "qty": -0.477,
+   "price": 679.7227,
+   "day": 2477,
    "status": "filled",
    "venue": "paper",
-   "date": "day-17"
+   "date": "2025-12-31"
   },
   {
-   "symbol": "SPY",
-   "qty": -2.2672,
-   "price": 106.4026,
-   "day": 297,
+   "symbol": "TLT",
+   "qty": -4.5601,
+   "price": 85.4993,
+   "day": 2477,
    "status": "filled",
    "venue": "paper",
-   "date": "day-18"
+   "date": "2025-12-31"
   },
   {
-   "symbol": "GLD",
-   "qty": 289.0607,
-   "price": 91.3136,
-   "day": 297,
+   "symbol": "PUTW",
+   "qty": 15.1812,
+   "price": 31.8205,
+   "day": 2477,
    "status": "filled",
    "venue": "paper",
-   "date": "day-18"
+   "date": "2025-12-31"
   },
   {
-   "symbol": "KO",
-   "qty": 4.2618,
-   "price": 105.0939,
-   "day": 297,
+   "symbol": "SPY",
+   "qty": 0.2105,
+   "price": 681.65,
+   "day": 2478,
    "status": "filled",
    "venue": "paper",
-   "date": "day-18"
+   "date": "2026-01-02"
   },
   {
-   "symbol": "PEP",
-   "qty": 3.4516,
-   "price": 102.027,
-   "day": 297,
+   "symbol": "TLT",
+   "qty": -4.5949,
+   "price": 85.3718,
+   "day": 2478,
    "status": "filled",
    "venue": "paper",
-   "date": "day-18"
+   "date": "2026-01-02"
   },
   {
-   "symbol": "PUTW",
-   "qty": -2.4203,
-   "price": 110.3946,
-   "day": 297,
+   "symbol": "GLD",
+   "qty": 0.6089,
+   "price": 398.4791,
+   "day": 2478,
    "status": "filled",
    "venue": "paper",
-   "date": "day-18"
+   "date": "2026-01-02"
   },
   {
    "symbol": "SPY",
-   "qty": 4.6078,
-   "price": 106.8731,
-   "day": 298,
+   "qty": -0.2582,
+   "price": 685.504,
+   "day": 2479,
    "status": "filled",
    "venue": "paper",
-   "date": "day-19"
+   "date": "2026-01-05"
   },
   {
    "symbol": "TLT",
-   "qty": -0.9857,
-   "price": 104.8069,
-   "day": 298,
+   "qty": -1.5743,
+   "price": 85.7937,
+   "day": 2479,
    "status": "filled",
    "venue": "paper",
-   "date": "day-19"
+   "date": "2026-01-05"
   },
   {
    "symbol": "GLD",
-   "qty": -286.9285,
-   "price": 90.7271,
-   "day": 298,
+   "qty": -3.2488,
+   "price": 408.5556,
+   "day": 2479,
    "status": "filled",
    "venue": "paper",
-   "date": "day-19"
+   "date": "2026-01-05"
   },
   {
-   "symbol": "KO",
-   "qty": -5.7658,
-   "price": 104.6635,
-   "day": 298,
+   "symbol": "PUTW",
+   "qty": -6.7753,
+   "price": 32.1737,
+   "day": 2479,
    "status": "filled",
    "venue": "paper",
-   "date": "day-19"
+   "date": "2026-01-05"
   },
   {
-   "symbol": "PEP",
-   "qty": -2.749,
-   "price": 102.6589,
-   "day": 298,
+   "symbol": "TLT",
+   "qty": -7.7577,
+   "price": 85.6171,
+   "day": 2480,
    "status": "filled",
    "venue": "paper",
-   "date": "day-19"
+   "date": "2026-01-06"
   },
   {
-   "symbol": "PUTW",
-   "qty": 2.1217,
-   "price": 110.6367,
-   "day": 298,
+   "symbol": "SPY",
+   "qty": -0.2622,
+   "price": 687.358,
+   "day": 2481,
    "status": "filled",
    "venue": "paper",
-   "date": "day-19"
+   "date": "2026-01-07"
   },
   {
-   "symbol": "SPY",
-   "qty": -1.5677,
-   "price": 106.3809,
-   "day": 299,
+   "symbol": "TLT",
+   "qty": 11.3624,
+   "price": 86.2035,
+   "day": 2481,
    "status": "filled",
    "venue": "paper",
-   "date": "day-20"
+   "date": "2026-01-07"
   },
   {
-   "symbol": "TLT",
-   "qty": 2.836,
-   "price": 105.3936,
-   "day": 299,
+   "symbol": "GLD",
+   "qty": 1.0397,
+   "price": 409.4346,
+   "day": 2481,
    "status": "filled",
    "venue": "paper",
-   "date": "day-20"
+   "date": "2026-01-07"
   },
   {
-   "symbol": "GLD",
-   "qty": 283.5798,
-   "price": 91.7434,
-   "day": 299,
+   "symbol": "PUTW",
+   "qty": -4.6958,
+   "price": 32.2363,
+   "day": 2481,
    "status": "filled",
    "venue": "paper",
-   "date": "day-20"
+   "date": "2026-01-07"
   },
   {
-   "symbol": "KO",
-   "qty": 18.425,
-   "price": 105.9813,
-   "day": 299,
+   "symbol": "SPY",
+   "qty": 10.5476,
+   "price": 687.9759,
+   "day": 2482,
    "status": "filled",
    "venue": "paper",
-   "date": "day-20"
+   "date": "2026-01-08"
   },
   {
-   "symbol": "PEP",
-   "qty": 4.1802,
-   "price": 101.1267,
-   "day": 299,
+   "symbol": "TLT",
+   "qty": -7.8985,
+   "price": 85.6857,
+   "day": 2482,
    "status": "filled",
    "venue": "paper",
-   "date": "day-20"
+   "date": "2026-01-08"
   },
   {
    "symbol": "PUTW",
-   "qty": -8.1692,
-   "price": 110.4637,
-   "day": 299,
+   "qty": 5.2811,
+   "price": 32.2945,
+   "day": 2482,
    "status": "filled",
    "venue": "paper",
-   "date": "day-20"
+   "date": "2026-01-08"
   },
   {
    "symbol": "SPY",
-   "qty": 1.636,
-   "price": 106.1596,
-   "day": 300,
+   "qty": 2.3621,
+   "price": 692.5257,
+   "day": 2483,
    "status": "filled",
    "venue": "paper",
-   "date": "day-21"
+   "date": "2026-01-09"
   },
   {
    "symbol": "TLT",
-   "qty": -1.6963,
-   "price": 104.7392,
-   "day": 300,
+   "qty": 4.5684,
+   "price": 86.3409,
+   "day": 2483,
    "status": "filled",
    "venue": "paper",
-   "date": "day-21"
+   "date": "2026-01-09"
   },
   {
    "symbol": "GLD",
-   "qty": -275.9931,
-   "price": 89.7526,
-   "day": 300,
+   "qty": 0.8256,
+   "price": 414.6772,
+   "day": 2483,
    "status": "filled",
    "venue": "paper",
-   "date": "day-21"
+   "date": "2026-01-09"
   },
   {
-   "symbol": "KO",
-   "qty": -6.6253,
-   "price": 105.2087,
-   "day": 300,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-21"
-  },
-  {
    "symbol": "PUTW",
-   "qty": 1.7783,
-   "price": 110.5264,
-   "day": 300,
+   "qty": -6.1755,
+   "price": 32.4048,
+   "day": 2483,
    "status": "filled",
    "venue": "paper",
-   "date": "day-21"
+   "date": "2026-01-09"
   },
   {
    "symbol": "SPY",
-   "qty": -306.2247,
-   "price": 105.3297,
-   "day": 301,
+   "qty": 0.4281,
+   "price": 693.6133,
+   "day": 2484,
    "status": "filled",
    "venue": "paper",
-   "date": "day-22"
+   "date": "2026-01-12"
   },
   {
    "symbol": "TLT",
-   "qty": 3.5051,
-   "price": 105.765,
-   "day": 301,
+   "qty": -8.0358,
+   "price": 85.9997,
+   "day": 2484,
    "status": "filled",
    "venue": "paper",
-   "date": "day-22"
+   "date": "2026-01-12"
   },
   {
-   "symbol": "KO",
-   "qty": -6.6387,
-   "price": 104.4135,
-   "day": 301,
+   "symbol": "GLD",
+   "qty": -1.8604,
+   "price": 422.0189,
+   "day": 2484,
    "status": "filled",
    "venue": "paper",
-   "date": "day-22"
+   "date": "2026-01-12"
   },
   {
    "symbol": "PUTW",
-   "qty": 1.4853,
-   "price": 110.3751,
-   "day": 301,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-22"
-  },
-  {
-   "symbol": "SPY",
-   "qty": -1.6856,
-   "price": 105.2924,
-   "day": 302,
+   "qty": 6.9112,
+   "price": 32.5143,
+   "day": 2484,
    "status": "filled",
    "venue": "paper",
-   "date": "day-23"
+   "date": "2026-01-12"
   },
   {
    "symbol": "TLT",
-   "qty": -3.3825,
-   "price": 105.7472,
-   "day": 302,
+   "qty": 4.7591,
+   "price": 86.233,
+   "day": 2485,
    "status": "filled",
    "venue": "paper",
-   "date": "day-23"
+   "date": "2026-01-13"
   },
   {
    "symbol": "GLD",
-   "qty": -10.7324,
-   "price": 89.6776,
-   "day": 302,
+   "qty": 0.5262,
+   "price": 421.8408,
+   "day": 2485,
    "status": "filled",
    "venue": "paper",
-   "date": "day-23"
+   "date": "2026-01-13"
   },
   {
-   "symbol": "KO",
-   "qty": -7.6835,
-   "price": 103.8455,
-   "day": 302,
+   "symbol": "PUTW",
+   "qty": 4.0593,
+   "price": 32.3698,
+   "day": 2485,
    "status": "filled",
    "venue": "paper",
-   "date": "day-23"
+   "date": "2026-01-13"
   },
   {
-   "symbol": "PUTW",
-   "qty": 2.8198,
-   "price": 110.4026,
-   "day": 302,
+   "symbol": "SPY",
+   "qty": 0.7306,
+   "price": 688.8239,
+   "day": 2486,
    "status": "filled",
    "venue": "paper",
-   "date": "day-23"
+   "date": "2026-01-14"
   },
   {
-   "symbol": "SPY",
-   "qty": -1.5199,
-   "price": 105.6341,
-   "day": 303,
+   "symbol": "TLT",
+   "qty": 2026.9107,
+   "price": 86.7337,
+   "day": 2486,
    "status": "filled",
    "venue": "paper",
-   "date": "day-24"
+   "date": "2026-01-14"
   },
   {
-   "symbol": "TLT",
-   "qty": -4.2856,
-   "price": 105.3107,
-   "day": 303,
+   "symbol": "PUTW",
+   "qty": -6.1536,
+   "price": 32.347,
+   "day": 2486,
    "status": "filled",
    "venue": "paper",
-   "date": "day-24"
+   "date": "2026-01-14"
   },
   {
    "symbol": "GLD",
-   "qty": 3.2819,
-   "price": 88.0069,
-   "day": 303,
+   "qty": 1.7364,
+   "price": 423.5417,
+   "day": 2487,
    "status": "filled",
    "venue": "paper",
-   "date": "day-24"
+   "date": "2026-01-15"
   },
   {
-   "symbol": "KO",
-   "qty": 1.5632,
-   "price": 104.2442,
-   "day": 303,
+   "symbol": "PUTW",
+   "qty": -5.471,
+   "price": 32.4241,
+   "day": 2487,
    "status": "filled",
    "venue": "paper",
-   "date": "day-24"
+   "date": "2026-01-15"
   },
   {
    "symbol": "SPY",
-   "qty": -1.0595,
-   "price": 105.5058,
-   "day": 304,
+   "qty": 1.485,
+   "price": 690.1211,
+   "day": 2488,
    "status": "filled",
    "venue": "paper",
-   "date": "day-25"
+   "date": "2026-01-16"
   },
   {
    "symbol": "TLT",
-   "qty": 2.8769,
-   "price": 106.4049,
-   "day": 304,
+   "qty": -2022.4822,
+   "price": 86.1271,
+   "day": 2488,
    "status": "filled",
    "venue": "paper",
-   "date": "day-25"
+   "date": "2026-01-16"
   },
   {
    "symbol": "GLD",
-   "qty": 5.9969,
-   "price": 89.2908,
-   "day": 304,
+   "qty": 4.0619,
+   "price": 421.5006,
+   "day": 2488,
    "status": "filled",
    "venue": "paper",
-   "date": "day-25"
+   "date": "2026-01-16"
   },
   {
-   "symbol": "KO",
-   "qty": 4.2278,
-   "price": 104.4487,
-   "day": 304,
+   "symbol": "PUTW",
+   "qty": -8.0002,
+   "price": 32.4241,
+   "day": 2488,
    "status": "filled",
    "venue": "paper",
-   "date": "day-25"
+   "date": "2026-01-16"
   },
   {
-   "symbol": "PUTW",
-   "qty": -2.6548,
-   "price": 110.4226,
-   "day": 304,
+   "symbol": "SPY",
+   "qty": -5.1007,
+   "price": 675.3967,
+   "day": 2489,
    "status": "filled",
    "venue": "paper",
-   "date": "day-25"
+   "date": "2026-01-20"
   },
   {
    "symbol": "TLT",
-   "qty": -1.4254,
-   "price": 106.4704,
-   "day": 305,
+   "qty": -11.2411,
+   "price": 84.9991,
+   "day": 2489,
    "status": "filled",
    "venue": "paper",
-   "date": "day-26"
+   "date": "2026-01-20"
   },
   {
-   "symbol": "KO",
-   "qty": -11.3046,
-   "price": 103.3932,
-   "day": 305,
+   "symbol": "GLD",
+   "qty": 9.0118,
+   "price": 437.4486,
+   "day": 2489,
    "status": "filled",
    "venue": "paper",
-   "date": "day-26"
+   "date": "2026-01-20"
   },
   {
-   "symbol": "PEP",
-   "qty": -0.9856,
-   "price": 102.0135,
-   "day": 305,
+   "symbol": "PUTW",
+   "qty": 39.6257,
+   "price": 31.9169,
+   "day": 2489,
    "status": "filled",
    "venue": "paper",
-   "date": "day-26"
+   "date": "2026-01-20"
   },
   {
-   "symbol": "PUTW",
-   "qty": 3.8918,
-   "price": 110.4789,
-   "day": 305,
+   "symbol": "SPY",
+   "qty": -1.8795,
+   "price": 683.1915,
+   "day": 2490,
    "status": "filled",
    "venue": "paper",
-   "date": "day-26"
+   "date": "2026-01-21"
   },
   {
-   "symbol": "TLT",
-   "qty": 3.7724,
-   "price": 107.406,
-   "day": 306,
+   "symbol": "GLD",
+   "qty": -1.4226,
+   "price": 443.3782,
+   "day": 2490,
    "status": "filled",
    "venue": "paper",
-   "date": "day-27"
+   "date": "2026-01-21"
   },
   {
-   "symbol": "GLD",
-   "qty": 1.7418,
-   "price": 89.5394,
-   "day": 306,
+   "symbol": "PUTW",
+   "qty": -9.6041,
+   "price": 32.2123,
+   "day": 2490,
    "status": "filled",
    "venue": "paper",
-   "date": "day-27"
+   "date": "2026-01-21"
   },
   {
-   "symbol": "KO",
-   "qty": 16.9181,
-   "price": 104.8484,
-   "day": 306,
+   "symbol": "GLD",
+   "qty": -2.4228,
+   "price": 451.5641,
+   "day": 2491,
    "status": "filled",
    "venue": "paper",
-   "date": "day-27"
+   "date": "2026-01-22"
   },
   {
-   "symbol": "PUTW",
-   "qty": -6.8805,
-   "price": 110.5132,
-   "day": 306,
+   "symbol": "SPY",
+   "qty": 6.3357,
+   "price": 687.6965,
+   "day": 2492,
    "status": "filled",
    "venue": "paper",
-   "date": "day-27"
+   "date": "2026-01-23"
   },
   {
    "symbol": "TLT",
-   "qty": -1.1128,
-   "price": 106.8468,
-   "day": 307,
+   "qty": 1.4837,
+   "price": 86.3409,
+   "day": 2492,
    "status": "filled",
    "venue": "paper",
-   "date": "day-28"
+   "date": "2026-01-23"
   },
   {
    "symbol": "GLD",
-   "qty": -1.1475,
-   "price": 88.7532,
-   "day": 307,
+   "qty": 4.2871,
+   "price": 458.229,
+   "day": 2492,
    "status": "filled",
    "venue": "paper",
-   "date": "day-28"
+   "date": "2026-01-23"
   },
   {
-   "symbol": "KO",
-   "qty": -6.6541,
-   "price": 104.4344,
-   "day": 307,
+   "symbol": "SPY",
+   "qty": -0.4445,
+   "price": 690.4979,
+   "day": 2493,
    "status": "filled",
    "venue": "paper",
-   "date": "day-28"
+   "date": "2026-01-26"
   },
   {
-   "symbol": "PEP",
-   "qty": -2.516,
-   "price": 102.0751,
-   "day": 307,
+   "symbol": "TLT",
+   "qty": 2044.4401,
+   "price": 86.7534,
+   "day": 2493,
    "status": "filled",
    "venue": "paper",
-   "date": "day-28"
+   "date": "2026-01-26"
   },
   {
-   "symbol": "PUTW",
-   "qty": 2.7554,
-   "price": 110.8019,
-   "day": 307,
+   "symbol": "GLD",
+   "qty": -0.9954,
+   "price": 464.4676,
+   "day": 2493,
    "status": "filled",
    "venue": "paper",
-   "date": "day-28"
+   "date": "2026-01-26"
   },
   {
    "symbol": "SPY",
-   "qty": 317.0286,
-   "price": 106.3349,
-   "day": 308,
+   "qty": -0.224,
+   "price": 693.249,
+   "day": 2494,
    "status": "filled",
    "venue": "paper",
-   "date": "day-29"
+   "date": "2026-01-27"
   },
   {
-   "symbol": "KO",
-   "qty": 12.642,
-   "price": 105.5507,
-   "day": 308,
+   "symbol": "TLT",
+   "qty": -2054.0559,
+   "price": 86.1271,
+   "day": 2494,
    "status": "filled",
    "venue": "paper",
-   "date": "day-29"
+   "date": "2026-01-27"
   },
   {
-   "symbol": "PEP",
-   "qty": 2.0618,
-   "price": 101.3325,
-   "day": 308,
+   "symbol": "GLD",
+   "qty": -3.6819,
+   "price": 475.862,
+   "day": 2494,
    "status": "filled",
    "venue": "paper",
-   "date": "day-29"
+   "date": "2026-01-27"
   },
   {
    "symbol": "PUTW",
-   "qty": -5.0179,
-   "price": 110.7611,
-   "day": 308,
+   "qty": 5.0209,
+   "price": 32.652,
+   "day": 2494,
    "status": "filled",
    "venue": "paper",
-   "date": "day-29"
+   "date": "2026-01-27"
   },
   {
    "symbol": "SPY",
-   "qty": -315.7761,
-   "price": 105.8761,
-   "day": 309,
+   "qty": 3.0602,
+   "price": 693.8727,
+   "day": 2495,
+   "status": "filled",
+   "venue": "paper",
+   "date": "2026-01-28"
+  },
+  {
+   "symbol": "TLT",
+   "qty": -9.8083,
+   "price": 85.931,
+   "day": 2495,
    "status": "filled",
    "venue": "paper",
-   "date": "day-30"
+   "date": "2026-01-28"
   },
   {
    "symbol": "GLD",
-   "qty": 1.7659,
-   "price": 89.0282,
-   "day": 309,
+   "qty": -7.0549,
+   "price": 494.3127,
+   "day": 2495,
    "status": "filled",
    "venue": "paper",
-   "date": "day-30"
+   "date": "2026-01-28"
   },
   {
-   "symbol": "KO",
-   "qty": -3.3684,
-   "price": 105.0803,
-   "day": 309,
+   "symbol": "PUTW",
+   "qty": 19.6325,
+   "price": 32.652,
+   "day": 2495,
    "status": "filled",
    "venue": "paper",
-   "date": "day-30"
+   "date": "2026-01-28"
   },
   {
-   "symbol": "PEP",
-   "qty": 1.0179,
-   "price": 101.2796,
-   "day": 309,
+   "symbol": "TLT",
+   "qty": 2.6616,
+   "price": 86.0366,
+   "day": 2496,
    "status": "filled",
    "venue": "paper",
-   "date": "day-30"
+   "date": "2026-01-29"
   },
   {
    "symbol": "PUTW",
-   "qty": 0.9076,
-   "price": 110.8173,
-   "day": 309,
+   "qty": 10.0003,
+   "price": 32.4578,
+   "day": 2496,
    "status": "filled",
    "venue": "paper",
-   "date": "day-30"
+   "date": "2026-01-29"
   },
   {
-   "symbol": "KO",
-   "qty": 3.0344,
-   "price": 105.3789,
-   "day": 310,
+   "symbol": "SPY",
+   "qty": -1.4793,
+   "price": 689.7403,
+   "day": 2497,
    "status": "filled",
    "venue": "paper",
-   "date": "day-31"
+   "date": "2026-01-30"
   },
   {
-   "symbol": "PEP",
-   "qty": 1.512,
-   "price": 100.9067,
-   "day": 310,
+   "symbol": "TLT",
+   "qty": 9.6542,
+   "price": 85.5555,
+   "day": 2497,
    "status": "filled",
    "venue": "paper",
-   "date": "day-31"
+   "date": "2026-01-30"
   },
   {
-   "symbol": "PUTW",
-   "qty": -1.4296,
-   "price": 110.7014,
-   "day": 310,
+   "symbol": "GLD",
+   "qty": -21.2717,
+   "price": 444.7275,
+   "day": 2497,
    "status": "filled",
    "venue": "paper",
-   "date": "day-31"
+   "date": "2026-01-30"
   },
   {
-   "symbol": "SPY",
-   "qty": 161.979,
-   "price": 104.6901,
-   "day": 311,
+   "symbol": "PUTW",
+   "qty": -51.3667,
+   "price": 32.5514,
+   "day": 2497,
    "status": "filled",
    "venue": "paper",
-   "date": "day-32"
+   "date": "2026-01-30"
   },
   {
-   "symbol": "TLT",
-   "qty": -4.2635,
-   "price": 104.9746,
-   "day": 311,
+   "symbol": "SPY",
+   "qty": 1.7952,
+   "price": 693.8628,
+   "day": 2498,
    "status": "filled",
    "venue": "paper",
-   "date": "day-32"
+   "date": "2026-02-02"
   },
   {
-   "symbol": "KO",
-   "qty": -5.5135,
-   "price": 104.5605,
-   "day": 311,
+   "symbol": "TLT",
+   "qty": -2.5839,
+   "price": 85.2258,
+   "day": 2498,
    "status": "filled",
    "venue": "paper",
-   "date": "day-32"
+   "date": "2026-02-02"
   },
   {
-   "symbol": "PEP",
-   "qty": 5.1235,
-   "price": 100.2979,
-   "day": 311,
+   "symbol": "GLD",
+   "qty": 0.5437,
+   "price": 427.3436,
+   "day": 2498,
    "status": "filled",
    "venue": "paper",
-   "date": "day-32"
+   "date": "2026-02-02"
   },
   {
    "symbol": "PUTW",
-   "qty": 1.7886,
-   "price": 110.5539,
-   "day": 311,
+   "qty": -14.5855,
+   "price": 32.7163,
+   "day": 2498,
    "status": "filled",
    "venue": "paper",
-   "date": "day-32"
+   "date": "2026-02-02"
   },
   {
    "symbol": "SPY",
-   "qty": -163.4239,
-   "price": 104.3093,
-   "day": 312,
+   "qty": -0.2484,
+   "price": 687.3082,
+   "day": 2499,
    "status": "filled",
    "venue": "paper",
-   "date": "day-33"
+   "date": "2026-02-03"
   },
   {
    "symbol": "TLT",
-   "qty": 3.1441,
-   "price": 103.3087,
-   "day": 312,
+   "qty": 1.4491,
+   "price": 85.518,
+   "day": 2499,
    "status": "filled",
    "venue": "paper",
-   "date": "day-33"
+   "date": "2026-02-03"
   },
   {
    "symbol": "GLD",
-   "qty": 1.6776,
-   "price": 90.67,
-   "day": 312,
+   "qty": -8.1434,
+   "price": 454.0629,
+   "day": 2499,
    "status": "filled",
    "venue": "paper",
-   "date": "day-33"
+   "date": "2026-02-03"
   },
   {
-   "symbol": "KO",
-   "qty": -3.6758,
-   "price": 104.2385,
-   "day": 312,
+   "symbol": "PUTW",
+   "qty": 22.8439,
+   "price": 32.5063,
+   "day": 2499,
    "status": "filled",
    "venue": "paper",
-   "date": "day-33"
+   "date": "2026-02-03"
   },
   {
-   "symbol": "PEP",
-   "qty": 1.2763,
-   "price": 100.2891,
-   "day": 312,
+   "symbol": "SPY",
+   "qty": 2.1567,
+   "price": 684.6633,
+   "day": 2500,
    "status": "filled",
    "venue": "paper",
-   "date": "day-33"
+   "date": "2026-02-04"
   },
   {
    "symbol": "PUTW",
-   "qty": 1.3398,
-   "price": 110.5182,
-   "day": 312,
+   "qty": 4.4908,
+   "price": 32.3898,
+   "day": 2500,
    "status": "filled",
    "venue": "paper",
-   "date": "day-33"
+   "date": "2026-02-04"
   },
   {
    "symbol": "SPY",
-   "qty": 1.8009,
-   "price": 104.7816,
-   "day": 313,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-34"
-  },
-  {
-   "symbol": "GLD",
-   "qty": 266.546,
-   "price": 90.8808,
-   "day": 313,
+   "qty": -3.3091,
+   "price": 675.4366,
+   "day": 2501,
    "status": "filled",
    "venue": "paper",
-   "date": "day-34"
+   "date": "2026-02-05"
   },
   {
-   "symbol": "KO",
-   "qty": 19.942,
-   "price": 105.9706,
-   "day": 313,
+   "symbol": "TLT",
+   "qty": 25.4254,
+   "price": 86.2277,
+   "day": 2501,
    "status": "filled",
    "venue": "paper",
-   "date": "day-34"
+   "date": "2026-02-05"
   },
   {
-   "symbol": "PEP",
-   "qty": 1.9481,
-   "price": 99.1486,
-   "day": 313,
+   "symbol": "GLD",
+   "qty": -0.3229,
+   "price": 441.6591,
+   "day": 2501,
    "status": "filled",
    "venue": "paper",
-   "date": "day-34"
+   "date": "2026-02-05"
   },
   {
    "symbol": "PUTW",
-   "qty": -7.9838,
-   "price": 110.5423,
-   "day": 313,
+   "qty": -7.3483,
+   "price": 31.9695,
+   "day": 2501,
    "status": "filled",
    "venue": "paper",
-   "date": "day-34"
+   "date": "2026-02-05"
   },
   {
    "symbol": "SPY",
-   "qty": -76.7666,
-   "price": 105.4679,
-   "day": 314,
+   "qty": -2.5425,
+   "price": 688.3946,
+   "day": 2502,
    "status": "filled",
    "venue": "paper",
-   "date": "day-35"
+   "date": "2026-02-06"
   },
   {
    "symbol": "TLT",
-   "qty": 6.5873,
-   "price": 104.1379,
-   "day": 314,
+   "qty": -14.6775,
+   "price": 86.2006,
+   "day": 2502,
    "status": "filled",
    "venue": "paper",
-   "date": "day-35"
+   "date": "2026-02-06"
   },
   {
    "symbol": "GLD",
-   "qty": -2.441,
-   "price": 91.765,
-   "day": 314,
+   "qty": -1.0349,
+   "price": 455.2323,
+   "day": 2502,
    "status": "filled",
    "venue": "paper",
-   "date": "day-35"
+   "date": "2026-02-06"
   },
   {
-   "symbol": "KO",
-   "qty": 8.0247,
-   "price": 106.8114,
-   "day": 314,
+   "symbol": "PUTW",
+   "qty": -9.3507,
+   "price": 32.5708,
+   "day": 2502,
    "status": "filled",
    "venue": "paper",
-   "date": "day-35"
+   "date": "2026-02-06"
   },
   {
-   "symbol": "PEP",
-   "qty": -2.8312,
-   "price": 99.1619,
-   "day": 314,
+   "symbol": "SPY",
+   "qty": -0.2063,
+   "price": 691.714,
+   "day": 2503,
    "status": "filled",
    "venue": "paper",
-   "date": "day-35"
+   "date": "2026-02-09"
   },
   {
-   "symbol": "PUTW",
-   "qty": -3.3685,
-   "price": 110.7884,
-   "day": 314,
+   "symbol": "TLT",
+   "qty": -5.7929,
+   "price": 86.1809,
+   "day": 2503,
    "status": "filled",
    "venue": "paper",
-   "date": "day-35"
+   "date": "2026-02-09"
   },
   {
-   "symbol": "SPY",
-   "qty": 79.7567,
-   "price": 105.7139,
-   "day": 315,
+   "symbol": "GLD",
+   "qty": -1.5636,
+   "price": 466.7965,
+   "day": 2503,
    "status": "filled",
    "venue": "paper",
-   "date": "day-36"
+   "date": "2026-02-09"
   },
   {
-   "symbol": "GLD",
-   "qty": -261.9341,
-   "price": 90.5871,
-   "day": 315,
+   "symbol": "PUTW",
+   "qty": 4.2381,
+   "price": 32.7297,
+   "day": 2503,
    "status": "filled",
    "venue": "paper",
-   "date": "day-36"
+   "date": "2026-02-09"
   },
   {
-   "symbol": "KO",
-   "qty": -10.7587,
-   "price": 105.8609,
-   "day": 315,
+   "symbol": "SPY",
+   "qty": -0.3548,
+   "price": 689.8898,
+   "day": 2504,
+   "status": "filled",
+   "venue": "paper",
+   "date": "2026-02-10"
+  },
+  {
+   "symbol": "TLT",
+   "qty": 2035.6672,
+   "price": 87.2626,
+   "day": 2504,
    "status": "filled",
    "venue": "paper",
-   "date": "day-36"
+   "date": "2026-02-10"
   },
   {
-   "symbol": "PEP",
-   "qty": -3.3123,
-   "price": 100.1043,
-   "day": 315,
+   "symbol": "GLD",
+   "qty": 0.2753,
+   "price": 462.6312,
+   "day": 2504,
    "status": "filled",
    "venue": "paper",
-   "date": "day-36"
+   "date": "2026-02-10"
   },
   {
    "symbol": "PUTW",
-   "qty": 3.7391,
-   "price": 110.9735,
-   "day": 315,
+   "qty": -21.9349,
+   "price": 32.8134,
+   "day": 2504,
    "status": "filled",
    "venue": "paper",
-   "date": "day-36"
+   "date": "2026-02-10"
   },
   {
    "symbol": "SPY",
-   "qty": 162.5935,
-   "price": 104.8585,
-   "day": 316,
+   "qty": 4.9375,
+   "price": 690.4204,
+   "day": 2505,
    "status": "filled",
    "venue": "paper",
-   "date": "day-37"
+   "date": "2026-02-11"
   },
   {
    "symbol": "TLT",
-   "qty": -1.2335,
-   "price": 103.4084,
-   "day": 316,
+   "qty": 3.3898,
+   "price": 86.7994,
+   "day": 2505,
    "status": "filled",
    "venue": "paper",
-   "date": "day-37"
+   "date": "2026-02-11"
   },
   {
    "symbol": "GLD",
-   "qty": 265.6346,
-   "price": 91.2739,
-   "day": 316,
+   "qty": -0.6534,
+   "price": 467.3962,
+   "day": 2505,
    "status": "filled",
    "venue": "paper",
-   "date": "day-37"
+   "date": "2026-02-11"
   },
   {
-   "symbol": "KO",
-   "qty": -4.9754,
-   "price": 105.248,
-   "day": 316,
+   "symbol": "SPY",
+   "qty": -3.6382,
+   "price": 679.0749,
+   "day": 2506,
    "status": "filled",
    "venue": "paper",
-   "date": "day-37"
+   "date": "2026-02-12"
   },
   {
-   "symbol": "PEP",
-   "qty": 3.6595,
-   "price": 99.8116,
-   "day": 316,
+   "symbol": "TLT",
+   "qty": -20.8834,
+   "price": 87.8647,
+   "day": 2506,
    "status": "filled",
    "venue": "paper",
-   "date": "day-37"
+   "date": "2026-02-12"
   },
   {
-   "symbol": "PUTW",
-   "qty": 1.5821,
-   "price": 110.7865,
-   "day": 316,
+   "symbol": "GLD",
+   "qty": 0.5629,
+   "price": 451.6157,
+   "day": 2506,
    "status": "filled",
    "venue": "paper",
-   "date": "day-37"
+   "date": "2026-02-12"
   },
   {
-   "symbol": "SPY",
-   "qty": 2.485,
-   "price": 103.8737,
-   "day": 317,
+   "symbol": "PUTW",
+   "qty": 10.991,
+   "price": 32.3996,
+   "day": 2506,
    "status": "filled",
    "venue": "paper",
-   "date": "day-38"
+   "date": "2026-02-12"
   },
   {
-   "symbol": "KO",
-   "qty": 1.9687,
-   "price": 105.1762,
-   "day": 317,
+   "symbol": "SPY",
+   "qty": 1.865,
+   "price": 680.2331,
+   "day": 2507,
    "status": "filled",
    "venue": "paper",
-   "date": "day-38"
+   "date": "2026-02-13"
   },
   {
-   "symbol": "PEP",
-   "qty": 4.7083,
-   "price": 98.8545,
-   "day": 317,
+   "symbol": "TLT",
+   "qty": -2.6473,
+   "price": 88.3472,
+   "day": 2507,
    "status": "filled",
    "venue": "paper",
-   "date": "day-38"
+   "date": "2026-02-13"
   },
   {
-   "symbol": "PUTW",
-   "qty": -1.6195,
-   "price": 110.4532,
-   "day": 317,
+   "symbol": "GLD",
+   "qty": -1.3866,
+   "price": 462.3887,
+   "day": 2507,
    "status": "filled",
    "venue": "paper",
-   "date": "day-38"
+   "date": "2026-02-13"
   },
   {
-   "symbol": "SPY",
-   "qty": -162.9447,
-   "price": 103.1568,
-   "day": 318,
+   "symbol": "PUTW",
+   "qty": 21.3952,
+   "price": 32.2345,
+   "day": 2507,
    "status": "filled",
    "venue": "paper",
-   "date": "day-39"
+   "date": "2026-02-13"
   },
   {
-   "symbol": "KO",
-   "qty": -1.3447,
-   "price": 104.766,
-   "day": 318,
+   "symbol": "SPY",
+   "qty": 1.0473,
+   "price": 681.3307,
+   "day": 2508,
    "status": "filled",
    "venue": "paper",
-   "date": "day-39"
+   "date": "2026-02-17"
   },
   {
-   "symbol": "PEP",
-   "qty": 2.5368,
-   "price": 98.4407,
-   "day": 318,
+   "symbol": "TLT",
+   "qty": -3.4332,
+   "price": 88.4949,
+   "day": 2508,
    "status": "filled",
    "venue": "paper",
-   "date": "day-39"
+   "date": "2026-02-17"
   },
   {
-   "symbol": "SPY",
-   "qty": 2.2429,
-   "price": 104.0096,
-   "day": 319,
+   "symbol": "GLD",
+   "qty": 0.5318,
+   "price": 448.4241,
+   "day": 2508,
    "status": "filled",
    "venue": "paper",
-   "date": "day-40"
+   "date": "2026-02-17"
   },
   {
-   "symbol": "TLT",
-   "qty": 2.0568,
-   "price": 105.1758,
-   "day": 319,
+   "symbol": "PUTW",
+   "qty": -6.5261,
+   "price": 32.2217,
+   "day": 2508,
    "status": "filled",
    "venue": "paper",
-   "date": "day-40"
+   "date": "2026-02-17"
   },
   {
-   "symbol": "GLD",
-   "qty": 3.4132,
-   "price": 91.4599,
-   "day": 319,
+   "symbol": "SPY",
+   "qty": -0.2234,
+   "price": 684.0786,
+   "day": 2509,
    "status": "filled",
    "venue": "paper",
-   "date": "day-40"
+   "date": "2026-02-18"
   },
   {
-   "symbol": "KO",
-   "qty": 11.0891,
-   "price": 105.9209,
-   "day": 319,
+   "symbol": "TLT",
+   "qty": 8.2035,
+   "price": 88.2483,
+   "day": 2509,
    "status": "filled",
    "venue": "paper",
-   "date": "day-40"
+   "date": "2026-02-18"
   },
   {
-   "symbol": "PEP",
-   "qty": -2.2125,
-   "price": 98.2143,
-   "day": 319,
+   "symbol": "GLD",
+   "qty": -1.2582,
+   "price": 458.0509,
+   "day": 2509,
    "status": "filled",
    "venue": "paper",
-   "date": "day-40"
+   "date": "2026-02-18"
   },
   {
    "symbol": "PUTW",
-   "qty": -4.6804,
-   "price": 110.5648,
-   "day": 319,
+   "qty": -4.0832,
+   "price": 32.4157,
+   "day": 2509,
    "status": "filled",
    "venue": "paper",
-   "date": "day-40"
+   "date": "2026-02-18"
   },
   {
-   "symbol": "TLT",
-   "qty": -4.6527,
-   "price": 104.7698,
-   "day": 320,
+   "symbol": "SPY",
+   "qty": 4.918,
+   "price": 682.957,
+   "day": 2510,
    "status": "filled",
    "venue": "paper",
-   "date": "day-41"
+   "date": "2026-02-19"
   },
   {
-   "symbol": "KO",
-   "qty": -8.5269,
-   "price": 105.082,
-   "day": 320,
+   "symbol": "TLT",
+   "qty": -2.3318,
+   "price": 88.2488,
+   "day": 2510,
    "status": "filled",
    "venue": "paper",
-   "date": "day-41"
+   "date": "2026-02-19"
   },
   {
    "symbol": "PUTW",
-   "qty": 3.134,
-   "price": 110.6314,
-   "day": 320,
+   "qty": 5.2935,
+   "price": 32.3413,
+   "day": 2510,
    "status": "filled",
    "venue": "paper",
-   "date": "day-41"
+   "date": "2026-02-19"
   },
   {
    "symbol": "SPY",
-   "qty": 163.8308,
-   "price": 102.9587,
-   "day": 321,
+   "qty": 0.7338,
+   "price": 687.8961,
+   "day": 2511,
    "status": "filled",
    "venue": "paper",
-   "date": "day-42"
+   "date": "2026-02-20"
   },
   {
    "symbol": "TLT",
-   "qty": 3.7117,
-   "price": 105.73,
-   "day": 321,
+   "qty": 8.2056,
+   "price": 88.13,
+   "day": 2511,
    "status": "filled",
    "venue": "paper",
-   "date": "day-42"
+   "date": "2026-02-20"
   },
   {
-   "symbol": "KO",
-   "qty": 4.8447,
-   "price": 105.3378,
-   "day": 321,
+   "symbol": "GLD",
+   "qty": -1.101,
+   "price": 468.3857,
+   "day": 2511,
    "status": "filled",
    "venue": "paper",
-   "date": "day-42"
+   "date": "2026-02-20"
   },
   {
-   "symbol": "PEP",
-   "qty": 4.9937,
-   "price": 97.6549,
-   "day": 321,
+   "symbol": "PUTW",
+   "qty": -3.4851,
+   "price": 32.5417,
+   "day": 2511,
    "status": "filled",
    "venue": "paper",
-   "date": "day-42"
+   "date": "2026-02-20"
   },
   {
-   "symbol": "PUTW",
-   "qty": -2.4061,
-   "price": 110.3595,
-   "day": 321,
+   "symbol": "SPY",
+   "qty": 2.711,
+   "price": 680.8718,
+   "day": 2512,
    "status": "filled",
    "venue": "paper",
-   "date": "day-42"
+   "date": "2026-02-23"
   },
   {
-   "symbol": "SPY",
-   "qty": -164.6149,
-   "price": 102.7935,
-   "day": 322,
+   "symbol": "TLT",
+   "qty": -6.0953,
+   "price": 88.3669,
+   "day": 2512,
    "status": "filled",
    "venue": "paper",
-   "date": "day-43"
+   "date": "2026-02-23"
   },
   {
    "symbol": "GLD",
-   "qty": 1.4154,
-   "price": 91.6996,
-   "day": 322,
+   "qty": -1.7875,
+   "price": 481.0394,
+   "day": 2512,
    "status": "filled",
    "venue": "paper",
-   "date": "day-43"
+   "date": "2026-02-23"
   },
   {
-   "symbol": "KO",
-   "qty": -1.3775,
-   "price": 105.09,
-   "day": 322,
+   "symbol": "PUTW",
+   "qty": 16.9694,
+   "price": 32.2927,
+   "day": 2512,
    "status": "filled",
    "venue": "paper",
-   "date": "day-43"
+   "date": "2026-02-23"
   },
   {
    "symbol": "SPY",
-   "qty": 1.9953,
-   "price": 103.6349,
-   "day": 323,
+   "qty": 0.3335,
+   "price": 685.8206,
+   "day": 2513,
    "status": "filled",
    "venue": "paper",
-   "date": "day-44"
+   "date": "2026-02-24"
   },
   {
-   "symbol": "GLD",
-   "qty": -4.4428,
-   "price": 93.0151,
-   "day": 323,
+   "symbol": "TLT",
+   "qty": 1.8677,
+   "price": 88.6131,
+   "day": 2513,
    "status": "filled",
    "venue": "paper",
-   "date": "day-44"
+   "date": "2026-02-24"
   },
   {
-   "symbol": "KO",
-   "qty": -3.7288,
-   "price": 105.0544,
-   "day": 323,
+   "symbol": "GLD",
+   "qty": 0.643,
+   "price": 474.8473,
+   "day": 2513,
    "status": "filled",
    "venue": "paper",
-   "date": "day-44"
+   "date": "2026-02-24"
   },
   {
-   "symbol": "PEP",
-   "qty": -4.1825,
-   "price": 98.4923,
-   "day": 323,
+   "symbol": "PUTW",
+   "qty": -5.5426,
+   "price": 32.4448,
+   "day": 2513,
    "status": "filled",
    "venue": "paper",
-   "date": "day-44"
+   "date": "2026-02-24"
   },
   {
-   "symbol": "PUTW",
-   "qty": 1.8006,
-   "price": 110.726,
-   "day": 323,
+   "symbol": "SPY",
+   "qty": -0.9051,
+   "price": 690.9166,
+   "day": 2514,
    "status": "filled",
    "venue": "paper",
-   "date": "day-44"
+   "date": "2026-02-25"
   },
   {
-   "symbol": "KO",
-   "qty": -18.818,
-   "price": 103.7165,
-   "day": 324,
+   "symbol": "TLT",
+   "qty": 4.9503,
+   "price": 88.6229,
+   "day": 2514,
    "status": "filled",
    "venue": "paper",
-   "date": "day-45"
+   "date": "2026-02-25"
   },
   {
-   "symbol": "PEP",
-   "qty": -4.6617,
-   "price": 100.0567,
-   "day": 324,
+   "symbol": "GLD",
+   "qty": 0.3645,
+   "price": 473.6567,
+   "day": 2514,
    "status": "filled",
    "venue": "paper",
-   "date": "day-45"
+   "date": "2026-02-25"
   },
   {
    "symbol": "PUTW",
-   "qty": 7.1505,
-   "price": 110.836,
-   "day": 324,
+   "qty": -5.6472,
+   "price": 32.6776,
+   "day": 2514,
    "status": "filled",
    "venue": "paper",
-   "date": "day-45"
+   "date": "2026-02-25"
   },
   {
    "symbol": "SPY",
-   "qty": -3.2122,
-   "price": 103.6828,
-   "day": 325,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-46"
-  },
-  {
-   "symbol": "KO",
-   "qty": -1.5136,
-   "price": 103.5782,
-   "day": 325,
+   "qty": 0.4042,
+   "price": 687.7663,
+   "day": 2515,
    "status": "filled",
    "venue": "paper",
-   "date": "day-46"
+   "date": "2026-02-26"
   },
   {
    "symbol": "TLT",
-   "qty": -2.2224,
-   "price": 106.9422,
-   "day": 326,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-47"
-  },
-  {
-   "symbol": "KO",
-   "qty": -21.3693,
-   "price": 102.1272,
-   "day": 326,
+   "qty": -4.7368,
+   "price": 88.8888,
+   "day": 2515,
    "status": "filled",
    "venue": "paper",
-   "date": "day-47"
+   "date": "2026-02-26"
   },
   {
-   "symbol": "PEP",
-   "qty": -5.5569,
-   "price": 101.9262,
-   "day": 326,
+   "symbol": "GLD",
+   "qty": -0.4286,
+   "price": 477.2413,
+   "day": 2515,
    "status": "filled",
    "venue": "paper",
-   "date": "day-47"
+   "date": "2026-02-26"
   },
   {
    "symbol": "PUTW",
-   "qty": 8.2222,
-   "price": 110.9879,
-   "day": 326,
+   "qty": 6.8546,
+   "price": 32.6034,
+   "day": 2515,
    "status": "filled",
    "venue": "paper",
-   "date": "day-47"
+   "date": "2026-02-26"
   },
   {
-   "symbol": "TLT",
-   "qty": 7.5311,
-   "price": 108.9006,
-   "day": 327,
+   "symbol": "SPY",
+   "qty": 0.5203,
+   "price": 684.4637,
+   "day": 2516,
    "status": "filled",
    "venue": "paper",
-   "date": "day-48"
+   "date": "2026-02-27"
   },
   {
-   "symbol": "KO",
-   "qty": -16.5057,
-   "price": 100.9233,
-   "day": 327,
+   "symbol": "TLT",
+   "qty": -6.0972,
+   "price": 89.4304,
+   "day": 2516,
    "status": "filled",
    "venue": "paper",
-   "date": "day-48"
+   "date": "2026-02-27"
   },
   {
-   "symbol": "PEP",
-   "qty": -3.5545,
-   "price": 103.1222,
-   "day": 327,
+   "symbol": "GLD",
+   "qty": -0.7232,
+   "price": 483.5081,
+   "day": 2516,
    "status": "filled",
    "venue": "paper",
-   "date": "day-48"
+   "date": "2026-02-27"
   },
   {
    "symbol": "PUTW",
-   "qty": 5.5822,
-   "price": 111.0241,
-   "day": 327,
+   "qty": 14.4646,
+   "price": 32.4287,
+   "day": 2516,
    "status": "filled",
    "venue": "paper",
-   "date": "day-48"
+   "date": "2026-02-27"
   },
   {
    "symbol": "SPY",
-   "qty": -80.6084,
-   "price": 105.0276,
-   "day": 328,
+   "qty": -0.4421,
+   "price": 684.1683,
+   "day": 2517,
    "status": "filled",
    "venue": "paper",
-   "date": "day-49"
+   "date": "2026-03-02"
   },
   {
    "symbol": "TLT",
-   "qty": 267.1291,
-   "price": 109.6308,
-   "day": 328,
+   "qty": 6.4686,
+   "price": 88.6209,
+   "day": 2517,
    "status": "filled",
    "venue": "paper",
-   "date": "day-49"
+   "date": "2026-03-02"
   },
   {
-   "symbol": "KO",
-   "qty": 1.1229,
-   "price": 101.3551,
-   "day": 328,
+   "symbol": "GLD",
+   "qty": -0.7847,
+   "price": 489.755,
+   "day": 2517,
    "status": "filled",
    "venue": "paper",
-   "date": "day-49"
+   "date": "2026-03-02"
   },
   {
-   "symbol": "PEP",
-   "qty": -4.6931,
-   "price": 103.9029,
-   "day": 328,
+   "symbol": "SPY",
+   "qty": -1.5642,
+   "price": 678.1379,
+   "day": 2518,
    "status": "filled",
    "venue": "paper",
-   "date": "day-49"
+   "date": "2026-03-03"
   },
   {
-   "symbol": "SPY",
-   "qty": 82.7812,
-   "price": 105.1972,
-   "day": 329,
+   "symbol": "TLT",
+   "qty": -7.41,
+   "price": 88.3545,
+   "day": 2518,
    "status": "filled",
    "venue": "paper",
-   "date": "day-50"
+   "date": "2026-03-03"
   },
   {
-   "symbol": "KO",
-   "qty": 7.0291,
-   "price": 101.8402,
-   "day": 329,
+   "symbol": "PUTW",
+   "qty": -11.567,
+   "price": 32.112,
+   "day": 2518,
    "status": "filled",
    "venue": "paper",
-   "date": "day-50"
+   "date": "2026-03-03"
   },
   {
-   "symbol": "PUTW",
-   "qty": -3.5523,
-   "price": 111.2557,
-   "day": 329,
+   "symbol": "SPY",
+   "qty": -1.3404,
+   "price": 682.9224,
+   "day": 2519,
    "status": "filled",
    "venue": "paper",
-   "date": "day-50"
+   "date": "2026-03-04"
   },
   {
    "symbol": "TLT",
-   "qty": -265.512,
-   "price": 108.6857,
-   "day": 330,
+   "qty": 7.5327,
+   "price": 88.166,
+   "day": 2519,
    "status": "filled",
    "venue": "paper",
-   "date": "day-51"
+   "date": "2026-03-04"
   },
   {
-   "symbol": "GLD",
-   "qty": 1.0938,
-   "price": 93.0278,
-   "day": 330,
+   "symbol": "PUTW",
+   "qty": -7.7777,
+   "price": 32.3477,
+   "day": 2519,
    "status": "filled",
    "venue": "paper",
-   "date": "day-51"
+   "date": "2026-03-04"
   },
   {
-   "symbol": "KO",
-   "qty": -3.9115,
-   "price": 101.3855,
-   "day": 330,
+   "symbol": "SPY",
+   "qty": -0.455,
+   "price": 679.1147,
+   "day": 2520,
    "status": "filled",
    "venue": "paper",
-   "date": "day-51"
+   "date": "2026-03-05"
   },
   {
-   "symbol": "KO",
-   "qty": 1.1245,
-   "price": 101.5806,
-   "day": 331,
+   "symbol": "PUTW",
+   "qty": -10.6284,
+   "price": 32.3283,
+   "day": 2520,
    "status": "filled",
    "venue": "paper",
-   "date": "day-52"
+   "date": "2026-03-05"
   },
   {
    "symbol": "SPY",
-   "qty": -1.2959,
-   "price": 105.071,
-   "day": 332,
+   "qty": -174.0854,
+   "price": 670.2134,
+   "day": 2521,
    "status": "filled",
    "venue": "paper",
-   "date": "day-53"
+   "date": "2026-03-06"
   },
   {
    "symbol": "TLT",
-   "qty": -3.0548,
-   "price": 107.742,
-   "day": 332,
+   "qty": -6.3539,
+   "price": 87.3962,
+   "day": 2521,
    "status": "filled",
    "venue": "paper",
-   "date": "day-53"
+   "date": "2026-03-06"
   },
   {
-   "symbol": "KO",
-   "qty": 2.664,
-   "price": 101.8377,
-   "day": 332,
+   "symbol": "GLD",
+   "qty": -1.2109,
+   "price": 473.2732,
+   "day": 2521,
    "status": "filled",
    "venue": "paper",
-   "date": "day-53"
+   "date": "2026-03-06"
   },
   {
-   "symbol": "SPY",
-   "qty": -78.8485,
-   "price": 106.0469,
-   "day": 333,
+   "symbol": "PUTW",
+   "qty": 17.3205,
+   "price": 31.8461,
+   "day": 2521,
    "status": "filled",
    "venue": "paper",
-   "date": "day-54"
+   "date": "2026-03-06"
   },
   {
-   "symbol": "GLD",
-   "qty": 1.4884,
-   "price": 92.1718,
-   "day": 333,
+   "symbol": "SPY",
+   "qty": 0.9731,
+   "price": 676.7609,
+   "day": 2522,
    "status": "filled",
    "venue": "paper",
-   "date": "day-54"
+   "date": "2026-03-09"
   },
   {
-   "symbol": "KO",
-   "qty": 3.3902,
-   "price": 102.2922,
-   "day": 333,
+   "symbol": "TLT",
+   "qty": -4.1634,
+   "price": 88.1569,
+   "day": 2522,
    "status": "filled",
    "venue": "paper",
-   "date": "day-54"
+   "date": "2026-03-09"
   },
   {
-   "symbol": "PEP",
-   "qty": -4.3531,
-   "price": 104.1502,
-   "day": 333,
+   "symbol": "GLD",
+   "qty": 0.2906,
+   "price": 472.7663,
+   "day": 2522,
    "status": "filled",
    "venue": "paper",
-   "date": "day-54"
+   "date": "2026-03-09"
   },
   {
    "symbol": "PUTW",
-   "qty": -2.3566,
-   "price": 111.659,
-   "day": 333,
+   "qty": -12.6212,
+   "price": 32.1052,
+   "day": 2522,
    "status": "filled",
    "venue": "paper",
-   "date": "day-54"
+   "date": "2026-03-09"
   },
   {
    "symbol": "SPY",
-   "qty": 364.7218,
-   "price": 106.7341,
-   "day": 334,
+   "qty": -0.3511,
+   "price": 674.9979,
+   "day": 2523,
    "status": "filled",
    "venue": "paper",
-   "date": "day-55"
+   "date": "2026-03-10"
   },
   {
    "symbol": "TLT",
-   "qty": 2.5769,
-   "price": 108.8219,
-   "day": 334,
+   "qty": 8.1647,
+   "price": 87.3055,
+   "day": 2523,
    "status": "filled",
    "venue": "paper",
-   "date": "day-55"
+   "date": "2026-03-10"
   },
   {
    "symbol": "GLD",
-   "qty": -1.2413,
-   "price": 92.181,
-   "day": 334,
+   "qty": -0.6906,
+   "price": 477.6211,
+   "day": 2523,
+   "status": "filled",
+   "venue": "paper",
+   "date": "2026-03-10"
+  },
+  {
+   "symbol": "PUTW",
+   "qty": -6.6498,
+   "price": 32.1052,
+   "day": 2523,
    "status": "filled",
    "venue": "paper",
-   "date": "day-55"
+   "date": "2026-03-10"
   },
   {
-   "symbol": "KO",
-   "qty": 18.8836,
-   "price": 103.7765,
-   "day": 334,
+   "symbol": "TLT",
+   "qty": -1997.7673,
+   "price": 86.092,
+   "day": 2524,
    "status": "filled",
    "venue": "paper",
-   "date": "day-55"
+   "date": "2026-03-11"
   },
   {
    "symbol": "PUTW",
-   "qty": -7.5457,
-   "price": 111.8494,
-   "day": 334,
+   "qty": -16.7349,
+   "price": 32.1829,
+   "day": 2524,
    "status": "filled",
    "venue": "paper",
-   "date": "day-55"
+   "date": "2026-03-11"
   },
   {
    "symbol": "SPY",
-   "qty": -91.1364,
-   "price": 108.1104,
-   "day": 335,
+   "qty": 0.4961,
+   "price": 664.578,
+   "day": 2525,
    "status": "filled",
    "venue": "paper",
-   "date": "day-56"
+   "date": "2026-03-12"
   },
   {
    "symbol": "TLT",
-   "qty": 269.2793,
-   "price": 109.3776,
-   "day": 335,
+   "qty": 2.2402,
+   "price": 86.0101,
+   "day": 2525,
    "status": "filled",
    "venue": "paper",
-   "date": "day-56"
+   "date": "2026-03-12"
   },
   {
-   "symbol": "PEP",
-   "qty": -6.4862,
-   "price": 104.5955,
-   "day": 335,
+   "symbol": "GLD",
+   "qty": 0.3708,
+   "price": 467.1134,
+   "day": 2525,
    "status": "filled",
    "venue": "paper",
-   "date": "day-56"
+   "date": "2026-03-12"
   },
   {
-   "symbol": "SPY",
-   "qty": 81.4603,
-   "price": 108.2661,
-   "day": 336,
+   "symbol": "PUTW",
+   "qty": 28.0217,
+   "price": 31.7491,
+   "day": 2525,
    "status": "filled",
    "venue": "paper",
-   "date": "day-57"
+   "date": "2026-03-12"
   },
   {
    "symbol": "TLT",
-   "qty": -280.2729,
-   "price": 108.8787,
-   "day": 336,
+   "qty": -4.9976,
+   "price": 85.4992,
+   "day": 2526,
    "status": "filled",
    "venue": "paper",
-   "date": "day-57"
+   "date": "2026-03-13"
   },
   {
    "symbol": "GLD",
-   "qty": -2.177,
-   "price": 92.3762,
-   "day": 336,
+   "qty": 0.4554,
+   "price": 461.0704,
+   "day": 2526,
    "status": "filled",
    "venue": "paper",
-   "date": "day-57"
+   "date": "2026-03-13"
   },
   {
-   "symbol": "KO",
-   "qty": 9.926,
-   "price": 105.007,
-   "day": 336,
+   "symbol": "PUTW",
+   "qty": 10.8895,
+   "price": 31.6228,
+   "day": 2526,
    "status": "filled",
    "venue": "paper",
-   "date": "day-57"
+   "date": "2026-03-13"
   },
   {
-   "symbol": "PEP",
-   "qty": 1.8552,
-   "price": 103.9753,
-   "day": 336,
+   "symbol": "SPY",
+   "qty": 1.5166,
+   "price": 667.5415,
+   "day": 2527,
    "status": "filled",
    "venue": "paper",
-   "date": "day-57"
+   "date": "2026-03-16"
   },
   {
-   "symbol": "PUTW",
-   "qty": -3.4369,
-   "price": 112.3263,
-   "day": 336,
+   "symbol": "TLT",
+   "qty": 10.4367,
+   "price": 86.2474,
+   "day": 2527,
    "status": "filled",
    "venue": "paper",
-   "date": "day-57"
+   "date": "2026-03-16"
   },
   {
-   "symbol": "SPY",
-   "qty": -83.2469,
-   "price": 109.317,
-   "day": 337,
+   "symbol": "PUTW",
+   "qty": -19.8336,
+   "price": 31.7367,
+   "day": 2527,
    "status": "filled",
    "venue": "paper",
-   "date": "day-58"
+   "date": "2026-03-16"
   },
   {
-   "symbol": "KO",
-   "qty": 822.2943,
-   "price": 105.8518,
-   "day": 337,
+   "symbol": "SPY",
+   "qty": -0.8443,
+   "price": 668.6285,
+   "day": 2528,
    "status": "filled",
    "venue": "paper",
-   "date": "day-58"
+   "date": "2026-03-17"
   },
   {
-   "symbol": "PEP",
-   "qty": -830.454,
-   "price": 104.3715,
-   "day": 337,
+   "symbol": "TLT",
+   "qty": 2.2885,
+   "price": 86.4847,
+   "day": 2528,
    "status": "filled",
    "venue": "paper",
-   "date": "day-58"
+   "date": "2026-03-17"
   },
   {
    "symbol": "PUTW",
-   "qty": -1.0323,
-   "price": 112.6651,
-   "day": 337,
+   "qty": -14.4076,
+   "price": 31.921,
+   "day": 2528,
    "status": "filled",
    "venue": "paper",
-   "date": "day-58"
+   "date": "2026-03-17"
   },
   {
    "symbol": "SPY",
-   "qty": 77.5676,
-   "price": 110.0206,
-   "day": 338,
+   "qty": 0.516,
+   "price": 659.9583,
+   "day": 2529,
    "status": "filled",
    "venue": "paper",
-   "date": "day-59"
+   "date": "2026-03-18"
   },
   {
    "symbol": "TLT",
-   "qty": -4.3069,
-   "price": 107.3102,
-   "day": 338,
+   "qty": -2.774,
+   "price": 85.9142,
+   "day": 2529,
    "status": "filled",
    "venue": "paper",
-   "date": "day-59"
+   "date": "2026-03-18"
   },
   {
    "symbol": "GLD",
-   "qty": 3.5888,
-   "price": 93.2427,
-   "day": 338,
+   "qty": 0.7062,
+   "price": 444.9624,
+   "day": 2529,
    "status": "filled",
    "venue": "paper",
-   "date": "day-59"
+   "date": "2026-03-18"
   },
   {
-   "symbol": "GLD",
-   "qty": -2.039,
-   "price": 94.0239,
-   "day": 339,
+   "symbol": "PUTW",
+   "qty": 23.7268,
+   "price": 31.584,
+   "day": 2529,
    "status": "filled",
    "venue": "paper",
-   "date": "day-60"
+   "date": "2026-03-18"
   },
   {
    "symbol": "SPY",
-   "qty": 151.0378,
-   "price": 108.8904,
-   "day": 340,
+   "qty": -0.5115,
+   "price": 657.674,
+   "day": 2530,
    "status": "filled",
    "venue": "paper",
-   "date": "day-61"
+   "date": "2026-03-19"
   },
   {
-   "symbol": "GLD",
-   "qty": -1.7815,
-   "price": 94.7753,
-   "day": 340,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-61"
-  },
-  {
-   "symbol": "SPY",
-   "qty": -239.4855,
-   "price": 109.8255,
-   "day": 341,
+   "symbol": "TLT",
+   "qty": 12.2619,
+   "price": 86.5243,
+   "day": 2530,
    "status": "filled",
    "venue": "paper",
-   "date": "day-62"
+   "date": "2026-03-19"
   },
   {
    "symbol": "GLD",
-   "qty": 1.8169,
-   "price": 94.7736,
-   "day": 341,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-62"
-  },
-  {
-   "symbol": "SPY",
-   "qty": 75.0231,
-   "price": 110.9658,
-   "day": 342,
+   "qty": 0.5425,
+   "price": 426.6232,
+   "day": 2530,
    "status": "filled",
    "venue": "paper",
-   "date": "day-63"
+   "date": "2026-03-19"
   },
   {
-   "symbol": "TLT",
-   "qty": -1.3661,
-   "price": 106.8812,
-   "day": 342,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-63"
-  },
-  {
    "symbol": "PUTW",
-   "qty": -1.1364,
-   "price": 113.2549,
-   "day": 342,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-63"
-  },
-  {
-   "symbol": "SPY",
-   "qty": -2.0412,
-   "price": 111.9106,
-   "day": 343,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-64"
-  },
-  {
-   "symbol": "TLT",
-   "qty": -5.4756,
-   "price": 106.7087,
-   "day": 343,
+   "qty": -10.4144,
+   "price": 31.4749,
+   "day": 2530,
    "status": "filled",
    "venue": "paper",
-   "date": "day-64"
+   "date": "2026-03-19"
   },
   {
    "symbol": "SPY",
-   "qty": -1.8856,
-   "price": 112.7488,
-   "day": 345,
+   "qty": 0.2086,
+   "price": 648.8943,
+   "day": 2531,
    "status": "filled",
    "venue": "paper",
-   "date": "day-66"
+   "date": "2026-03-20"
   },
   {
    "symbol": "TLT",
-   "qty": -1.1912,
-   "price": 105.7904,
-   "day": 345,
+   "qty": -22.1598,
+   "price": 84.7978,
+   "day": 2531,
    "status": "filled",
    "venue": "paper",
-   "date": "day-66"
+   "date": "2026-03-20"
   },
   {
    "symbol": "GLD",
-   "qty": 1.3435,
-   "price": 94.9381,
-   "day": 345,
+   "qty": -100.0383,
+   "price": 413.1733,
+   "day": 2531,
    "status": "filled",
    "venue": "paper",
-   "date": "day-66"
+   "date": "2026-03-20"
   },
   {
    "symbol": "PUTW",
-   "qty": -0.9701,
-   "price": 113.852,
-   "day": 345,
+   "qty": 32.0276,
+   "price": 31.2344,
+   "day": 2531,
    "status": "filled",
    "venue": "paper",
-   "date": "day-66"
+   "date": "2026-03-20"
   },
   {
    "symbol": "SPY",
-   "qty": 2.099,
-   "price": 112.7842,
-   "day": 346,
+   "qty": 1.2851,
+   "price": 655.7077,
+   "day": 2532,
    "status": "filled",
    "venue": "paper",
-   "date": "day-67"
+   "date": "2026-03-23"
   },
   {
    "symbol": "TLT",
-   "qty": -9.2569,
-   "price": 106.0306,
-   "day": 346,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-67"
-  },
-  {
-   "symbol": "GLD",
-   "qty": 1.3266,
-   "price": 94.5236,
-   "day": 347,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-68"
-  },
-  {
-   "symbol": "SPY",
-   "qty": -1.4588,
-   "price": 113.3307,
-   "day": 348,
+   "qty": 10.3144,
+   "price": 85.4364,
+   "day": 2532,
    "status": "filled",
    "venue": "paper",
-   "date": "day-69"
+   "date": "2026-03-23"
   },
   {
    "symbol": "GLD",
-   "qty": 2.1581,
-   "price": 93.4756,
-   "day": 348,
+   "qty": -1.011,
+   "price": 403.838,
+   "day": 2532,
    "status": "filled",
    "venue": "paper",
-   "date": "day-69"
+   "date": "2026-03-23"
   },
   {
    "symbol": "PUTW",
-   "qty": -1.5393,
-   "price": 114.1143,
-   "day": 348,
+   "qty": -22.3054,
+   "price": 31.5039,
+   "day": 2532,
    "status": "filled",
    "venue": "paper",
-   "date": "day-69"
+   "date": "2026-03-23"
   },
   {
    "symbol": "SPY",
-   "qty": 1.1028,
-   "price": 113.8702,
-   "day": 349,
+   "qty": -0.3367,
+   "price": 652.8534,
+   "day": 2533,
    "status": "filled",
    "venue": "paper",
-   "date": "day-70"
+   "date": "2026-03-24"
   },
   {
    "symbol": "TLT",
-   "qty": -4.107,
-   "price": 105.9601,
-   "day": 349,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-70"
-  },
-  {
-   "symbol": "GLD",
-   "qty": 4.1782,
-   "price": 93.8045,
-   "day": 349,
+   "qty": -9.9426,
+   "price": 84.9756,
+   "day": 2533,
    "status": "filled",
    "venue": "paper",
-   "date": "day-70"
+   "date": "2026-03-24"
   },
   {
-   "symbol": "SPY",
-   "qty": 6.8456,
-   "price": 114.3832,
-   "day": 350,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-71"
-  },
-  {
-   "symbol": "GLD",
-   "qty": 2.2955,
-   "price": 94.1581,
-   "day": 350,
+   "symbol": "PUTW",
+   "qty": 9.7705,
+   "price": 31.4577,
+   "day": 2533,
    "status": "filled",
    "venue": "paper",
-   "date": "day-71"
+   "date": "2026-03-24"
   },
   {
    "symbol": "SPY",
-   "qty": 4.6493,
-   "price": 114.1278,
-   "day": 351,
+   "qty": 0.882,
+   "price": 657.1484,
+   "day": 2534,
    "status": "filled",
    "venue": "paper",
-   "date": "day-72"
+   "date": "2026-03-25"
   },
   {
    "symbol": "TLT",
-   "qty": -1.4992,
-   "price": 105.6962,
-   "day": 351,
+   "qty": 32.2973,
+   "price": 85.8815,
+   "day": 2534,
    "status": "filled",
    "venue": "paper",
-   "date": "day-72"
+   "date": "2026-03-25"
   },
   {
-   "symbol": "KO",
-   "qty": 819.5771,
-   "price": 106.6065,
-   "day": 351,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-72"
-  },
-  {
-   "symbol": "PEP",
-   "qty": -800.93,
-   "price": 108.9794,
-   "day": 351,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-72"
-  },
-  {
    "symbol": "GLD",
-   "qty": -5.0088,
-   "price": 95.9829,
-   "day": 352,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-73"
-  },
-  {
-   "symbol": "KO",
-   "qty": -2.1786,
-   "price": 106.9734,
-   "day": 352,
+   "qty": 2.1873,
+   "price": 416.4981,
+   "day": 2534,
    "status": "filled",
    "venue": "paper",
-   "date": "day-73"
+   "date": "2026-03-25"
   },
   {
-   "symbol": "PEP",
-   "qty": 1.4626,
-   "price": 109.4821,
-   "day": 352,
+   "symbol": "PUTW",
+   "qty": -26.9945,
+   "price": 31.5815,
+   "day": 2534,
    "status": "filled",
    "venue": "paper",
-   "date": "day-73"
+   "date": "2026-03-25"
   },
   {
    "symbol": "SPY",
-   "qty": -2.2805,
-   "price": 113.7694,
-   "day": 353,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-74"
-  },
-  {
-   "symbol": "TLT",
-   "qty": 9.3124,
-   "price": 107.7443,
-   "day": 353,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-74"
-  },
-  {
-   "symbol": "PEP",
-   "qty": -11.9795,
-   "price": 108.048,
-   "day": 353,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-74"
-  },
-  {
-   "symbol": "PUTW",
-   "qty": 2.9975,
-   "price": 114.5335,
-   "day": 353,
+   "qty": 0.9745,
+   "price": 645.4125,
+   "day": 2535,
    "status": "filled",
    "venue": "paper",
-   "date": "day-74"
+   "date": "2026-03-26"
   },
   {
    "symbol": "GLD",
-   "qty": 1.9985,
-   "price": 96.1169,
-   "day": 354,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-75"
-  },
-  {
-   "symbol": "PEP",
-   "qty": -10.1317,
-   "price": 107.0979,
-   "day": 354,
+   "qty": -2.3817,
+   "price": 400.4397,
+   "day": 2535,
    "status": "filled",
    "venue": "paper",
-   "date": "day-75"
+   "date": "2026-03-26"
   },
   {
    "symbol": "PUTW",
-   "qty": 3.2297,
-   "price": 114.4615,
-   "day": 354,
+   "qty": 54.7679,
+   "price": 31.0617,
+   "day": 2535,
    "status": "filled",
    "venue": "paper",
-   "date": "day-75"
+   "date": "2026-03-26"
   },
   {
-   "symbol": "GLD",
-   "qty": -3.1628,
-   "price": 94.5702,
-   "day": 355,
+   "symbol": "SPY",
+   "qty": 0.9802,
+   "price": 634.407,
+   "day": 2536,
    "status": "filled",
    "venue": "paper",
-   "date": "day-76"
+   "date": "2026-03-27"
   },
   {
-   "symbol": "KO",
-   "qty": 1.766,
-   "price": 107.0475,
-   "day": 355,
+   "symbol": "TLT",
+   "qty": 2.2173,
+   "price": 84.6947,
+   "day": 2536,
    "status": "filled",
    "venue": "paper",
-   "date": "day-76"
+   "date": "2026-03-27"
   },
   {
-   "symbol": "PEP",
-   "qty": 7.2765,
-   "price": 107.6867,
-   "day": 355,
+   "symbol": "GLD",
+   "qty": 2.6619,
+   "price": 414.9074,
+   "day": 2536,
    "status": "filled",
    "venue": "paper",
-   "date": "day-76"
+   "date": "2026-03-27"
   },
   {
    "symbol": "PUTW",
-   "qty": -3.4084,
-   "price": 114.3499,
-   "day": 355,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-76"
-  },
-  {
-   "symbol": "PEP",
-   "qty": 1.9613,
-   "price": 108.0872,
-   "day": 356,
+   "qty": 27.0811,
+   "price": 30.6552,
+   "day": 2536,
    "status": "filled",
    "venue": "paper",
-   "date": "day-77"
+   "date": "2026-03-27"
   },
   {
    "symbol": "TLT",
-   "qty": -2.3706,
-   "price": 106.8453,
-   "day": 357,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-78"
-  },
-  {
-   "symbol": "PEP",
-   "qty": 4.8592,
-   "price": 108.5603,
-   "day": 357,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-78"
-  },
-  {
-   "symbol": "PUTW",
-   "qty": -2.0624,
-   "price": 114.6207,
-   "day": 357,
+   "qty": 40.076,
+   "price": 85.8221,
+   "day": 2537,
    "status": "filled",
    "venue": "paper",
-   "date": "day-78"
+   "date": "2026-03-30"
   },
   {
    "symbol": "SPY",
-   "qty": 1.5241,
-   "price": 114.4755,
-   "day": 358,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-79"
-  },
-  {
-   "symbol": "GLD",
-   "qty": 2.3707,
-   "price": 95.6437,
-   "day": 358,
+   "qty": 6.082,
+   "price": 650.6652,
+   "day": 2538,
    "status": "filled",
    "venue": "paper",
-   "date": "day-79"
+   "date": "2026-03-31"
   },
   {
-   "symbol": "KO",
-   "qty": -3.3051,
-   "price": 108.1622,
-   "day": 358,
+   "symbol": "TLT",
+   "qty": -3.3789,
+   "price": 85.6475,
+   "day": 2538,
    "status": "filled",
    "venue": "paper",
-   "date": "day-79"
+   "date": "2026-03-31"
   },
   {
-   "symbol": "PEP",
-   "qty": -12.0418,
-   "price": 107.6785,
-   "day": 358,
+   "symbol": "GLD",
+   "qty": 95.8344,
+   "price": 430.5051,
+   "day": 2538,
    "status": "filled",
    "venue": "paper",
-   "date": "day-79"
+   "date": "2026-03-31"
   },
   {
    "symbol": "PUTW",
-   "qty": 4.9208,
-   "price": 114.8763,
-   "day": 358,
+   "qty": -66.0438,
+   "price": 31.2614,
+   "day": 2538,
    "status": "filled",
    "venue": "paper",
-   "date": "day-79"
+   "date": "2026-03-31"
   },
   {
-   "symbol": "GLD",
-   "qty": 1.4775,
-   "price": 95.4377,
-   "day": 359,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-80"
-  },
-  {
-   "symbol": "KO",
-   "qty": 2.8792,
-   "price": 107.6696,
-   "day": 359,
+   "symbol": "SPY",
+   "qty": 0.3672,
+   "price": 655.5676,
+   "day": 2539,
    "status": "filled",
    "venue": "paper",
-   "date": "day-80"
+   "date": "2026-04-01"
   },
   {
    "symbol": "TLT",
-   "qty": 3.6562,
-   "price": 106.4212,
-   "day": 360,
+   "qty": -5.7888,
+   "price": 85.5631,
+   "day": 2539,
    "status": "filled",
    "venue": "paper",
-   "date": "day-81"
+   "date": "2026-04-01"
   },
   {
    "symbol": "GLD",
-   "qty": 7.8229,
-   "price": 94.4713,
-   "day": 360,
+   "qty": -0.569,
+   "price": 437.6011,
+   "day": 2539,
    "status": "filled",
    "venue": "paper",
-   "date": "day-81"
+   "date": "2026-04-01"
   },
   {
-   "symbol": "PEP",
-   "qty": 4.7177,
-   "price": 107.7795,
-   "day": 360,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-81"
-  },
-  {
-   "symbol": "PUTW",
-   "qty": -3.3141,
-   "price": 114.5875,
-   "day": 360,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-81"
-  },
-  {
    "symbol": "TLT",
-   "qty": -3.4986,
-   "price": 105.9721,
-   "day": 361,
+   "qty": 13.9386,
+   "price": 86.175,
+   "day": 2540,
    "status": "filled",
    "venue": "paper",
-   "date": "day-82"
+   "date": "2026-04-02"
   },
   {
    "symbol": "GLD",
-   "qty": 1.1415,
-   "price": 94.3767,
-   "day": 361,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-82"
-  },
-  {
-   "symbol": "KO",
-   "qty": -2.8025,
-   "price": 108.1238,
-   "day": 361,
+   "qty": 0.5988,
+   "price": 429.6247,
+   "day": 2540,
    "status": "filled",
    "venue": "paper",
-   "date": "day-82"
+   "date": "2026-04-02"
   },
   {
-   "symbol": "PEP",
-   "qty": -5.9881,
-   "price": 107.4839,
-   "day": 361,
+   "symbol": "PUTW",
+   "qty": -14.1298,
+   "price": 31.3691,
+   "day": 2540,
    "status": "filled",
    "venue": "paper",
-   "date": "day-82"
+   "date": "2026-04-02"
   },
   {
-   "symbol": "PUTW",
-   "qty": 2.6716,
-   "price": 114.9424,
-   "day": 361,
+   "symbol": "SPY",
+   "qty": 0.1995,
+   "price": 659.2595,
+   "day": 2541,
    "status": "filled",
    "venue": "paper",
-   "date": "day-82"
+   "date": "2026-04-06"
   },
   {
    "symbol": "TLT",
-   "qty": 5.1808,
-   "price": 107.312,
-   "day": 362,
+   "qty": -8.6455,
+   "price": 85.95,
+   "day": 2541,
    "status": "filled",
    "venue": "paper",
-   "date": "day-83"
+   "date": "2026-04-06"
   },
   {
    "symbol": "GLD",
-   "qty": 1.3166,
-   "price": 94.5316,
-   "day": 362,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-83"
-  },
-  {
-   "symbol": "KO",
-   "qty": -815.9359,
-   "price": 109.273,
-   "day": 362,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-83"
-  },
-  {
-   "symbol": "PEP",
-   "qty": 820.7938,
-   "price": 106.961,
-   "day": 362,
+   "qty": 0.3243,
+   "price": 427.8638,
+   "day": 2541,
    "status": "filled",
    "venue": "paper",
-   "date": "day-83"
+   "date": "2026-04-06"
   },
   {
    "symbol": "PUTW",
-   "qty": 3.4494,
-   "price": 115.0954,
-   "day": 362,
+   "qty": -11.9131,
+   "price": 31.565,
+   "day": 2541,
    "status": "filled",
    "venue": "paper",
-   "date": "day-83"
+   "date": "2026-04-06"
   },
   {
-   "symbol": "GLD",
-   "qty": 10.3513,
-   "price": 94.3397,
-   "day": 363,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-84"
-  },
-  {
    "symbol": "TLT",
-   "qty": -2.9776,
-   "price": 106.9674,
-   "day": 364,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-85"
-  },
-  {
-   "symbol": "GLD",
-   "qty": -2.6699,
-   "price": 95.6766,
-   "day": 364,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-85"
-  },
-  {
-   "symbol": "SPY",
-   "qty": 1.5002,
-   "price": 114.0979,
-   "day": 365,
+   "qty": -3.4046,
+   "price": 85.94,
+   "day": 2542,
    "status": "filled",
    "venue": "paper",
-   "date": "day-86"
+   "date": "2026-04-07"
   },
   {
    "symbol": "GLD",
-   "qty": -4.3428,
-   "price": 96.877,
-   "day": 365,
+   "qty": -0.5469,
+   "price": 431.5941,
+   "day": 2542,
    "status": "filled",
    "venue": "paper",
-   "date": "day-86"
+   "date": "2026-04-07"
   },
   {
    "symbol": "PUTW",
-   "qty": 1.1783,
-   "price": 115.0541,
-   "day": 365,
+   "qty": 13.0272,
+   "price": 31.4005,
+   "day": 2542,
    "status": "filled",
    "venue": "paper",
-   "date": "day-86"
+   "date": "2026-04-07"
   },
   {
-   "symbol": "TLT",
-   "qty": -2.1991,
-   "price": 106.4597,
-   "day": 366,
+   "symbol": "SPY",
+   "qty": 3.6592,
+   "price": 676.348,
+   "day": 2543,
    "status": "filled",
    "venue": "paper",
-   "date": "day-87"
+   "date": "2026-04-08"
   },
   {
    "symbol": "TLT",
-   "qty": 321.6285,
-   "price": 107.8367,
-   "day": 367,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-88"
-  },
-  {
-   "symbol": "GLD",
-   "qty": 2.0901,
-   "price": 97.045,
-   "day": 367,
+   "qty": -4.995,
+   "price": 86.2178,
+   "day": 2543,
    "status": "filled",
    "venue": "paper",
-   "date": "day-88"
+   "date": "2026-04-08"
   },
   {
    "symbol": "PUTW",
-   "qty": -1.2007,
-   "price": 115.1259,
-   "day": 367,
+   "qty": -37.7344,
+   "price": 31.8786,
+   "day": 2543,
    "status": "filled",
    "venue": "paper",
-   "date": "day-88"
+   "date": "2026-04-08"
   },
   {
    "symbol": "SPY",
-   "qty": -1.3893,
-   "price": 113.867,
-   "day": 368,
+   "qty": 122.4607,
+   "price": 680.25,
+   "day": 2544,
    "status": "filled",
    "venue": "paper",
-   "date": "day-89"
+   "date": "2026-04-09"
   },
   {
    "symbol": "TLT",
-   "qty": 2.0194,
-   "price": 108.1004,
-   "day": 369,
+   "qty": -4.6323,
+   "price": 85.9996,
+   "day": 2544,
    "status": "filled",
    "venue": "paper",
-   "date": "day-90"
+   "date": "2026-04-09"
   },
   {
    "symbol": "GLD",
-   "qty": 1.608,
-   "price": 96.6935,
-   "day": 369,
+   "qty": -0.3131,
+   "price": 437.691,
+   "day": 2544,
    "status": "filled",
    "venue": "paper",
-   "date": "day-90"
+   "date": "2026-04-09"
   },
   {
    "symbol": "TLT",
-   "qty": 1.8231,
-   "price": 107.9879,
-   "day": 370,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-91"
-  },
-  {
-   "symbol": "SPY",
-   "qty": 5.7956,
-   "price": 113.9513,
-   "day": 371,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-92"
-  },
-  {
-   "symbol": "GLD",
-   "qty": -2.7006,
-   "price": 96.0853,
-   "day": 371,
+   "qty": -2.2003,
+   "price": 85.7913,
+   "day": 2545,
    "status": "filled",
    "venue": "paper",
-   "date": "day-92"
+   "date": "2026-04-10"
   },
   {
    "symbol": "SPY",
-   "qty": -80.6474,
-   "price": 114.892,
-   "day": 372,
+   "qty": -1.1056,
+   "price": 685.757,
+   "day": 2546,
    "status": "filled",
    "venue": "paper",
-   "date": "day-93"
+   "date": "2026-04-13"
   },
   {
    "symbol": "TLT",
-   "qty": -333.8959,
-   "price": 106.9525,
-   "day": 372,
+   "qty": -3.2577,
+   "price": 86.0492,
+   "day": 2546,
    "status": "filled",
    "venue": "paper",
-   "date": "day-93"
+   "date": "2026-04-13"
   },
   {
    "symbol": "GLD",
-   "qty": 1.1429,
-   "price": 95.3396,
-   "day": 372,
+   "qty": 0.3938,
+   "price": 435.5777,
+   "day": 2546,
    "status": "filled",
    "venue": "paper",
-   "date": "day-93"
+   "date": "2026-04-13"
   },
   {
    "symbol": "PUTW",
-   "qty": -2.3761,
-   "price": 115.4413,
-   "day": 372,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-93"
-  },
-  {
-   "symbol": "SPY",
-   "qty": 77.2185,
-   "price": 114.9218,
-   "day": 373,
+   "qty": -3.2852,
+   "price": 32.0402,
+   "day": 2546,
    "status": "filled",
    "venue": "paper",
-   "date": "day-94"
+   "date": "2026-04-13"
   },
   {
-   "symbol": "GLD",
-   "qty": -2.5666,
-   "price": 94.0002,
-   "day": 373,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-94"
-  },
-  {
    "symbol": "SPY",
-   "qty": 155.5228,
-   "price": 114.2214,
-   "day": 374,
+   "qty": -1.5817,
+   "price": 694.1128,
+   "day": 2547,
    "status": "filled",
    "venue": "paper",
-   "date": "day-95"
+   "date": "2026-04-14"
   },
   {
    "symbol": "TLT",
-   "qty": -5.0874,
-   "price": 107.0805,
-   "day": 374,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-95"
-  },
-  {
-   "symbol": "SPY",
-   "qty": -155.5375,
-   "price": 114.1892,
-   "day": 375,
+   "qty": 6.0363,
+   "price": 86.592,
+   "day": 2547,
    "status": "filled",
    "venue": "paper",
-   "date": "day-96"
+   "date": "2026-04-14"
   },
   {
    "symbol": "GLD",
-   "qty": 5.0447,
-   "price": 94.1739,
-   "day": 375,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-96"
-  },
-  {
-   "symbol": "SPY",
-   "qty": 3.2888,
-   "price": 113.8507,
-   "day": 376,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-97"
-  },
-  {
-   "symbol": "TLT",
-   "qty": -1.5771,
-   "price": 106.3559,
-   "day": 376,
+   "qty": -1.0298,
+   "price": 444.8675,
+   "day": 2547,
    "status": "filled",
    "venue": "paper",
-   "date": "day-97"
+   "date": "2026-04-14"
   },
   {
    "symbol": "SPY",
-   "qty": -74.4305,
-   "price": 114.5525,
-   "day": 377,
+   "qty": -0.8156,
+   "price": 699.59,
+   "day": 2548,
    "status": "filled",
    "venue": "paper",
-   "date": "day-98"
+   "date": "2026-04-15"
   },
   {
    "symbol": "TLT",
-   "qty": -1.0154,
-   "price": 106.1307,
-   "day": 377,
+   "qty": -9.2046,
+   "price": 86.1285,
+   "day": 2548,
    "status": "filled",
    "venue": "paper",
-   "date": "day-98"
+   "date": "2026-04-15"
   },
   {
    "symbol": "GLD",
-   "qty": 1.1769,
-   "price": 94.1268,
-   "day": 377,
+   "qty": 0.5374,
+   "price": 440.6802,
+   "day": 2548,
    "status": "filled",
    "venue": "paper",
-   "date": "day-98"
+   "date": "2026-04-15"
   },
   {
    "symbol": "PUTW",
-   "qty": -0.8666,
-   "price": 115.5518,
-   "day": 377,
+   "qty": 4.5534,
+   "price": 32.2438,
+   "day": 2548,
    "status": "filled",
    "venue": "paper",
-   "date": "day-98"
+   "date": "2026-04-15"
   },
   {
    "symbol": "SPY",
-   "qty": 78.4417,
-   "price": 115.3876,
-   "day": 378,
+   "qty": 3.1438,
+   "price": 702.0108,
+   "day": 2549,
    "status": "filled",
    "venue": "paper",
-   "date": "day-99"
+   "date": "2026-04-16"
   },
   {
    "symbol": "TLT",
-   "qty": -1.2466,
-   "price": 106.7412,
-   "day": 378,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-99"
-  },
-  {
-   "symbol": "SPY",
-   "qty": 153.8536,
-   "price": 114.6385,
-   "day": 379,
+   "qty": -35.6149,
+   "price": 85.583,
+   "day": 2549,
    "status": "filled",
    "venue": "paper",
-   "date": "day-100"
+   "date": "2026-04-16"
   },
   {
-   "symbol": "TLT",
-   "qty": 353.8216,
-   "price": 108.162,
-   "day": 379,
+   "symbol": "GLD",
+   "qty": 0.9664,
+   "price": 440.3,
+   "day": 2549,
    "status": "filled",
    "venue": "paper",
-   "date": "day-100"
+   "date": "2026-04-16"
   },
   {
    "symbol": "PUTW",
-   "qty": -1.3666,
-   "price": 115.6234,
-   "day": 379,
+   "qty": 3.2391,
+   "price": 32.3124,
+   "day": 2549,
    "status": "filled",
    "venue": "paper",
-   "date": "day-100"
+   "date": "2026-04-16"
   },
   {
    "symbol": "SPY",
-   "qty": -153.9434,
-   "price": 114.4614,
-   "day": 380,
+   "qty": -0.9999,
+   "price": 709.7849,
+   "day": 2550,
    "status": "filled",
    "venue": "paper",
-   "date": "day-101"
+   "date": "2026-04-17"
   },
   {
    "symbol": "TLT",
-   "qty": -3.0566,
-   "price": 108.9219,
-   "day": 380,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-101"
-  },
-  {
-   "symbol": "KO",
-   "qty": -803.7616,
-   "price": 110.3949,
-   "day": 380,
+   "qty": 13.4372,
+   "price": 86.453,
+   "day": 2550,
    "status": "filled",
    "venue": "paper",
-   "date": "day-101"
+   "date": "2026-04-17"
   },
   {
-   "symbol": "PEP",
-   "qty": 840.7179,
-   "price": 105.6477,
-   "day": 380,
+   "symbol": "GLD",
+   "qty": -0.562,
+   "price": 445.707,
+   "day": 2550,
    "status": "filled",
    "venue": "paper",
-   "date": "day-101"
+   "date": "2026-04-17"
   },
   {
    "symbol": "SPY",
-   "qty": 4.2903,
-   "price": 114.42,
-   "day": 381,
+   "qty": 0.2296,
+   "price": 709.0744,
+   "day": 2551,
    "status": "filled",
    "venue": "paper",
-   "date": "day-102"
+   "date": "2026-04-20"
   },
   {
    "symbol": "TLT",
-   "qty": 0.991,
-   "price": 109.6062,
-   "day": 381,
+   "qty": -3.3675,
+   "price": 86.3467,
+   "day": 2551,
    "status": "filled",
    "venue": "paper",
-   "date": "day-102"
+   "date": "2026-04-20"
   },
   {
-   "symbol": "KO",
-   "qty": -6.2466,
-   "price": 109.8644,
-   "day": 381,
+   "symbol": "GLD",
+   "qty": 0.5286,
+   "price": 442.311,
+   "day": 2551,
    "status": "filled",
    "venue": "paper",
-   "date": "day-102"
+   "date": "2026-04-20"
   },
   {
    "symbol": "PUTW",
-   "qty": 2.3917,
-   "price": 115.762,
-   "day": 381,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-102"
-  },
-  {
-   "symbol": "SPY",
-   "qty": -1.3324,
-   "price": 115.0301,
-   "day": 382,
+   "qty": -4.1483,
+   "price": 32.339,
+   "day": 2551,
    "status": "filled",
    "venue": "paper",
-   "date": "day-103"
+   "date": "2026-04-20"
   },
   {
    "symbol": "TLT",
-   "qty": 1.7892,
-   "price": 109.2091,
-   "day": 382,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-103"
-  },
-  {
-   "symbol": "GLD",
-   "qty": -6.5707,
-   "price": 96.0154,
-   "day": 382,
+   "qty": 1.8624,
+   "price": 85.9566,
+   "day": 2552,
    "status": "filled",
    "venue": "paper",
-   "date": "day-103"
+   "date": "2026-04-21"
   },
   {
-   "symbol": "PEP",
-   "qty": -2.3712,
-   "price": 106.4731,
-   "day": 382,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-103"
-  },
-  {
    "symbol": "GLD",
-   "qty": 5.1996,
-   "price": 96.0109,
-   "day": 383,
+   "qty": -94.7171,
+   "price": 429.3552,
+   "day": 2552,
    "status": "filled",
    "venue": "paper",
-   "date": "day-104"
+   "date": "2026-04-21"
   },
   {
-   "symbol": "PEP",
-   "qty": 2.0359,
-   "price": 106.134,
-   "day": 383,
+   "symbol": "SPY",
+   "qty": -1.271,
+   "price": 710.8544,
+   "day": 2553,
    "status": "filled",
    "venue": "paper",
-   "date": "day-104"
+   "date": "2026-04-22"
   },
   {
-   "symbol": "SPY",
-   "qty": -2.8099,
-   "price": 115.385,
-   "day": 384,
+   "symbol": "TLT",
+   "qty": -3.4051,
+   "price": 86.0393,
+   "day": 2553,
    "status": "filled",
    "venue": "paper",
-   "date": "day-105"
+   "date": "2026-04-22"
   },
   {
    "symbol": "GLD",
-   "qty": 1.3189,
-   "price": 96.5618,
-   "day": 384,
+   "qty": 95.0789,
+   "price": 435.4776,
+   "day": 2553,
    "status": "filled",
    "venue": "paper",
-   "date": "day-105"
+   "date": "2026-04-22"
   },
   {
-   "symbol": "KO",
-   "qty": 7.2212,
-   "price": 110.9549,
-   "day": 384,
+   "symbol": "PUTW",
+   "qty": -5.6518,
+   "price": 32.3684,
+   "day": 2553,
    "status": "filled",
    "venue": "paper",
-   "date": "day-105"
+   "date": "2026-04-22"
   },
   {
-   "symbol": "PEP",
-   "qty": -1.9576,
-   "price": 106.1324,
-   "day": 384,
+   "symbol": "TLT",
+   "qty": -6.9824,
+   "price": 85.8508,
+   "day": 2554,
    "status": "filled",
    "venue": "paper",
-   "date": "day-105"
+   "date": "2026-04-23"
   },
   {
-   "symbol": "PUTW",
-   "qty": -2.6492,
-   "price": 116.0367,
-   "day": 384,
+   "symbol": "GLD",
+   "qty": -95.2482,
+   "price": 430.8245,
+   "day": 2554,
    "status": "filled",
    "venue": "paper",
-   "date": "day-105"
+   "date": "2026-04-23"
   },
   {
    "symbol": "SPY",
-   "qty": 145.0576,
-   "price": 114.704,
-   "day": 385,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-106"
-  },
-  {
-   "symbol": "TLT",
-   "qty": -8.4201,
-   "price": 109.0639,
-   "day": 385,
+   "qty": -0.7498,
+   "price": 713.583,
+   "day": 2555,
    "status": "filled",
    "venue": "paper",
-   "date": "day-106"
+   "date": "2026-04-24"
   },
   {
    "symbol": "GLD",
-   "qty": -6.7591,
-   "price": 97.2281,
-   "day": 385,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-106"
-  },
-  {
-   "symbol": "KO",
-   "qty": 17.9057,
-   "price": 110.6403,
-   "day": 385,
+   "qty": 96.7607,
+   "price": 433.4666,
+   "day": 2555,
    "status": "filled",
    "venue": "paper",
-   "date": "day-106"
+   "date": "2026-04-24"
   },
   {
-   "symbol": "PEP",
-   "qty": -16.5541,
-   "price": 105.5551,
-   "day": 385,
+   "symbol": "TLT",
+   "qty": -1.393,
+   "price": 85.583,
+   "day": 2556,
    "status": "filled",
    "venue": "paper",
-   "date": "day-106"
+   "date": "2026-04-27"
   },
   {
-   "symbol": "PUTW",
-   "qty": -18.1921,
-   "price": 115.8758,
-   "day": 385,
+   "symbol": "GLD",
+   "qty": -98.0049,
+   "price": 429.6751,
+   "day": 2556,
    "status": "filled",
    "venue": "paper",
-   "date": "day-106"
+   "date": "2026-04-27"
   },
   {
    "symbol": "SPY",
-   "qty": -227.2307,
-   "price": 115.6004,
-   "day": 386,
+   "qty": 0.2637,
+   "price": 712.0458,
+   "day": 2557,
    "status": "filled",
    "venue": "paper",
-   "date": "day-107"
+   "date": "2026-04-28"
   },
   {
    "symbol": "TLT",
-   "qty": 5.6356,
-   "price": 109.2155,
-   "day": 386,
+   "qty": -5.2919,
+   "price": 85.6722,
+   "day": 2557,
    "status": "filled",
    "venue": "paper",
-   "date": "day-107"
+   "date": "2026-04-28"
   },
   {
    "symbol": "GLD",
-   "qty": 7.0609,
-   "price": 96.7735,
-   "day": 386,
+   "qty": -8.9966,
+   "price": 421.699,
+   "day": 2557,
    "status": "filled",
    "venue": "paper",
-   "date": "day-107"
+   "date": "2026-04-28"
   },
   {
-   "symbol": "KO",
-   "qty": -23.1979,
-   "price": 110.581,
-   "day": 386,
+   "symbol": "SPY",
+   "qty": 0.4776,
+   "price": 711.9358,
+   "day": 2558,
    "status": "filled",
    "venue": "paper",
-   "date": "day-107"
+   "date": "2026-04-29"
   },
   {
-   "symbol": "PEP",
-   "qty": 16.1998,
-   "price": 106.7304,
-   "day": 386,
+   "symbol": "GLD",
+   "qty": -2.4407,
+   "price": 417.2013,
+   "day": 2558,
    "status": "filled",
    "venue": "paper",
-   "date": "day-107"
+   "date": "2026-04-29"
   },
   {
    "symbol": "PUTW",
-   "qty": 20.5293,
-   "price": 116.2867,
-   "day": 386,
+   "qty": 10.394,
+   "price": 32.4398,
+   "day": 2558,
    "status": "filled",
    "venue": "paper",
-   "date": "day-107"
+   "date": "2026-04-29"
   },
   {
    "symbol": "SPY",
-   "qty": 76.1424,
-   "price": 116.1479,
-   "day": 387,
+   "qty": -0.6943,
+   "price": 718.3007,
+   "day": 2559,
    "status": "filled",
    "venue": "paper",
-   "date": "day-108"
+   "date": "2026-04-30"
   },
   {
    "symbol": "TLT",
-   "qty": 12.0864,
-   "price": 108.8052,
-   "day": 387,
+   "qty": -4.5711,
+   "price": 84.9283,
+   "day": 2559,
    "status": "filled",
    "venue": "paper",
-   "date": "day-108"
+   "date": "2026-04-30"
   },
   {
    "symbol": "GLD",
-   "qty": -5.787,
-   "price": 97.8817,
-   "day": 387,
+   "qty": -3.9585,
+   "price": 423.4482,
+   "day": 2559,
    "status": "filled",
    "venue": "paper",
-   "date": "day-108"
+   "date": "2026-04-30"
   },
   {
-   "symbol": "KO",
-   "qty": 8.6952,
-   "price": 111.5674,
-   "day": 387,
+   "symbol": "TLT",
+   "qty": 4.7882,
+   "price": 85.3172,
+   "day": 2560,
    "status": "filled",
    "venue": "paper",
-   "date": "day-108"
+   "date": "2026-05-01"
   },
   {
    "symbol": "PUTW",
-   "qty": -3.2298,
-   "price": 116.3181,
-   "day": 387,
+   "qty": -3.7654,
+   "price": 32.5063,
+   "day": 2560,
    "status": "filled",
    "venue": "paper",
-   "date": "day-108"
+   "date": "2026-05-01"
   },
   {
    "symbol": "SPY",
-   "qty": 1.7142,
-   "price": 115.5379,
-   "day": 388,
+   "qty": 1.7785,
+   "price": 718.369,
+   "day": 2561,
    "status": "filled",
    "venue": "paper",
-   "date": "day-109"
+   "date": "2026-05-04"
   },
   {
    "symbol": "TLT",
-   "qty": -1.8943,
-   "price": 109.5847,
-   "day": 388,
+   "qty": -25.5279,
+   "price": 84.5848,
+   "day": 2561,
    "status": "filled",
    "venue": "paper",
-   "date": "day-109"
+   "date": "2026-05-04"
   },
   {
    "symbol": "GLD",
-   "qty": -3.0726,
-   "price": 98.9795,
-   "day": 388,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-109"
-  },
-  {
-   "symbol": "KO",
-   "qty": -8.4699,
-   "price": 110.657,
-   "day": 388,
+   "qty": -2.0962,
+   "price": 414.5026,
+   "day": 2561,
    "status": "filled",
    "venue": "paper",
-   "date": "day-109"
+   "date": "2026-05-04"
   },
   {
-   "symbol": "PEP",
-   "qty": 2.5032,
-   "price": 106.456,
-   "day": 388,
+   "symbol": "PUTW",
+   "qty": 10.3214,
+   "price": 32.5443,
+   "day": 2561,
    "status": "filled",
    "venue": "paper",
-   "date": "day-109"
+   "date": "2026-05-04"
   },
   {
-   "symbol": "PUTW",
-   "qty": 3.3182,
-   "price": 116.3209,
-   "day": 388,
+   "symbol": "SPY",
+   "qty": 1.573,
+   "price": 724.1319,
+   "day": 2562,
    "status": "filled",
    "venue": "paper",
-   "date": "day-109"
+   "date": "2026-05-05"
   },
   {
    "symbol": "TLT",
-   "qty": -2.8063,
-   "price": 110.418,
-   "day": 389,
+   "qty": 12.2669,
+   "price": 85.1378,
+   "day": 2562,
    "status": "filled",
    "venue": "paper",
-   "date": "day-110"
+   "date": "2026-05-05"
   },
   {
    "symbol": "GLD",
-   "qty": 1.3607,
-   "price": 99.8557,
-   "day": 389,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-110"
-  },
-  {
-   "symbol": "KO",
-   "qty": -6.4441,
-   "price": 110.3451,
-   "day": 389,
+   "qty": -0.8055,
+   "price": 418.0609,
+   "day": 2562,
    "status": "filled",
    "venue": "paper",
-   "date": "day-110"
+   "date": "2026-05-05"
   },
   {
-   "symbol": "PEP",
-   "qty": -1.4751,
-   "price": 107.0837,
-   "day": 389,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-110"
-  },
-  {
    "symbol": "PUTW",
-   "qty": 3.0332,
-   "price": 116.4591,
-   "day": 389,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-110"
-  },
-  {
-   "symbol": "TLT",
-   "qty": 4.851,
-   "price": 110.8253,
-   "day": 390,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-111"
-  },
-  {
-   "symbol": "KO",
-   "qty": -6.5656,
-   "price": 109.9893,
-   "day": 390,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-111"
-  },
-  {
-   "symbol": "PEP",
-   "qty": -2.2337,
-   "price": 107.8862,
-   "day": 390,
+   "qty": -9.3142,
+   "price": 32.635,
+   "day": 2562,
    "status": "filled",
    "venue": "paper",
-   "date": "day-111"
+   "date": "2026-05-05"
   },
   {
-   "symbol": "PUTW",
-   "qty": 2.7659,
-   "price": 116.602,
-   "day": 390,
+   "symbol": "SPY",
+   "qty": -2.5053,
+   "price": 733.4631,
+   "day": 2563,
    "status": "filled",
    "venue": "paper",
-   "date": "day-111"
+   "date": "2026-05-06"
   },
   {
    "symbol": "TLT",
-   "qty": -5.2004,
-   "price": 111.7629,
-   "day": 391,
+   "qty": 22.4124,
+   "price": 85.7856,
+   "day": 2563,
    "status": "filled",
    "venue": "paper",
-   "date": "day-112"
+   "date": "2026-05-06"
   },
   {
    "symbol": "GLD",
-   "qty": -2.3593,
-   "price": 98.7554,
-   "day": 391,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-112"
-  },
-  {
-   "symbol": "KO",
-   "qty": 9.5137,
-   "price": 110.8533,
-   "day": 391,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-112"
-  },
-  {
-   "symbol": "PEP",
-   "qty": 1.9212,
-   "price": 107.2273,
-   "day": 391,
+   "qty": 2.5682,
+   "price": 431.1755,
+   "day": 2563,
    "status": "filled",
    "venue": "paper",
-   "date": "day-112"
+   "date": "2026-05-06"
   },
   {
    "symbol": "PUTW",
-   "qty": -3.9564,
-   "price": 116.5186,
-   "day": 391,
+   "qty": -8.9679,
+   "price": 32.6647,
+   "day": 2563,
    "status": "filled",
    "venue": "paper",
-   "date": "day-112"
+   "date": "2026-05-06"
   },
   {
    "symbol": "SPY",
-   "qty": 144.2725,
-   "price": 115.4604,
-   "day": 392,
+   "qty": 0.281,
+   "price": 731.9458,
+   "day": 2564,
    "status": "filled",
    "venue": "paper",
-   "date": "day-113"
+   "date": "2026-05-07"
   },
   {
    "symbol": "TLT",
-   "qty": -12.4686,
-   "price": 113.2178,
-   "day": 392,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-113"
-  },
-  {
-   "symbol": "GLD",
-   "qty": -4.2381,
-   "price": 98.88,
-   "day": 392,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-113"
-  },
-  {
-   "symbol": "KO",
-   "qty": 25.057,
-   "price": 111.2056,
-   "day": 392,
+   "qty": -29.0516,
+   "price": 85.2717,
+   "day": 2564,
    "status": "filled",
    "venue": "paper",
-   "date": "day-113"
+   "date": "2026-05-07"
   },
   {
-   "symbol": "PEP",
-   "qty": -13.3852,
-   "price": 105.8307,
-   "day": 392,
+   "symbol": "SPY",
+   "qty": -1.0365,
+   "price": 737.2512,
+   "day": 2565,
    "status": "filled",
    "venue": "paper",
-   "date": "day-113"
+   "date": "2026-05-08"
   },
   {
-   "symbol": "PUTW",
-   "qty": -20.3072,
-   "price": 116.3428,
-   "day": 392,
+   "symbol": "TLT",
+   "qty": 5.245,
+   "price": 85.7856,
+   "day": 2565,
    "status": "filled",
    "venue": "paper",
-   "date": "day-113"
+   "date": "2026-05-08"
   },
   {
    "symbol": "SPY",
-   "qty": -148.029,
-   "price": 115.999,
-   "day": 393,
+   "qty": 2.1979,
+   "price": 739.6696,
+   "day": 2566,
    "status": "filled",
    "venue": "paper",
-   "date": "day-114"
+   "date": "2026-05-11"
   },
   {
    "symbol": "TLT",
-   "qty": 2.694,
-   "price": 113.2971,
-   "day": 393,
+   "qty": -8.8215,
+   "price": 85.1822,
+   "day": 2566,
    "status": "filled",
    "venue": "paper",
-   "date": "day-114"
+   "date": "2026-05-11"
   },
   {
    "symbol": "GLD",
-   "qty": 6.9694,
-   "price": 98.4248,
-   "day": 393,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-114"
-  },
-  {
-   "symbol": "PEP",
-   "qty": 20.4051,
-   "price": 104.9656,
-   "day": 393,
+   "qty": -1.6671,
+   "price": 434.4327,
+   "day": 2566,
    "status": "filled",
    "venue": "paper",
-   "date": "day-114"
+   "date": "2026-05-11"
   },
   {
    "symbol": "PUTW",
-   "qty": 10.1739,
-   "price": 116.6636,
-   "day": 393,
+   "qty": 5.4119,
+   "price": 32.737,
+   "day": 2566,
    "status": "filled",
    "venue": "paper",
-   "date": "day-114"
+   "date": "2026-05-11"
   },
   {
    "symbol": "SPY",
-   "qty": 1.5356,
-   "price": 116.1515,
-   "day": 394,
+   "qty": 0.2861,
+   "price": 738.5491,
+   "day": 2567,
    "status": "filled",
    "venue": "paper",
-   "date": "day-115"
+   "date": "2026-05-12"
   },
   {
    "symbol": "TLT",
-   "qty": 1.0012,
-   "price": 112.5295,
-   "day": 394,
+   "qty": -9.7714,
+   "price": 84.6147,
+   "day": 2567,
    "status": "filled",
    "venue": "paper",
-   "date": "day-115"
+   "date": "2026-05-12"
   },
   {
-   "symbol": "KO",
-   "qty": -10.7917,
-   "price": 111.8897,
-   "day": 394,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-115"
-  },
-  {
-   "symbol": "PEP",
-   "qty": -2.9201,
-   "price": 105.8097,
-   "day": 394,
+   "symbol": "GLD",
+   "qty": -1.4997,
+   "price": 432.7135,
+   "day": 2567,
    "status": "filled",
    "venue": "paper",
-   "date": "day-115"
+   "date": "2026-05-12"
   },
   {
    "symbol": "PUTW",
-   "qty": 3.9181,
-   "price": 116.7121,
-   "day": 394,
+   "qty": 4.3449,
+   "price": 32.7766,
+   "day": 2567,
    "status": "filled",
    "venue": "paper",
-   "date": "day-115"
+   "date": "2026-05-12"
   },
   {
    "symbol": "SPY",
-   "qty": 6.778,
-   "price": 115.6722,
-   "day": 395,
+   "qty": -0.2627,
+   "price": 741.9388,
+   "day": 2568,
    "status": "filled",
    "venue": "paper",
-   "date": "day-116"
+   "date": "2026-05-13"
   },
   {
    "symbol": "TLT",
-   "qty": -2.8416,
-   "price": 113.3302,
-   "day": 395,
+   "qty": -6.4941,
+   "price": 84.4256,
+   "day": 2568,
    "status": "filled",
    "venue": "paper",
-   "date": "day-116"
+   "date": "2026-05-13"
   },
   {
    "symbol": "GLD",
-   "qty": -3.7222,
-   "price": 99.265,
-   "day": 395,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-116"
-  },
-  {
-   "symbol": "PEP",
-   "qty": 3.2855,
-   "price": 105.4644,
-   "day": 395,
+   "qty": -2.23,
+   "price": 430.2847,
+   "day": 2568,
    "status": "filled",
    "venue": "paper",
-   "date": "day-116"
+   "date": "2026-05-13"
   },
   {
    "symbol": "SPY",
-   "qty": -1.2753,
-   "price": 116.0007,
-   "day": 396,
+   "qty": -0.5968,
+   "price": 747.7959,
+   "day": 2569,
    "status": "filled",
    "venue": "paper",
-   "date": "day-117"
+   "date": "2026-05-14"
   },
   {
    "symbol": "TLT",
-   "qty": -12.3481,
-   "price": 115.3317,
-   "day": 396,
+   "qty": -1.9139,
+   "price": 84.545,
+   "day": 2569,
    "status": "filled",
    "venue": "paper",
-   "date": "day-117"
+   "date": "2026-05-14"
   },
   {
    "symbol": "GLD",
-   "qty": 1.1227,
-   "price": 99.3887,
-   "day": 396,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-117"
-  },
-  {
-   "symbol": "KO",
-   "qty": 6.8291,
-   "price": 112.7556,
-   "day": 396,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-117"
-  },
-  {
-   "symbol": "PEP",
-   "qty": 1.1054,
-   "price": 105.1672,
-   "day": 396,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-117"
-  },
-  {
-   "symbol": "PUTW",
-   "qty": -1.908,
-   "price": 116.6657,
-   "day": 396,
+   "qty": -1.6855,
+   "price": 426.9964,
+   "day": 2569,
    "status": "filled",
    "venue": "paper",
-   "date": "day-117"
+   "date": "2026-05-14"
   },
   {
-   "symbol": "SPY",
-   "qty": 4.6204,
-   "price": 116.5474,
-   "day": 397,
+   "symbol": "TLT",
+   "qty": -13.042,
+   "price": 83.2905,
+   "day": 2570,
    "status": "filled",
    "venue": "paper",
-   "date": "day-118"
+   "date": "2026-05-15"
   },
   {
    "symbol": "GLD",
-   "qty": 1.986,
-   "price": 99.1078,
-   "day": 397,
+   "qty": -1.1104,
+   "price": 417.0814,
+   "day": 2570,
    "status": "filled",
    "venue": "paper",
-   "date": "day-118"
+   "date": "2026-05-15"
   },
   {
-   "symbol": "KO",
-   "qty": -6.8242,
-   "price": 112.2635,
-   "day": 397,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-118"
-  },
-  {
-   "symbol": "PEP",
-   "qty": -2.1699,
-   "price": 105.8836,
-   "day": 397,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-118"
-  },
-  {
    "symbol": "PUTW",
-   "qty": 3.0278,
-   "price": 116.9301,
-   "day": 397,
+   "qty": 22.6921,
+   "price": 32.8657,
+   "day": 2570,
    "status": "filled",
    "venue": "paper",
-   "date": "day-118"
+   "date": "2026-05-15"
   },
   {
-   "symbol": "KO",
-   "qty": -8.0841,
-   "price": 111.4096,
-   "day": 398,
+   "symbol": "SPY",
+   "qty": 0.2562,
+   "price": 739.0193,
+   "day": 2571,
    "status": "filled",
    "venue": "paper",
-   "date": "day-119"
+   "date": "2026-05-18"
   },
   {
-   "symbol": "PEP",
-   "qty": 1.3951,
-   "price": 106.0751,
-   "day": 398,
+   "symbol": "TLT",
+   "qty": -1.2623,
+   "price": 83.191,
+   "day": 2571,
    "status": "filled",
    "venue": "paper",
-   "date": "day-119"
+   "date": "2026-05-18"
   },
   {
-   "symbol": "PUTW",
-   "qty": 2.7135,
-   "price": 116.8039,
-   "day": 398,
+   "symbol": "GLD",
+   "qty": -0.5959,
+   "price": 418.2208,
+   "day": 2571,
    "status": "filled",
    "venue": "paper",
-   "date": "day-119"
+   "date": "2026-05-18"
   },
   {
    "symbol": "SPY",
-   "qty": 1.4685,
-   "price": 115.7804,
-   "day": 399,
+   "qty": 1.3287,
+   "price": 734.0969,
+   "day": 2572,
    "status": "filled",
    "venue": "paper",
-   "date": "day-120"
+   "date": "2026-05-19"
   },
   {
-   "symbol": "GLD",
-   "qty": 2.6173,
-   "price": 98.5785,
-   "day": 399,
+   "symbol": "TLT",
+   "qty": -8.3427,
+   "price": 82.6534,
+   "day": 2572,
    "status": "filled",
    "venue": "paper",
-   "date": "day-120"
+   "date": "2026-05-19"
   },
   {
-   "symbol": "KO",
-   "qty": -5.4135,
-   "price": 110.9142,
-   "day": 399,
+   "symbol": "GLD",
+   "qty": -2.7543,
+   "price": 411.2942,
+   "day": 2572,
    "status": "filled",
    "venue": "paper",
-   "date": "day-120"
+   "date": "2026-05-19"
   },
   {
    "symbol": "PUTW",
-   "qty": 1.6446,
-   "price": 116.8165,
-   "day": 399,
+   "qty": 7.0397,
+   "price": 32.8657,
+   "day": 2572,
    "status": "filled",
    "venue": "paper",
-   "date": "day-120"
+   "date": "2026-05-19"
   },
   {
    "symbol": "SPY",
-   "qty": -69.7929,
-   "price": 116.8061,
-   "day": 400,
+   "qty": -1.3405,
+   "price": 740.8794,
+   "day": 2573,
    "status": "filled",
    "venue": "paper",
-   "date": "day-121"
+   "date": "2026-05-20"
   },
   {
    "symbol": "TLT",
-   "qty": -4.5523,
-   "price": 115.6622,
-   "day": 400,
+   "qty": 40.9296,
+   "price": 83.6231,
+   "day": 2573,
    "status": "filled",
    "venue": "paper",
-   "date": "day-121"
+   "date": "2026-05-20"
   },
   {
-   "symbol": "KO",
-   "qty": 27.5668,
-   "price": 113.6352,
-   "day": 400,
+   "symbol": "GLD",
+   "qty": 1.5148,
+   "price": 417.6087,
+   "day": 2573,
    "status": "filled",
    "venue": "paper",
-   "date": "day-121"
+   "date": "2026-05-20"
   },
   {
    "symbol": "PUTW",
-   "qty": -10.8356,
-   "price": 117.027,
-   "day": 400,
+   "qty": -13.5451,
+   "price": 32.9318,
+   "day": 2573,
    "status": "filled",
    "venue": "paper",
-   "date": "day-121"
+   "date": "2026-05-20"
   },
   {
    "symbol": "SPY",
-   "qty": 82.5028,
-   "price": 116.9381,
-   "day": 401,
+   "qty": 0.2345,
+   "price": 743.0914,
+   "day": 2574,
    "status": "filled",
    "venue": "paper",
-   "date": "day-122"
+   "date": "2026-05-21"
   },
   {
    "symbol": "TLT",
-   "qty": 1.4817,
-   "price": 115.5248,
-   "day": 401,
+   "qty": 7.8645,
+   "price": 83.9319,
+   "day": 2574,
    "status": "filled",
    "venue": "paper",
-   "date": "day-122"
+   "date": "2026-05-21"
   },
   {
-   "symbol": "KO",
-   "qty": -19.7463,
-   "price": 111.8402,
-   "day": 401,
+   "symbol": "PUTW",
+   "qty": -4.9263,
+   "price": 32.9912,
+   "day": 2574,
    "status": "filled",
    "venue": "paper",
-   "date": "day-122"
+   "date": "2026-05-21"
   },
   {
-   "symbol": "PEP",
-   "qty": -4.7226,
-   "price": 106.6556,
-   "day": 401,
+   "symbol": "TLT",
+   "qty": 8.3403,
+   "price": 84.3904,
+   "day": 2575,
    "status": "filled",
    "venue": "paper",
-   "date": "day-122"
+   "date": "2026-05-22"
   },
   {
-   "symbol": "PUTW",
-   "qty": 7.3374,
-   "price": 117.1874,
-   "day": 401,
+   "symbol": "GLD",
+   "qty": -0.8446,
+   "price": 413.6131,
+   "day": 2575,
    "status": "filled",
    "venue": "paper",
-   "date": "day-122"
+   "date": "2026-05-22"
   },
   {
    "symbol": "SPY",
-   "qty": 3.9008,
-   "price": 117.1401,
-   "day": 402,
+   "qty": -0.3357,
+   "price": 750.2147,
+   "day": 2576,
    "status": "filled",
    "venue": "paper",
-   "date": "day-123"
+   "date": "2026-05-26"
   },
   {
-   "symbol": "KO",
-   "qty": 6.6475,
-   "price": 112.5621,
-   "day": 402,
+   "symbol": "TLT",
+   "qty": 1.4185,
+   "price": 84.809,
+   "day": 2576,
    "status": "filled",
    "venue": "paper",
-   "date": "day-123"
+   "date": "2026-05-26"
   },
   {
-   "symbol": "PUTW",
-   "qty": -2.7943,
-   "price": 117.1603,
-   "day": 402,
+   "symbol": "GLD",
+   "qty": -0.4964,
+   "price": 413.793,
+   "day": 2576,
    "status": "filled",
    "venue": "paper",
-   "date": "day-123"
+   "date": "2026-05-26"
   },
   {
-   "symbol": "SPY",
-   "qty": 143.9454,
-   "price": 116.0586,
-   "day": 403,
+   "symbol": "PUTW",
+   "qty": -6.1841,
+   "price": 33.1034,
+   "day": 2576,
    "status": "filled",
    "venue": "paper",
-   "date": "day-124"
+   "date": "2026-05-26"
   },
   {
    "symbol": "TLT",
-   "qty": -5.2349,
-   "price": 116.259,
-   "day": 403,
+   "qty": -13.2487,
+   "price": 84.9233,
+   "day": 2577,
    "status": "filled",
    "venue": "paper",
-   "date": "day-124"
+   "date": "2026-05-27"
   },
   {
    "symbol": "GLD",
-   "qty": -3.6969,
-   "price": 97.4225,
-   "day": 403,
+   "qty": -1.319,
+   "price": 408.2858,
+   "day": 2577,
    "status": "filled",
    "venue": "paper",
-   "date": "day-124"
+   "date": "2026-05-27"
   },
   {
-   "symbol": "KO",
-   "qty": 20.3364,
-   "price": 112.0118,
-   "day": 403,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-124"
-  },
-  {
-   "symbol": "PEP",
-   "qty": -20.0184,
-   "price": 105.6376,
-   "day": 403,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-124"
-  },
-  {
    "symbol": "PUTW",
-   "qty": -21.6958,
-   "price": 116.9294,
-   "day": 403,
+   "qty": 5.3696,
+   "price": 33.0765,
+   "day": 2577,
    "status": "filled",
    "venue": "paper",
-   "date": "day-124"
+   "date": "2026-05-27"
   },
   {
    "symbol": "SPY",
-   "qty": -142.9667,
-   "price": 116.0356,
-   "day": 404,
+   "qty": 0.3018,
+   "price": 754.9773,
+   "day": 2578,
    "status": "filled",
    "venue": "paper",
-   "date": "day-125"
+   "date": "2026-05-28"
   },
   {
    "symbol": "TLT",
-   "qty": 3.9733,
-   "price": 115.0756,
-   "day": 404,
+   "qty": 12.119,
+   "price": 85.4468,
+   "day": 2578,
    "status": "filled",
    "venue": "paper",
-   "date": "day-125"
+   "date": "2026-05-28"
   },
   {
    "symbol": "GLD",
-   "qty": 5.2118,
-   "price": 97.7572,
-   "day": 404,
+   "qty": -2.8102,
+   "price": 412.5636,
+   "day": 2578,
    "status": "filled",
    "venue": "paper",
-   "date": "day-125"
+   "date": "2026-05-28"
   },
   {
-   "symbol": "KO",
-   "qty": -35.2701,
-   "price": 110.881,
-   "day": 404,
+   "symbol": "PUTW",
+   "qty": -10.9958,
+   "price": 33.1634,
+   "day": 2578,
    "status": "filled",
    "venue": "paper",
-   "date": "day-125"
+   "date": "2026-05-28"
   },
   {
-   "symbol": "PEP",
-   "qty": 21.0534,
-   "price": 106.8078,
-   "day": 404,
+   "symbol": "GLD",
+   "qty": 1.0111,
+   "price": 417.3286,
+   "day": 2579,
    "status": "filled",
    "venue": "paper",
-   "date": "day-125"
+   "date": "2026-05-29"
   },
   {
    "symbol": "PUTW",
-   "qty": 26.2727,
-   "price": 117.1093,
-   "day": 404,
+   "qty": -4.9208,
+   "price": 33.2134,
+   "day": 2579,
    "status": "filled",
    "venue": "paper",
-   "date": "day-125"
+   "date": "2026-05-29"
   },
   {
    "symbol": "SPY",
-   "qty": 1.9082,
-   "price": 115.8721,
-   "day": 405,
+   "qty": 0.4218,
+   "price": 758.9193,
+   "day": 2580,
    "status": "filled",
    "venue": "paper",
-   "date": "day-126"
+   "date": "2026-06-01"
   },
   {
    "symbol": "TLT",
-   "qty": -3.1768,
-   "price": 113.6926,
-   "day": 405,
+   "qty": -5.0846,
+   "price": 85.4273,
+   "day": 2580,
    "status": "filled",
    "venue": "paper",
-   "date": "day-126"
+   "date": "2026-06-01"
   },
   {
    "symbol": "GLD",
-   "qty": -1.0939,
-   "price": 97.1211,
-   "day": 405,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-126"
-  },
-  {
-   "symbol": "KO",
-   "qty": 10.4057,
-   "price": 111.6754,
-   "day": 405,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-126"
-  },
-  {
-   "symbol": "PEP",
-   "qty": 1.9531,
-   "price": 105.8416,
-   "day": 405,
+   "qty": -1.2263,
+   "price": 411.0544,
+   "day": 2580,
    "status": "filled",
    "venue": "paper",
-   "date": "day-126"
+   "date": "2026-06-01"
   },
   {
    "symbol": "PUTW",
-   "qty": -4.987,
-   "price": 116.9613,
-   "day": 405,
+   "qty": 5.1174,
+   "price": 33.2666,
+   "day": 2580,
    "status": "filled",
    "venue": "paper",
-   "date": "day-126"
+   "date": "2026-06-01"
   },
   {
    "symbol": "SPY",
-   "qty": 144.3571,
-   "price": 114.9941,
-   "day": 406,
+   "qty": 1.7725,
+   "price": 759.9498,
+   "day": 2581,
    "status": "filled",
    "venue": "paper",
-   "date": "day-127"
+   "date": "2026-06-02"
   },
   {
    "symbol": "TLT",
-   "qty": -5.7576,
-   "price": 114.6319,
-   "day": 406,
+   "qty": 2.0254,
+   "price": 85.6928,
+   "day": 2581,
    "status": "filled",
    "venue": "paper",
-   "date": "day-127"
+   "date": "2026-06-02"
   },
   {
    "symbol": "GLD",
-   "qty": -3.445,
-   "price": 96.7863,
-   "day": 406,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-127"
-  },
-  {
-   "symbol": "KO",
-   "qty": 11.7553,
-   "price": 110.6978,
-   "day": 406,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-127"
-  },
-  {
-   "symbol": "PEP",
-   "qty": -19.4098,
-   "price": 105.6999,
-   "day": 406,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-127"
-  },
-  {
-   "symbol": "PUTW",
-   "qty": -16.6368,
-   "price": 116.7792,
-   "day": 406,
+   "qty": -0.5394,
+   "price": 411.744,
+   "day": 2581,
    "status": "filled",
    "venue": "paper",
-   "date": "day-127"
+   "date": "2026-06-02"
   },
   {
    "symbol": "SPY",
-   "qty": -147.4872,
-   "price": 114.5659,
-   "day": 407,
+   "qty": 0.2942,
+   "price": 754.6171,
+   "day": 2582,
    "status": "filled",
    "venue": "paper",
-   "date": "day-128"
+   "date": "2026-06-03"
   },
   {
    "symbol": "TLT",
-   "qty": 3.4218,
-   "price": 114.3424,
-   "day": 407,
+   "qty": -19.1949,
+   "price": 85.2673,
+   "day": 2582,
    "status": "filled",
    "venue": "paper",
-   "date": "day-128"
+   "date": "2026-06-03"
   },
   {
    "symbol": "GLD",
-   "qty": 2.7906,
-   "price": 97.5298,
-   "day": 407,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-128"
-  },
-  {
-   "symbol": "KO",
-   "qty": -16.8749,
-   "price": 110.7788,
-   "day": 407,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-128"
-  },
-  {
-   "symbol": "PEP",
-   "qty": 23.3632,
-   "price": 105.2761,
-   "day": 407,
+   "qty": -0.6893,
+   "price": 407.6661,
+   "day": 2582,
    "status": "filled",
    "venue": "paper",
-   "date": "day-128"
+   "date": "2026-06-03"
   },
   {
    "symbol": "PUTW",
-   "qty": 17.5654,
-   "price": 116.8558,
-   "day": 407,
+   "qty": 5.5144,
+   "price": 33.1766,
+   "day": 2582,
    "status": "filled",
    "venue": "paper",
-   "date": "day-128"
+   "date": "2026-06-03"
   },
   {
    "symbol": "SPY",
-   "qty": 1.5235,
-   "price": 115.0611,
-   "day": 408,
+   "qty": -0.2428,
+   "price": 756.7115,
+   "day": 2583,
    "status": "filled",
    "venue": "paper",
-   "date": "day-129"
+   "date": "2026-06-04"
   },
   {
    "symbol": "TLT",
-   "qty": 1.7589,
-   "price": 114.4406,
-   "day": 408,
+   "qty": -8.3069,
+   "price": 85.4573,
+   "day": 2583,
    "status": "filled",
    "venue": "paper",
-   "date": "day-129"
+   "date": "2026-06-04"
   },
   {
    "symbol": "GLD",
-   "qty": 2.6342,
-   "price": 98.124,
-   "day": 408,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-129"
-  },
-  {
-   "symbol": "KO",
-   "qty": -6.6727,
-   "price": 110.4021,
-   "day": 408,
-   "status": "filled",
-   "venue": "paper",
-   "date": "day-129"
-  },
-  {
-   "symbol": "PEP",
-   "qty": -2.1303,
-   "price": 105.9473,
-   "day": 408,
+   "qty": 0.5076,
+   "price": 411.4756,
+   "day": 2583,
    "status": "filled",
    "venue": "paper",
-   "date": "day-129"
+   "date": "2026-06-04"
   },
   {
    "symbol": "PUTW",
-   "qty": 2.8155,
-   "price": 116.9921,
-   "day": 408,
+   "qty": -6.6808,
+   "price": 33.2234,
+   "day": 2583,
    "status": "filled",
    "venue": "paper",
-   "date": "day-129"
+   "date": "2026-06-04"
   },
   {
-   "symbol": "KO",
-   "qty": -1.1865,
-   "price": 110.441,
-   "day": 409,
+   "symbol": "SPY",
+   "qty": -4.302,
+   "price": 737.1812,
+   "day": 2584,
    "status": "filled",
    "venue": "paper",
-   "date": "day-130"
+   "date": "2026-06-05"
   },
   {
-   "symbol": "PEP",
-   "qty": -2.1915,
-   "price": 106.4148,
-   "day": 409,
+   "symbol": "PUTW",
+   "qty": 27.07,
+   "price": 32.7564,
+   "day": 2584,
    "status": "filled",
    "venue": "paper",
-   "date": "day-130"
+   "date": "2026-06-05"
   }
  ],
  "deposits": [
   {
-   "date": "day-0",
+   "date": "2025-11-28",
    "amount": 250000.0
   }
  ],
- "pairPos": -1.0,
- "peakNav": 258089.63714211487,
+ "pairPos": 0.0,
+ "peakNav": 255992.2351155108,
  "killed": false
 }

@@ -14,8 +14,9 @@ Universe
   KO/PEP cointegrated pair  (statistical-arbitrage sleeve)
   PUTW  put-write ETF       (volatility-premium sleeve, vol-gated)
 
-Sleeve capital weights come from the 15-year backtest (quant/engine.py):
-statArb 40% · volPrem 40% · trend 10% · meanRev 10%, gross capped at 1.3x.
+Sleeve capital weights are adopted at startup from the research engine's
+latest run (../data.js) — sleeves that failed the committee's Sharpe
+floor carry zero weight until revalidated. Gross capped at 1.3x.
 
 Risk controls (enforced every run, before any order)
 ----------------------------------------------------
@@ -27,7 +28,11 @@ Risk controls (enforced every run, before any order)
 
 Usage
 -----
-  # local paper simulation: deposit $250k, run 130 trading days
+  # paper-trade on REAL market data (default): deposit $250k, walk the
+  # last 130 trading days of actual prices
+  python3 trader.py --mode paper-real --deposit 250000 --days 130
+
+  # fully offline simulation (no network)
   python3 trader.py --mode paper --deposit 250000 --days 130
 
   # one real rebalance against Alpaca PAPER account (run via cron daily)
@@ -56,6 +61,9 @@ import random
 from broker import PaperBroker, AlpacaBroker
 
 # ---------------------------------------------------------------- config
+# sleeveWeights below are the fallback; at startup the daemon adopts the
+# research engine's latest allocation from ../data.js (quant/engine.py),
+# so capital follows whatever the walk-forward revalidation says.
 CONFIG = {
     "sleeveWeights": {"statArb": 0.40, "trend": 0.10,
                       "meanRev": 0.10, "volPrem": 0.40},
@@ -151,9 +159,31 @@ def compute_targets(hist):
     return tgt, signals
 
 
+def load_research_weights():
+    """Adopt the research engine's latest allocation (data.js) so the
+    live book follows quarterly revalidation. Falls back to CONFIG."""
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "..", "data.js")
+    try:
+        with open(path) as f:
+            s = f.read()
+        payload = json.loads(s[s.index("{"):s.rindex(";")])
+        w = payload.get("weights", {})
+        if w and abs(sum(w.values()) - 1.0) < 0.05:
+            for k in CONFIG["sleeveWeights"]:
+                CONFIG["sleeveWeights"][k] = w.get(k, 0.0)
+            return payload["meta"].get("dataSource", "data.js")
+    except (OSError, ValueError, KeyError):
+        pass
+    return None
+
+
 def apply_pair(tgt, pair_pos, prev_pair_pos):
+    w_sa = CONFIG["sleeveWeights"].get("statArb", 0.0)
+    if w_sa <= 0:
+        return 0.0  # sleeve decommissioned by research engine
     pos = prev_pair_pos if pair_pos is None else pair_pos
-    leg = 0.6 * CONFIG["sleeveWeights"]["statArb"] / 0.4  # scale w/ sleeve wt
+    leg = 0.6 * w_sa / 0.4  # scale with sleeve weight
     tgt["KO"] += pos * leg
     tgt["PEP"] += -pos * leg
     return pos
@@ -302,10 +332,10 @@ def run_paper(deposit, days, seed):
     prices = simulated_prices(seed=seed, days=CONFIG["historyDays"] + days + 20)
     broker = PaperBroker(prices, history_days=CONFIG["historyDays"])
     state = load_state()
+    state["deposits"] = []  # paper sessions start fresh
     if deposit > 0:
         broker.deposit(deposit)
         state["deposits"].append({"date": "day-0", "amount": deposit})
-    # restore prior paper session? paper restarts fresh each run for clarity
     state["navHistory"], state["orders"] = [], []
     state["pairPos"], state["peakNav"], state["killed"] = 0.0, 0.0, False
 
@@ -324,6 +354,44 @@ def run_paper(deposit, days, seed):
           f"final NAV ${nav:,.0f} ({nav / dep - 1:+.2%}) · "
           f"orders {len(state['orders'])} · killed={killed}")
     print(f"Open console.html to monitor. State in live/state.json.")
+
+
+def run_paper_real(deposit, days):
+    """Paper-trade the book against REAL daily market history (Yahoo via
+    data.py): walk-forward over the last `days` trading days ending at
+    the latest close. No keys, no money at risk — real prices."""
+    import data as marketdata
+    dates, px = marketdata.fetch_universe(TICKERS, years=6)
+    need = CONFIG["historyDays"] + days + 1
+    if len(dates) < need:
+        days = len(dates) - CONFIG["historyDays"] - 1
+    start_cursor = len(dates) - days - 1
+    broker = PaperBroker(px, history_days=start_cursor)
+    state = load_state()
+    state["deposits"] = []  # paper sessions start fresh
+    if deposit > 0:
+        broker.deposit(deposit)
+        state["deposits"].append({"date": dates[start_cursor],
+                                  "amount": deposit})
+    state["navHistory"], state["orders"] = [], []
+    state["pairPos"], state["peakNav"], state["killed"] = 0.0, 0.0, False
+
+    tgt, signals, killed = {}, {}, False
+    for _ in range(days):
+        label = dates[broker.cursor]
+        tgt, signals, killed = rebalance(broker, state, "paper-real", label)
+        if not broker.advance_day():
+            break
+        mark(state, broker, label)
+    save_state(state)
+    write_console(state, broker, tgt, signals, "paper-real", killed)
+    nav = broker.get_equity()
+    dep = sum(d["amount"] for d in state["deposits"])
+    print(f"Paper session on REAL data: {dates[start_cursor]} → {dates[-1]} "
+          f"({days} trading days)\nDeposited ${dep:,.0f} · final NAV "
+          f"${nav:,.0f} ({nav / dep - 1:+.2%}) · orders {len(state['orders'])} "
+          f"· killed={killed}")
+    print("Open console.html to monitor. State in live/state.json.")
 
 
 def run_broker(live):
@@ -345,16 +413,22 @@ def run_broker(live):
 
 def main():
     ap = argparse.ArgumentParser(description="Meridian automated trader")
-    ap.add_argument("--mode", default="paper",
-                    choices=["paper", "alpaca-paper", "alpaca-live"])
+    ap.add_argument("--mode", default="paper-real",
+                    choices=["paper", "paper-real", "alpaca-paper",
+                             "alpaca-live"])
     ap.add_argument("--deposit", type=float, default=0.0,
-                    help="cash to deposit (paper mode)")
+                    help="cash to deposit (paper modes)")
     ap.add_argument("--days", type=int, default=130,
-                    help="trading days to simulate (paper mode)")
+                    help="trading days to walk (paper modes)")
     ap.add_argument("--seed", type=int, default=20260610)
     args = ap.parse_args()
+    src = load_research_weights()
+    print(f"Sleeve weights: {CONFIG['sleeveWeights']}"
+          + (f"  (from research engine: {src})" if src else "  (fallback)"))
     if args.mode == "paper":
         run_paper(args.deposit or 250000.0, args.days, args.seed)
+    elif args.mode == "paper-real":
+        run_paper_real(args.deposit or 250000.0, args.days)
     else:
         run_broker(live=(args.mode == "alpaca-live"))
 

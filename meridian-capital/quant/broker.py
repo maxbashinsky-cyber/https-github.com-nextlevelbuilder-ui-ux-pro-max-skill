@@ -101,6 +101,7 @@ class AlpacaBroker:
     DATA_URL = "https://data.alpaca.markets"
 
     def __init__(self, live=False):
+        self._load_env_file()
         self.key = os.environ.get("APCA_API_KEY_ID")
         self.secret = os.environ.get("APCA_API_SECRET_KEY")
         if not self.key or not self.secret:
@@ -112,6 +113,21 @@ class AlpacaBroker:
                 "Refusing to trade a LIVE account: set MERIDIAN_CONFIRM_LIVE=yes "
                 "only after validating paper performance.")
         self.base = self.LIVE_URL if live else self.PAPER_URL
+
+    @staticmethod
+    def _load_env_file():
+        """Optional live/credentials.env (gitignored): KEY=value lines.
+        Real env vars always win."""
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            "..", "live", "credentials.env")
+        if not os.path.exists(path):
+            return
+        with open(path) as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, _, v = line.partition("=")
+                    os.environ.setdefault(k.strip(), v.strip())
 
     def _req(self, base, path, method="GET", body=None):
         req = urllib.request.Request(

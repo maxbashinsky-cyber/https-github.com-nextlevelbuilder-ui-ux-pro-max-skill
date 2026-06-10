@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Meridian Alpha Capital — Analytics Suite</title>
-<meta name="description" content="Institutional analytics: 15-year backtests, Monte Carlo projections, risk metrics and committee recommendations."/>
+<meta name="description" content="Institutional analytics: real-market backtests, Monte Carlo projections, risk metrics and committee recommendations."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -152,7 +152,7 @@
 
 <main id="main" class="container">
   <header class="page">
-    <span class="badge">SIMULATED 15-YEAR BACKTEST · SEEDED &amp; REPRODUCIBLE</span>
+    <span class="badge" id="dataBadge">BACKTEST · SEEDED &amp; REPRODUCIBLE</span>
     <h1>Analytics Suite</h1>
     <p class="sub">The complete quantitative dossier behind the Meridian Flagship: multi-strategy backtests,
       10,000-path Monte Carlo projections, drawdown and tail-risk analysis, cross-sleeve correlation,
@@ -285,6 +285,9 @@
   Chart.defaults.animation = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? false : {duration:600};
   var tooltipStyle = { backgroundColor:'#161e27', borderColor:'rgba(255,255,255,.12)', borderWidth:1, titleFont:{family:"'JetBrains Mono',monospace",size:11}, bodyFont:{family:"'JetBrains Mono',monospace",size:11.5}, padding:10, cornerRadius:8 };
 
+  var badgeEl = document.getElementById('dataBadge');
+  if(badgeEl) badgeEl.textContent = (D.meta.simulated ? 'SIMULATED BACKTEST' : 'REAL MARKET DATA · ' + D.meta.periodStart + ' \u2192 ' + D.meta.periodEnd) + ' · SEEDED & REPRODUCIBLE';
+
   /* ---------- KPI header ---------- */
   var kpiDefs = [
     ['Net CAGR', pct(fm.cagr), 'pos', 'benchmark ' + pct(bm.cagr)],
@@ -294,7 +297,7 @@
     ['Volatility', pct(fm.vol), '', 'annualized, daily data'],
     ['Alpha', pct(fm.alpha), 'pos', 'beta ' + num(fm.beta) + ' to equities'],
     ['Calmar', num(fm.calmar), '', 'CAGR / max drawdown'],
-    ['Positive months', pct(fm.positiveMonths,0), '', 'of ' + (D.meta.periodYears*12) + ' months']
+    ['Positive months', pct(fm.positiveMonths,0), '', 'of ' + Math.round(D.meta.periodYears*12) + ' months']
   ];
   document.getElementById('kpis').innerHTML = kpiDefs.map(function(k){
     return '<div class="kpi"><div class="label">'+k[0]+'</div><div class="value '+k[2]+'">'+k[1]+'</div><div class="delta">'+k[3]+'</div></div>';

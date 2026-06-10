@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+meridian-capital/live/trader.log
+meridian-capital/live/marketdata/
+meridian-capital/live/credentials.env

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Meridian Alpha Capital — Analytics Suite</title>
+<meta name="description" content="Institutional analytics: real-market backtests, Monte Carlo projections, risk metrics and committee recommendations."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="data.js"></script>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#070a0e; --bg-elev:#0c1117; --surface:#11181f; --surface-2:#161e27;
+    --border:rgba(255,255,255,.07); --border-strong:rgba(255,255,255,.14);
+    --text:#e9eef4; --text-dim:#8b97a5; --text-faint:#5c6875;
+    --gold:#c9a35c; --gold-bright:#e6c785; --gold-dim:rgba(201,163,92,.14);
+    --emerald:#3ddc97; --emerald-dim:rgba(61,220,151,.12);
+    --negative:#e87f7f; --blue:#5b9bd9; --violet:#a48fd8; --amber:#e0b35a;
+    --font-display:'Playfair Display',Georgia,serif;
+    --font-body:'Inter',-apple-system,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{min-height:100dvh;background:
+    radial-gradient(ellipse 70% 40% at 50% -5%,rgba(201,163,92,.06),transparent 65%),
+    radial-gradient(ellipse 50% 35% at 100% 100%,rgba(91,155,217,.04),transparent 60%),
+    var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden}
+  ::selection{background:rgba(201,163,92,.35)}
+  ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:transparent}
+  ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.09);border-radius:4px}
+  a{color:inherit}
+  .mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* ---- nav ---- */
+  nav{position:sticky;top:0;z-index:100;background:rgba(7,10,14,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+  .nav-inner{max-width:1180px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:28px}
+  .wordmark{font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:.06em;text-decoration:none;white-space:nowrap}
+  .wordmark span{color:var(--gold)}
+  .nav-links{display:flex;gap:6px;margin-left:auto;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .nav-links a{text-decoration:none;color:var(--text-dim);font-size:13.5px;font-weight:500;padding:10px 12px;border-radius:8px;white-space:nowrap;min-height:44px;display:flex;align-items:center;transition:color .15s,background .15s}
+  .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav-links a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  /* ---- header ---- */
+  header.page{padding:56px 0 8px}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--gold-bright);background:var(--gold-dim);border:1px solid rgba(201,163,92,.3);padding:6px 12px;border-radius:999px;margin-bottom:18px}
+  .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
+  h1{font-family:var(--font-display);font-size:clamp(30px,4.5vw,46px);font-weight:600;line-height:1.15;letter-spacing:-.01em}
+  .sub{color:var(--text-dim);max-width:64ch;margin-top:12px;font-size:15.5px}
+
+  section{padding:40px 0}
+  h2{font-family:var(--font-display);font-size:clamp(22px,3vw,30px);font-weight:600;margin-bottom:6px}
+  .sec-desc{color:var(--text-dim);font-size:14.5px;max-width:70ch;margin-bottom:24px}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;color:var(--gold);margin-bottom:8px}
+
+  /* ---- KPI grid ---- */
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:32px}
+  .kpi{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 16px 14px}
+  .kpi .label{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;color:var(--text-faint);text-transform:uppercase}
+  .kpi .value{font-family:var(--font-mono);font-size:clamp(20px,2.4vw,26px);font-weight:600;margin-top:6px}
+  .kpi .delta{font-size:12px;color:var(--text-dim);margin-top:4px}
+  .pos{color:var(--emerald)} .neg{color:var(--negative)} .gold{color:var(--gold-bright)}
+
+  /* ---- cards & charts ---- */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+  .card h3{font-size:16px;font-weight:600;letter-spacing:-.01em}
+  .card .hint{font-size:12.5px;color:var(--text-faint);margin-top:2px}
+  .chart-head{display:flex;flex-wrap:wrap;align-items:flex-start;gap:12px;justify-content:space-between;margin-bottom:18px}
+  .chart-wrap{position:relative;height:380px}
+  .chart-wrap.tall{height:420px}
+  .chart-wrap.short{height:300px}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:900px){.grid-2{grid-template-columns:1fr}.chart-wrap{height:320px}}
+  .toggle-row{display:flex;gap:8px;flex-wrap:wrap}
+  .chip-btn{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.05em;color:var(--text-dim);background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:999px;padding:8px 14px;cursor:pointer;min-height:36px;transition:all .15s}
+  .chip-btn[aria-pressed="true"]{color:var(--gold-bright);background:var(--gold-dim);border-color:rgba(201,163,92,.4)}
+  .chip-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .stack{display:flex;flex-direction:column;gap:20px}
+
+  /* ---- MC stats ---- */
+  .mc-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:20px}
+  .mc-stat{background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:14px}
+  .mc-stat .label{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--text-faint);text-transform:uppercase}
+  .mc-stat .value{font-family:var(--font-mono);font-size:20px;font-weight:600;margin-top:4px}
+
+  /* ---- tables ---- */
+  .table-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:14px}
+  table{border-collapse:collapse;width:100%;font-size:13px;min-width:760px}
+  caption{text-align:left;padding:16px 18px 4px;font-weight:600;font-size:15px;caption-side:top}
+  th,td{padding:11px 14px;text-align:right;border-top:1px solid var(--border);white-space:nowrap}
+  th{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;color:var(--text-faint);text-transform:uppercase;font-weight:500}
+  td:first-child,th:first-child{text-align:left;position:sticky;left:0;background:var(--surface)}
+  td{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(--text)}
+  td.name{font-family:var(--font-body);font-weight:600}
+  tr.hl td{background:rgba(201,163,92,.06)}
+  tr.hl td:first-child{background:#171b17}
+
+  /* ---- correlation matrix ---- */
+  .corr td{min-width:74px;text-align:center;font-size:12.5px}
+  .corr th{text-align:center}
+  .corr td:first-child,.corr th:first-child{text-align:left}
+
+  /* ---- allocation ---- */
+  .alloc-grid{display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start}
+  @media(max-width:900px){.alloc-grid{grid-template-columns:1fr}}
+  .sleeve{display:flex;align-items:flex-start;gap:14px;padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--surface-2)}
+  .sleeve+.sleeve{margin-top:12px}
+  .dot{width:12px;height:12px;border-radius:4px;margin-top:5px;flex:none}
+  .sleeve .w{font-family:var(--font-mono);font-weight:600;margin-left:auto;font-size:18px}
+  .sleeve p{font-size:13px;color:var(--text-dim);margin-top:2px}
+
+  /* ---- recommendations ---- */
+  .rec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+  .rec{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:14px;padding:22px}
+  .rec .tag{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;color:var(--gold-bright);background:var(--gold-dim);padding:4px 10px;border-radius:999px;display:inline-block}
+  .rec h3{font-size:16.5px;margin:12px 0 8px;font-weight:600}
+  .rec p{font-size:13.5px;color:var(--text-dim);line-height:1.65}
+
+  /* ---- footer ---- */
+  footer{border-top:1px solid var(--border);margin-top:48px;padding:40px 0 56px}
+  .disclaimer{font-size:12px;color:var(--text-faint);line-height:1.7;max-width:90ch}
+  .disclaimer strong{color:var(--text-dim)}
+
+  .fade{opacity:0;transform:translateY(10px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+  .fade.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.fade{opacity:1;transform:none}}
+  .skip{position:absolute;left:-999px;top:0;background:var(--gold);color:#1a1304;padding:10px 16px;border-radius:0 0 8px 0;z-index:200;font-weight:600;text-decoration:none}
+  .skip:focus{left:0}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav aria-label="Primary">
+  <div class="nav-inner">
+    <a class="wordmark" href="index.html">MERIDIAN <span>ALPHA</span></a>
+    <div class="nav-links" role="list">
+      <a href="#performance">Performance</a>
+      <a href="#montecarlo">Monte Carlo</a>
+      <a href="#risk">Risk</a>
+      <a href="#allocation">Allocation</a>
+      <a href="#recommendations">Committee</a>
+      <a href="console.html">Console</a>
+      <a href="index.html">← Fund Site</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main" class="container">
+  <header class="page">
+    <span class="badge" id="dataBadge">BACKTEST · SEEDED &amp; REPRODUCIBLE</span>
+    <h1>Analytics Suite</h1>
+    <p class="sub">The complete quantitative dossier behind the Meridian Flagship: multi-strategy backtests,
+      10,000-path Monte Carlo projections, drawdown and tail-risk analysis, cross-sleeve correlation,
+      and the investment committee's standing recommendations.</p>
+    <div class="kpis" id="kpis"></div>
+  </header>
+
+  <!-- ============ PERFORMANCE ============ -->
+  <section id="performance" class="fade">
+    <p class="eyebrow">01 · PERFORMANCE</p>
+    <h2>Growth of $1,000,000</h2>
+    <p class="sec-desc">Net-of-cost backtest, 2010–2025. Toggle sleeves to see how each engine contributes;
+      the flagship is the risk-parity blend run at a 1.5× gross leverage cap.</p>
+    <div class="card">
+      <div class="chart-head">
+        <div><h3>Equity curves</h3><div class="hint">Weekly samples · transaction costs 4bps per unit turnover</div></div>
+        <div class="toggle-row" id="curveToggles" role="group" aria-label="Toggle strategy curves"></div>
+      </div>
+      <div class="chart-wrap tall"><canvas id="equityChart" role="img" aria-label="Line chart of portfolio growth: the flagship strategy compounds to roughly seven times the benchmark's final value with far smaller dips."></canvas></div>
+    </div>
+    <div class="grid-2" style="margin-top:20px">
+      <div class="card">
+        <div class="chart-head"><div><h3>Annual returns</h3><div class="hint">Flagship vs equity benchmark, calendar years</div></div></div>
+        <div class="chart-wrap short"><canvas id="yearlyChart" role="img" aria-label="Bar chart of annual returns: flagship is positive in nearly every year while the benchmark swings widely."></canvas></div>
+      </div>
+      <div class="card">
+        <div class="chart-head"><div><h3>Rolling 12-month Sharpe</h3><div class="hint">Risk-free 3% · monthly samples</div></div></div>
+        <div class="chart-wrap short"><canvas id="sharpeChart" role="img" aria-label="Line chart of rolling Sharpe ratio: flagship stays mostly above 1 while the benchmark oscillates around zero."></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MONTE CARLO ============ -->
+  <section id="montecarlo" class="fade">
+    <p class="eyebrow">02 · FORWARD PROJECTIONS</p>
+    <h2>Monte Carlo — 10,000 paths, 10 years</h2>
+    <p class="sec-desc">Monthly block bootstrap of flagship daily returns (21-day blocks preserve volatility
+      clustering). Bands show the 5th–95th and 25th–75th percentile envelopes around the median path;
+      faint lines are 25 individual simulations.</p>
+    <div class="card">
+      <div class="chart-head">
+        <div><h3 id="mcTitle">Projected value of $1,000,000</h3><div class="hint">Hypothetical projection — not a promise of future returns</div></div>
+      </div>
+      <div class="chart-wrap tall"><canvas id="mcChart" role="img" aria-label="Fan chart of Monte Carlo projections: the median path roughly triples capital in ten years, with the fifth percentile still well above the starting value."></canvas></div>
+      <div class="mc-stats" id="mcStats"></div>
+    </div>
+    <div class="card" style="margin-top:20px">
+      <div class="chart-head"><div><h3>Terminal wealth distribution</h3><div class="hint">Multiple of starting capital after 10 years, 10,000 simulations (clipped at p99)</div></div></div>
+      <div class="chart-wrap short"><canvas id="histChart" role="img" aria-label="Histogram of terminal wealth outcomes centered near 3.7 times starting capital."></canvas></div>
+    </div>
+  </section>
+
+  <!-- ============ RISK ============ -->
+  <section id="risk" class="fade">
+    <p class="eyebrow">03 · RISK</p>
+    <h2>Drawdowns, tails &amp; correlation</h2>
+    <p class="sec-desc">What an allocator's risk team checks first: pain (drawdown depth and duration),
+      tails (VaR, CVaR, skew), and whether the sleeves are genuinely diversifying.</p>
+    <div class="card">
+      <div class="chart-head"><div><h3>Underwater curve</h3><div class="hint">Drawdown from running peak — flagship vs benchmark</div></div></div>
+      <div class="chart-wrap short"><canvas id="ddChart" role="img" aria-label="Area chart of drawdowns: the benchmark falls as much as 46 percent from its peak while the flagship never loses more than about 10 percent."></canvas></div>
+    </div>
+
+    <div class="card" style="margin-top:20px;padding:0;overflow:hidden">
+      <div class="table-scroll" style="border:none">
+        <table id="metricsTable">
+          <caption>Full metric suite — daily data, net of costs</caption>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;padding:0;overflow:hidden">
+      <div class="table-scroll" style="border:none">
+        <table class="corr" id="corrTable">
+          <caption>Correlation matrix of daily returns</caption>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ALLOCATION ============ -->
+  <section id="allocation" class="fade">
+    <p class="eyebrow">04 · PORTFOLIO CONSTRUCTION</p>
+    <h2>Model allocation</h2>
+    <p class="sec-desc">Inverse-volatility weights tilted by realized Sharpe, capped at 10–40% per sleeve by
+      committee mandate, rebalanced quarterly.</p>
+    <div class="alloc-grid">
+      <div class="card">
+        <div class="chart-head"><div><h3>Sleeve weights</h3></div></div>
+        <div class="chart-wrap short"><canvas id="allocChart" role="img" aria-label="Doughnut chart of sleeve weights: forty percent each to statistical arbitrage and volatility premium, ten percent each to trend and mean reversion."></canvas></div>
+      </div>
+      <div class="card" id="sleeveCards"></div>
+    </div>
+  </section>
+
+  <!-- ============ RECOMMENDATIONS ============ -->
+  <section id="recommendations" class="fade">
+    <p class="eyebrow">05 · INVESTMENT COMMITTEE</p>
+    <h2>Standing recommendations</h2>
+    <p class="sec-desc">Generated from the live backtest by the allocation engine — the same notes an IC memo
+      would carry into an LP meeting.</p>
+    <div class="rec-grid" id="recGrid"></div>
+  </section>
+
+  <footer>
+    <div class="disclaimer" id="disclaimer">
+      <strong>Important disclosures.</strong>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function(){
+  'use strict';
+  var D = window.FUND_DATA;
+  if(!D){ document.getElementById('kpis').innerHTML = '<div class="kpi"><div class="label">Data</div><div class="value neg">data.js missing</div></div>'; return; }
+
+  /* ---------- helpers ---------- */
+  function pct(x,d){ return (x*100).toFixed(d==null?1:d) + '%'; }
+  function num(x,d){ return x.toFixed(d==null?2:d); }
+  function usd(x){ return '$' + Math.round(x).toLocaleString('en-US'); }
+  function usdM(x){ return x>=1e6 ? '$'+(x/1e6).toFixed(2)+'M' : usd(x); }
+  var COLORS = { flagship:'#c9a35c', benchmark:'#5c6875', statArb:'#3ddc97', trend:'#5b9bd9', meanRev:'#a48fd8', volPrem:'#e0b35a' };
+  var fm = D.metrics.flagship, bm = D.metrics.benchmark, mc = D.monteCarlo;
+
+  Chart.defaults.font.family = "'Inter',sans-serif";
+  Chart.defaults.font.size = 11.5;
+  Chart.defaults.color = '#8b97a5';
+  Chart.defaults.borderColor = 'rgba(255,255,255,.05)';
+  Chart.defaults.animation = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? false : {duration:600};
+  var tooltipStyle = { backgroundColor:'#161e27', borderColor:'rgba(255,255,255,.12)', borderWidth:1, titleFont:{family:"'JetBrains Mono',monospace",size:11}, bodyFont:{family:"'JetBrains Mono',monospace",size:11.5}, padding:10, cornerRadius:8 };
+
+  var badgeEl = document.getElementById('dataBadge');
+  if(badgeEl) badgeEl.textContent = (D.meta.simulated ? 'SIMULATED BACKTEST' : 'REAL MARKET DATA · ' + D.meta.periodStart + ' \u2192 ' + D.meta.periodEnd) + ' · SEEDED & REPRODUCIBLE';
+
+  /* ---------- KPI header ---------- */
+  var kpiDefs = [
+    ['Net CAGR', pct(fm.cagr), 'pos', 'benchmark ' + pct(bm.cagr)],
+    ['Sharpe', num(fm.sharpe), 'gold', 'benchmark ' + num(bm.sharpe)],
+    ['Sortino', num(fm.sortino), 'gold', 'downside-adjusted'],
+    ['Max drawdown', pct(fm.maxDrawdown), 'pos', 'benchmark ' + pct(bm.maxDrawdown)],
+    ['Volatility', pct(fm.vol), '', 'annualized, daily data'],
+    ['Alpha', pct(fm.alpha), 'pos', 'beta ' + num(fm.beta) + ' to equities'],
+    ['Calmar', num(fm.calmar), '', 'CAGR / max drawdown'],
+    ['Positive months', pct(fm.positiveMonths,0), '', 'of ' + Math.round(D.meta.periodYears*12) + ' months']
+  ];
+  document.getElementById('kpis').innerHTML = kpiDefs.map(function(k){
+    return '<div class="kpi"><div class="label">'+k[0]+'</div><div class="value '+k[2]+'">'+k[1]+'</div><div class="delta">'+k[3]+'</div></div>';
+  }).join('');
+
+  /* ---------- equity curves ---------- */
+  var axis = D.weekAxis.map(function(t){ return Math.floor(t); });
+  function curveDS(key, hidden){
+    return {
+      label: D.strategies[key].label,
+      data: D.equityCurves[key].map(function(v,i){ return {x:D.weekAxis[i], y:v*1e6}; }),
+      borderColor: COLORS[key], backgroundColor: COLORS[key],
+      borderWidth: key==='flagship'?2.4:1.6, pointRadius:0, tension:.12,
+      borderDash: key==='benchmark'?[5,4]:[], hidden: !!hidden, _key:key
+    };
+  }
+  var curveKeys = ['flagship','benchmark','statArb','trend','meanRev','volPrem'];
+  var equityChart = new Chart(document.getElementById('equityChart'), {
+    type:'line',
+    data:{ datasets:curveKeys.map(function(k){ return curveDS(k, k!=='flagship'&&k!=='benchmark'); }) },
+    options:{
+      maintainAspectRatio:false, interaction:{mode:'nearest',axis:'x',intersect:false},
+      plugins:{ legend:{display:false},
+        tooltip:Object.assign({},tooltipStyle,{callbacks:{
+          title:function(it){ return 'Year ' + Math.floor(it[0].parsed.x); },
+          label:function(it){ return ' '+it.dataset.label+': '+usdM(it.parsed.y); }
+        }})},
+      scales:{
+        x:{ type:'linear', min:D.meta.startYear, max:D.meta.startYear+D.meta.periodYears, ticks:{stepSize:1,callback:function(v){return v;},font:{family:"'JetBrains Mono',monospace",size:10.5}}, grid:{display:false} },
+        y:{ type:'logarithmic', ticks:{callback:function(v){ var l=[5e5,1e6,2e6,4e6,7e6,1e7,2e7]; return l.indexOf(v)>-1?usdM(v):''; },font:{family:"'JetBrains Mono',monospace",size:10.5}} }
+      },
+      normalized:true
+    }
+  });
+  var togglesEl = document.getElementById('curveToggles');
+  curveKeys.forEach(function(k,i){
+    var b=document.createElement('button');
+    b.className='chip-btn'; b.type='button';
+    b.setAttribute('aria-pressed', String(!equityChart.data.datasets[i].hidden));
+    b.style.color = equityChart.data.datasets[i].hidden ? '' : COLORS[k];
+    b.textContent = D.strategies[k].label;
+    b.addEventListener('click', function(){
+      var ds = equityChart.data.datasets[i];
+      ds.hidden = !ds.hidden;
+      b.setAttribute('aria-pressed', String(!ds.hidden));
+      b.style.color = ds.hidden ? '' : COLORS[k];
+      equityChart.update();
+    });
+    togglesEl.appendChild(b);
+  });
+
+  /* ---------- annual returns ---------- */
+  new Chart(document.getElementById('yearlyChart'), {
+    type:'bar',
+    data:{ labels:D.years, datasets:[
+      { label:'Flagship', data:D.yearlyReturns.flagship.map(function(v){return v*100;}), backgroundColor:COLORS.flagship, borderRadius:4 },
+      { label:'Benchmark', data:D.yearlyReturns.benchmark.map(function(v){return v*100;}), backgroundColor:'rgba(139,151,165,.45)', borderRadius:4 }
+    ]},
+    options:{ maintainAspectRatio:false,
+      plugins:{ legend:{position:'top',labels:{boxWidth:10,boxHeight:10,usePointStyle:true,pointStyle:'rectRounded'}},
+        tooltip:Object.assign({},tooltipStyle,{callbacks:{label:function(it){ return ' '+it.dataset.label+': '+it.parsed.y.toFixed(1)+'%'; }}}) },
+      scales:{ x:{grid:{display:false},ticks:{font:{family:"'JetBrains Mono',monospace",size:10}}},
+               y:{ticks:{callback:function(v){return v+'%';},font:{family:"'JetBrains Mono',monospace",size:10.5}}} } }
+  });
+
+  /* ---------- rolling sharpe ---------- */
+  var months = D.rollingSharpe.flagship.map(function(_,i){ return D.meta.startYear + i/12; });
+  new Chart(document.getElementById('sharpeChart'), {
+    type:'line',
+    data:{ labels:months, datasets:[
+      { label:'Flagship', data:D.rollingSharpe.flagship, borderColor:COLORS.flagship, borderWidth:2, pointRadius:0, tension:.2, spanGaps:false },
+      { label:'Benchmark', data:D.rollingSharpe.benchmark, borderColor:'rgba(139,151,165,.7)', borderWidth:1.5, borderDash:[5,4], pointRadius:0, tension:.2, spanGaps:false }
+    ]},
+    options:{ maintainAspectRatio:false, interaction:{mode:'index',intersect:false},
+      plugins:{ legend:{position:'top',labels:{boxWidth:10,boxHeight:10,usePointStyle:true,pointStyle:'line'}},
+        tooltip:Object.assign({},tooltipStyle,{callbacks:{ title:function(it){ return 'Year '+Math.floor(months[it[0].dataIndex]); } }}) },
+      scales:{ x:{ticks:{maxTicksLimit:8,callback:function(v,i){ return Math.floor(months[i])===months[i]?months[i]:''; },font:{family:"'JetBrains Mono',monospace",size:10}},grid:{display:false}},
+               y:{ticks:{font:{family:"'JetBrains Mono',monospace",size:10.5}}} } }
+  });
+
+  /* ---------- Monte Carlo fan ---------- */
+  var cap = mc.startCapital;
+  document.getElementById('mcTitle').textContent = 'Projected value of ' + usd(cap);
+  function mcSeries(arr){ return arr.map(function(v){ return v*cap; }); }
+  var mcDatasets = [];
+  mc.samplePaths.forEach(function(p){
+    mcDatasets.push({ data:mcSeries(p), borderColor:'rgba(201,163,92,.10)', borderWidth:1, pointRadius:0, tension:0, fill:false, order:5, _sample:true });
+  });
+  mcDatasets.push({ label:'5th percentile', data:mcSeries(mc.percentiles.p5), borderColor:'rgba(201,163,92,.35)', borderWidth:1, pointRadius:0, fill:false, order:4 });
+  mcDatasets.push({ label:'95th percentile', data:mcSeries(mc.percentiles.p95), borderColor:'rgba(201,163,92,.35)', borderWidth:1, pointRadius:0, fill:'-1', backgroundColor:'rgba(201,163,92,.07)', order:4 });
+  mcDatasets.push({ label:'25th percentile', data:mcSeries(mc.percentiles.p25), borderColor:'rgba(201,163,92,.45)', borderWidth:1, pointRadius:0, fill:false, order:3 });
+  mcDatasets.push({ label:'75th percentile', data:mcSeries(mc.percentiles.p75), borderColor:'rgba(201,163,92,.45)', borderWidth:1, pointRadius:0, fill:'-1', backgroundColor:'rgba(201,163,92,.13)', order:3 });
+  mcDatasets.push({ label:'Median path', data:mcSeries(mc.percentiles.p50), borderColor:'#e6c785', borderWidth:2.6, pointRadius:0, fill:false, order:1 });
+  new Chart(document.getElementById('mcChart'), {
+    type:'line',
+    data:{ labels:mc.monthsAxis, datasets:mcDatasets },
+    options:{ maintainAspectRatio:false, interaction:{mode:'index',intersect:false},
+      plugins:{ legend:{position:'top',labels:{boxWidth:10,boxHeight:10,usePointStyle:true,pointStyle:'line',filter:function(item){ return item.text!==undefined; }}},
+        tooltip:Object.assign({},tooltipStyle,{filter:function(it){ return !it.dataset._sample; },callbacks:{
+          title:function(it){ return 'Month '+it[0].label+' ('+(it[0].label/12).toFixed(1)+'y)'; },
+          label:function(it){ return ' '+it.dataset.label+': '+usdM(it.parsed.y); } }}) },
+      scales:{ x:{ticks:{maxTicksLimit:11,callback:function(v,i){ var m=mc.monthsAxis[i]; return m%12===0 ? 'Y'+(m/12) : ''; },font:{family:"'JetBrains Mono',monospace",size:10.5}},grid:{display:false}},
+               y:{ticks:{callback:function(v){return usdM(v);},font:{family:"'JetBrains Mono',monospace",size:10.5}}} } }
+  });
+  var t = mc.terminal;
+  var mcStatDefs = [
+    ['Median outcome', usdM(t.median*cap), 'gold'],
+    ['5th percentile', usdM(t.p5*cap), ''],
+    ['95th percentile', usdM(t.p95*cap), ''],
+    ['P(loss) over 10y', pct(t.probLoss,1), t.probLoss>0.05?'neg':'pos'],
+    ['P(≥2× capital)', pct(t.probDouble,0), 'pos'],
+    ['P(≥3× capital)', pct(t.probTriple,0), 'pos']
+  ];
+  document.getElementById('mcStats').innerHTML = mcStatDefs.map(function(s){
+    return '<div class="mc-stat"><div class="label">'+s[0]+'</div><div class="value '+s[2]+'">'+s[1]+'</div></div>';
+  }).join('');
+
+  /* ---------- histogram ---------- */
+  var h = mc.histogram;
+  var histLabels = h.counts.map(function(_,i){ return (h.binStart + h.binWidth*(i+0.5)).toFixed(1)+'×'; });
+  new Chart(document.getElementById('histChart'), {
+    type:'bar',
+    data:{ labels:histLabels, datasets:[{ label:'Simulations', data:h.counts, backgroundColor:'rgba(201,163,92,.55)', borderRadius:3, categoryPercentage:1, barPercentage:.94 }] },
+    options:{ maintainAspectRatio:false,
+      plugins:{ legend:{display:false}, tooltip:Object.assign({},tooltipStyle,{callbacks:{ title:function(it){ return it[0].label+' starting capital'; }, label:function(it){ return ' '+it.parsed.y.toLocaleString()+' of '+mc.paths.toLocaleString()+' paths'; } }}) },
+      scales:{ x:{grid:{display:false},ticks:{maxTicksLimit:12,font:{family:"'JetBrains Mono',monospace",size:10}}},
+               y:{ticks:{font:{family:"'JetBrains Mono',monospace",size:10.5}}} } }
+  });
+
+  /* ---------- drawdown ---------- */
+  new Chart(document.getElementById('ddChart'), {
+    type:'line',
+    data:{ labels:D.weekAxis, datasets:[
+      { label:'Flagship', data:D.drawdowns.flagship.map(function(v){return v*100;}), borderColor:COLORS.flagship, backgroundColor:'rgba(201,163,92,.18)', borderWidth:1.8, pointRadius:0, fill:'origin', tension:.1 },
+      { label:'Benchmark', data:D.drawdowns.benchmark.map(function(v){return v*100;}), borderColor:'rgba(232,127,127,.8)', backgroundColor:'rgba(232,127,127,.10)', borderWidth:1.4, pointRadius:0, fill:'origin', tension:.1 }
+    ]},
+    options:{ maintainAspectRatio:false, interaction:{mode:'index',intersect:false},
+      plugins:{ legend:{position:'top',labels:{boxWidth:10,boxHeight:10,usePointStyle:true,pointStyle:'line'}},
+        tooltip:Object.assign({},tooltipStyle,{callbacks:{ title:function(it){ return 'Year '+Math.floor(D.weekAxis[it[0].dataIndex]); }, label:function(it){ return ' '+it.dataset.label+': '+it.parsed.y.toFixed(1)+'%'; } }}) },
+      scales:{ x:{ticks:{maxTicksLimit:8,callback:function(v,i){ var yr=D.weekAxis[i]; return yr===Math.floor(yr)?yr:''; },font:{family:"'JetBrains Mono',monospace",size:10}},grid:{display:false}},
+               y:{max:0,ticks:{callback:function(v){return v+'%';},font:{family:"'JetBrains Mono',monospace",size:10.5}}} } }
+  });
+
+  /* ---------- metrics table ---------- */
+  var order = ['flagship','statArb','trend','meanRev','volPrem','benchmark'];
+  var rows = [
+    ['CAGR', function(m){return pct(m.cagr);}],
+    ['Total return', function(m){return pct(m.totalReturn,0);}],
+    ['Volatility', function(m){return pct(m.vol);}],
+    ['Sharpe', function(m){return num(m.sharpe);}],
+    ['Sortino', function(m){return num(m.sortino);}],
+    ['Calmar', function(m){return num(m.calmar);}],
+    ['Max drawdown', function(m){return pct(m.maxDrawdown);}],
+    ['Daily VaR 95%', function(m){return pct(m.var95,2);}],
+    ['Daily CVaR 95%', function(m){return pct(m.cvar95,2);}],
+    ['Daily VaR 99%', function(m){return pct(m.var99,2);}],
+    ['Skew', function(m){return num(m.skew,1);}],
+    ['Excess kurtosis', function(m){return num(m.kurtosis,1);}],
+    ['Hit rate (days)', function(m){return pct(m.hitRate,0);}],
+    ['Profit factor', function(m){return num(m.profitFactor);}],
+    ['Best month', function(m){return pct(m.bestMonth);}],
+    ['Worst month', function(m){return pct(m.worstMonth);}],
+    ['Positive months', function(m){return pct(m.positiveMonths,0);}],
+    ['Beta vs benchmark', function(m){return m.beta==null?'—':num(m.beta);}],
+    ['Annual alpha', function(m){return m.alpha==null?'—':pct(m.alpha);}],
+    ['Corr. to benchmark', function(m){return m.corrToBenchmark==null?'—':num(m.corrToBenchmark);}]
+  ];
+  var thead = '<thead><tr><th scope="col">Metric</th>' + order.map(function(k){ return '<th scope="col">'+D.strategies[k].label+'</th>'; }).join('') + '</tr></thead>';
+  var tbody = '<tbody>' + rows.map(function(r){
+    return '<tr><td class="name">'+r[0]+'</td>' + order.map(function(k){
+      var v = r[1](D.metrics[k]);
+      var cls = (v.indexOf('-')===0) ? ' class="neg"' : '';
+      return '<td'+cls+'>'+v+'</td>';
+    }).join('') + '</tr>';
+  }).join('') + '</tbody>';
+  document.getElementById('metricsTable').insertAdjacentHTML('beforeend', thead + tbody);
+
+  /* ---------- correlation matrix ---------- */
+  var cn = D.correlation.names, cmx = D.correlation.matrix;
+  function corrColor(v){
+    if(v>=0.999) return 'rgba(201,163,92,.25)';
+    if(v>0) return 'rgba(232,127,127,'+(v*.45)+')';
+    return 'rgba(61,220,151,'+(Math.abs(v)*.45)+')';
+  }
+  var chead = '<thead><tr><th scope="col"></th>' + cn.map(function(k){ return '<th scope="col">'+D.strategies[k].label.split(' ')[0]+'</th>'; }).join('') + '</tr></thead>';
+  var cbody = '<tbody>' + cn.map(function(a,i){
+    return '<tr><td class="name">'+D.strategies[a].label+'</td>' + cn.map(function(b,j){
+      return '<td style="background:'+corrColor(cmx[i][j])+'">'+cmx[i][j].toFixed(2)+'</td>';
+    }).join('') + '</tr>';
+  }).join('') + '</tbody>';
+  document.getElementById('corrTable').insertAdjacentHTML('beforeend', chead + cbody);
+
+  /* ---------- allocation ---------- */
+  var wKeys = Object.keys(D.weights);
+  new Chart(document.getElementById('allocChart'), {
+    type:'doughnut',
+    data:{ labels:wKeys.map(function(k){return D.strategies[k].label;}),
+      datasets:[{ data:wKeys.map(function(k){return D.weights[k]*100;}),
+        backgroundColor:wKeys.map(function(k){return COLORS[k];}), borderColor:'#11181f', borderWidth:3, hoverOffset:6 }] },
+    options:{ maintainAspectRatio:false, cutout:'62%',
+      plugins:{ legend:{position:'bottom',labels:{boxWidth:10,boxHeight:10,usePointStyle:true,pointStyle:'rectRounded',padding:14}},
+        tooltip:Object.assign({},tooltipStyle,{callbacks:{label:function(it){ return ' '+it.label+': '+it.parsed.toFixed(0)+'%'; }}}) } }
+  });
+  document.getElementById('sleeveCards').innerHTML =
+    '<div class="chart-head"><div><h3>Sleeves</h3><div class="hint">Weight · engine · realized backtest profile</div></div></div>' +
+    wKeys.map(function(k){
+      var m = D.metrics[k];
+      return '<div class="sleeve"><span class="dot" style="background:'+COLORS[k]+'"></span>'+
+        '<div><strong>'+D.strategies[k].label+'</strong><p>'+D.strategies[k].desc+'</p>'+
+        '<p class="mono" style="margin-top:6px;font-size:12px">Sharpe '+num(m.sharpe)+' · MaxDD '+pct(m.maxDrawdown)+' · Corr '+num(m.corrToBenchmark)+'</p></div>'+
+        '<span class="w gold">'+(D.weights[k]*100).toFixed(0)+'%</span></div>';
+    }).join('');
+
+  /* ---------- recommendations ---------- */
+  document.getElementById('recGrid').innerHTML = D.recommendations.map(function(r){
+    return '<article class="rec"><span class="tag">'+r.tag+'</span><h3>'+r.title+'</h3><p>'+r.body+'</p></article>';
+  }).join('');
+
+  /* ---------- disclaimer ---------- */
+  document.getElementById('disclaimer').innerHTML =
+    '<strong>Important disclosures.</strong> ' + D.meta.disclaimer +
+    ' All figures are generated by a deterministic research engine (quant/engine.py) over ' + D.meta.periodYears +
+    ' years of simulated daily data beginning ' + D.meta.startYear + '. Hypothetical performance has inherent ' +
+    'limitations: it is prepared with the benefit of hindsight, does not reflect actual capital at risk, and ' +
+    'live results can differ materially due to slippage, capacity, financing costs and regime change. Monte Carlo ' +
+    'projections are statistical illustrations, not predictions. Nothing on this page is an offer to sell or a ' +
+    'solicitation to buy any security, or investment, legal or tax advice. © Meridian Alpha Capital (demo).';
+
+  /* ---------- scroll reveal ---------- */
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.06});
+    document.querySelectorAll('.fade').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.fade').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Meridian Alpha Capital — Operator Console</title>
+<meta name="description" content="Live operator console: NAV, positions, signals, orders and risk for the automated multi-strategy book."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="live/console-data.js"></script>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#070a0e; --bg-elev:#0c1117; --surface:#11181f; --surface-2:#161e27;
+    --border:rgba(255,255,255,.07); --border-strong:rgba(255,255,255,.14);
+    --text:#e9eef4; --text-dim:#8b97a5; --text-faint:#5c6875;
+    --gold:#c9a35c; --gold-bright:#e6c785; --gold-dim:rgba(201,163,92,.14);
+    --emerald:#3ddc97; --emerald-dim:rgba(61,220,151,.12);
+    --negative:#e87f7f; --blue:#5b9bd9; --violet:#a48fd8; --amber:#e0b35a;
+    --font-display:'Playfair Display',Georgia,serif;
+    --font-body:'Inter',-apple-system,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  body{min-height:100dvh;background:
+    radial-gradient(ellipse 70% 40% at 50% -5%,rgba(201,163,92,.05),transparent 65%),
+    var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.55;overflow-x:hidden}
+  ::selection{background:rgba(201,163,92,.35)}
+  ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.09);border-radius:4px}
+  a{color:inherit}
+  .mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px}
+  .pos{color:var(--emerald)} .neg{color:var(--negative)} .gold{color:var(--gold-bright)} .dim{color:var(--text-dim)}
+
+  nav{position:sticky;top:0;z-index:100;background:rgba(7,10,14,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+  .nav-inner{max-width:1180px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:16px}
+  .wordmark{font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:.06em;text-decoration:none;white-space:nowrap}
+  .wordmark span{color:var(--gold)}
+  .mode{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;padding:6px 12px;border-radius:999px;border:1px solid;white-space:nowrap}
+  .mode.paper{color:var(--blue);border-color:rgba(91,155,217,.4);background:rgba(91,155,217,.1)}
+  .mode.live{color:var(--emerald);border-color:rgba(61,220,151,.4);background:var(--emerald-dim)}
+  .nav-links{display:flex;gap:4px;margin-left:auto;overflow-x:auto}
+  .nav-links a{text-decoration:none;color:var(--text-dim);font-size:13px;font-weight:500;padding:10px 12px;border-radius:8px;white-space:nowrap;min-height:44px;display:flex;align-items:center}
+  .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+  .nav-links a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  header.page{padding:40px 0 8px}
+  h1{font-family:var(--font-display);font-size:clamp(26px,4vw,38px);font-weight:600;line-height:1.15}
+  .sub{color:var(--text-dim);max-width:66ch;margin-top:8px;font-size:14.5px}
+  section{padding:26px 0}
+  h2{font-size:16px;font-weight:600;margin-bottom:14px;letter-spacing:-.01em}
+  .hint{font-size:12px;color:var(--text-faint)}
+
+  .strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin-top:26px}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px}
+  .stat .label{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;color:var(--text-faint);text-transform:uppercase}
+  .stat .value{font-family:var(--font-mono);font-size:clamp(18px,2.2vw,24px);font-weight:600;margin-top:6px}
+  .stat .delta{font-size:12px;color:var(--text-dim);margin-top:3px}
+
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+  .grid-2{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+  @media(max-width:920px){.grid-2{grid-template-columns:1fr}}
+  .chart-wrap{position:relative;height:300px}
+
+  .risk-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--border);font-size:13.5px}
+  .risk-row:last-child{border-bottom:none}
+  .risk-row .v{font-family:var(--font-mono);font-weight:600}
+  .meter{height:8px;border-radius:4px;background:var(--surface-2);overflow:hidden;margin-top:8px}
+  .meter>div{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--emerald),var(--amber),var(--negative))}
+  .kill{margin-top:14px;padding:12px 14px;border-radius:10px;font-size:13px;border:1px solid}
+  .kill.armed{color:var(--emerald);border-color:rgba(61,220,151,.3);background:var(--emerald-dim)}
+  .kill.tripped{color:var(--negative);border-color:rgba(232,127,127,.4);background:rgba(232,127,127,.1)}
+
+  .table-scroll{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:13px;min-width:560px}
+  th,td{padding:10px 12px;text-align:right;border-top:1px solid var(--border);white-space:nowrap}
+  thead th{border-top:none}
+  th{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--text-faint);text-transform:uppercase;font-weight:500}
+  td{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+  td:first-child,th:first-child{text-align:left}
+  td.sym{font-family:var(--font-body);font-weight:600}
+  .wbar{display:inline-block;width:64px;height:6px;border-radius:3px;background:var(--surface-2);vertical-align:middle;margin-left:8px;position:relative;overflow:hidden}
+  .wbar>i{position:absolute;top:0;bottom:0;border-radius:3px}
+
+  .sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .sig{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+  .sig h3{font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+  .sig .dot{width:10px;height:10px;border-radius:3px;flex:none}
+  .sig ul{list-style:none;margin-top:10px}
+  .sig li{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-dim);padding:5px 0;border-bottom:1px solid var(--border)}
+  .sig li:last-child{border-bottom:none}
+  .sig li .v{font-family:var(--font-mono);color:var(--text)}
+  .state{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;padding:3px 9px;border-radius:999px;margin-left:auto}
+  .state.on{color:var(--emerald);background:var(--emerald-dim)}
+  .state.off{color:var(--text-faint);background:rgba(255,255,255,.04)}
+  .state.short{color:var(--negative);background:rgba(232,127,127,.12)}
+
+  .runbook{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+  .step h3{font-size:14px;font-weight:600;margin-bottom:8px}
+  .step h3 .n{color:var(--gold);font-family:var(--font-mono);margin-right:6px}
+  .step p{font-size:12.5px;color:var(--text-dim);margin-bottom:10px}
+  pre{font-family:var(--font-mono);font-size:11.5px;line-height:1.7;background:#0a0f14;border:1px solid var(--border);border-radius:10px;padding:12px 14px;overflow-x:auto;color:#cdd9e5}
+  pre b{color:var(--gold-bright);font-weight:500}
+
+  footer{border-top:1px solid var(--border);margin-top:36px;padding:32px 0 48px}
+  .disclaimer{font-size:11.5px;color:var(--text-faint);line-height:1.7;max-width:90ch}
+  .disclaimer strong{color:var(--text-dim)}
+  .empty{padding:40px;text-align:center;color:var(--text-dim)}
+</style>
+</head>
+<body>
+<nav aria-label="Primary">
+  <div class="nav-inner">
+    <a class="wordmark" href="index.html">MERIDIAN <span>ALPHA</span></a>
+    <span class="mode paper" id="modeBadge">—</span>
+    <div class="nav-links">
+      <a href="#book">Book</a>
+      <a href="#signals">Signals</a>
+      <a href="#orders">Orders</a>
+      <a href="#runbook">Runbook</a>
+      <a href="dashboard.html">Research →</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <header class="page">
+    <h1>Operator Console</h1>
+    <p class="sub">Your capital, traded automatically. The daemon recomputes every sleeve's signal once per
+      trading day, rebalances to target, and refuses to trade past its risk limits. Re-run
+      <span class="mono" style="font-size:13px">quant/trader.py</span> and refresh this page.</p>
+    <div class="strip" id="acctStrip"></div>
+  </header>
+
+  <section id="book">
+    <div class="grid-2">
+      <div class="card">
+        <h2>Net asset value</h2>
+        <div class="chart-wrap"><canvas id="navChart" role="img" aria-label="Line chart of account net asset value since inception."></canvas></div>
+      </div>
+      <div class="card">
+        <h2>Risk panel</h2>
+        <div id="riskRows"></div>
+        <div class="meter" aria-hidden="true"><div id="ddMeter" style="width:0%"></div></div>
+        <div class="hint" style="margin-top:6px">Drawdown distance to kill switch</div>
+        <div class="kill armed" id="killBox">●&nbsp; Kill switch ARMED</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <h2>Positions <span class="hint" style="font-weight:400">— actual weight vs target</span></h2>
+      <div class="table-scroll"><table id="posTable"></table></div>
+    </div>
+  </section>
+
+  <section id="signals">
+    <h2 style="font-size:18px">Sleeve signals — today</h2>
+    <div class="sig-grid" id="sigGrid"></div>
+  </section>
+
+  <section id="orders">
+    <div class="card">
+      <h2>Order log <span class="hint" style="font-weight:400" id="orderCount"></span></h2>
+      <div class="table-scroll"><table id="orderTable"></table></div>
+    </div>
+  </section>
+
+  <section id="runbook">
+    <h2 style="font-size:18px">Runbook — paper to live</h2>
+    <div class="runbook">
+      <div class="step">
+        <h3><span class="n">01</span>Paper-trade on real market data</h3>
+        <p>Default mode: pulls real daily closes (Yahoo) and walks the book over the last N trading days. No keys, no money at risk. This generated the data on this page.</p>
+        <pre>cd meridian-capital/quant
+python3 trader.py --mode <b>paper-real</b> \
+  --deposit 250000 --days 130</pre>
+      </div>
+      <div class="step">
+        <h3><span class="n">02</span>Connect a real paper account</h3>
+        <p>Create free API keys at alpaca.markets (Paper). The daemon trades the same book against live market data with zero real money.</p>
+        <pre>export APCA_API_KEY_ID=...
+export APCA_API_SECRET_KEY=...
+python3 trader.py --mode <b>alpaca-paper</b></pre>
+      </div>
+      <div class="step">
+        <h3><span class="n">03</span>Automate the daily rebalance</h3>
+        <p>One cron entry. The daemon is idempotent — each run computes signals, diffs the book, sends only what changed.</p>
+        <pre># 3:45pm ET, weekdays
+45 15 * * 1-5 cd .../quant && \
+  python3 trader.py --mode alpaca-paper \
+  >> ../live/trader.log 2>&1</pre>
+      </div>
+      <div class="step">
+        <h3><span class="n">04</span>Go live — deliberately</h3>
+        <p>Only after weeks of paper validation. Fund the account at your broker; the extra env var is a deliberate speed bump. If the kill switch trips, the daemon stays flat until you delete <span class="mono">live/state.json</span>.</p>
+        <pre>MERIDIAN_CONFIRM_LIVE=<b>yes</b> \
+  python3 trader.py --mode <b>alpaca-live</b></pre>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="disclaimer">
+      <strong>Important.</strong> This console reports what the automated daemon did; it does not predict what
+      markets will do. Backtested or simulated edge does not guarantee live alpha — live results differ due to
+      slippage, borrow costs, capacity and regime change. Paper-trade first, size up slowly, and never disable
+      the risk overlay. Nothing here is investment advice. © Meridian Alpha Capital (demo).
+    </div>
+  </footer>
+</main>
+
+<script>
+(function(){
+  'use strict';
+  var D = window.LIVE_DATA;
+  if(!D){
+    document.getElementById('acctStrip').innerHTML =
+      '<div class="stat"><div class="label">No session data</div><div class="value neg" style="font-size:15px">live/console-data.js missing</div>'+
+      '<div class="delta">Run: python3 quant/trader.py --mode paper --deposit 250000 --days 130</div></div>';
+    document.getElementById('posTable').innerHTML = '<tbody><tr><td class="empty">—</td></tr></tbody>';
+    return;
+  }
+  function usd(x){ var s = x<0?'-':''; x=Math.abs(x); return s+'$'+x.toLocaleString('en-US',{maximumFractionDigits:0}); }
+  function pct(x,d){ return (x*100).toFixed(d==null?2:d)+'%'; }
+  function sgn(x){ return x>0?'+':''; }
+  var COLORS = { trend:'#5b9bd9', meanRev:'#a48fd8', statArb:'#3ddc97', volPrem:'#e0b35a' };
+  var a = D.account, r = D.risk;
+
+  /* mode badge */
+  var badge = document.getElementById('modeBadge');
+  badge.textContent = D.meta.mode === 'paper' ? 'PAPER SIMULATION' :
+    (D.meta.mode === 'paper-real' ? 'PAPER · REAL MARKET DATA' :
+    (D.meta.mode === 'alpaca-paper' ? 'ALPACA · PAPER' : 'ALPACA · LIVE'));
+  badge.className = 'mode ' + (D.meta.mode === 'alpaca-live' ? 'live' : 'paper');
+
+  /* account strip */
+  var pnlCls = a.pnl >= 0 ? 'pos' : 'neg';
+  document.getElementById('acctStrip').innerHTML = [
+    ['Net asset value', usd(a.nav), 'gold', 'as of ' + (D.meta.updated || '—')],
+    ['Deposited', usd(a.deposited), '', 'your capital in'],
+    ['Total P&L', sgn(a.pnl)+usd(a.pnl).replace('$-','-$'), pnlCls, sgn(a.pnlPct)+pct(a.pnlPct)+' on capital'],
+    ['Today', sgn(a.todayPnl)+usd(a.todayPnl).replace('$-','-$'), a.todayPnl>=0?'pos':'neg', 'mark-to-market'],
+    ['Cash', usd(a.cash), '', pct(a.cash/a.nav,0)+' of NAV'],
+    ['Gross exposure', (a.gross*100).toFixed(0)+'%', '', 'cap ' + (D.meta.config.grossCap*100).toFixed(0)+'%']
+  ].map(function(s){
+    return '<div class="stat"><div class="label">'+s[0]+'</div><div class="value '+s[2]+'">'+s[1]+'</div><div class="delta">'+s[3]+'</div></div>';
+  }).join('');
+
+  /* NAV chart */
+  Chart.defaults.font.family = "'Inter',sans-serif";
+  Chart.defaults.color = '#8b97a5';
+  Chart.defaults.borderColor = 'rgba(255,255,255,.05)';
+  Chart.defaults.animation = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? false : {duration:500};
+  var nh = D.navHistory;
+  new Chart(document.getElementById('navChart'), {
+    type:'line',
+    data:{ labels: nh.map(function(p){return p.date;}),
+      datasets:[
+        { label:'NAV', data:nh.map(function(p){return p.nav;}), borderColor:'#c9a35c',
+          backgroundColor:'rgba(201,163,92,.10)', borderWidth:2.2, pointRadius:0, tension:.15, fill:'origin' },
+        { label:'Deposited', data:nh.map(function(){return a.deposited;}), borderColor:'rgba(139,151,165,.5)',
+          borderWidth:1.2, borderDash:[5,4], pointRadius:0 }
+      ]},
+    options:{ maintainAspectRatio:false, interaction:{mode:'index',intersect:false},
+      plugins:{ legend:{display:false},
+        tooltip:{ backgroundColor:'#161e27', borderColor:'rgba(255,255,255,.12)', borderWidth:1, padding:10, cornerRadius:8,
+          titleFont:{family:"'JetBrains Mono',monospace",size:11}, bodyFont:{family:"'JetBrains Mono',monospace",size:11.5},
+          callbacks:{ label:function(it){ return ' '+it.dataset.label+': '+usd(it.parsed.y); } } } },
+      scales:{ x:{grid:{display:false},ticks:{maxTicksLimit:9,font:{family:"'JetBrains Mono',monospace",size:10}}},
+               y:{ticks:{callback:function(v){return usd(v);},font:{family:"'JetBrains Mono',monospace",size:10.5}}} } }
+  });
+
+  /* risk panel */
+  var rows = [
+    ['Current drawdown', pct(r.drawdown), r.drawdown < -0.06 ? 'neg' : ''],
+    ['Peak NAV', usd(r.peakNav), ''],
+    ['Realized vol (20d, ann.)', pct(r.vol20,1), ''],
+    ['Kill switch level', pct(r.killSwitchAt,0)+' from peak', 'dim'],
+    ['Position cap', pct(D.meta.config.positionCap,0)+' per ticker', 'dim'],
+    ['Min ticket', usd(D.meta.config.minTicket), 'dim']
+  ];
+  document.getElementById('riskRows').innerHTML = rows.map(function(x){
+    return '<div class="risk-row"><span class="dim">'+x[0]+'</span><span class="v '+x[2]+'">'+x[1]+'</span></div>';
+  }).join('');
+  var used = Math.min(Math.abs(r.drawdown)/Math.abs(r.killSwitchAt),1);
+  document.getElementById('ddMeter').style.width = Math.max(used*100,2)+'%';
+  var kb = document.getElementById('killBox');
+  if(r.killed){ kb.className='kill tripped'; kb.innerHTML='■&nbsp; KILL SWITCH TRIPPED — book flattened. Review, then delete live/state.json to re-arm.'; }
+  else { kb.innerHTML = '●&nbsp; Kill switch ARMED — flattens the book at '+pct(r.killSwitchAt,0)+' from peak ('+pct(used,0)+' used)'; }
+
+  /* positions */
+  var pt = '<thead><tr><th>Symbol</th><th>Qty</th><th>Price</th><th>Value</th><th>Weight</th><th>Target</th></tr></thead><tbody>';
+  if(D.positions.length === 0) pt += '<tr><td colspan="6" class="empty">Book is flat.</td></tr>';
+  D.positions.forEach(function(p){
+    var c = p.value>=0?'pos':'neg';
+    var w = Math.min(Math.abs(p.weight)/0.5*100,100);
+    var bar = '<span class="wbar"><i style="background:'+(p.weight>=0?'#3ddc97':'#e87f7f')+';left:0;width:'+w+'%"></i></span>';
+    pt += '<tr><td class="sym">'+p.symbol+'</td><td>'+p.qty.toLocaleString()+'</td><td>$'+p.price.toFixed(2)+'</td>'+
+      '<td class="'+c+'">'+usd(p.value)+'</td><td>'+pct(p.weight,1)+bar+'</td><td class="dim">'+pct(p.target,1)+'</td></tr>';
+  });
+  document.getElementById('posTable').innerHTML = pt + '</tbody>';
+
+  /* signals */
+  var s = D.signals, w = D.meta.config.sleeveWeights;
+  function stateChip(v){
+    if(v > 0) return '<span class="state on">LONG '+(v*100).toFixed(0)+'%</span>';
+    if(v < 0) return '<span class="state short">SHORT '+(Math.abs(v)*100).toFixed(0)+'%</span>';
+    return '<span class="state off">FLAT</span>';
+  }
+  var cards = [];
+  if(s.trend){
+    var lis = Object.keys(s.trend).map(function(k){
+      var t = s.trend[k];
+      return '<li><span>'+k+' · '+(t.above_sma105?'above':'below')+' SMA105 · vol '+pct(t.annVol,0)+'</span><span class="v">'+(t.sleevePos>0?'+':'')+t.sleevePos+'</span></li>';
+    }).join('');
+    cards.push('<div class="sig"><h3><span class="dot" style="background:'+COLORS.trend+'"></span>Trend Following<span class="state off">'+(w.trend*100)+'% SLEEVE</span></h3><ul>'+lis+'</ul></div>');
+  }
+  if(s.statArb){
+    cards.push('<div class="sig"><h3><span class="dot" style="background:'+COLORS.statArb+'"></span>Statistical Arbitrage'+
+      stateChip(s.statArb.pos===null?0:s.statArb.pos)+'</h3><ul>'+
+      '<li><span>KO/PEP spread z-score</span><span class="v">'+s.statArb.z.toFixed(2)+'σ</span></li>'+
+      '<li><span>Entry / exit bands</span><span class="v">±1.50σ / 0.25σ</span></li>'+
+      '<li><span>Leg size (× sleeve)</span><span class="v">'+(s.statArb.leg*100).toFixed(0)+'%</span></li></ul></div>');
+  }
+  if(s.meanRev){
+    cards.push('<div class="sig"><h3><span class="dot" style="background:'+COLORS.meanRev+'"></span>Mean Reversion'+stateChip(s.meanRev.sleevePos)+'</h3><ul>'+
+      '<li><span>SPY 1-day move (z)</span><span class="v">'+s.meanRev.z1.toFixed(2)+'σ</span></li>'+
+      '<li><span>Fade bands</span><span class="v">&lt;-1.3σ / &gt;+1.5σ</span></li>'+
+      '<li><span>Crisis filter (60d vol)</span><span class="v">'+pct(s.meanRev.vol60,0)+' / 30%</span></li></ul></div>');
+  }
+  if(s.volPrem){
+    cards.push('<div class="sig"><h3><span class="dot" style="background:'+COLORS.volPrem+'"></span>Volatility Premium'+stateChip(s.volPrem.sleevePos)+'</h3><ul>'+
+      '<li><span>SPY realized vol (60d)</span><span class="v">'+pct(s.volPrem.spyVol60,1)+'</span></li>'+
+      '<li><span>Gate</span><span class="v">&lt;16% full · &lt;26% 40% · else flat</span></li>'+
+      '<li><span>Instrument</span><span class="v">PUTW</span></li></ul></div>');
+  }
+  document.getElementById('sigGrid').innerHTML = cards.join('');
+
+  /* orders */
+  document.getElementById('orderCount').textContent = '— last ' + D.orders.length + ' fills, newest first';
+  var ot = '<thead><tr><th>Date</th><th>Symbol</th><th>Side</th><th>Qty</th><th>Fill</th><th>Status</th></tr></thead><tbody>';
+  if(D.orders.length === 0) ot += '<tr><td colspan="6" class="empty">No orders yet.</td></tr>';
+  D.orders.forEach(function(o){
+    ot += '<tr><td class="dim">'+(o.date||'—')+'</td><td class="sym">'+o.symbol+'</td>'+
+      '<td class="'+(o.qty>0?'pos':'neg')+'">'+(o.qty>0?'BUY':'SELL')+'</td>'+
+      '<td>'+Math.abs(o.qty).toLocaleString()+'</td>'+
+      '<td>'+(o.price?'$'+o.price.toFixed(2):'mkt')+'</td>'+
+      '<td class="dim">'+o.status+'</td></tr>';
+  });
+  document.getElementById('orderTable').innerHTML = ot + '</tbody>';
+})();
+</script>
+</body>
+</html>
